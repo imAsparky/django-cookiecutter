@@ -18,6 +18,10 @@ GitHub actions.
    :target: https://github.com/pre-commit/pre-commit
    :alt: pre-commit
 
+.. image:: https://readthedocs.org/projects/django-cookiecutter/badge/?version=latest
+   :target: https://django-cookiecutter.readthedocs.io/en/latest/?badge=latest
+   :alt: Documentation Status
+
 
 Contributing
 ------------
