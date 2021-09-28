@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.4.0 (2021-09-28)
+### Feature
+* **codacy:** Add Codacy integration and badge #9 ([`ff1108e`](https://github.com/imAsparky/django-cookiecutter/commit/ff1108e79a529c4b619dc850804e577857f0ceb7))
+
 ## v0.3.0 (2021-09-28)
 ### Feature
 * **pre-commit:** Add pre-commit-config  #7 ([`5f95cbe`](https://github.com/imAsparky/django-cookiecutter/commit/5f95cbe95a498f0dc7ec5d987cbc119ec340c4ae))
