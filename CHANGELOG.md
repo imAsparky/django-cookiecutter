@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.3.0 (2021-09-28)
+### Feature
+* **pre-commit:** Add pre-commit-config  #7 ([`5f95cbe`](https://github.com/imAsparky/django-cookiecutter/commit/5f95cbe95a498f0dc7ec5d987cbc119ec340c4ae))
+
 ## v0.2.0 (2021-09-28)
 ### Feature
 * **sem-ver:** Add auto semantic-versioning #5 ([`a1ddabb`](https://github.com/imAsparky/django-cookiecutter/commit/a1ddabb47138a9d3d13f49db89102e45c90d6a35))
