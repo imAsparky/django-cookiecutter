@@ -1,0 +1,44 @@
+
+# tag(subject):<Description>  #nn being the issue number if it exists
+# (subject): CHANGELOG update groups items with the same subject.
+# |<----   Preferably using up to 50 chars   --->|<--Max of 72 chars-->|
+# Example: docs(style):Added a new reST style guide #42
+
+
+# (Optional) Explain why this change is being made
+# |<----   Try To Limit Each Line to a Maximum Of 72 Characters   ---->|
+# Example: There wasnt a reST style guide.
+
+
+# (Optional) Provide links or keys to any relevant tickets, articles or other resources
+# Example: closes #42
+
+
+# --- COMMIT END ---
+# Tags with ** will be included in the CHANGELOG
+# **   chore    (a chore that needs to be done)
+#      dbg      (changes in debugging code/frameworks; no production code change)
+#      defaults (changes default options)
+# **   docs      (changes to documentation)
+# **   feat     (new feature)
+# **   fix      (bug fix)
+#      hack     (temporary fix to make things move forward; please avoid it)
+#      license  (edits regarding licensing; no production code change)
+# **   perf     (performance improvement)
+# **   refactor (refactoring code)
+# **   style    (formatting, missing semi colons, etc; no code change)
+# **   test     (adding or refactoring tests; no production code change)
+#      version  (version bump/new release; no production code change)
+#      WIP      (Work In Progress; for intermediate commits to keep patches reasonably sized)
+#      jsrXXX   (patches related to the implementation of jsrXXX, where XXX the JSR number)
+#      jdkX     (patches related to supporting jdkX as the host VM, where X the JDK version)
+#
+# --------------------
+# Remember to:
+#   * Capitalize the subject line start
+#   * Use the imperative mood in the subject line
+#   * Do not end the subject line with a period
+#   * Separate subject from body with a blank line
+#   * Use the body to explain what and why vs. how
+#   * Can use multiple lines with "-" or "*" for bullet points in body
+# --------------------
