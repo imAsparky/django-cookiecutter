@@ -73,7 +73,7 @@ html_static_path = ['_static']
 # This config removes Python Repl + continuation, Bash line prefixes,
 # ipython and qtconsole + continuation, jupyter-console + continuation and preceding line numbers
 copybutton_prompt_text = (
-    r"^\d|^.\d|^\d\d|^\d\d\d|>>> |\.\.\. |\$ |In \[\d*\]: | {2,5}\.\.\.: | {5,8}: "
+    r"^\d{1,4}|^.\d{1,4}|>>> |\s{2,6}|\$ |In \[\d*\]: | {2,5}\.\.\.: | {5,8}:"
 )
 copybutton_prompt_is_regexp = True
 
