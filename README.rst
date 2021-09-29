@@ -2,9 +2,14 @@
 **Django Cookiecutter**
 =======================
 
-A Django project cookiecutter complete with built-in continuous delivery using
-GitHub actions.
+.. image:: ./docs/source/_static/imgs/logo/logo-django-cookiecutter-1280x640.png
+   :alt: django-cookiecutter
 
+A `Django`_  project `cookiecutter`_ complete with built-in continuous
+delivery using GitHub actions.
+
+.. _Django: https://www.djangoproject.com/
+.. _cookiecutter: https://github.com/cookiecutter/cookiecutter
 
 .. image:: https://www.repostatus.org/badges/latest/concept.svg
    :alt: Project Status: Concept – Minimal or no implementation has been done yet, or the repository is only intended to be a limited example, demo, or proof-of-concept.
