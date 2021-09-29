@@ -8,6 +8,4 @@ pre-commit==2.15.0
 pytest==6.2.5
 pytest-cookies==0.6.1
 Sphinx==4.1.2
-sphinx-copybutton==0.4.0
-sphinx_inline_tabs==2021.4.11b9
 tox==3.24.4
