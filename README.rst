@@ -31,10 +31,7 @@ delivery using GitHub actions.
 Contributing
 ------------
 
-.. code-block:: bash
+See our :ref:`Code of Conduct <code-of-conduct>`.
 
-   git clone https://github.com/imAsparky/django-cookiecutter.git
 
-   cd django-cookiecutter
-
-   git config --local commit.template .github/.git-commit-template.txt
+See our :ref:`Contributing How-To <contribute-how-to>`.
