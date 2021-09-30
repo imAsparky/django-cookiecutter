@@ -13,3 +13,5 @@ See below for a list of How-To for Django Cookiecutter.
 
 .. toctree::
    :titlesonly:
+
+   how-to-contribute
