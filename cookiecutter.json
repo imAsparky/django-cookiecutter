@@ -5,7 +5,7 @@
   "github_user_email":  "{{ cookiecutter.email }}",
   "project_name": "Django Boilerplate",
   "git_project_name": "{{ cookiecutter.project_name.lower().replace(' ', '-').replace('_', '-') }}",
-  "project_slug": "{{ cookiecutter.project_name.lower()|replace(' ', '-') }}",
+  "project_slug": "{{ cookiecutter.project_name.lower()|replace(' ', '_')|replace('-', '_')|replace('.', '_')|trim() }}",
   "project_short_description": "A Django project with all the boilerplate",
   "add_contributors_list": "n",
   "virtual_host": "www.example.com",
