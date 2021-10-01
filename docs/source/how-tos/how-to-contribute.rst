@@ -112,6 +112,31 @@ pass code quality checks.
 The docstring should convey `what` is done, not `how` it is done to your
 users for clarity and consistency.
 
+See the `amazing_new_feature.py` example below.
+
+.. code-block:: python
+    :linenos:
+
+    """Classes for adding Amazing New Features."""
+
+    class AmazingNewFeaturesFromOld:
+        """A class of making old features new again."""
+
+        def amazing_new_feature_from_old_1(self):
+            """Take some old feature and make it fresh again."""
+
+        def amazing_new_feature_from_old_2(self):
+            """Take another old feature and make it fresher."""
+
+    class AmazingNewFeatures:
+        """A class of making brand new features."""
+
+        def amazing_new_feature_1(self):
+            """Improve user experience feature one."""
+
+        def amazing_new_feature_2(self):
+            """Improve user experience feature two."""
+
 
 Submit Feedback
 ~~~~~~~~~~~~~~~
