@@ -1,0 +1,34 @@
+{
+  "author_name": "Mark Sevelj",
+  "email": "mark@example.com",
+  "github_username": "imAsparky",
+  "github_user_email":  "{{ cookiecutter.email }}",
+  "project_name": "Django Boilerplate",
+  "git_project_name": "{{ cookiecutter.project_name.lower().replace(' ', '-').replace('_', '-') }}",
+  "project_slug": "{{ cookiecutter.project_name.lower()|replace(' ', '-') }}",
+  "project_short_description": "A Django project with all the boilerplate",
+  "add_contributors_list": "n",
+  "virtual_host": "www.example.com",
+  "version": "0.1.0",
+  "timezone": "UTC",
+  "LANGUAGE_CODE": "en",
+  "USE_I18N": "True",
+  "Translations": "hi",
+
+  "create_conventional_commits_edit_message": "y",
+  "create_repo_auto_test_workflow": "y",
+  "use_GH_action_semantic_version": "y",
+  "use_pre_commit": "y",
+  "use_GH_custom_issue_templates": "y",
+  "automatic_set_up_git_and_initial_commit": "y",
+  "open_source_license": ["MIT license", "BSD license", "ISC license", "Apache Software License 2.0", "GNU General Public License v3", "Not open source"],
+
+  "_copy_without_render": [
+        ".pre-commit-config.yaml",
+        ".github/workflows/semantic_release.yaml",
+        ".github/workflows/semantic_release_test_pypi.yaml",
+        ".github/workflows/test_contribution.yaml"
+    ],
+
+  "debug": "n"
+}
