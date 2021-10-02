@@ -1,4 +1,14 @@
-"""django-cookiecutter pre package generation jobs."""
+"""django-cookiecutter pre package generation jobs.
+
+.. todo::
+
+    Replace the LANGUAGES check in pre-gen.py
+
+    Check against available translations
+    https://github.com/django/django/blob/main/django/conf/global_settings.py
+
+
+"""
 
 import re
 import sys
@@ -16,13 +26,22 @@ if not re.match(MODULE_REGEX, MODULE_NAME):
     # Exit to cancel project
     sys.exit(1)
 
-# languages = "{{ cookiecutter.languages }}".replace(' ', '').split(',')
-# for language in languages:
-#     assert len(language) == 2 and
-# language.lower() == language, "A language code shall contain two lowercase\
-#  letters, '" + language + "' doesn't."
-# if "{{ cookiecutter.use_i18n }}" == 'y':
-#     assert len(languages) > 1, "'use_i18n' contains less than two languages."
-# else:
-#     assert len(languages) == 1, "If 'use_i18n' is unset, only one language\
-#  shall be specified in 'languages'."
+
+LANGUAGES = "{{ cookiecutter.LANGUAGES }}".replace(" ", "").split(",")
+for language in LANGUAGES:
+    assert len(language) == 2 and language.lower() == language, (  # nosec
+        "A language code shall contain two lowercase letters, '"
+        + language
+        + "' doesn't."
+    )
+
+# fmt: off
+if "{{ cookiecutter.USE_I18N }}" == "y":
+    assert (   # nosec
+        len(LANGUAGES) > 0
+    ), "'USE_I18N' True with empty LANGUAGES list."
+else:
+    assert (  # nosec
+        len(LANGUAGES) == 1
+    ), "'USE_I18N' False with entries in LANGUAGES list."
+# fmt: on

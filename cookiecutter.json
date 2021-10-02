@@ -8,12 +8,7 @@
   "project_slug": "{{ cookiecutter.project_name.lower()|replace(' ', '_')|replace('-', '_')|replace('.', '_')|trim() }}",
   "project_short_description": "A Django project with all the boilerplate",
   "add_contributors_list": "n",
-  "virtual_host": "www.example.com",
   "version": "0.1.0",
-  "timezone": "UTC",
-  "LANGUAGE_CODE": "en",
-  "USE_I18N": "True",
-  "Translations": "hi",
 
   "create_conventional_commits_edit_message": "y",
   "create_repo_auto_test_workflow": "y",
@@ -23,12 +18,14 @@
   "automatic_set_up_git_and_initial_commit": "y",
   "open_source_license": ["MIT license", "BSD license", "ISC license", "Apache Software License 2.0", "GNU General Public License v3", "Not open source"],
 
-  "_copy_without_render": [
-        ".pre-commit-config.yaml",
-        ".github/workflows/semantic_release.yaml",
-        ".github/workflows/semantic_release_test_pypi.yaml",
-        ".github/workflows/test_contribution.yaml"
-    ],
+  "ALLOWED_HOSTS": "www.example.com",
+  "DEBUG": "False",
+  "INTERNAL_IPS": "127.0.0.1",
+  "LANGUAGE_CODE": "en-au",
+  "LANGUAGES": "hi",
+  "TIME_ZONE": "UTC",
+  "USE_L10N": "True",
+  "USE_I18N": "True",
+  "SITE_ID": "1"
 
-  "debug": "n"
 }
