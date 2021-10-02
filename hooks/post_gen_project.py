@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 """django-cookiecutter post project generation jobs."""
-# import os
-# import subprocess  # nosec
+import os
+import subprocess  # nosec
 
-# PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
+PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
 
 # REMOTE_REPO = "git@github.com:{{cookiecutter.github_username}}/\
 # {{cookiecutter.git_project_name}}.git"
@@ -13,30 +13,41 @@
 # GIT_EMAIL = "{{cookiecutter.github_user_email}}"
 
 
-# def post_gen_setup(*args, supress_exception=False, cwd=None):
-#     """Helper to set up the Django project with the chosen options."""
-#     cur_dir = os.getcwd()
+def post_gen_setup(*args, supress_exception=False, cwd=None):
+    """Helper to set up the Django project with the chosen options."""
+    cur_dir = os.getcwd()
 
-#     try:
-#         if cwd:
-#             os.chdir(cwd)
+    try:
+        if cwd:
+            os.chdir(cwd)
 
-#         with subprocess.Popen(  # nosec
-#             args, stdout=subprocess.PIPE, stderr=subprocess.PIPE
-#         ) as proc:
+        with subprocess.Popen(  # nosec
+            args, stdout=subprocess.PIPE, stderr=subprocess.PIPE
+        ) as proc:
 
-#             out, err = proc.communicate()
-#             out = out.decode("utf-8")
-#             err = err.decode("utf-8")
-#             if err and not supress_exception:
-#                 raise Exception(err)
-#             if err and supress_exception:
-#                 return out
+            out, err = proc.communicate()
+            out = out.decode("utf-8")
+            err = err.decode("utf-8")
+            if err and not supress_exception:
+                raise Exception(err)
+            if err and supress_exception:
+                return out
 
-#             return out
+            return out
 
-#     finally:
-#         os.chdir(cur_dir)
+    finally:
+        os.chdir(cur_dir)
+
+
+def delete_issue_templates():
+    """Delete the ISSUE_TEMPLATES folder."""
+
+    post_gen_setup(
+        "rm",
+        "-rf",
+        ".github/ISSUE_TEMPLATE",
+        cwd=PROJECT_DIRECTORY,
+    )
 
 
 # def init_git():
@@ -104,41 +115,35 @@
 #         )
 
 
-# def remove_file(filepath):
-#     """Remove files not required for this generated python package."""
-#     if os.path.exists(os.path.join(PROJECT_DIRECTORY, filepath)):
-#         os.remove(os.path.join(PROJECT_DIRECTORY, filepath))
+def remove_file(filepath):
+    """Remove files not required for this generated python package."""
+    if os.path.exists(os.path.join(PROJECT_DIRECTORY, filepath)):
+        os.remove(os.path.join(PROJECT_DIRECTORY, filepath))
 
 
 if __name__ == "__main__":
 
-    print("In main")
+    # if "Not open source" == "{{ cookiecutter.open_source_license }}":
+    #     remove_file("LICENSE")
 
+    # if "{{ cookiecutter.create_conventional_commits_edit_message }}" != "y":
+    #     remove_file(".github/.git-commit-template.txt")
 
-# if "Not open source" == "{{ cookiecutter.open_source_license }}":
-#     remove_file("LICENSE")
+    # if "{{ cookiecutter.create_repo_auto_test_workflow }}" != "y":
+    #     remove_file(".github/workflows/test_contribution.yaml")
 
-# if "{{ cookiecutter.create_conventional_commits_edit_message }}" != "y":
-#     remove_file(".github/.git-commit-template.txt")
+    # if "{{ cookiecutter.use_GH_action_semantic_version }}" != "y":
+    #     remove_file(".github/workflows/semantic_release.yaml")
+    #     remove_file(".github/semantic.yaml")
 
-# if "{{ cookiecutter.create_repo_auto_test_workflow }}" != "y":
-#     remove_file(".github/workflows/test_contribution.yaml")
+    # if "{{ cookiecutter.use_GH_action_semantic_version }}" == "y":
+    #     remove_file("HISTORY.rst")
 
-# if "{{ cookiecutter.use_GH_action_semantic_version }}" != "y":
-#     remove_file(".github/workflows/semantic_release.yaml")
-#     remove_file(".github/semantic.yaml")
+    if "{{ cookiecutter.use_GH_custom_issue_templates }}" == "y":
+        remove_file(".github/ISSUE_TEMPLATE.md")
+    else:
+        delete_issue_templates()
 
-# if "{{ cookiecutter.use_GH_action_semantic_version }}" == "y":
-#     remove_file("HISTORY.rst")
-
-# if "{{ cookiecutter.use_GH_custom_issue_templates }}" != "y":
-#     remove_file(".github/ISSUE_TEMPLATE/bug-report.md")
-#     remove_file(".github/ISSUE_TEMPLATE/chore.md")
-#     remove_file(".github/ISSUE_TEMPLATE/documentation-request.md")
-#     remove_file(".github/ISSUE_TEMPLATE/feature-request.md")
-
-# if "{{ cookiecutter.use_GH_custom_issue_templates }}" == "y":
-#     remove_file(".github/ISSUE_TEMPLATE.md")
 
 # if "{{ cookiecutter.use_pre_commit }}" != "y":
 #     remove_file(".pre-commit-config.yaml")
