@@ -4,8 +4,7 @@ import os
 
 
 def test_django_bakes_ok_with_defaults(cookies):
-    """Test cookiecutter created the django project ok."""
-
+    """Test cookiecutter created the Django project ok."""
     default_django = cookies.bake()
 
     assert default_django.project_path.is_dir()
@@ -15,8 +14,7 @@ def test_django_bakes_ok_with_defaults(cookies):
 
 
 def test_baked_django_asgi_file(cookies):
-    """Test Django asgy.py file has generated correctly."""
-
+    """Test Django asgy.py file has been generated correctly."""
     default_django = cookies.bake()
 
     asgi_path = default_django.project_path / "django_boilerplate/asgi.py"
@@ -29,9 +27,35 @@ def test_baked_django_asgi_file(cookies):
     )
 
 
+def test_baked_django_with_commit_message_file(cookies):
+    """Test Django Conventional commit message template has been generated correctly."""
+
+    default_django = cookies.bake()
+
+    commit_msg_path = default_django.project_path / ".github/.git-commit-template.txt"
+    commit_msg_file = commit_msg_path.read_text().splitlines()
+
+    assert ".git-commit-template.txt" in os.listdir(
+        (default_django.project_path / ".github")
+    )
+
+
+def test_baked_django_without_commit_message_file(cookies):
+    """Test Django Conventional commit message template has not been generated."""
+
+    non_default_django = cookies.bake(
+        extra_context={
+            "create_conventional_commits_edit_message": "n",
+        }
+    )
+
+    assert ".git-commit-template.txt" not in os.listdir(
+        (non_default_django.project_path / ".github")
+    )
+
+
 def test_baked_django_settings_file(cookies):
     """Test Django settings.py file has generated correctly."""
-
     default_django = cookies.bake()
 
     settings_path = default_django.project_path / "django_boilerplate/settings.py"
@@ -51,15 +75,12 @@ def test_baked_django_settings_file(cookies):
 
 def test_baked_django_urls_file(cookies):
     """Test Django urls.py file has generated correctly."""
-
     default_django = cookies.bake()
 
     urls_path = default_django.project_path / "django_boilerplate/urls.py"
     urls_file = urls_path.read_text().splitlines()
 
     assert '"""django-boilerplate URL Configuration' in urls_file
-    # assert 'DEBUG = "False"' in settings_file
-    # assert 'DEBUG = "False"' in settings_file
 
 
 def test_baked_django_with_custom_issue_template_files(cookies):
@@ -69,7 +90,6 @@ def test_baked_django_with_custom_issue_template_files(cookies):
     generated correctly, and post_gen deleted the standard template.
 
     """
-
     default_django = cookies.bake()
 
     bug_path = default_django.project_path / ".github/ISSUE_TEMPLATE/bug-report.md"
@@ -105,22 +125,22 @@ def test_baked_django_without_custom_issue_template_files(cookies):
     generated correctly, and post-gen deleted the Custom Issue templates.
 
     """
+    non_default_django = cookies.bake(
+        extra_context={"use_GH_custom_issue_templates": "n"}
+    )
 
-    default_django = cookies.bake(extra_context={"use_GH_custom_issue_templates": "n"})
-
-    standard_issue_path = default_django.project_path / ".github/ISSUE_TEMPLATE.md"
+    standard_issue_path = non_default_django.project_path / ".github/ISSUE_TEMPLATE.md"
     standard_issue_file = standard_issue_path.read_text().splitlines()
 
     assert '- "django-boilerplate" version:' in standard_issue_file
 
-    ISSUE_TEMPLATE_parent = default_django.project_path / ".github"
+    ISSUE_TEMPLATE_parent = non_default_django.project_path / ".github"
     dir_list = os.listdir((ISSUE_TEMPLATE_parent))
     assert "ISSUE_TEMPLATE" not in dir_list
 
 
 def test_baked_django_wsgi_file(cookies):
     """Test Django asgi.py file has generated correctly."""
-
     default_django = cookies.bake()
 
     wsgi_path = default_django.project_path / "django_boilerplate/wsgi.py"
