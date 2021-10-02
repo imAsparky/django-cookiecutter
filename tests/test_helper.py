@@ -1,10 +1,11 @@
-"""Helper function to run tests"""
+"""Helper function to run tests."""
 
 import os
 import subprocess  # nosec
 
+
 def run_me(*args, supress_exception=False, cwd=None):
-    """Helper to test the django project with the chosen options"""
+    """Helper to test the django project with the chosen options."""
     cur_dir = os.getcwd()
 
     try:

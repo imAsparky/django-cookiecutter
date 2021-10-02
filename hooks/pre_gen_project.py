@@ -1,4 +1,5 @@
-"""django-cookiecutter pre package generation jobs.
+"""
+django-cookiecutter pre package generation jobs.
 
 .. todo::
 
