@@ -126,8 +126,8 @@ if __name__ == "__main__":
     # if "Not open source" == "{{ cookiecutter.open_source_license }}":
     #     remove_file("LICENSE")
 
-    # if "{{ cookiecutter.create_conventional_commits_edit_message }}" != "y":
-    #     remove_file(".github/.git-commit-template.txt")
+    if "{{ cookiecutter.create_conventional_commits_edit_message }}" == "n":
+        remove_file(".github/.git-commit-template.txt")
 
     # if "{{ cookiecutter.create_repo_auto_test_workflow }}" != "y":
     #     remove_file(".github/workflows/test_contribution.yaml")

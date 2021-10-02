@@ -10,7 +10,7 @@
   "add_contributors_list": "n",
   "version": "0.1.0",
 
-  "create_conventional_commits_edit_message": "y",
+  "create_conventional_commits_edit_message": ["y", "n"],
   "create_repo_auto_test_workflow": "y",
   "use_GH_action_semantic_version": "y",
   "use_pre_commit": "y",
