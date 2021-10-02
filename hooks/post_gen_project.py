@@ -41,7 +41,6 @@ def post_gen_setup(*args, supress_exception=False, cwd=None):
 
 def delete_issue_templates():
     """Delete the ISSUE_TEMPLATES folder."""
-
     post_gen_setup(
         "rm",
         "-rf",
@@ -145,8 +144,8 @@ if __name__ == "__main__":
         delete_issue_templates()
 
 
-# if "{{ cookiecutter.use_pre_commit }}" != "y":
-#     remove_file(".pre-commit-config.yaml")
+if "{{ cookiecutter.use_pre_commit }}" == "n":
+    remove_file(".pre-commit-config.yaml")
 
 # if "{{ cookiecutter.automatic_set_up_git_and_initial_commit }}" == "y":
 #     init_git()
