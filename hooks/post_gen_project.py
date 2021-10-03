@@ -39,12 +39,12 @@ def post_gen_setup(*args, supress_exception=False, cwd=None):
         os.chdir(cur_dir)
 
 
-def delete_issue_templates():
-    """Delete the ISSUE_TEMPLATES folder."""
+def recursive_force_delete_a_folder(folder_path):
+    """Recursively force delete a folder."""
     post_gen_setup(
         "rm",
         "-rf",
-        ".github/ISSUE_TEMPLATE",
+        folder_path,
         cwd=PROJECT_DIRECTORY,
     )
 
@@ -141,15 +141,29 @@ if __name__ == "__main__":
     if "{{ cookiecutter.use_GH_custom_issue_templates }}" == "y":
         remove_file(".github/ISSUE_TEMPLATE.md")
     else:
-        delete_issue_templates()
+        recursive_force_delete_a_folder(".github/ISSUE_TEMPLATE")
 
+    if "{{ cookiecutter.use_pre_commit }}" == "n":
+        remove_file(".pre-commit-config.yaml")
 
-if "{{ cookiecutter.use_pre_commit }}" == "n":
-    remove_file(".pre-commit-config.yaml")
+    if "{{ cookiecutter.include_sphinx_docs }}" == "n":
+        recursive_force_delete_a_folder("docs")
 
-# if "{{ cookiecutter.automatic_set_up_git_and_initial_commit }}" == "y":
-#     init_git()
-#     git_add_and_commit_initial()
+    if "{{ cookiecutter.include_documentation_templates }}" == "n":
+        recursive_force_delete_a_folder("docs/source/doc-templates")
+
+    if "{{ cookiecutter.include_how_to_contribute_template }}" == "n":
+        remove_file("docs/source/how-tos/how-to-contribute.rst")
+
+    if (
+        "{{ cookiecutter.include_contributor_covenant_code_of_conduct }}"
+        == "n"
+    ):
+        remove_file("docs/source/code-of-conduct.rst")
+
+    # if "{{ cookiecutter.automatic_set_up_git_and_initial_commit }}" == "y":
+    #     init_git()
+    #     git_add_and_commit_initial()
 
 #     if "{{ cookiecutter.create_conventional_commits_edit_message}}" == "y":
 #         git_configure_custom_commit_message()

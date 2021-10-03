@@ -102,6 +102,186 @@ def test_baked_django_without_custom_issue_template_files(cookies):
     assert "ISSUE_TEMPLATE" not in dir_list
 
 
+def test_baked_django_with_docs(cookies):
+    """Test Django docs folder has been generated correctly."""
+    default_django = cookies.bake()
+
+    assert "docs" in os.listdir((default_django.project_path))
+
+
+def test_baked_django_without_docs(cookies):
+    """Test Django docs folder has not been generated."""
+    non_default_django = cookies.bake(extra_context={"include_sphinx_docs": "n"})
+
+    assert "docs" not in os.listdir((non_default_django.project_path))
+
+
+def test_baked_django_with_docs_templates(cookies):
+    """Test Django docs templates folder has been generated correctly."""
+    default_django = cookies.bake()
+
+    assert "doc-templates" in os.listdir((default_django.project_path / "docs/source"))
+
+
+def test_baked_django_without_docs_templates(cookies):
+    """Test Django docs templates folder has not been generated."""
+    non_default_django = cookies.bake(
+        extra_context={"include_documentation_templates": "n"}
+    )
+
+    assert "doc-templates" not in os.listdir(
+        (non_default_django.project_path / "docs/source")
+    )
+
+
+def test_baked_django_docs_with_code_of_conduct(cookies):
+    """Test Django docs code of conduct file has been generated correctly."""
+    default_django = cookies.bake()
+
+    assert "code-of-conduct.rst" in os.listdir(
+        (default_django.project_path / "docs/source")
+    )
+
+
+def test_baked_django_docs_without_code_of_conduct(cookies):
+    """Test Django docs code of conduct file has not been generated."""
+    non_default_django = cookies.bake(
+        extra_context={"include_contributor_covenant_code_of_conduct": "n"}
+    )
+
+    assert "code-of-conduct.rst" not in os.listdir(
+        (non_default_django.project_path / "docs/source")
+    )
+
+
+def test_baked_django_docs_discussion_index(cookies):
+    """Test Django docs discussion index template file has been generated correctly."""
+    default_django = cookies.bake()
+
+    index_path = (
+        default_django.project_path / "docs/source/discussion/index-discussion.rst"
+    )
+    index_file = index_path.read_text().splitlines()
+
+    assert (
+        "See below for a list of discussion material for Django Boilerplate."
+        in index_file
+    )
+
+
+def test_baked_django_docs_with_how_to_contribute(cookies):
+    """Test Django docs how-to contribute template file has been generated correctly."""
+    default_django = cookies.bake()
+
+    contrib_path = (
+        default_django.project_path / "docs/source/how-tos/how-to-contribute.rst"
+    )
+    contrib_file = contrib_path.read_text().splitlines()
+
+    assert (
+        ".. _bug: https://github.com/imAsparky/django-boilerplate/issues"
+        in contrib_file
+    )
+    assert "Look through Django Boilerplate GitHub issues_ for bugs." in contrib_file
+    assert (
+        "Look through Django Boilerplate GitHub issues_ for features." in contrib_file
+    )
+    assert (
+        "Django Boilerplate strives to have excellent documentation for several reasons:"
+        in contrib_file
+    )
+    assert (
+        "Django Boilerplate provides the four pillars Tutorials, How-to, Reference and"
+        in contrib_file
+    )
+    assert (
+        "Django Boilerplate uses Sphinx to document the API.  Class's, modules, or"
+        in contrib_file
+    )
+    assert (
+        "an `Issue <https://github.com/imAsparky/django-boilerplate/issues>`_."
+        in contrib_file
+    )
+    assert (
+        "Here's how to set up `django-boilerplate` for local development. We have"
+        in contrib_file
+    )
+    assert (
+        "2. From your GitHub account, fork the `django-boilerplate` repository."
+        in contrib_file
+    )
+    assert "    Django Boilerplate uses python-semantic-release." in contrib_file
+    assert (
+        ".. _issues: https://github.com/imAsparky/django-boilerplate/issues"
+        in contrib_file
+    )
+
+
+def test_baked_django_docs_without_how_to_contribute(cookies):
+    """Test Django docs how-to contribute template file has not been generated."""
+    non_default_django = cookies.bake(
+        extra_context={"include_how_to_contribute_template": "n"}
+    )
+
+    assert "how-to-contribute.rst" not in os.listdir(
+        (non_default_django.project_path / "docs/source/how-tos")
+    )
+
+
+def test_baked_django_docs_how_to_index(cookies):
+    """Test Django docs how-to index template file has been generated correctly."""
+    default_django = cookies.bake()
+
+    index_path = default_django.project_path / "docs/source/how-tos/index-how-to.rst"
+    index_file = index_path.read_text().splitlines()
+
+    assert "See below for a list of How-To for Django Boilerplate." in index_file
+
+
+def test_baked_django_docs_references_index(cookies):
+    """Test Django docs reference index template file has been generated correctly."""
+    default_django = cookies.bake()
+
+    index_path = (
+        default_django.project_path / "docs/source/reference/index-reference.rst"
+    )
+    index_file = index_path.read_text().splitlines()
+
+    assert (
+        "See below for a list of reference material for Django Boilerplate."
+        in index_file
+    )
+
+
+def test_baked_django_docs_templates_index(cookies):
+    """Test Django docs index template file has been generated correctly."""
+    default_django = cookies.bake()
+
+    index_path = (
+        default_django.project_path / "docs/source/doc-templates/index-templates.rst"
+    )
+    index_file = index_path.read_text().splitlines()
+
+    assert "A list of document templates for Django Boilerplate." in index_file
+
+
+def test_baked_django_with_docs_conf_settings_ok(cookies):
+    """Test Sphinx conf.py has been generated correctly."""
+    default_django = cookies.bake()
+
+    conf_path = default_django.project_path / "docs/source/conf.py"
+    conf_file = conf_path.read_text().splitlines()
+
+    assert (
+        '"""Django Boilerplate documentation Sphinx build configuration file."""'
+        in conf_file
+    )
+    assert '__version__ = "0.1.0"' in conf_file
+    assert 'project = "Django Boilerplate"' in conf_file
+    assert 'copyright = "2021, Mark Sevelj"' in conf_file
+    assert 'author = "Mark Sevelj"' in conf_file
+
+
 def test_baked_django_init_file(cookies):
     """Test Django __init__.py file has been generated correctly."""
     default_django = cookies.bake()

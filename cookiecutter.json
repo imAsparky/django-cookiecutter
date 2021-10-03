@@ -10,11 +10,16 @@
   "add_contributors_list": "n",
   "version": "0.1.0",
   "use_repo_status_badge": ["no", "concept", "wip", "active"],
+  "use_pre_commit": ["y", "n"],
+
+  "include_sphinx_docs": ["y", "n"],
+  "include_documentation_templates":["y", "n"],
+  "include_how_to_contribute_template":["y", "n"],
+  "include_contributor_covenant_code_of_conduct":["y", "n"],
 
   "create_conventional_commits_edit_message": ["y", "n"],
   "create_repo_auto_test_workflow": "y",
   "use_GH_action_semantic_version": "y",
-  "use_pre_commit": ["y", "n"],
   "use_GH_custom_issue_templates": ["y", "n"],
   "automatic_set_up_git_and_initial_commit": "y",
   "open_source_license": ["MIT license", "BSD license", "ISC license", "Apache Software License 2.0", "GNU General Public License v3", "Not open source"],

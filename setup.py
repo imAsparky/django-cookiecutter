@@ -20,7 +20,6 @@ setup(
         "cookiecutter",
         "Python 3",
         "template",
-
     ],
     python_requires=">=3.6",
     classifiers=[

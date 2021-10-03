@@ -28,6 +28,33 @@ delivery using GitHub actions.
    :alt: Documentation Status
 
 
+Django Project Options
+----------------------
+
+#. Quickly configure standard Django settings as you go through options.
+#. Choose to add documentation using Sphinx with:
+
+   #. `Furo`_, a clean modern theme,  with dark and light mode options.
+   #. A `Copy Button`_ to assist your users copy.
+   #. `Inline Tabs`_ to group similar items.
+   #. Use markdown or restructured text.
+
+#. A documentation framework with templates using the
+   `Diátaxis framework <https://junction-box.readthedocs.io/en/latest/Document-Framework/diataxis-intro.html>`_.
+#. A Pre-generated Contributing How-to. Edit to suit your needs.
+#. A `Conventional commits <https://www.conventionalcommits.org/en/v1.0.0/>`_
+   style custom commits message template.
+#. A set of four custom GitHub Issues templates to help your users.
+#. Pre-commit for code quality help and a  README badge.
+#. Choose from five LICENSE types for open source projects.
+#. Choose from three
+   `Repository Status Badges <https://www.repostatus.org/#concept>`_.
+   Quickly communicate to potential users.
+
+.. _Furo: https://github.com/pradyunsg/furo
+.. _Copy Button: https://sphinx-copybutton.readthedocs.io/en/latest/
+.. _Inline Tabs: https://sphinx-inline-tabs.readthedocs.io/en/latest/
+
 Contributing
 ------------
 
