@@ -1,4 +1,7 @@
+.. cookie_license::
+====================
 BSD 3-Clause License
+====================
 
 Copyright (c) 2021, mark sevelj
 All rights reserved.
