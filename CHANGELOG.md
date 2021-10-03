@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.7.0 (2021-10-03)
+### Feature
+* **django:** Add Read the Docs config and badge #43 ([#44](https://github.com/imAsparky/django-cookiecutter/issues/44)) ([`a68eb67`](https://github.com/imAsparky/django-cookiecutter/commit/a68eb67b384e6b713d04873587d6e09282c63589))
+
 ## v0.6.0 (2021-10-03)
 ### Feature
 * **django:** Add docs with Diataxis and templates #41 ([#42](https://github.com/imAsparky/django-cookiecutter/issues/42)) ([`769d45c`](https://github.com/imAsparky/django-cookiecutter/commit/769d45c611eba4ab618ce4f81ffe7ebeee57ecd2))

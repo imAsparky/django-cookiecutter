@@ -16,7 +16,7 @@ import os
 import sys
 sys.path.insert(0, os.path.abspath('.'))
 
-__version__ = "0.6.0"
+__version__ = "0.7.0"
 
 # -- Project information -----------------------------------------------------
 
