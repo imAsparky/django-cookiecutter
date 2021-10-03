@@ -161,6 +161,9 @@ if __name__ == "__main__":
     ):
         remove_file("docs/source/code-of-conduct.rst")
 
+    if "{{ cookiecutter.use_readthedocs }}" == "n":
+        remove_file(".readthedocs.yaml")
+
     # if "{{ cookiecutter.automatic_set_up_git_and_initial_commit }}" == "y":
     #     init_git()
     #     git_add_and_commit_initial()

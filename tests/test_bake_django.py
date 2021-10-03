@@ -238,6 +238,50 @@ def test_baked_django_docs_how_to_index(cookies):
     assert "See below for a list of How-To for Django Boilerplate." in index_file
 
 
+def test_baked_django_with_read_the_docs(cookies):
+    """Test Django readthedocs config has been generated correctly."""
+    default_django = cookies.bake()
+
+    assert ".readthedocs.yaml" in os.listdir((default_django.project_path))
+
+    rtd_path = default_django.project_path / "README.rst"
+    rtd_file = rtd_path.read_text().splitlines()
+
+    assert (
+        ".. image:: https://readthedocs.org/projects/django-boilerplate/badge/?version=latest"
+        in rtd_file
+    )
+    assert (
+        "   :target: https://django-boilerplate.readthedocs.io/en/latest/?badge=latest"
+        in rtd_file
+    )
+    assert "   :alt: Documentation Status" in rtd_file
+
+
+def test_baked_django_without_read_the_docs(cookies):
+    """Test Django readthedocs config has not been generated correctly."""
+    non_default_django = cookies.bake(
+        extra_context={
+            "use_readthedocs": "n",
+        }
+    )
+
+    assert ".readthedocs.yaml" not in os.listdir((non_default_django.project_path))
+
+    rtd_path = non_default_django.project_path / "README.rst"
+    rtd_file = rtd_path.read_text().splitlines()
+
+    assert (
+        ".. image:: https://readthedocs.org/projects/django-boilerplate/badge/?version=latest"
+        not in rtd_file
+    )
+    assert (
+        "   :target: https://django-boilerplate.readthedocs.io/en/latest/?badge=latest"
+        not in rtd_file
+    )
+    assert "   :alt: Documentation Status" not in rtd_file
+
+
 def test_baked_django_docs_references_index(cookies):
     """Test Django docs reference index template file has been generated correctly."""
     default_django = cookies.bake()

@@ -13,6 +13,7 @@
   "use_pre_commit": ["y", "n"],
 
   "include_sphinx_docs": ["y", "n"],
+  "use_readthedocs": ["y", "n"],
   "include_documentation_templates":["y", "n"],
   "include_how_to_contribute_template":["y", "n"],
   "include_contributor_covenant_code_of_conduct":["y", "n"],
