@@ -1,5 +1,6 @@
 """django-cookiecutter test suite."""
 
+import datetime
 import os
 
 
@@ -47,8 +48,7 @@ def test_baked_django_without_commit_message_file(cookies):
 
 
 def test_baked_django_with_custom_issue_template_files(cookies):
-    """
-    Test Django project has custom ISSUE templates generated correctly.
+    """Test Django project has custom ISSUE templates generated correctly.
 
     Tests that the Custom Issue templates have had the "assignee"
     generated correctly, and post_gen deleted the standard template.
@@ -112,12 +112,119 @@ def test_baked_django_init_file(cookies):
     assert '"""Initialise django_boilerplate."""' in init_file
 
 
+def test_baked_django_with_mit_license(cookies):
+    """Test Django MIT license file has been generated correctly."""
+    default_django = cookies.bake(
+        extra_context={
+            "open_source_license": "MIT license",
+        }
+    )
+
+    lic_path = default_django.project_path / "LICENSE.rst"
+    lic_file = lic_path.read_text().splitlines()
+
+    assert "MIT License" in lic_file
+    assert f"Copyright (c) {datetime.datetime.now().year}, Mark Sevelj" in lic_file
+
+    assert "Apache Software License 2.0" not in lic_file
+    assert "BSD License" not in lic_file
+    assert "GNU GENERAL PUBLIC LICENSE" not in lic_file
+    assert "ISC License" not in lic_file
+
+
+def test_baked_django_with_bsd_license(cookies):
+    """Test Django BSD license file has been generated correctly."""
+    non_default_django = cookies.bake(
+        extra_context={
+            "open_source_license": "BSD license",
+        }
+    )
+
+    lic_path = non_default_django.project_path / "LICENSE.rst"
+    lic_file = lic_path.read_text().splitlines()
+
+    assert "BSD License" in lic_file
+    assert f"Copyright (c) {datetime.datetime.now().year}, Mark Sevelj" in lic_file
+
+    assert "Apache Software License 2.0" not in lic_file
+    assert "GNU GENERAL PUBLIC LICENSE" not in lic_file
+    assert "ISC License" not in lic_file
+    assert "MIT License" not in lic_file
+
+
+def test_baked_django_with_isc_license(cookies):
+    """Test Django ISC license file has been generated correctly."""
+    non_default_django = cookies.bake(
+        extra_context={
+            "open_source_license": "ISC license",
+        }
+    )
+
+    lic_path = non_default_django.project_path / "LICENSE.rst"
+    lic_file = lic_path.read_text().splitlines()
+
+    assert "ISC License" in lic_file
+    assert f"Copyright (c) {datetime.datetime.now().year}, Mark Sevelj" in lic_file
+
+    assert "Apache Software License 2.0" not in lic_file
+    assert "BSD License" not in lic_file
+    assert "GNU GENERAL PUBLIC LICENSE" not in lic_file
+    assert "MIT License" not in lic_file
+
+
+def test_baked_django_with_apache_license(cookies):
+    """Test Django Apache Software License 2.0 license file has been generated correctly."""
+    non_default_django = cookies.bake(
+        extra_context={
+            "open_source_license": "Apache Software License 2.0",
+        }
+    )
+
+    lic_path = non_default_django.project_path / "LICENSE.rst"
+    lic_file = lic_path.read_text().splitlines()
+
+    assert "Apache Software License 2.0" in lic_file
+    assert f"Copyright (c) {datetime.datetime.now().year}, Mark Sevelj" in lic_file
+
+    assert "BSD License" not in lic_file
+    assert "ISC License" not in lic_file
+    assert "GNU GENERAL PUBLIC LICENSE" not in lic_file
+    assert "MIT License" not in lic_file
+
+
+def test_baked_django_with_gnu_license(cookies):
+    """Test Django GNU General Public License v3 license file has been generated correctly."""
+    non_default_django = cookies.bake(
+        extra_context={
+            "open_source_license": "GNU General Public License v3",
+        }
+    )
+
+    lic_path = non_default_django.project_path / "LICENSE.rst"
+    lic_file = lic_path.read_text().splitlines()
+
+    assert "GNU GENERAL PUBLIC LICENSE" in lic_file
+    assert f"    Copyright (C) {datetime.datetime.now().year}  Mark Sevelj" in lic_file
+
+    assert "MIT License" not in lic_file
+    assert "Apache Software License 2.0" not in lic_file
+    assert "BSD License" not in lic_file
+    assert "ISC License" not in lic_file
+
+
+def test_baked_django_without_license(cookies):
+    """Test Django  has been generated without a license file."""
+    non_default_django = cookies.bake(
+        extra_context={
+            "open_source_license": "Not open source",
+        }
+    )
+    assert "LICENSE.rst" not in os.listdir((non_default_django.project_path))
+
+
 def test_baked_django_with_precommit_config_file(cookies):
     """Test Django pre-commit has been generated correctly."""
     default_django = cookies.bake()
-
-    commit_msg_path = default_django.project_path / ".github/.git-commit-template.txt"
-    commit_msg_file = commit_msg_path.read_text().splitlines()
 
     assert ".pre-commit-config.yaml" in os.listdir((default_django.project_path))
 

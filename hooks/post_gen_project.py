@@ -122,8 +122,8 @@ def remove_file(filepath):
 
 if __name__ == "__main__":
 
-    # if "Not open source" == "{{ cookiecutter.open_source_license }}":
-    #     remove_file("LICENSE")
+    if "{{ cookiecutter.open_source_license }}" == "Not open source":
+        remove_file("LICENSE.rst")
 
     if "{{ cookiecutter.create_conventional_commits_edit_message }}" == "n":
         remove_file(".github/.git-commit-template.txt")
