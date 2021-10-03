@@ -242,6 +242,104 @@ def test_baked_django_without_precommit_config_file(cookies):
     )
 
 
+def test_baked_django_readme_file(cookies):
+    """Test Django README file has been generated correctly."""
+    default_django = cookies.bake()
+
+    readme_path = default_django.project_path / "README.rst"
+    readme_file = readme_path.read_text().splitlines()
+
+    assert "**Django Boilerplate**" in readme_file
+    assert "*A Django project with all the boilerplate*" in readme_file
+
+
+def test_baked_django_readme_with_license(cookies):
+    """Test Django README file has a license type generated correctly."""
+    default_django = cookies.bake()
+
+    readme_path = default_django.project_path / "README.rst"
+    readme_file = readme_path.read_text().splitlines()
+
+    assert ":License: MIT license" in readme_file
+
+
+def test_baked_django_readme_without_license(cookies):
+    """Test Django README file has no license type generated."""
+    non_default_django = cookies.bake(
+        extra_context={"open_source_license": "Not open source"}
+    )
+
+    readme_path = non_default_django.project_path / "README.rst"
+    readme_file = readme_path.read_text().splitlines()
+
+    assert ":License: MIT license" not in readme_file
+    assert ":License: BSD license" not in readme_file
+    assert ":License: ISC license" not in readme_file
+    assert ":License: Apache Software License 2.0" not in readme_file
+    assert ":License: GNU General Public License v3" not in readme_file
+
+
+def test_baked_django_readme_with_repostatus_badge(cookies):
+    """Test Django README file has repo status badge generated correctly."""
+    non_default_django = cookies.bake(
+        extra_context={"use_repo_status_badge": "concept"}
+    )
+
+    readme_path = non_default_django.project_path / "README.rst"
+    readme_file = readme_path.read_text().splitlines()
+
+    assert (
+        ".. image:: https://www.repostatus.org/badges/latest/concept.svg" in readme_file
+    )
+    assert "   :target: https://www.repostatus.org/#concept" in readme_file
+    assert "   :alt: Project Status: Concept" in readme_file
+
+
+def test_baked_django_readme_without_repostatus_badge(cookies):
+    """Test Django README file has no repo status badge generated."""
+    non_default_django = cookies.bake(extra_context={"use_repo_status_badge": "no"})
+
+    readme_path = non_default_django.project_path / "README.rst"
+    readme_file = readme_path.read_text().splitlines()
+
+    assert (
+        ".. image:: https://www.repostatus.org/badges/latest/concept.svg"
+        not in readme_file
+    )
+    assert "   :target: https://www.repostatus.org/#concept" not in readme_file
+    assert "   :alt: Project Status: Concept" not in readme_file
+
+
+def test_baked_django_readme_with_precommit_badge(cookies):
+    """Test Django README file has a pre-commit status badge generated correctly."""
+    default_django = cookies.bake()
+
+    readme_path = default_django.project_path / "README.rst"
+    readme_file = readme_path.read_text().splitlines()
+
+    assert (
+        ".. image:: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white"
+        in readme_file
+    )
+    assert "   :target: https://github.com/pre-commit/pre-commit" in readme_file
+    assert "   :alt: pre-commit" in readme_file
+
+
+def test_baked_django_readme_without_precommit_badge(cookies):
+    """Test Django README file has no pre-commit status badge generated."""
+    non_default_django = cookies.bake(extra_context={"use_pre_commit": "n"})
+
+    readme_path = non_default_django.project_path / "README.rst"
+    readme_file = readme_path.read_text().splitlines()
+
+    assert (
+        ".. image:: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white"
+        not in readme_file
+    )
+    assert "   :target: https://github.com/pre-commit/pre-commit" not in readme_file
+    assert "   :alt: pre-commit" not in readme_file
+
+
 def test_baked_django_settings_file(cookies):
     """Test Django settings.py file has generated correctly."""
     default_django = cookies.bake()
