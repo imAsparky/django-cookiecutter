@@ -9,6 +9,7 @@
   "project_short_description": "A Django project with all the boilerplate",
   "add_contributors_list": "n",
   "version": "0.1.0",
+  "use_repo_status_badge": ["no", "concept", "wip", "active"],
 
   "create_conventional_commits_edit_message": ["y", "n"],
   "create_repo_auto_test_workflow": "y",
