@@ -11,9 +11,9 @@ delivery using GitHub actions.
 .. _Django: https://www.djangoproject.com/
 .. _cookiecutter: https://github.com/cookiecutter/cookiecutter
 
-.. image:: https://www.repostatus.org/badges/latest/concept.svg
-   :alt: Project Status: Concept – Minimal or no implementation has been done yet, or the repository is only intended to be a limited example, demo, or proof-of-concept.
-   :target: https://www.repostatus.org/#concept
+.. image:: https://www.repostatus.org/badges/latest/wip.svg
+   :alt: Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.
+   :target: https://www.repostatus.org/#wip
 
 .. image:: https://app.codacy.com/project/badge/Grade/87fb6c8ef02d4433b87e483a9a926d62
    :alt: Codacy Quality
@@ -38,7 +38,7 @@ Django Project Options
    #. A `Copy Button`_ to assist your users copy.
    #. `Inline Tabs`_ to group similar items.
    #. Use markdown or restructured text.
-
+#. Deploy to `Read the Docs`_.
 #. A documentation framework with templates using the
    `Diátaxis framework <https://junction-box.readthedocs.io/en/latest/Document-Framework/diataxis-intro.html>`_.
 #. A Pre-generated Contributing How-to. Edit to suit your needs.
@@ -54,6 +54,7 @@ Django Project Options
 .. _Furo: https://github.com/pradyunsg/furo
 .. _Copy Button: https://sphinx-copybutton.readthedocs.io/en/latest/
 .. _Inline Tabs: https://sphinx-inline-tabs.readthedocs.io/en/latest/
+.. _Read the Docs: https://readthedocs.org/
 
 Contributing
 ------------
