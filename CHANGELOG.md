@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.12.1 (2021-10-04)
+### Fix
+* **pyup:** Update pr_prefix for Conventional commits #60 ([#61](https://github.com/imAsparky/django-cookiecutter/issues/61)) ([`a95b4a6`](https://github.com/imAsparky/django-cookiecutter/commit/a95b4a62a7166585fac4b384ddb746225432109b))
+
 ## v0.12.0 (2021-10-04)
 ### Feature
 * **django:** Add pyup checks and badge #58 ([#59](https://github.com/imAsparky/django-cookiecutter/issues/59)) ([`7cd29f0`](https://github.com/imAsparky/django-cookiecutter/commit/7cd29f07ab885e0af5bec625e82b7f9fb2dfb651))
