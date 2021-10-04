@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.8.0 (2021-10-04)
+### Feature
+* **django:** Add semantic-release GH action #45 ([#46](https://github.com/imAsparky/django-cookiecutter/issues/46)) ([`0329bcc`](https://github.com/imAsparky/django-cookiecutter/commit/0329bccbc1662ac083baeea4124f3be8b8e0afa5))
+
 ## v0.7.0 (2021-10-03)
 ### Feature
 * **django:** Add Read the Docs config and badge #43 ([#44](https://github.com/imAsparky/django-cookiecutter/issues/44)) ([`a68eb67`](https://github.com/imAsparky/django-cookiecutter/commit/a68eb67b384e6b713d04873587d6e09282c63589))
