@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.9.0 (2021-10-04)
+### Feature
+* **django:** Add git init and initial commit #47 ([#48](https://github.com/imAsparky/django-cookiecutter/issues/48)) ([`63fb7b3`](https://github.com/imAsparky/django-cookiecutter/commit/63fb7b3076359e16f2087cc47fdd8fc15479a6c3))
+
 ## v0.8.0 (2021-10-04)
 ### Feature
 * **django:** Add semantic-release GH action #45 ([#46](https://github.com/imAsparky/django-cookiecutter/issues/46)) ([`0329bcc`](https://github.com/imAsparky/django-cookiecutter/commit/0329bccbc1662ac083baeea4124f3be8b8e0afa5))
