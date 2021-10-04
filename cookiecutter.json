@@ -7,10 +7,11 @@
   "git_project_name": "{{ cookiecutter.project_name.lower().replace(' ', '-').replace('_', '-') }}",
   "project_slug": "{{ cookiecutter.project_name.lower()|replace(' ', '_')|replace('-', '_')|replace('.', '_')|trim() }}",
   "project_short_description": "A Django project with all the boilerplate",
-  "add_contributors_list": "n",
+  "add_contributors_list": ["n", "y"],
   "version": "0.1.0",
   "use_repo_status_badge": ["no", "concept", "wip", "active"],
   "use_pre_commit": ["y", "n"],
+  "use_pyup_io": ["y", "n"],
 
   "include_sphinx_docs": ["y", "n"],
   "use_readthedocs": ["y", "n"],
@@ -38,7 +39,6 @@
   "_copy_without_render": [
         ".pre-commit-config.yaml",
         ".github/workflows/semantic_release.yaml",
-        ".github/workflows/semantic_release_test_pypi.yaml",
         ".github/workflows/test_contribution.yaml"
     ]
 
