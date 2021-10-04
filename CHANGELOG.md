@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.12.0 (2021-10-04)
+### Feature
+* **django:** Add pyup checks and badge #58 ([#59](https://github.com/imAsparky/django-cookiecutter/issues/59)) ([`7cd29f0`](https://github.com/imAsparky/django-cookiecutter/commit/7cd29f07ab885e0af5bec625e82b7f9fb2dfb651))
+
 ## v0.11.0 (2021-10-04)
 ### Feature
 * **cookie:** Add pyup checks and badge #53 ([#57](https://github.com/imAsparky/django-cookiecutter/issues/57)) ([`81a8f54`](https://github.com/imAsparky/django-cookiecutter/commit/81a8f54ab36e1cab7b8712413833f93dbc0f7aec))
