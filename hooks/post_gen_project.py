@@ -179,3 +179,6 @@ if __name__ == "__main__":
 
     if "{{ cookiecutter.create_repo_auto_test_workflow }}" == "n":
         remove_file(".github/workflows/test_contribution.yaml")
+
+    if "{{ cookiecutter.use_pyup_io }}" == "n":
+        remove_file(".pyup.yaml")

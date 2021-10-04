@@ -565,6 +565,51 @@ def test_baked_django_readme_without_precommit_badge(cookies):
     assert "   :alt: pre-commit" not in readme_file
 
 
+def test_baked_django_with_pyup_io(cookies):
+    """Test Django pyup.io file has been generated correctly."""
+    default_django = cookies.bake()
+
+    assert ".pyup.yaml" in os.listdir(default_django.project_path)
+
+    pyup_path = default_django.project_path / ".pyup.yaml"
+    pyup_file = pyup_path.read_text().splitlines()
+
+    assert '  - "imAsparky""' in pyup_file
+
+    readme_path = default_django.project_path / "README.rst"
+    readme_file = readme_path.read_text().splitlines()
+
+    assert (
+        ".. image:: https://pyup.io/repos/github/imAsparky/django-boilerplate/shield.svg"
+        in readme_file
+    )
+    assert (
+        "   :target: https://pyup.io/repos/github/imAsparky/django-boilerplate/"
+        in readme_file
+    )
+    assert "   :alt: Updates" in readme_file
+
+
+def test_baked_django_without_pyup_io(cookies):
+    """Test Django pyup.io file has not been generated."""
+    non_default_django = cookies.bake(extra_context={"use_pyup_io": "n"})
+
+    assert ".pyup.yaml" not in os.listdir(non_default_django.project_path)
+
+    readme_path = non_default_django.project_path / "README.rst"
+    readme_file = readme_path.read_text().splitlines()
+
+    assert (
+        ".. image:: https://pyup.io/repos/github/imAsparky/django-boilerplate/shield.svg"
+        not in readme_file
+    )
+    assert (
+        "   :target: https://pyup.io/repos/github/imAsparky/django-boilerplate/"
+        not in readme_file
+    )
+    assert "   :alt: Updates" not in readme_file
+
+
 def test_baked_django_with_read_the_docs(cookies):
     """Test Django readthedocs config has been generated correctly."""
     default_django = cookies.bake()

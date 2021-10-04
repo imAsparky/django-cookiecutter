@@ -4,11 +4,18 @@
 
 *{{cookiecutter.project_short_description}}*
 
-{%- if cookiecutter.use_repo_status_badge != "no" %}
+{%- if cookiecutter.use_repo_status_badge != "n" %}
 .. image:: https://www.repostatus.org/badges/latest/{{cookiecutter.use_repo_status_badge}}.svg
    :target: https://www.repostatus.org/#{{cookiecutter.use_repo_status_badge}}
    :alt: Project Status: {{cookiecutter.use_repo_status_badge}}
 {%- endif %}
+
+{%- if cookiecutter.use_pyup_io == "y" %}
+.. image:: https://pyup.io/repos/github/{{cookiecutter.github_username}}/{{cookiecutter.git_project_name}}/shield.svg
+   :target: https://pyup.io/repos/github/{{cookiecutter.github_username}}/{{cookiecutter.git_project_name}}/
+   :alt: Updates
+{%- endif %}
+
 
 {%- if cookiecutter.use_pre_commit == "y" %}
 .. image:: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white
