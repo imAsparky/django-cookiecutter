@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.11.0 (2021-10-04)
+### Feature
+* **cookie:** Add pyup checks and badge #53 ([#57](https://github.com/imAsparky/django-cookiecutter/issues/57)) ([`81a8f54`](https://github.com/imAsparky/django-cookiecutter/commit/81a8f54ab36e1cab7b8712413833f93dbc0f7aec))
+
 ## v0.10.0 (2021-10-04)
 ### Feature
 * **django:** Add GH action test workflow #49 ([#50](https://github.com/imAsparky/django-cookiecutter/issues/50)) ([`43b7201`](https://github.com/imAsparky/django-cookiecutter/commit/43b72011c6e54b535c279f56038c8cd91f8a5159))
