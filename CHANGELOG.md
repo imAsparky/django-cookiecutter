@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.10.0 (2021-10-04)
+### Feature
+* **django:** Add GH action test workflow #49 ([#50](https://github.com/imAsparky/django-cookiecutter/issues/50)) ([`43b7201`](https://github.com/imAsparky/django-cookiecutter/commit/43b72011c6e54b535c279f56038c8cd91f8a5159))
+
 ## v0.9.0 (2021-10-04)
 ### Feature
 * **django:** Add git init and initial commit #47 ([#48](https://github.com/imAsparky/django-cookiecutter/issues/48)) ([`63fb7b3`](https://github.com/imAsparky/django-cookiecutter/commit/63fb7b3076359e16f2087cc47fdd8fc15479a6c3))
