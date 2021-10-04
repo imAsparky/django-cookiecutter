@@ -19,7 +19,7 @@
   "include_contributor_covenant_code_of_conduct":["y", "n"],
 
   "create_conventional_commits_edit_message": ["y", "n"],
-  "create_repo_auto_test_workflow": "y",
+  "create_repo_auto_test_workflow": ["y", "n"],
   "use_GH_action_semantic_version": ["y", "n"],
   "use_GH_custom_issue_templates": ["y", "n"],
   "automatic_set_up_git_and_initial_commit": ["y", "n"],

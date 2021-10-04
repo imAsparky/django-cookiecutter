@@ -127,9 +127,6 @@ def git_configure_custom_commit_message():
 
 if __name__ == "__main__":
 
-    # if "{{ cookiecutter.create_repo_auto_test_workflow }}" != "y":
-    #     remove_file(".github/workflows/test_contribution.yaml")
-
     # Documentation options
 
     if "{{ cookiecutter.include_sphinx_docs }}" == "n":
@@ -179,3 +176,6 @@ if __name__ == "__main__":
         remove_file("CHANGELOG.md")
         remove_file(".github/semantic.yaml")
         remove_file(".github/workflows/semantic_release.yaml")
+
+    if "{{ cookiecutter.create_repo_auto_test_workflow }}" == "n":
+        remove_file(".github/workflows/test_contribution.yaml")
