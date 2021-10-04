@@ -103,8 +103,7 @@ def test_baked_django_with_custom_issue_template_files(cookies):
 
 
 def test_baked_django_without_custom_issue_template_files(cookies):
-    """
-    Test Django project has no custom ISSUE templates generated.
+    """Test Django project has no custom ISSUE templates generated.
 
     Tests that the standard template has the "project name"
     generated correctly, and post-gen deleted the Custom Issue templates.
@@ -256,50 +255,6 @@ def test_baked_django_docs_without_templates(cookies):
     )
 
 
-def test_baked_django_with_read_the_docs(cookies):
-    """Test Django readthedocs config has been generated correctly."""
-    default_django = cookies.bake()
-
-    assert ".readthedocs.yaml" in os.listdir((default_django.project_path))
-
-    rtd_path = default_django.project_path / "README.rst"
-    rtd_file = rtd_path.read_text().splitlines()
-
-    assert (
-        ".. image:: https://readthedocs.org/projects/django-boilerplate/badge/?version=latest"
-        in rtd_file
-    )
-    assert (
-        "   :target: https://django-boilerplate.readthedocs.io/en/latest/?badge=latest"
-        in rtd_file
-    )
-    assert "   :alt: Documentation Status" in rtd_file
-
-
-def test_baked_django_without_read_the_docs(cookies):
-    """Test Django readthedocs config has not been generated correctly."""
-    non_default_django = cookies.bake(
-        extra_context={
-            "use_readthedocs": "n",
-        }
-    )
-
-    assert ".readthedocs.yaml" not in os.listdir((non_default_django.project_path))
-
-    rtd_path = non_default_django.project_path / "README.rst"
-    rtd_file = rtd_path.read_text().splitlines()
-
-    assert (
-        ".. image:: https://readthedocs.org/projects/django-boilerplate/badge/?version=latest"
-        not in rtd_file
-    )
-    assert (
-        "   :target: https://django-boilerplate.readthedocs.io/en/latest/?badge=latest"
-        not in rtd_file
-    )
-    assert "   :alt: Documentation Status" not in rtd_file
-
-
 def test_baked_django_docs_with_references_index(cookies):
     """Test Django docs reference index template file has been generated correctly."""
     default_django = cookies.bake()
@@ -344,12 +299,32 @@ def test_baked_django_with_git_initiated(cookies):
 
 
 def test_baked_django_without_git_initiated(cookies):
-    """Test Django git init has not generated"""
+    """Test Django git init has not generated."""
     non_default_django = cookies.bake(
         extra_context={"automatic_set_up_git_and_initial_commit": "n"}
     )
 
     assert ".git" not in os.listdir(non_default_django.project_path)
+
+
+def test_baked_django_with_github_action_test_workflow(cookies):
+    """Test Django GitHub test action file has generated correctly."""
+    default_django = cookies.bake()
+
+    assert "test_contribution.yaml" in os.listdir(
+        default_django.project_path / ".github/workflows"
+    )
+
+
+def test_baked_django_without_github_action_test_workflow(cookies):
+    """Test Django GitHub test action file has not generated"""
+    non_default_django = cookies.bake(
+        extra_context={"create_repo_auto_test_workflow": "n"}
+    )
+
+    assert "test_contribution.yaml" not in os.listdir(
+        non_default_django.project_path / ".github/workflows"
+    )
 
 
 def test_baked_django_init_py_file(cookies):
@@ -588,6 +563,50 @@ def test_baked_django_readme_without_precommit_badge(cookies):
     )
     assert "   :target: https://github.com/pre-commit/pre-commit" not in readme_file
     assert "   :alt: pre-commit" not in readme_file
+
+
+def test_baked_django_with_read_the_docs(cookies):
+    """Test Django readthedocs config has been generated correctly."""
+    default_django = cookies.bake()
+
+    assert ".readthedocs.yaml" in os.listdir((default_django.project_path))
+
+    rtd_path = default_django.project_path / "README.rst"
+    rtd_file = rtd_path.read_text().splitlines()
+
+    assert (
+        ".. image:: https://readthedocs.org/projects/django-boilerplate/badge/?version=latest"
+        in rtd_file
+    )
+    assert (
+        "   :target: https://django-boilerplate.readthedocs.io/en/latest/?badge=latest"
+        in rtd_file
+    )
+    assert "   :alt: Documentation Status" in rtd_file
+
+
+def test_baked_django_without_read_the_docs(cookies):
+    """Test Django readthedocs config has not been generated correctly."""
+    non_default_django = cookies.bake(
+        extra_context={
+            "use_readthedocs": "n",
+        }
+    )
+
+    assert ".readthedocs.yaml" not in os.listdir((non_default_django.project_path))
+
+    rtd_path = non_default_django.project_path / "README.rst"
+    rtd_file = rtd_path.read_text().splitlines()
+
+    assert (
+        ".. image:: https://readthedocs.org/projects/django-boilerplate/badge/?version=latest"
+        not in rtd_file
+    )
+    assert (
+        "   :target: https://django-boilerplate.readthedocs.io/en/latest/?badge=latest"
+        not in rtd_file
+    )
+    assert "   :alt: Documentation Status" not in rtd_file
 
 
 def test_baked_django_with_semantic_release(cookies):

@@ -3,9 +3,9 @@
 =======================
 
 .. image:: ./docs/source/_static/imgs/logo/logo-django-cookiecutter-1280x640.png
-   :alt: django-cookiecutter
+   :alt:
 
-A `Django`_  project `cookiecutter`_ complete with built-in continuous
+A `Django`_  project `Cookiecutter`_ complete with built-in continuous
 delivery using GitHub actions.
 
 .. _Django: https://www.djangoproject.com/
@@ -53,20 +53,21 @@ Documentation
 #. A documentation framework with templates using the
    `Diátaxis framework <https://junction-box.readthedocs.io/en/latest/Document-Framework/diataxis-intro.html>`_.
 #. A Pre-generated Contributing How-to. Edit to suit your needs.
-#. A `Conventional commits <https://www.conventionalcommits.org/en/v1.0.0/>`_
-   style custom commits message template.
 
 GitHub Helpers
 ~~~~~~~~~~~~~~
 
 #. A set of four custom GitHub Issues templates to help your users.
 #. Create the local git repository and make the initial commit automatically.
+#. A `Conventional commits <https://www.conventionalcommits.org/en/v1.0.0/>`_
+   style custom commits message template.
 
 Workflow Helpers
 ~~~~~~~~~~~~~~~~
 
-#. Pre-commit for code quality help and a  README badge.
-#. A Python Semantic Release GitHub action.
+#. Pre-commit for code quality help and a README badge.
+#. A Python Semantic Release GitHub action and a README badge.
+#. A test suite complete with py36-py39, Linux, macOS and Windows matrix.
 
 Communication
 ~~~~~~~~~~~~~
