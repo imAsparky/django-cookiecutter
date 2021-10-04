@@ -297,6 +297,58 @@ def test_baked_django_docs_references_index(cookies):
     )
 
 
+def test_baked_django_with_semantic_release(cookies):
+    """Test Django semantic-release file has been generated correctly."""
+    default_django = cookies.bake()
+
+    assert "CHANGELOG.md" in os.listdir((default_django.project_path))
+    assert "semantic.yaml" in os.listdir((default_django.project_path / ".github"))
+    assert "semantic_release.yaml" in os.listdir(
+        (default_django.project_path / ".github/workflows")
+    )
+
+    readme_path = default_django.project_path / "README.rst"
+    readme_file = readme_path.read_text().splitlines()
+
+    assert (
+        ".. image:: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg"
+        in readme_file
+    )
+    assert (
+        "   :target: https://python-semantic-release.readthedocs.io/en/latest/"
+        in readme_file
+    )
+    assert "   :alt: Python Sementic Release" in readme_file
+
+
+def test_baked_django_without_semantic_release(cookies):
+    """Test Django semantic-release file has not been generated."""
+    non_default_django = cookies.bake(
+        extra_context={"use_GH_action_semantic_version": "n"}
+    )
+
+    assert "CHANGELOG.md" not in os.listdir((non_default_django.project_path))
+    assert "semantic.yaml" not in os.listdir(
+        (non_default_django.project_path / ".github")
+    )
+    assert "semantic_release.yaml" not in os.listdir(
+        (non_default_django.project_path / ".github/workflows")
+    )
+
+    readme_path = non_default_django.project_path / "README.rst"
+    readme_file = readme_path.read_text().splitlines()
+
+    assert (
+        ".. image:: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg"
+        not in readme_file
+    )
+    assert (
+        "   :target: https://python-semantic-release.readthedocs.io/en/latest/"
+        not in readme_file
+    )
+    assert "   :alt: Python Sementic Release" not in readme_file
+
+
 def test_baked_django_docs_templates_index(cookies):
     """Test Django docs index template file has been generated correctly."""
     default_django = cookies.bake()
@@ -516,7 +568,7 @@ def test_baked_django_readme_with_repostatus_badge(cookies):
         ".. image:: https://www.repostatus.org/badges/latest/concept.svg" in readme_file
     )
     assert "   :target: https://www.repostatus.org/#concept" in readme_file
-    assert "   :alt: Project Status: Concept" in readme_file
+    assert "   :alt: Project Status: concept" in readme_file
 
 
 def test_baked_django_readme_without_repostatus_badge(cookies):

@@ -28,6 +28,10 @@ delivery using GitHub actions.
    :alt: Documentation Status
 
 
+.. image:: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
+   :target: https://python-semantic-release.readthedocs.io/en/latest/
+   :alt: Python Sementic Release
+
 Django Project Options
 ----------------------
 
@@ -50,6 +54,7 @@ Django Project Options
 #. Choose from three
    `Repository Status Badges <https://www.repostatus.org/#concept>`_.
    Quickly communicate to potential users.
+#. A Python Semantic Release GitHub action.
 
 .. _Furo: https://github.com/pradyunsg/furo
 .. _Copy Button: https://sphinx-copybutton.readthedocs.io/en/latest/

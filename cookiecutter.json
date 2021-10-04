@@ -20,7 +20,7 @@
 
   "create_conventional_commits_edit_message": ["y", "n"],
   "create_repo_auto_test_workflow": "y",
-  "use_GH_action_semantic_version": "y",
+  "use_GH_action_semantic_version": ["y", "n"],
   "use_GH_custom_issue_templates": ["y", "n"],
   "automatic_set_up_git_and_initial_commit": "y",
   "open_source_license": ["MIT license", "BSD license", "ISC license", "Apache Software License 2.0", "GNU General Public License v3", "Not open source"],
@@ -33,6 +33,13 @@
   "TIME_ZONE": "UTC",
   "USE_L10N": "True",
   "USE_I18N": "True",
-  "SITE_ID": "1"
+  "SITE_ID": "1",
+
+  "_copy_without_render": [
+        ".pre-commit-config.yaml",
+        ".github/workflows/semantic_release.yaml",
+        ".github/workflows/semantic_release_test_pypi.yaml",
+        ".github/workflows/test_contribution.yaml"
+    ]
 
 }

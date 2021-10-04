@@ -115,7 +115,7 @@ def recursive_force_delete_a_folder(folder_path):
 
 
 def remove_file(filepath):
-    """Remove files not required for this generated python package."""
+    """Remove files not required for this generated Django project."""
     if os.path.exists(os.path.join(PROJECT_DIRECTORY, filepath)):
         os.remove(os.path.join(PROJECT_DIRECTORY, filepath))
 
@@ -131,12 +131,10 @@ if __name__ == "__main__":
     # if "{{ cookiecutter.create_repo_auto_test_workflow }}" != "y":
     #     remove_file(".github/workflows/test_contribution.yaml")
 
-    # if "{{ cookiecutter.use_GH_action_semantic_version }}" != "y":
-    #     remove_file(".github/workflows/semantic_release.yaml")
-    #     remove_file(".github/semantic.yaml")
-
-    # if "{{ cookiecutter.use_GH_action_semantic_version }}" == "y":
-    #     remove_file("HISTORY.rst")
+    if "{{ cookiecutter.use_GH_action_semantic_version }}" != "y":
+        remove_file("CHANGELOG.md")
+        remove_file(".github/semantic.yaml")
+        remove_file(".github/workflows/semantic_release.yaml")
 
     if "{{ cookiecutter.use_GH_custom_issue_templates }}" == "y":
         remove_file(".github/ISSUE_TEMPLATE.md")
