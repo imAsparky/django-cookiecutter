@@ -574,7 +574,7 @@ def test_baked_django_with_pyup_io(cookies):
     pyup_path = default_django.project_path / ".pyup.yaml"
     pyup_file = pyup_path.read_text().splitlines()
 
-    assert '  - "imAsparky""' in pyup_file
+    assert "  - imAsparky" in pyup_file
 
     readme_path = default_django.project_path / "README.rst"
     readme_file = readme_path.read_text().splitlines()

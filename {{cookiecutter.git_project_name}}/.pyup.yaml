@@ -15,13 +15,18 @@ Default Branch: main
 # assign users to pull requests, default is not set
 # requires private repo permissions, even on public repos
 # default: empty
+{%- if cookiecutter.use_pyup_io == "y" %}
 assignees:
-  - "{{cookiecutter.github_username}}""
-
+  - {{cookiecutter.github_username}}
+{% endif %}
 # add a label to pull requests, default is not set
 # requires private repo permissions, even on public repos
 # default: empty
-label_prs: "fix(pyup): Update dependencies"
+label_prs:
+
+# set a global prefix for PRs
+# default: empty
+pr_prefix: "fix(pyup): "
 
 # allow to close stale PRs
 # default: True
