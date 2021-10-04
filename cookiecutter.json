@@ -22,7 +22,7 @@
   "create_repo_auto_test_workflow": "y",
   "use_GH_action_semantic_version": ["y", "n"],
   "use_GH_custom_issue_templates": ["y", "n"],
-  "automatic_set_up_git_and_initial_commit": "y",
+  "automatic_set_up_git_and_initial_commit": ["y", "n"],
   "open_source_license": ["MIT license", "BSD license", "ISC license", "Apache Software License 2.0", "GNU General Public License v3", "Not open source"],
 
   "ALLOWED_HOSTS": "www.example.com",

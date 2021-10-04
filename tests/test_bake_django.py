@@ -2,6 +2,7 @@
 
 import datetime
 import os
+from test_helper import bake_checker
 
 
 def test_django_bakes_ok_with_defaults(cookies):
@@ -14,7 +15,7 @@ def test_django_bakes_ok_with_defaults(cookies):
     assert default_django.project_path.name == "django-boilerplate"
 
 
-def test_baked_django_asgi_file(cookies):
+def test_baked_django_asgi_file_ok(cookies):
     """Test Django asgy.py file has been generated correctly."""
     default_django = cookies.bake()
 
@@ -23,6 +24,26 @@ def test_baked_django_asgi_file(cookies):
 
     assert '"""ASGI config for django-boilerplate project.' in asgi_file
     assert '    "DJANGO_SETTINGS_MODULE", "django_boilerplate.settings"' in asgi_file
+
+
+def test_baked_django_docs_with_code_of_conduct(cookies):
+    """Test Django docs code of conduct file has been generated correctly."""
+    default_django = cookies.bake()
+
+    assert "code-of-conduct.rst" in os.listdir(
+        (default_django.project_path / "docs/source")
+    )
+
+
+def test_baked_django_docs_without_code_of_conduct(cookies):
+    """Test Django docs code of conduct file has not been generated."""
+    non_default_django = cookies.bake(
+        extra_context={"include_contributor_covenant_code_of_conduct": "n"}
+    )
+
+    assert "code-of-conduct.rst" not in os.listdir(
+        (non_default_django.project_path / "docs/source")
+    )
 
 
 def test_baked_django_with_commit_message_file(cookies):
@@ -116,45 +137,24 @@ def test_baked_django_without_docs(cookies):
     assert "docs" not in os.listdir((non_default_django.project_path))
 
 
-def test_baked_django_with_docs_templates(cookies):
-    """Test Django docs templates folder has been generated correctly."""
+def test_baked_django_with_docs_conf_settings_ok(cookies):
+    """Test Sphinx conf.py has been generated correctly."""
     default_django = cookies.bake()
 
-    assert "doc-templates" in os.listdir((default_django.project_path / "docs/source"))
+    conf_path = default_django.project_path / "docs/source/conf.py"
+    conf_file = conf_path.read_text().splitlines()
 
-
-def test_baked_django_without_docs_templates(cookies):
-    """Test Django docs templates folder has not been generated."""
-    non_default_django = cookies.bake(
-        extra_context={"include_documentation_templates": "n"}
+    assert (
+        '"""Django Boilerplate documentation Sphinx build configuration file."""'
+        in conf_file
     )
-
-    assert "doc-templates" not in os.listdir(
-        (non_default_django.project_path / "docs/source")
-    )
-
-
-def test_baked_django_docs_with_code_of_conduct(cookies):
-    """Test Django docs code of conduct file has been generated correctly."""
-    default_django = cookies.bake()
-
-    assert "code-of-conduct.rst" in os.listdir(
-        (default_django.project_path / "docs/source")
-    )
+    assert '__version__ = "0.1.0"' in conf_file
+    assert 'project = "Django Boilerplate"' in conf_file
+    assert 'copyright = "2021, Mark Sevelj"' in conf_file
+    assert 'author = "Mark Sevelj"' in conf_file
 
 
-def test_baked_django_docs_without_code_of_conduct(cookies):
-    """Test Django docs code of conduct file has not been generated."""
-    non_default_django = cookies.bake(
-        extra_context={"include_contributor_covenant_code_of_conduct": "n"}
-    )
-
-    assert "code-of-conduct.rst" not in os.listdir(
-        (non_default_django.project_path / "docs/source")
-    )
-
-
-def test_baked_django_docs_discussion_index(cookies):
+def test_baked_django_docs_with_discussion_index(cookies):
     """Test Django docs discussion index template file has been generated correctly."""
     default_django = cookies.bake()
 
@@ -228,7 +228,7 @@ def test_baked_django_docs_without_how_to_contribute(cookies):
     )
 
 
-def test_baked_django_docs_how_to_index(cookies):
+def test_baked_django_docs_with_how_to_index(cookies):
     """Test Django docs how-to index template file has been generated correctly."""
     default_django = cookies.bake()
 
@@ -236,6 +236,24 @@ def test_baked_django_docs_how_to_index(cookies):
     index_file = index_path.read_text().splitlines()
 
     assert "See below for a list of How-To for Django Boilerplate." in index_file
+
+
+def test_baked_django_docs_with_templates(cookies):
+    """Test Django docs templates folder has been generated correctly."""
+    default_django = cookies.bake()
+
+    assert "doc-templates" in os.listdir((default_django.project_path / "docs/source"))
+
+
+def test_baked_django_docs_without_templates(cookies):
+    """Test Django docs templates folder has not been generated."""
+    non_default_django = cookies.bake(
+        extra_context={"include_documentation_templates": "n"}
+    )
+
+    assert "doc-templates" not in os.listdir(
+        (non_default_django.project_path / "docs/source")
+    )
 
 
 def test_baked_django_with_read_the_docs(cookies):
@@ -282,7 +300,7 @@ def test_baked_django_without_read_the_docs(cookies):
     assert "   :alt: Documentation Status" not in rtd_file
 
 
-def test_baked_django_docs_references_index(cookies):
+def test_baked_django_docs_with_references_index(cookies):
     """Test Django docs reference index template file has been generated correctly."""
     default_django = cookies.bake()
 
@@ -297,58 +315,6 @@ def test_baked_django_docs_references_index(cookies):
     )
 
 
-def test_baked_django_with_semantic_release(cookies):
-    """Test Django semantic-release file has been generated correctly."""
-    default_django = cookies.bake()
-
-    assert "CHANGELOG.md" in os.listdir((default_django.project_path))
-    assert "semantic.yaml" in os.listdir((default_django.project_path / ".github"))
-    assert "semantic_release.yaml" in os.listdir(
-        (default_django.project_path / ".github/workflows")
-    )
-
-    readme_path = default_django.project_path / "README.rst"
-    readme_file = readme_path.read_text().splitlines()
-
-    assert (
-        ".. image:: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg"
-        in readme_file
-    )
-    assert (
-        "   :target: https://python-semantic-release.readthedocs.io/en/latest/"
-        in readme_file
-    )
-    assert "   :alt: Python Sementic Release" in readme_file
-
-
-def test_baked_django_without_semantic_release(cookies):
-    """Test Django semantic-release file has not been generated."""
-    non_default_django = cookies.bake(
-        extra_context={"use_GH_action_semantic_version": "n"}
-    )
-
-    assert "CHANGELOG.md" not in os.listdir((non_default_django.project_path))
-    assert "semantic.yaml" not in os.listdir(
-        (non_default_django.project_path / ".github")
-    )
-    assert "semantic_release.yaml" not in os.listdir(
-        (non_default_django.project_path / ".github/workflows")
-    )
-
-    readme_path = non_default_django.project_path / "README.rst"
-    readme_file = readme_path.read_text().splitlines()
-
-    assert (
-        ".. image:: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg"
-        not in readme_file
-    )
-    assert (
-        "   :target: https://python-semantic-release.readthedocs.io/en/latest/"
-        not in readme_file
-    )
-    assert "   :alt: Python Sementic Release" not in readme_file
-
-
 def test_baked_django_docs_templates_index(cookies):
     """Test Django docs index template file has been generated correctly."""
     default_django = cookies.bake()
@@ -361,24 +327,32 @@ def test_baked_django_docs_templates_index(cookies):
     assert "A list of document templates for Django Boilerplate." in index_file
 
 
-def test_baked_django_with_docs_conf_settings_ok(cookies):
-    """Test Sphinx conf.py has been generated correctly."""
+def test_baked_django_with_git_initiated(cookies):
+    """Test Django git init has generated correctly."""
     default_django = cookies.bake()
 
-    conf_path = default_django.project_path / "docs/source/conf.py"
-    conf_file = conf_path.read_text().splitlines()
+    assert ".git" in os.listdir(default_django.project_path)
 
-    assert (
-        '"""Django Boilerplate documentation Sphinx build configuration file."""'
-        in conf_file
+    git_remote = bake_checker(
+        "git",
+        "remote",
+        "-v",
+        cwd=default_django.project_path,
     )
-    assert '__version__ = "0.1.0"' in conf_file
-    assert 'project = "Django Boilerplate"' in conf_file
-    assert 'copyright = "2021, Mark Sevelj"' in conf_file
-    assert 'author = "Mark Sevelj"' in conf_file
+
+    assert "git@github.com:imAsparky/django-boilerplate.git (fetch)" in git_remote
 
 
-def test_baked_django_init_file(cookies):
+def test_baked_django_without_git_initiated(cookies):
+    """Test Django git init has not generated"""
+    non_default_django = cookies.bake(
+        extra_context={"automatic_set_up_git_and_initial_commit": "n"}
+    )
+
+    assert ".git" not in os.listdir(non_default_django.project_path)
+
+
+def test_baked_django_init_py_file(cookies):
     """Test Django __init__.py file has been generated correctly."""
     default_django = cookies.bake()
 
@@ -388,7 +362,7 @@ def test_baked_django_init_file(cookies):
     assert '"""Initialise django_boilerplate."""' in init_file
 
 
-def test_baked_django_with_mit_license(cookies):
+def test_baked_django_with_license_mit(cookies):
     """Test Django MIT license file has been generated correctly."""
     default_django = cookies.bake(
         extra_context={
@@ -408,7 +382,7 @@ def test_baked_django_with_mit_license(cookies):
     assert "ISC License" not in lic_file
 
 
-def test_baked_django_with_bsd_license(cookies):
+def test_baked_django_with_license_bsd(cookies):
     """Test Django BSD license file has been generated correctly."""
     non_default_django = cookies.bake(
         extra_context={
@@ -428,7 +402,7 @@ def test_baked_django_with_bsd_license(cookies):
     assert "MIT License" not in lic_file
 
 
-def test_baked_django_with_isc_license(cookies):
+def test_baked_django_with_license_isc(cookies):
     """Test Django ISC license file has been generated correctly."""
     non_default_django = cookies.bake(
         extra_context={
@@ -448,7 +422,7 @@ def test_baked_django_with_isc_license(cookies):
     assert "MIT License" not in lic_file
 
 
-def test_baked_django_with_apache_license(cookies):
+def test_baked_django_with_license_apache(cookies):
     """Test Django Apache Software License 2.0 license file has been generated correctly."""
     non_default_django = cookies.bake(
         extra_context={
@@ -468,7 +442,7 @@ def test_baked_django_with_apache_license(cookies):
     assert "MIT License" not in lic_file
 
 
-def test_baked_django_with_gnu_license(cookies):
+def test_baked_django_with_license_gnu(cookies):
     """Test Django GNU General Public License v3 license file has been generated correctly."""
     non_default_django = cookies.bake(
         extra_context={
@@ -616,7 +590,59 @@ def test_baked_django_readme_without_precommit_badge(cookies):
     assert "   :alt: pre-commit" not in readme_file
 
 
-def test_baked_django_settings_file(cookies):
+def test_baked_django_with_semantic_release(cookies):
+    """Test Django semantic-release file has been generated correctly."""
+    default_django = cookies.bake()
+
+    assert "CHANGELOG.md" in os.listdir((default_django.project_path))
+    assert "semantic.yaml" in os.listdir((default_django.project_path / ".github"))
+    assert "semantic_release.yaml" in os.listdir(
+        (default_django.project_path / ".github/workflows")
+    )
+
+    readme_path = default_django.project_path / "README.rst"
+    readme_file = readme_path.read_text().splitlines()
+
+    assert (
+        ".. image:: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg"
+        in readme_file
+    )
+    assert (
+        "   :target: https://python-semantic-release.readthedocs.io/en/latest/"
+        in readme_file
+    )
+    assert "   :alt: Python Sementic Release" in readme_file
+
+
+def test_baked_django_without_semantic_release(cookies):
+    """Test Django semantic-release file has not been generated."""
+    non_default_django = cookies.bake(
+        extra_context={"use_GH_action_semantic_version": "n"}
+    )
+
+    assert "CHANGELOG.md" not in os.listdir((non_default_django.project_path))
+    assert "semantic.yaml" not in os.listdir(
+        (non_default_django.project_path / ".github")
+    )
+    assert "semantic_release.yaml" not in os.listdir(
+        (non_default_django.project_path / ".github/workflows")
+    )
+
+    readme_path = non_default_django.project_path / "README.rst"
+    readme_file = readme_path.read_text().splitlines()
+
+    assert (
+        ".. image:: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg"
+        not in readme_file
+    )
+    assert (
+        "   :target: https://python-semantic-release.readthedocs.io/en/latest/"
+        not in readme_file
+    )
+    assert "   :alt: Python Sementic Release" not in readme_file
+
+
+def test_baked_django_settings_file_ok(cookies):
     """Test Django settings.py file has generated correctly."""
     default_django = cookies.bake()
 
@@ -635,7 +661,7 @@ def test_baked_django_settings_file(cookies):
     assert 'USE_L10N = "True"' in settings_file
 
 
-def test_baked_django_urls_file(cookies):
+def test_baked_django_urls_file_ok(cookies):
     """Test Django urls.py file has generated correctly."""
     default_django = cookies.bake()
 
@@ -645,8 +671,8 @@ def test_baked_django_urls_file(cookies):
     assert '"""django-boilerplate URL Configuration' in urls_file
 
 
-def test_baked_django_wsgi_file(cookies):
-    """Test Django asgi.py file has generated correctly."""
+def test_baked_django_wsgi_file_ok(cookies):
+    """Test Django wsgi.py file has generated correctly."""
     default_django = cookies.bake()
 
     wsgi_path = default_django.project_path / "django_boilerplate/wsgi.py"

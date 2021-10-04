@@ -32,10 +32,17 @@ delivery using GitHub actions.
    :target: https://python-semantic-release.readthedocs.io/en/latest/
    :alt: Python Sementic Release
 
-Django Project Options
-----------------------
+Django Project Creation Options
+-------------------------------
+
+Django Settings
+~~~~~~~~~~~~~~~
 
 #. Quickly configure standard Django settings as you go through options.
+
+Documentation
+~~~~~~~~~~~~~
+
 #. Choose to add documentation using Sphinx with:
 
    #. `Furo`_, a clean modern theme,  with dark and light mode options.
@@ -48,13 +55,27 @@ Django Project Options
 #. A Pre-generated Contributing How-to. Edit to suit your needs.
 #. A `Conventional commits <https://www.conventionalcommits.org/en/v1.0.0/>`_
    style custom commits message template.
+
+GitHub Helpers
+~~~~~~~~~~~~~~
+
 #. A set of four custom GitHub Issues templates to help your users.
+#. Create the local git repository and make the initial commit automatically.
+
+Workflow Helpers
+~~~~~~~~~~~~~~~~
+
 #. Pre-commit for code quality help and a  README badge.
+#. A Python Semantic Release GitHub action.
+
+Communication
+~~~~~~~~~~~~~
+
 #. Choose from five LICENSE types for open source projects.
 #. Choose from three
    `Repository Status Badges <https://www.repostatus.org/#concept>`_.
    Quickly communicate to potential users.
-#. A Python Semantic Release GitHub action.
+
 
 .. _Furo: https://github.com/pradyunsg/furo
 .. _Copy Button: https://sphinx-copybutton.readthedocs.io/en/latest/

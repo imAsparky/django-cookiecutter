@@ -4,7 +4,7 @@ import os
 import subprocess  # nosec
 
 
-def run_me(*args, supress_exception=False, cwd=None):
+def bake_checker(*args, supress_exception=False, cwd=None):
     """Helper to test the django project with the chosen options."""
     cur_dir = os.getcwd()
 
