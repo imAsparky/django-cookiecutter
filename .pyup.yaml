@@ -1,0 +1,34 @@
+# configure updates globally
+# default: all
+# allowed: all, insecure, False
+update: all
+
+# configure dependency pinning globally
+# default: True
+# allowed: True, False
+pin: True
+
+# set the default branch
+# default: empty, the default branch on GitHub
+Default Branch: main
+
+# assign users to pull requests, default is not set
+# requires private repo permissions, even on public repos
+# default: empty
+assignees:
+  - imAsparky
+
+# add a label to pull requests, default is not set
+# requires private repo permissions, even on public repos
+# default: empty
+label_prs: "fix(pyup): Update dependencies"
+
+# allow to close stale PRs
+# default: True
+close_prs: False
+
+requirements:
+  - "requirements_dev.txt"
+  - "docs/requirements.txt"
+  - "{{cookiecutter.git_project_name}}/requirements_dev.txt"
+  - "{{cookiecutter.git_project_name}}/docs/requirements.txt"

@@ -19,6 +19,10 @@ delivery using GitHub actions.
    :alt: Codacy Quality
    :target: https://www.codacy.com/gh/imAsparky/django-cookiecutter/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=imAsparky/django-cookiecutter&amp;utm_campaign=Badge_Grade
 
+.. image:: https://pyup.io/repos/github/imAsparky/django-cookiecutter/shield.svg
+     :target: https://pyup.io/repos/github/imAsparky/django-cookiecutter/
+     :alt: Updates
+
 .. image:: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white
    :target: https://github.com/pre-commit/pre-commit
    :alt: pre-commit
