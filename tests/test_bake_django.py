@@ -569,9 +569,9 @@ def test_baked_django_with_pyup_io(cookies):
     """Test Django pyup.io file has been generated correctly."""
     default_django = cookies.bake()
 
-    assert ".pyup.yaml" in os.listdir(default_django.project_path)
+    assert ".pyup.yml" in os.listdir(default_django.project_path)
 
-    pyup_path = default_django.project_path / ".pyup.yaml"
+    pyup_path = default_django.project_path / ".pyup.yml"
     pyup_file = pyup_path.read_text().splitlines()
 
     assert "  - imAsparky" in pyup_file
@@ -594,7 +594,7 @@ def test_baked_django_without_pyup_io(cookies):
     """Test Django pyup.io file has not been generated."""
     non_default_django = cookies.bake(extra_context={"use_pyup_io": "n"})
 
-    assert ".pyup.yaml" not in os.listdir(non_default_django.project_path)
+    assert ".pyup.yml" not in os.listdir(non_default_django.project_path)
 
     readme_path = non_default_django.project_path / "README.rst"
     readme_file = readme_path.read_text().splitlines()

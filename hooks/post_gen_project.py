@@ -16,7 +16,7 @@ GIT_EMAIL = "{{cookiecutter.github_user_email}}"
 
 REMOVE_FILES = [
     '{% if cookiecutter.use_pyup_io == "n" %} \
-        .pyup.yaml  {% endif %}',
+        .pyup.yml  {% endif %}',
     '{% if cookiecutter.include_sphinx_docs == "n" %} \
         docs {% endif %}',
     '{% if cookiecutter.use_readthedocs == "n" %} \
