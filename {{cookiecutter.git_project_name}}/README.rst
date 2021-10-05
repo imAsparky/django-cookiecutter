@@ -2,7 +2,11 @@
 **{{cookiecutter.project_name}}**
 =================================
 
+|
+
 *{{cookiecutter.project_short_description}}*
+
+|
 
 {%- if cookiecutter.use_repo_status_badge != "n" %}
 .. image:: https://www.repostatus.org/badges/latest/{{cookiecutter.use_repo_status_badge}}.svg
@@ -34,6 +38,8 @@
    :target: https://{{cookiecutter.git_project_name}}.readthedocs.io/en/latest/?badge=latest
    :alt: Documentation Status
 {%- endif %}
+
+|
 
 {%- if cookiecutter.open_source_license != "Not open source" %}
 :License: {{cookiecutter.open_source_license}}

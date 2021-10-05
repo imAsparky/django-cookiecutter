@@ -8,7 +8,7 @@
 Tutorials
 =========
 
-See below for a list of tutorials for Django Cookiecutter.
+See below for a list of tutorials for {{cookiecutter.project_name}}.
 
 
 .. toctree::

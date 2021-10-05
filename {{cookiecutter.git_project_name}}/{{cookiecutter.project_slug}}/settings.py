@@ -87,7 +87,7 @@ AUTHENTICATION_BACKENDS = [
 
     # `allauth` specific authentication methods, such as login by e-mail
     'allauth.account.auth_backends.AuthenticationBackend',
-
+]
 {% endif %}
 
 WSGI_APPLICATION = "{{ cookiecutter.project_slug}}.wsgi.application"
