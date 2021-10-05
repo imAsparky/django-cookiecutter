@@ -2,6 +2,7 @@
 """django-cookiecutter post project generation jobs."""
 import os
 import subprocess  # nosec
+from shutil import rmtree
 
 PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
 
@@ -11,6 +12,40 @@ REMOTE_REPO = "git@github.com:{{cookiecutter.github_username}}/\
 
 GIT_USER = "{{cookiecutter.author_name}}"
 GIT_EMAIL = "{{cookiecutter.github_user_email}}"
+
+
+REMOVE_FILES = [
+    '{% if cookiecutter.use_pyup_io == "n" %} \
+        .pyup.yaml  {% endif %}',
+    '{% if cookiecutter.include_sphinx_docs == "n" %} \
+        docs {% endif %}',
+    '{% if cookiecutter.use_readthedocs == "n" %} \
+        .readthedocs.yaml {% endif %}',
+    '{% if cookiecutter.include_contributor_covenant_code_of_conduct == "n" %} \
+        docs/source/code-of-conduct.rst {% endif %}',
+    '{% if cookiecutter.include_documentation_templates == "n" %} \
+        docs/source/doc-templates {% endif %}',
+    '{% if cookiecutter.include_how_to_contribute_template == "n" %} \
+        docs/source/how-tos/how-to-contribute.rst {% endif %}',
+    '{% if cookiecutter.open_source_license == "Not open source" %} \
+        LICENSE.rst {% endif %}',
+    '{% if cookiecutter.create_conventional_commits_edit_message == "n" %} \
+        .github/.git-commit-template.txt {% endif %}',
+    '{% if cookiecutter.use_pre_commit == "n" %} \
+        .pre-commit-config.yaml {% endif %}',
+    '{% if cookiecutter.use_GH_action_semantic_version == "n" %} \
+        CHANGELOG.md {% endif %}',
+    '{% if cookiecutter.use_GH_action_semantic_version == "n" %} \
+        .github/semantic.yaml {% endif %}',
+    '{% if cookiecutter.use_GH_action_semantic_version == "n" %} \
+        .github/workflows/semantic_release.yaml {% endif %}',
+    '{% if cookiecutter.create_repo_auto_test_workflow == "n" %} \
+        .github/workflows/test_contribution.yaml {% endif %}',
+    '{% if cookiecutter.use_GH_custom_issue_templates == "n" %} \
+        .github/ISSUE_TEMPLATE {% endif %}',
+    '{% if cookiecutter.use_GH_custom_issue_templates == "y" %} \
+        .github/ISSUE_TEMPLATE.md {% endif %}',
+]
 
 # Helper functions
 
@@ -41,20 +76,17 @@ def post_gen_setup(*args, supress_exception=False, cwd=None):
         os.chdir(cur_dir)
 
 
-def recursive_force_delete_a_folder(folder_path):
-    """Recursively force delete a folder. USE WITH CAUTION."""
-    post_gen_setup(
-        "rm",
-        "-rf",
-        folder_path,
-        cwd=PROJECT_DIRECTORY,
-    )
-
-
-def remove_file(filepath):
+def remove_files(filepath):
     """Remove files not required for this generated Django project."""
-    if os.path.exists(os.path.join(PROJECT_DIRECTORY, filepath)):
-        os.remove(os.path.join(PROJECT_DIRECTORY, filepath))
+
+    for path in filepath:
+        path = path.strip()
+        if path and os.path.exists(path):
+            print(path)
+            if os.path.isdir(path):
+                rmtree(path)
+            else:
+                os.unlink(path)
 
 
 # Git functions
@@ -127,33 +159,9 @@ def git_configure_custom_commit_message():
 
 if __name__ == "__main__":
 
-    # Documentation options
-
-    if "{{ cookiecutter.include_sphinx_docs }}" == "n":
-        recursive_force_delete_a_folder("docs")
-
-    if "{{ cookiecutter.use_readthedocs }}" == "n":
-        remove_file(".readthedocs.yaml")
-
-    if (
-        "{{ cookiecutter.include_contributor_covenant_code_of_conduct }}"
-        == "n"
-    ):
-        remove_file("docs/source/code-of-conduct.rst")
-
-    if "{{ cookiecutter.include_documentation_templates }}" == "n":
-        recursive_force_delete_a_folder("docs/source/doc-templates")
-
-    if "{{ cookiecutter.include_how_to_contribute_template }}" == "n":
-        remove_file("docs/source/how-tos/how-to-contribute.rst")
-
-    if "{{ cookiecutter.open_source_license }}" == "Not open source":
-        remove_file("LICENSE.rst")
+    remove_files(REMOVE_FILES)
 
     # Git options
-
-    if "{{ cookiecutter.create_conventional_commits_edit_message }}" == "n":
-        remove_file(".github/.git-commit-template.txt")
 
     if "{{ cookiecutter.automatic_set_up_git_and_initial_commit }}" == "y":
         init_git()
@@ -161,24 +169,3 @@ if __name__ == "__main__":
 
         if "{{ cookiecutter.create_conventional_commits_edit_message}}" == "y":
             git_configure_custom_commit_message()
-
-    if "{{ cookiecutter.use_GH_custom_issue_templates }}" == "y":
-        remove_file(".github/ISSUE_TEMPLATE.md")
-    else:
-        recursive_force_delete_a_folder(".github/ISSUE_TEMPLATE")
-
-    # Workflow options
-
-    if "{{ cookiecutter.use_pre_commit }}" == "n":
-        remove_file(".pre-commit-config.yaml")
-
-    if "{{ cookiecutter.use_GH_action_semantic_version }}" != "y":
-        remove_file("CHANGELOG.md")
-        remove_file(".github/semantic.yaml")
-        remove_file(".github/workflows/semantic_release.yaml")
-
-    if "{{ cookiecutter.create_repo_auto_test_workflow }}" == "n":
-        remove_file(".github/workflows/test_contribution.yaml")
-
-    if "{{ cookiecutter.use_pyup_io }}" == "n":
-        remove_file(".pyup.yaml")
