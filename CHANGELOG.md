@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.15.1 (2021-10-05)
+### Fix
+* **cookie:** Small bug fixes in generated Django #83 ([#84](https://github.com/imAsparky/django-cookiecutter/issues/84)) ([`3e578c9`](https://github.com/imAsparky/django-cookiecutter/commit/3e578c99f5d16783e811a292ad6621a2dac0eda9))
+
 ## v0.15.0 (2021-10-05)
 ### Feature
 * **django:** Add django env DJANGO_SECRET_KEY #80 ([#82](https://github.com/imAsparky/django-cookiecutter/issues/82)) ([`87e4cff`](https://github.com/imAsparky/django-cookiecutter/commit/87e4cffd4c2fba23904a68029d0c6666444ebc3d))
