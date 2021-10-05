@@ -18,4 +18,7 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+{% if cookiecutter.use_django_allauth == "y" %}
+    path('accounts/', include('allauth.urls')),
+{% endif %}
 ]
