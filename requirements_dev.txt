@@ -2,7 +2,7 @@ Django==3.2.7
 
 # Documentation
 
-furo==2021.8.17b43
+furo==2021.9.22
 myst-parser==0.15.1
 pre-commit==2.15.0
 pytest==6.2.5
