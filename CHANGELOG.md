@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.12.2 (2021-10-05)
+### Fix
+* **pyup:** Update myst-parser to 0.15.2 ([#74](https://github.com/imAsparky/django-cookiecutter/issues/74)) ([`2137530`](https://github.com/imAsparky/django-cookiecutter/commit/213753076c2b12f47f4d22970debd4d4cd89aa3a))
+
 ## v0.12.1 (2021-10-04)
 ### Fix
 * **pyup:** Update pr_prefix for Conventional commits #60 ([#61](https://github.com/imAsparky/django-cookiecutter/issues/61)) ([`a95b4a6`](https://github.com/imAsparky/django-cookiecutter/commit/a95b4a62a7166585fac4b384ddb746225432109b))
