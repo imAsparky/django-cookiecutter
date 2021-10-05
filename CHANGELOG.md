@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.14.0 (2021-10-05)
+### Feature
+* **django:** Add use django-allauth option  #79 ([#81](https://github.com/imAsparky/django-cookiecutter/issues/81)) ([`70fc08f`](https://github.com/imAsparky/django-cookiecutter/commit/70fc08f916890f7df08957646c26de0603f37b81))
+
 ## v0.13.0 (2021-10-05)
 ### Feature
 * **django:** Add django-update and pyupgrade to pre-commit #77 ([#78](https://github.com/imAsparky/django-cookiecutter/issues/78)) ([`e28e0cb`](https://github.com/imAsparky/django-cookiecutter/commit/e28e0cbd59dc276ba37b023d73762d5a4146c797))
