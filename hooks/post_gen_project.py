@@ -82,7 +82,6 @@ def remove_files(filepath):
     for path in filepath:
         path = path.strip()
         if path and os.path.exists(path):
-            print(path)
             if os.path.isdir(path):
                 rmtree(path)
             else:
