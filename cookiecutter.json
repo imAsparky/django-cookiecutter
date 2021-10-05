@@ -7,24 +7,21 @@
   "git_project_name": "{{ cookiecutter.project_name.lower().replace(' ', '-').replace('_', '-') }}",
   "project_slug": "{{ cookiecutter.project_name.lower()|replace(' ', '_')|replace('-', '_')|replace('.', '_')|trim() }}",
   "project_short_description": "A Django project with all the boilerplate",
-  "add_contributors_list": ["n", "y"],
   "version": "0.1.0",
-  "use_repo_status_badge": ["no", "concept", "wip", "active"],
+
+    "create_conventional_commits_edit_message": ["y", "n"],
+  "use_GH_custom_issue_templates": ["y", "n"],
+  "automatic_set_up_git_and_initial_commit": ["y", "n"],
+
   "use_pre_commit": ["y", "n"],
-  "use_pyup_io": ["y", "n"],
+  "create_repo_auto_test_workflow": ["y", "n"],
+  "use_GH_action_semantic_version": ["y", "n"],
 
   "include_sphinx_docs": ["y", "n"],
   "use_readthedocs": ["y", "n"],
   "include_documentation_templates":["y", "n"],
   "include_how_to_contribute_template":["y", "n"],
   "include_contributor_covenant_code_of_conduct":["y", "n"],
-
-  "create_conventional_commits_edit_message": ["y", "n"],
-  "create_repo_auto_test_workflow": ["y", "n"],
-  "use_GH_action_semantic_version": ["y", "n"],
-  "use_GH_custom_issue_templates": ["y", "n"],
-  "automatic_set_up_git_and_initial_commit": ["y", "n"],
-  "open_source_license": ["MIT license", "BSD license", "ISC license", "Apache Software License 2.0", "GNU General Public License v3", "Not open source"],
 
   "ALLOWED_HOSTS": "www.example.com",
   "DEBUG": "False",
@@ -36,6 +33,11 @@
   "USE_I18N": "True",
   "SITE_ID": "1",
   "use_django_allauth": ["y", "n"],
+
+
+  "use_repo_status_badge": ["no", "concept", "wip", "active"],
+  "use_pyup_io": ["y", "n"],
+  "open_source_license": ["MIT license", "BSD license", "ISC license", "Apache Software License 2.0", "GNU General Public License v3", "Not open source"],
 
   "_copy_without_render": [
         ".pre-commit-config.yaml",
