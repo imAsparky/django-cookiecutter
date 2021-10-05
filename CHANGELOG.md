@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.13.0 (2021-10-05)
+### Feature
+* **django:** Add django-update and pyupgrade to pre-commit #77 ([#78](https://github.com/imAsparky/django-cookiecutter/issues/78)) ([`e28e0cb`](https://github.com/imAsparky/django-cookiecutter/commit/e28e0cbd59dc276ba37b023d73762d5a4146c797))
+
 ## v0.12.3 (2021-10-05)
 ### Fix
 * **pyup:** Pyup extension should be yml #75 ([#76](https://github.com/imAsparky/django-cookiecutter/issues/76)) ([`bd6490a`](https://github.com/imAsparky/django-cookiecutter/commit/bd6490aab8fd740154f38682310a96224b2d6b99))
