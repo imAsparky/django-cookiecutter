@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.15.0 (2021-10-05)
+### Feature
+* **django:** Add django env DJANGO_SECRET_KEY #80 ([#82](https://github.com/imAsparky/django-cookiecutter/issues/82)) ([`87e4cff`](https://github.com/imAsparky/django-cookiecutter/commit/87e4cffd4c2fba23904a68029d0c6666444ebc3d))
+
 ## v0.14.0 (2021-10-05)
 ### Feature
 * **django:** Add use django-allauth option  #79 ([#81](https://github.com/imAsparky/django-cookiecutter/issues/81)) ([`70fc08f`](https://github.com/imAsparky/django-cookiecutter/commit/70fc08f916890f7df08957646c26de0603f37b81))
