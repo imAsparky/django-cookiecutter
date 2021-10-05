@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.12.3 (2021-10-05)
+### Fix
+* **pyup:** Pyup extension should be yml #75 ([#76](https://github.com/imAsparky/django-cookiecutter/issues/76)) ([`bd6490a`](https://github.com/imAsparky/django-cookiecutter/commit/bd6490aab8fd740154f38682310a96224b2d6b99))
+
 ## v0.12.2 (2021-10-05)
 ### Fix
 * **pyup:** Update myst-parser to 0.15.2 ([#74](https://github.com/imAsparky/django-cookiecutter/issues/74)) ([`2137530`](https://github.com/imAsparky/django-cookiecutter/commit/213753076c2b12f47f4d22970debd4d4cd89aa3a))
