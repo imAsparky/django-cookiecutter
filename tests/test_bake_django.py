@@ -15,6 +15,78 @@ def test_django_bakes_ok_with_defaults(cookies):
     assert default_django.project_path.name == "django-boilerplate"
 
 
+def test_baked_django_with_allauth_settings_ok(cookies):
+    """Test Django allauth settings file has been generated correctly."""
+    default_django = cookies.bake()
+
+    settings_path = default_django.project_path / "django_boilerplate/settings.py"
+    settings_file = settings_path.read_text().splitlines()
+
+    assert '    "allauth",' in settings_file
+
+    assert '    "allauth.account",' in settings_file
+    assert '    "allauth.socialaccount",' in settings_file
+    assert (
+        '                "django.template.context_processors.request",' in settings_file
+    )
+
+
+def test_baked_django_without_allauth_settings_ok(cookies):
+    """Test Django allauth settings file has not been generated."""
+    non_default_django = cookies.bake(extra_context={"use_django_allauth": "n"})
+
+    settings_path = non_default_django.project_path / "django_boilerplate/settings.py"
+    settings_file = settings_path.read_text().splitlines()
+
+    assert '    "allauth",' not in settings_file
+
+    assert '    "allauth.account",' not in settings_file
+    assert '    "allauth.socialaccount",' not in settings_file
+    assert (
+        '                "django.template.context_processors.request",' in settings_file
+    )
+
+
+def test_baked_django_with_allauth_requirements_ok(cookies):
+    """Test Django allauth requirements_dev file entry has been generated."""
+    default_django = cookies.bake()
+
+    requirements_path = default_django.project_path / "requirements_dev.txt"
+    requirements_file = requirements_path.read_text().splitlines()
+
+    assert "django-allauth==0.45.0" in requirements_file
+
+
+def test_baked_django_without_allauth_requirements_ok(cookies):
+    """Test Django allauth requirements_dev file entry has not been generated."""
+    non_default_django = cookies.bake(extra_context={"use_django_allauth": "n"})
+
+    requirements_path = non_default_django.project_path / "requirements_dev.txt"
+    requirements_file = requirements_path.read_text().splitlines()
+
+    assert "django-allauth==0.45.0" not in requirements_file
+
+
+def test_baked_django_with_allauth_url_ok(cookies):
+    """Test Django allauth url.py file entry has been generated."""
+    default_django = cookies.bake()
+
+    url_path = default_django.project_path / "django_boilerplate/urls.py"
+    url_file = url_path.read_text().splitlines()
+
+    assert "    path('accounts/', include('allauth.urls'))," in url_file
+
+
+def test_baked_django_without_allauth_url_ok(cookies):
+    """Test Django allauth url.py file entry has not been generated."""
+    non_default_django = cookies.bake(extra_context={"use_django_allauth": "n"})
+
+    url_path = non_default_django.project_path / "django_boilerplate/urls.py"
+    url_file = url_path.read_text().splitlines()
+
+    assert "    path('accounts/', include('allauth.urls'))," not in url_file
+
+
 def test_baked_django_asgi_file_ok(cookies):
     """Test Django asgy.py file has been generated correctly."""
     default_django = cookies.bake()

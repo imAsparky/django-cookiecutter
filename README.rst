@@ -1,6 +1,6 @@
-=======================
-**Django Cookiecutter**
-=======================
+===========================
+**Django 3.2 Cookiecutter**
+===========================
 
 .. image:: ./docs/source/_static/imgs/logo/logo-django-cookiecutter-1280x640.png
    :alt:
@@ -42,7 +42,17 @@ Django Project Creation Options
 Django Settings
 ~~~~~~~~~~~~~~~
 
-#. Quickly configure standard Django settings as you go through options.
+#. Quickly configure common `Django settings`_ as you setup your project.
+
+.. _Django settings: https://docs.djangoproject.com/en/3.2/ref/settings/
+
+
+Django Options
+~~~~~~~~~~~~~~
+
+#. Choose to use `Django-allauth`_ for authentication.
+
+.. _Django-allauth: https://django-allauth.readthedocs.io/en/latest/installation.html
 
 Documentation
 ~~~~~~~~~~~~~
@@ -54,17 +64,20 @@ Documentation
    #. `Inline Tabs`_ to group similar items.
    #. Use markdown or restructured text.
 #. Deploy to `Read the Docs`_.
-#. A documentation framework with templates using the
-   `Diátaxis framework <https://junction-box.readthedocs.io/en/latest/Document-Framework/diataxis-intro.html>`_.
+#. A documentation framework with templates using the `Diátaxis framework`_
 #. A Pre-generated Contributing How-to. Edit to suit your needs.
+
+.. _Diátaxis framework: https://junction-box.readthedocs.io/en/latest/Document-Framework/diataxis-intro.html
 
 GitHub Helpers
 ~~~~~~~~~~~~~~
 
 #. A set of four custom GitHub Issues templates to help your users.
 #. Create the local git repository and make the initial commit automatically.
-#. A `Conventional commits <https://www.conventionalcommits.org/en/v1.0.0/>`_
+#. A `Conventional commits`_
    style custom commits message template.
+
+.. _Conventional commits: https://www.conventionalcommits.org/en/v1.0.0/
 
 Workflow Helpers
 ~~~~~~~~~~~~~~~~
@@ -77,8 +90,7 @@ Communication
 ~~~~~~~~~~~~~
 
 #. Choose from five LICENSE types for open source projects.
-#. Choose from three
-   `Repository Status Badges <https://www.repostatus.org/#concept>`_.
+#. Choose from three `Repository Status Badges`_.
    Quickly communicate to potential users.
 
 
@@ -86,6 +98,7 @@ Communication
 .. _Copy Button: https://sphinx-copybutton.readthedocs.io/en/latest/
 .. _Inline Tabs: https://sphinx-inline-tabs.readthedocs.io/en/latest/
 .. _Read the Docs: https://readthedocs.org/
+.. _Repository Status Badges: https://www.repostatus.org/#concept
 
 Contributing
 ------------
