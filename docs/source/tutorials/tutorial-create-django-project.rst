@@ -438,6 +438,19 @@ will look something like this.
         └── pyvenv.cfg
 
 
+.. include:: tutorial-segment-create-env-variable.rst
+
+Test Your Project
+-----------------
+
+.. code-block:: bash
+
+    python3 manage.py runserver
+
+
+Congratulations, you have created your new Django project.
+
+
 Whats next?
 -----------
 

@@ -76,7 +76,10 @@ Where options are in a list, the first item is the default setting.
 GitHub Tools
 -------------
 
-** Initialise your local git requires Git v2.33.0 or above. **
+
+.. caution::
+
+    **Initialise your local git requires Git v2.33.0 or above.**
 
 "automatic_set_up_git_and_initial_commit": ["y", "n"]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
