@@ -1,4 +1,3 @@
-.. include:: /extras.rst.txt
 .. highlight:: rst
 .. index:: cookie-create-pkg ; Index
 
@@ -274,9 +273,9 @@ You will see something like this in your CLI.
     text-unidecode==1.3
     urllib3==1.26.7
 
-.. _create_package:
-Create Your Package
--------------------
+.. _create_django-project:
+Create Your Django Project
+--------------------------
 
 In your projects folder, use the following command.
 
@@ -291,9 +290,9 @@ If you're unsure or don't know what to enter, stick with the defaults.
 See :ref:`Quickstart How-to<django-quickstart>` for more details about the
 django-cookiecutter options.
 
-.. _an-example-package:
-An Example Package
-------------------
+.. _an-example-django:
+An Example Django Project
+-------------------------
 
 .. code-block:: cmd
     :caption: **An example package created with some non default selections**
@@ -301,13 +300,13 @@ An Example Package
       (my_env) dev@aps1:~/projects$cookiecutter
       https://github.com/imAsparky/django-cookiecutter
       author_name [Mark Sevelj]:
-      email [mark@example.com]:
+      email [mark@example.com]: mark@example.com
       github_username [imAsparky]:
       github_user_email [mark@example.com]:
-      project_name [Django Boilerplate]:
-      git_project_name [django-boilerplate]:
-      project_slug [django_boilerplate]:
-      project_short_description [A Django project with all the boilerplate]:
+      project_name [Django Boilerplate]: My New Django
+      git_project_name [my-new-django]:
+      project_slug [my_new_django]:
+      project_short_description [A Django project with all the boilerplate]: An example Django Project for django-cookiecutter
       version [0.1.0]:
       Select create_conventional_commits_edit_message:
       1 - y
@@ -371,7 +370,7 @@ An Example Package
       2 - concept
       3 - wip
       4 - active
-      Choose from 1, 2, 3, 4 [1]: 2   (NON DEFAULT)
+      Choose from 1, 2, 3, 4 [1]: 2  (NON DEFAULT)
       Select use_pyup_io:
       1 - y
       2 - n
@@ -394,9 +393,9 @@ An Example Package
 
   .. code-block:: cmd
 
-    project_name [Django Boilerplate]:
-    git_project_name [django-boilerplate]:
-    project_slug [django_boilerplate]:
+    project_name [Django Boilerplate]: My New Django
+    git_project_name [my-new-django]:
+    project_slug [my_new_django]:
 
 
 .. new-folder-structure::
@@ -409,7 +408,7 @@ will look something like this.
 .. code-block:: cmd
 
   projects
-    ├── django-boilerplate
+    ├── my-new-django
     │   ├── .git
     │   ├── .github
     │   ├── .pre-commit-config.yaml
@@ -419,7 +418,7 @@ will look something like this.
     │   ├── LICENSE.rst
     │   ├── pytest.ini
     │   ├── README.rst
-    │   ├── django_boilerplate
+    │   ├── my_new_django
     │   │   ├── __init__.py
     │   │   ├── asgi.py
     │   │   ├── settings.py
@@ -427,7 +426,6 @@ will look something like this.
     │   │   └── wsgi.py
     │   │
     │   ├── docs
-    │   ├── tests
     │   ├── tox.ini
     │   ├── manage.py
     │   └── requirements_dev.txt

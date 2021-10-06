@@ -13,3 +13,6 @@ See below for a list of tutorials for Django Cookiecutter.
 
 .. toctree::
    :titlesonly:
+
+   tutorial-create-django-project
+   tutorial-git-first-push
