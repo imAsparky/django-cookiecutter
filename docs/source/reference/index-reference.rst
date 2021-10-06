@@ -13,3 +13,5 @@ See below for a list of reference material for Django Cookiecutter.
 
 .. toctree::
    :titlesonly:
+
+   reference-project-inputs
