@@ -2,6 +2,16 @@
 
 <!--next-version-placeholder-->
 
+## v0.15.2 (2021-10-06)
+### Fix
+* **pyup:**  Update django to 3.2.8 ([#95](https://github.com/imAsparky/django-cookiecutter/issues/95)) ([`e9f3bdc`](https://github.com/imAsparky/django-cookiecutter/commit/e9f3bdc366eca608e194f69896e285c71f61d156))
+
+### Documentation
+* **reference:** Move options from How-to to Reference #92 ([#93](https://github.com/imAsparky/django-cookiecutter/issues/93)) ([`ea11ad0`](https://github.com/imAsparky/django-cookiecutter/commit/ea11ad074b3ba7449d744ba1d003afaa4ff19bd3))
+* **tutorial:** Add Git First Django project push #90 ([#91](https://github.com/imAsparky/django-cookiecutter/issues/91)) ([`2cc8ba0`](https://github.com/imAsparky/django-cookiecutter/commit/2cc8ba0bbc6fb60fe98feb8c53efed82bab7eb39))
+* **tutorial:** Add Create  Django Cookiecutter #88 ([#89](https://github.com/imAsparky/django-cookiecutter/issues/89)) ([`61c5865`](https://github.com/imAsparky/django-cookiecutter/commit/61c58654f94091fb5e0dbaee3917e4f50746240d))
+* **cookie:** Add how-to quickstart Django Cookiecutter #85 ([#86](https://github.com/imAsparky/django-cookiecutter/issues/86)) ([`ed21db8`](https://github.com/imAsparky/django-cookiecutter/commit/ed21db87a86d049853de00df511051b77553d07a))
+
 ## v0.15.1 (2021-10-05)
 ### Fix
 * **cookie:** Small bug fixes in generated Django #83 ([#84](https://github.com/imAsparky/django-cookiecutter/issues/84)) ([`3e578c9`](https://github.com/imAsparky/django-cookiecutter/commit/3e578c99f5d16783e811a292ad6621a2dac0eda9))
