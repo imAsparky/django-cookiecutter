@@ -59,4 +59,4 @@
 
 
 Built with
-`Django Cookicutter <https://github.com/imAsparky/django-cookiecutter>`_
+`Django Cookiecutter <https://github.com/imAsparky/django-cookiecutter>`_
