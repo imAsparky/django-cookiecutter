@@ -160,6 +160,35 @@ django-cookiecutter project options.
         └── my-new-django
 
 
+Install Dependencies
+--------------------
+
+
+Change into your project directory.
+
+
+.. code-block:: bash
+
+    cd <your django project folder>
+
+
+Install dependencies.
+
+.. code-block:: bash
+
+    pip install -r requirements_dev.txt
+
+
+.. include:: ../tutorials/tutorial-segment-create-env-variable.rst
+
+Test Your Project
+-----------------
+
+.. code-block:: bash
+
+    python3 manage.py runserver
+
+
 Congratulations, you have created your new Django project.
 
 Depending on your chosen options, there are several ways to proceed with
