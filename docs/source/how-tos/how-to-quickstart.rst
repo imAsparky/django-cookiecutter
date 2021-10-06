@@ -1,34 +1,20 @@
+.. include:: /extras.rst.txt
 .. highlight:: rst
-.. index:: django-proj-quickstart ; Index
+.. index:: how-to-quickstart ; Index
 
-.. _django-quickstart:
-==============================
-Django Cookiecutter Quickstart
-==============================
+.. _how-to-quickstart:
+=================
+How-to Quickstart
+=================
 
+See :ref:`Reference Project Inputs<project-inputs>` for all information
+collected to create a new django-cookiecutter project.
 
-A new Django Cookiecutter Project requires some information to customise your
-new project.  If unsure, choose the default option.
+Create a GitHub Repository
+--------------------------
 
-Project Level Inputs
---------------------
-
-The following items appear in various parts of your Django Project.
-
-author_name
-~~~~~~~~~~~
-
-Your full name.
-
-email
-~~~~~
-
-Your email address.
-
-github_username
-~~~~~~~~~~~~~~~
-
-Your GitHub username.
+Your new GitHub repository information is required to generate
+your django-cookiecutter in these steps.
 
 project_name
 ~~~~~~~~~~~~
@@ -36,206 +22,150 @@ project_name
 The name of your new Django project,  used in the documentation,
 so spaces and any characters are acceptable here.
 
-git_project_name
-~~~~~~~~~~~~~~~~
-
-Your previously created GitHub project repository name.
-
-If it is the same as your project_name but with hyphens instead of spaces,
-leave this blank.  Cookiecutter will generate your GitHub repository name
-with hyphens.
-
-If it is different to your project name, enter your  GitHub repository here.
-
-project_slug
-~~~~~~~~~~~~
-
-project_slug is the namespace of your Django project. The project_slug should
-be Python import-friendly.  Typically, it is the slugified version of
-project_name.
+Typically the repository name in sentence form.
 
 project_short_description
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 A  sentence describes your Django project.
 
-version
-~~~~~~~
-
-The first version number.  The version number appears in the documentation
-and semantic version release.
+Typically the repository description.
 
 
-Options
--------
+Create Virtual Environment
+--------------------------
 
-The following Django Cookiecutter configuration options are grouped logically.
+**Select the tab for your preferred Operating System.**
 
-Where options are in a list, the first item is the default setting.
+.. tab:: Linux
 
-GitHub Tools
--------------
+    .. code-block:: bash
+        :caption: **bash/zsh**
 
-** Initialise your local git requires Git v2.33.0 or above. **
+        python3 -m venv venv
+        source venv/bin/acivate
+        pip install --upgrade pip
 
-"automatic_set_up_git_and_initial_commit": ["y", "n"]
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Automatically create the local repository and make the first commit after
-your project generation.
-
-You can check this on the command line with
-
-.. code-block:: bash
-    git reflog
-
-"create_conventional_commits_edit_message": ["y", "n"]
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Use a commit message template in the style of `Conventional Commits`_ .
-
-.. important::
-
-    If you choose yes, and are NOT using  "automatic_set_up_git_and_initial_commit" run the following command after manually
-    initiating git to let git know you are using a custom template.
+    You will have a folder structure similar to this.
 
     .. code-block:: bash
 
-        git config --local commit.template .github/.git-commit-template.txt
-
-"use_GH_custom_issue_templates": ["y", "n"]
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Four custom GitHub issue templates to assist users in providing the
-necessary information. Templates are
-
-#. Bug Report.
-#. Feature Request.
-#. Documentation Request.
-#. Chore Request.
-
-See the typical template markdown file settings below for a feature request.
-
-.. code-block:: yaml
-
-    ---
-    name: Feature request
-    about: Suggest an idea for this project
-    title: "[FEAT]:"
-    labels: enhancement
-    assignees: { { cookiecutter.github_username } }
-    ---
-
-If you prefer, a simple issue template is available for use with all
-issues if you choose `no` for this feature.
+            projects
+            └── venv
 
 
-Workflow Tools
---------------
+.. tab:: macOS
 
-"use_pre_commit": ["y", "n"]
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Use pre-commit with some sensible options.  Configure to your needs after
-project generation.
+    .. code-block:: bash
+        :caption: **bash/zsh**
 
-"create_repo_auto_test_workflow": ["y", "n"]
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        python3 -m venv venv
+        source venv/bin/acivate
+        pip install --upgrade pip
 
-Tox testing is built-in.  Use this workflow, and GitHub protected branches,
-to ensure all contributed code passes the test suite before it can merge with
-your main branch.
+    You will have a folder structure similar to this.
 
-"use_GH_action_semantic_version": ["y", "n"]
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    .. code-block:: bash
 
-Use this GitHub workflow to automatically update the semantic version number
-after a merge to the main branch.  The semantic version utilises Python
-Semantic Release.  This workflow requires a GitHub secret key, `SEM_VER`.
+            projects
+            └── venv
 
-Django Settings
----------------
+.. tab:: Windows
 
-"ALLOWED_HOSTS": "www.example.com",
+    If you have installed Python in your PATH and PATHEXT.
 
-"DEBUG": "False",
+    .. code-block:: bash
+        :caption: **cmd/PowerShell**
 
-"INTERNAL_IPS": "127.0.0.1",
+        python3 -m venv venv
 
-"LANGUAGE_CODE": "en-au",
+        C:\> venv\Scripts\activate.bat  # cmd.exe
+        PS C:\> venv\Scripts\Activate.ps1 # Powershell
 
-"LANGUAGES": "hi",
+        pip install --upgrade pip
 
-"TIME_ZONE": "UTC",
+    Otherwise use
 
-"USE_L10N": "True",
+    .. code-block:: bash
+        :caption: **cmd/PowerShell**
 
-"USE_I18N": "True",
+        c:\>c:\Python36\python -m venv c:\path\to\packages\my_env
+        PS C:\> <venv>\Scripts\Activate.ps1
 
-"SITE_ID": "1",
+        C:\> venv\Scripts\activate.bat  # cmd.exe
+        PS C:\> venv\Scripts\Activate.ps1 # Powershell
 
-See `Django Settings`_ for more information.
+        pip install --upgrade pip
 
-Documentation
----------------
+    You will have a folder structure similar to this.
 
-"include_sphinx_docs": ["y", "n"]
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    .. code-block:: bash
 
-Include Sphinx documentation folder structure and tools to
-generate documentation.
+            projects
+            └── venv
 
-"use_readthedocs": ["y", "n"]
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. _quick_install-cookiecutter:
+Install Cookiecutter
+--------------------
 
-Deploy your documentation to Read the Docs.  Includes generating a badge on
-your README.
+Firstly it's advisable to upgrade pip using the following command.
 
-"include_documentation_templates":["y", "n"]
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. code-block:: bash
+    :caption: **Linux, macOS and Windows**
 
-`Diátaxis`_ framework templated documentation.  sections with index's.
+    pip install --upgrade pip
 
-"include_how_to_contribute_template":["y", "n"]
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+You will see something like this in your CLI.
 
-A completed How-To contribute template that only needs fine-tuning to your
-contributing requirements.
+.. code-block:: cmd
 
-"include_contributor_covenant_code_of_conduct":["y", "n"]
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Requirement already satisfied: pip in ./my_env/lib/python3.9/site-packages (21.2.3)
+    Collecting pip
+     Using cached pip-21.2.4-py3-none-any.whl (1.6 MB)
+    Installing collected packages: pip
+      Attempting uninstall: pip
+        Found existing installation: pip 21.2.3
+        Uninstalling pip-21.2.3:
+          Successfully uninstalled pip-21.2.3
+    Successfully installed pip-21.2.4
 
-Include a code of conduct.
+Install cookiecutter_ into your virtual environment.
 
-Communication
--------------
+.. code-block:: bash
+    :caption: **Linux, macOS and Windows**
 
-"use_repo_status_badge": ["no", "concept", "wip", "active"]
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    pip install cookiecutter
 
-Let people know what stage your Django project is with a README badge.
+Start Django Cookiecutter
+-------------------------
 
-"use_pyup_io": ["y", "n"]
-~~~~~~~~~~~~~~~~~~~~~~~~~
+In your projects folder, use the following command.
 
-Let people know your dependency status with a README badge.
-Requires a `Pyup.io`_ account linked to your GitHub project repository.
+.. code-block:: bash
+    :caption: **Linux, macOS and Windows**
 
-"open_source_license":
-~~~~~~~~~~~~~~~~~~~~~~
+    cookiecutter https://github.com/imAsparky/django-cookiecutter
 
-[
-    1. MIT License,
-    2. BSD license,
-    3. ISC license,
-    4. Apache Software License 2.0,
-    5. GNU General Public License v3,
-    6. Not open source
-]
+Cookiecutter will ask questions to set your package up.
+If you're unsure or don't know what to enter, stick with the defaults.
 
-Let people know about this project license arrangements.
+See :ref:`Reference-Inputs<project-inputs>` for more details about the
+django-cookiecutter project options.
 
-.. _Pyup.io: https://github.com/pyupio/pyup
-.. _Conventional Commits: https://www.conventionalcommits.org/en/v1.0.0/
-.. _Django Settings: https://docs.djangoproject.com/en/3.2/ref/settings/
-.. _Diátaxis:  https://junction-box.readthedocs.io/en/latest/Document-Framework/diataxis-intro.html
+.. code-block:: bash
+
+    projects
+        ├── venv
+        └── my-new-django
+
+
+Congratulations, you have created your new Django project.
+
+Depending on your chosen options, there are several ways to proceed with
+pushing to GitHub.  If you are unsure, see our
+:ref:`git push tutorial<create-first-git-push>` for more information.
+
+
+
+.. _cookiecutter: https://cookiecutter.readthedocs.io/en/1.7.2/README.html

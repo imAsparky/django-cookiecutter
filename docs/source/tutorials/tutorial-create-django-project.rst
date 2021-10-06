@@ -287,8 +287,8 @@ In your projects folder, use the following command.
 Cookiecutter will ask questions to set your package up.
 If you're unsure or don't know what to enter, stick with the defaults.
 
-See :ref:`Quickstart How-to<django-quickstart>` for more details about the
-django-cookiecutter options.
+See :ref:`Reference-Inputs<project-inputs>` for more details about the
+django-cookiecutter project options.
 
 .. _an-example-django:
 An Example Django Project
