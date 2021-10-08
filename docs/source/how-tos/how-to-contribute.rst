@@ -3,9 +3,9 @@
 .. index:: contribute-how-to ; Index
 
 .. _contribute-how-to:
-====================
-Contributing How-to
-====================
+============
+Contributing
+============
 
 **4 minute read.**
 

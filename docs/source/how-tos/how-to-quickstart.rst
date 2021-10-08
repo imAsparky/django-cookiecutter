@@ -3,9 +3,9 @@
 .. index:: how-to-quickstart ; Index
 
 .. _how-to-quickstart:
-=================
-How-to Quickstart
-=================
+==========
+Quickstart
+==========
 
 See :ref:`Reference Project Inputs<project-inputs>` for all information
 collected to create a new django-cookiecutter project.

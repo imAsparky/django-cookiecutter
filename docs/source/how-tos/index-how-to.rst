@@ -4,9 +4,9 @@
 
 
 .. _how-to-index:
-============
-How-To Index
-============
+======
+How-To
+======
 
 See below for a list of How-To for Django Cookiecutter.
 
