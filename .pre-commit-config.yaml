@@ -45,6 +45,7 @@ repos:
     rev: v2.10.2
     hooks:
       - id: pylint
+        args: ["--enable=W0614"]
 
   - repo: https://github.com/psf/black
     rev: 21.8b0

@@ -3,7 +3,6 @@
 import datetime
 import os
 from test_helper import bake_checker
-from cookiecutter import exceptions
 
 
 def test_django_bakes_ok_with_defaults(cookies):

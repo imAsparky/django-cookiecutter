@@ -13,3 +13,5 @@ See below for a list of discussion material for Django Cookiecutter.
 
 .. toctree::
    :titlesonly:
+
+   discussion-settings-12factor
