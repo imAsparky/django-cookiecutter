@@ -24,13 +24,13 @@
   "include_contributor_covenant_code_of_conduct":["y", "n"],
 
   "ALLOWED_HOSTS": "www.example.com",
-  "DEBUG": "False",
+  "DEBUG": ["False", "True"],
   "INTERNAL_IPS": "127.0.0.1",
-  "LANGUAGE_CODE": "en-au",
-  "LANGUAGES": "hi",
+  "LANGUAGE_CODE": "en",
+  "LANGUAGES": "en, hi",
   "TIME_ZONE": "UTC",
-  "USE_L10N": "True",
-  "USE_I18N": "True",
+  "USE_L10N": ["True", "False"],
+  "USE_I18N": ["True", "False"],
   "SITE_ID": "1",
   "use_django_allauth": ["y", "n"],
 

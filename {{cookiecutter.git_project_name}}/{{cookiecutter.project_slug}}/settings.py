@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+from django.utils.translation import ugettext_lazy as _
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,10 +21,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ("DJANGO_SECRET_KEY")
+SECRET_KEY = os.environ.get(
+    'DJANGO_SECRET_KEY', '!!!SET DJANGO_SECRET_KEY!!!')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = "{{cookiecutter.DEBUG}}"
+DEBUG = {% if cookiecutter.DEBUG == 'True' %}True{% else %}False{% endif %}
 
 ALLOWED_HOSTS = ["{{cookiecutter.ALLOWED_HOSTS}}"]
 
@@ -36,17 +38,23 @@ INSTALLED_APPS = [
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
+    "django.contrib.sites",
     "django.contrib.messages",
     "django.contrib.staticfiles",
 {% if cookiecutter.use_django_allauth == "y" %}
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
+
+    'allauth.socialaccount.providers.github',
+    'allauth.socialaccount.providers.google',
 {% endif %}
 ]
-
-SITE_ID = "{{cookiecutter.SITE_ID}}"
-
+{% if cookiecutter.SITE_ID == "1" %}
+SITE_ID = 1
+{% else %}
+SITE_ID = {{cookiecutter.SITE_ID}}
+{% endif %}
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -78,7 +86,6 @@ TEMPLATES = [
         },
     },
 ]
-
 {% if cookiecutter.use_django_allauth == "y" %}
 AUTHENTICATION_BACKENDS = [
 
@@ -89,9 +96,7 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 {% endif %}
-
 WSGI_APPLICATION = "{{ cookiecutter.project_slug}}.wsgi.application"
-
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
@@ -102,7 +107,6 @@ DATABASES = {
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -122,25 +126,53 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
+{%- set language_labels = ({
+    "en": "English",
+    "cn": "Chinese",
+    "fr": "French",
+    "de": "German",
+    "hi": "Hindi",
+    "it": "Italian",
+    "jp": "Japanese",
+    "ru": "Russian",
+    "es": "Spanish",
+}) %}
+{% if cookiecutter.USE_I18N == "True" %}
+{% if cookiecutter.USE_L10N == "True" %}
+USE_L10N = True
+{% else %}
+USE_L10N = False
+{% endif %}
+USE_I18N = True
 
 LANGUAGE_CODE = "{{cookiecutter.LANGUAGE_CODE}}"
 
-LANGUAGES = "{{cookiecutter.LANGUAGES}}"
+{%- with languages = cookiecutter.LANGUAGES.replace(' ', '').split(',') %}
 
-TIME_ZONE = "{{cookiecutter.TIME_ZONE}}"
-
-USE_I18N = "{{cookiecutter.USE_I18N}}"
-
-USE_L10N = "{{cookiecutter.USE_L10N}}"
+LANGUAGES = [{% for language in languages %}
+    ('{{ language }}', _("{{ language_labels[language] }}")),{% endfor %}
+]
+{% endwith %}
 
 USE_TZ = True
 
 TIME_ZONE = "{{cookiecutter.TIME_ZONE}}"
+{% else %}
+{% if cookiecutter.USE_L10N == "True" %}
+USE_L10N = True
+{% else %}
+USE_L10N = False
+{% endif %}
+USE_I18N = False
 
+LANGUAGE_CODE = "{{cookiecutter.LANGUAGE_CODE}}"
 
+USE_TZ = True
+
+TIME_ZONE = "{{cookiecutter.TIME_ZONE}}"
+{% endif %}
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 

@@ -36,12 +36,12 @@ for language in LANGUAGES:
     )
 
 # fmt: off
-if "{{ cookiecutter.USE_I18N }}" == "y":
-    assert (   # nosec
-        len(LANGUAGES) > 0
-    ), "'USE_I18N' True with empty LANGUAGES list."
-else:
-    assert (  # nosec
-        len(LANGUAGES) == 1
-    ), "'USE_I18N' False with entries in LANGUAGES list."
+# if "{{ cookiecutter.USE_I18N }}" == "True":
+#     assert (   # nosec
+#         len(LANGUAGES) > 0
+#     ), "Pregen-error: 'USE_I18N' True with empty LANGUAGES list."
+# else:
+#     assert (  # nosec
+#         len(LANGUAGES) <= 1
+#     ), "Pregen-error: 'USE_I18N' False with entries in LANGUAGES list."
 # fmt: on
