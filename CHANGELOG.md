@@ -2,6 +2,13 @@
 
 <!--next-version-placeholder-->
 
+## v0.15.3 (2021-10-08)
+### Fix
+* **django:** Settings file updated to remove errors #94 ([#98](https://github.com/imAsparky/django-cookiecutter/issues/98)) ([`eda653f`](https://github.com/imAsparky/django-cookiecutter/commit/eda653fcf5c67c32bf0464447b694853362ae5e5))
+
+### Documentation
+* **cookie:** Add create Django Secret key env var #96 ([#97](https://github.com/imAsparky/django-cookiecutter/issues/97)) ([`dd5516d`](https://github.com/imAsparky/django-cookiecutter/commit/dd5516d2a4a7acc6c2e546ea63dc50125d233ac3))
+
 ## v0.15.2 (2021-10-06)
 ### Fix
 * **pyup:**  Update django to 3.2.8 ([#95](https://github.com/imAsparky/django-cookiecutter/issues/95)) ([`e9f3bdc`](https://github.com/imAsparky/django-cookiecutter/commit/e9f3bdc366eca608e194f69896e285c71f61d156))
