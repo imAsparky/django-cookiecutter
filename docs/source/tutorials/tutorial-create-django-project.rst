@@ -170,7 +170,7 @@ Firstly it's advisable to upgrade pip using the following command.
 
     pip install --upgrade pip
 
-You will see something like this in your CLI.
+You will see something similar to this in your CLI.
 
 .. code-block:: cmd
 
@@ -192,7 +192,7 @@ Install cookiecutter_ into your virtual environment.
     pip install cookiecutter
 
 
-You will see something like this in your CLI.
+You will see something similar to this in your CLI.
 
 .. code-block:: cmd
 
@@ -250,7 +250,7 @@ Check new packages installed into your virtual environment.
 
     pip freeze
 
-You will see something like this in your CLI.
+You will see something similar to this in your CLI.
 
 .. code-block:: cmd
 
@@ -403,7 +403,7 @@ Folder Structure
 ----------------
 
 If you have been following along the Tutorial order, your directory structure
-will look something like this.
+will look something similar to this.
 
 .. code-block:: cmd
 
@@ -440,13 +440,104 @@ will look something like this.
 
 .. include:: tutorial-segment-create-env-variable.rst
 
-Test Your Project
------------------
+Test Your Project Locally
+-------------------------
+
+This test uses the default DB SQLite database shipped with Django.
+
+In the root directory, the one with the manage.py file, type the
+following commands.
 
 .. code-block:: bash
 
-    python3 manage.py runserver
+    python3 manage.py makemigrations
 
+You will see something similar to this in your CLI.
+
+.. code-block:: bash
+
+  (venv) dev@aps1:~/projects/dlete/django-boilerplate$ python3 manage.py migrate
+  Operations to perform:
+    Apply all migrations: account, admin, auth, contenttypes, sessions, sites, socialaccount
+  Running migrations:
+    Applying contenttypes.0001_initial... OK
+    Applying auth.0001_initial... OK
+    Applying account.0001_initial... OK
+    Applying account.0002_email_max_length... OK
+    Applying account.0003_auto_20211008_0148... OK
+    Applying admin.0001_initial... OK
+    Applying admin.0002_logentry_remove_auto_add... OK
+    Applying admin.0003_logentry_add_action_flag_choices... OK
+    Applying contenttypes.0002_remove_content_type_name... OK
+    Applying auth.0002_alter_permission_name_max_length... OK
+    Applying auth.0003_alter_user_email_max_length... OK
+    Applying auth.0004_alter_user_username_opts... OK
+    Applying auth.0005_alter_user_last_login_null... OK
+    Applying auth.0006_require_contenttypes_0002... OK
+    Applying auth.0007_alter_validators_add_error_messages... OK
+    Applying auth.0008_alter_user_username_max_length... OK
+    Applying auth.0009_alter_user_last_name_max_length... OK
+    Applying auth.0010_alter_group_name_max_length... OK
+    Applying auth.0011_update_proxy_permissions... OK
+    Applying auth.0012_alter_user_first_name_max_length... OK
+    Applying sessions.0001_initial... OK
+    Applying sites.0001_initial... OK
+    Applying sites.0002_alter_domain_unique... OK
+    Applying socialaccount.0001_initial... OK
+    Applying socialaccount.0002_token_max_lengths... OK
+    Applying socialaccount.0003_extra_data_default_dict... OK
+    Applying socialaccount.0004_auto_20211008_0148... OK
+
+.. code-block:: bash
+
+    python3 manage.py createsuperuser # Follow the prompts
+
+.. code-block:: bash
+   :emphasize-lines: 6-8
+   :caption: Highlighted lines demonstrate Django Password Validator.
+
+   Username (leave blank to use 'default'): <enter your name>
+   Username (leave blank to use 'default'):
+   Email address: <enter your email>
+   Password:
+   Password (again):
+   This password is too short. It must contain at least 8 characters.
+   This password is too common.
+   Bypass password validation and create user anyway? [y/N]: y
+   Superuser created successfully.
+
+.. code-block:: bash
+
+    python3 manage.py runserver  # In your browser 127.0.0.1/admin
+
+You will see something similar to this in your CLI.
+
+.. code-block:: bash
+
+  Performing system checks...
+
+  System check identified no issues (0 silenced).
+  October 08, 2021 - 03:49:48
+  Django version 3.2.7, using settings 'django_boilerplate.settings'
+  Starting development server at http://127.0.0.1:8000/
+  Quit the server with CONTROL-C.
+
+In your browser, navigate to http://127.0.0.1:8000/admin and log in with the
+superuser credentials you have created.
+
+
+.. image:: ../_static/imgs/tutorials/django-admin-login.png
+   :alt: Django Admin Login
+
+
+Not working?
+~~~~~~~~~~~~
+
+Check settings.py contains:
+
+.. code-block:: python
+
+  ALLOWED_HOSTS = ["127.0.0.1"]
 
 Congratulations, you have created your new Django project.
 

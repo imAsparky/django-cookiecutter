@@ -3,14 +3,16 @@
 import datetime
 import os
 from test_helper import bake_checker
+from cookiecutter import exceptions
 
 
 def test_django_bakes_ok_with_defaults(cookies):
     """Test cookiecutter created the Django project ok."""
+
     default_django = cookies.bake()
 
-    assert default_django.project_path.is_dir()
     assert default_django.exit_code == 0
+    assert default_django.project_path.is_dir()
     assert default_django.exception == None
     assert default_django.project_path.name == "django-boilerplate"
 
@@ -783,18 +785,20 @@ def test_baked_django_settings_file_ok(cookies):
     default_django = cookies.bake()
 
     settings_path = default_django.project_path / "django_boilerplate/settings.py"
+
     settings_file = settings_path.read_text().splitlines()
 
     assert '"""Django settings for django-boilerplate project.' in settings_file
     assert 'ALLOWED_HOSTS = ["www.example.com"]' in settings_file
-    assert 'DEBUG = "False"' in settings_file
+    assert 'INTERNAL_IPS = ["127.0.0.1"]' in settings_file
+    assert "DEBUG = False" in settings_file
     assert 'ROOT_URLCONF = "django_boilerplate.urls"' in settings_file
     assert 'WSGI_APPLICATION = "django_boilerplate.wsgi.application"' in settings_file
-    assert 'LANGUAGE_CODE = "en-au"' in settings_file
-    assert 'LANGUAGES = "hi"' in settings_file
+    assert 'LANGUAGE_CODE = "en"' in settings_file
+    assert "    ('en', _(\"English\"))," in settings_file
     assert 'TIME_ZONE = "UTC"' in settings_file
-    assert 'USE_I18N = "True"' in settings_file
-    assert 'USE_L10N = "True"' in settings_file
+    assert "USE_I18N = True" in settings_file
+    assert "USE_L10N = True" in settings_file
 
 
 def test_baked_django_urls_file_ok(cookies):
