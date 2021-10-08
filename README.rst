@@ -107,11 +107,9 @@ Contributions are very welcome and appreciated!
 
 You can contribute in many ways.
 
-See our `Contributing How-To
-<https://django-cookiecutter.readthedocs.io/en/latest/how-tos/
-how-to-contribute.html#contribute-how-to>`_ to help you get started.
+See `How-To Contribute <https://django-cookiecutter.readthedocs.io/en/
+latest/how-tos/how-to-contribute.html>`_ to help you get started.
 
 Please take a moment to read our `Code of Conduct
 <https://django-cookiecutter.readthedocs.io/en/latest/
-code-of-conduct.html#code-of-conduct>`_ for how we would like our community
-to treat each other.
+code-of-conduct.html#code-of-conduct>`_.
