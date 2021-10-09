@@ -1,11 +1,14 @@
 .. highlight:: rst
 .. index:: settings-discussion ; Index
 
-
 .. _settings-discussion:
 =============================
 Django Settings Best Practice
 =============================
+
+Two minute read.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Although there are many ways to configure the Django settings file structures,
 there is a commonality in many experienced developers' approaches or preferred
@@ -23,13 +26,14 @@ By following this guideline, we ensure strict separation between configuration
 settings and code.
 
 Extract from 12 Factor Config: [#]_
------------------------------------
+------------------------------
 
 *An app's config is everything likely to vary between deploys (staging,
 production, developer environments, etc.).*
 
 *A litmus test for whether an app has all config correctly factored out of the
-code is whether the codebase could be made open source at any moment without compromising any credentials.*
+code is whether the codebase could be made open source at any moment without
+compromising any credentials.*
 
 Naming Conventions
 ------------------
@@ -56,8 +60,8 @@ little easier:
 Settings Files Structure
 ------------------------
 
-From the outset, having a good configuration file structure has many benefits
-as the project grows. Some key benefits are:
+From the outset, having a suitable configuration file structure has many
+benefits as the project grows. Some key benefits are:
 
 #. Separation of concerns; see file structure below.
 #. The settings are DRY [#]_.
@@ -80,11 +84,11 @@ Two Scoops of Django 3.x [#]_.
           ├── staging.py
           └── test.py
 
-
 .. rubric:: Footnotes
 
 .. [#] https://12factor.net/
-.. [#] https://12factor.net/config
 .. [#] A little bit of irony to get the point across.
-.. [#] https://www.feldroy.com/books/two-scoops-of-django-3-x
+.. [#] https://12factor.net/config
 .. [#] **D** o not **R** epeat **Y** ourself
+.. [#] https://www.feldroy.com/books/two-scoops-of-django-3-x
+.. [#] https://django-debug-toolbar.readthedocs.io/en/latest/installation.html

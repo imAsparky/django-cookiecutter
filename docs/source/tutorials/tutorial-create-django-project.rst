@@ -353,7 +353,6 @@ An Example Django Project
       2 - n
       Choose from 1, 2 [1]:
       ALLOWED_HOSTS [www.example.com]:
-      DEBUG [False]:
       INTERNAL_IPS [127.0.0.1]:
       LANGUAGE_CODE [en-au]:
       LANGUAGES [hi]:

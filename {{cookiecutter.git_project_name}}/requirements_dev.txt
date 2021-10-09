@@ -1,16 +1,4 @@
-Django==3.2.8
-{% if cookiecutter.use_django_allauth == "y" %}
-django-allauth==0.45.0
-{% endif %}
 
-
-
-# Documentation
-
-furo==2021.9.22
-myst-parser==0.15.2
-pre-commit==2.15.0
-pytest==6.2.5
-pytest-cookies==0.6.1
-Sphinx==4.2.0
-tox==3.24.4
+-r config/requirements/local.txt
+-r config/requirements/test.txt
+-r docs/requirements.txt

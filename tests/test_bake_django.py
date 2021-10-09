@@ -16,11 +16,31 @@ def test_django_bakes_ok_with_defaults(cookies):
     assert default_django.project_path.name == "django-boilerplate"
 
 
+def test_baked_django_with_allauth_requirements_ok(cookies):
+    """Test Django allauth requirements_dev file entry has been generated."""
+    default_django = cookies.bake()
+
+    requirements_path = default_django.project_path / "config/requirements/base.txt"
+    requirements_file = requirements_path.read_text().splitlines()
+
+    assert "django-allauth==0.45.0" in requirements_file
+
+
+def test_baked_django_without_allauth_requirements_ok(cookies):
+    """Test Django allauth requirements_dev file entry has not been generated."""
+    non_default_django = cookies.bake(extra_context={"use_django_allauth": "n"})
+
+    requirements_path = non_default_django.project_path / "config/requirements/base.txt"
+    requirements_file = requirements_path.read_text().splitlines()
+
+    assert "django-allauth==0.45.0" not in requirements_file
+
+
 def test_baked_django_with_allauth_settings_ok(cookies):
     """Test Django allauth settings file has been generated correctly."""
     default_django = cookies.bake()
 
-    settings_path = default_django.project_path / "django_boilerplate/settings.py"
+    settings_path = default_django.project_path / "config/settings/base.py"
     settings_file = settings_path.read_text().splitlines()
 
     assert '    "allauth",' in settings_file
@@ -36,7 +56,7 @@ def test_baked_django_without_allauth_settings_ok(cookies):
     """Test Django allauth settings file has not been generated."""
     non_default_django = cookies.bake(extra_context={"use_django_allauth": "n"})
 
-    settings_path = non_default_django.project_path / "django_boilerplate/settings.py"
+    settings_path = non_default_django.project_path / "config/settings/base.py"
     settings_file = settings_path.read_text().splitlines()
 
     assert '    "allauth",' not in settings_file
@@ -46,26 +66,6 @@ def test_baked_django_without_allauth_settings_ok(cookies):
     assert (
         '                "django.template.context_processors.request",' in settings_file
     )
-
-
-def test_baked_django_with_allauth_requirements_ok(cookies):
-    """Test Django allauth requirements_dev file entry has been generated."""
-    default_django = cookies.bake()
-
-    requirements_path = default_django.project_path / "requirements_dev.txt"
-    requirements_file = requirements_path.read_text().splitlines()
-
-    assert "django-allauth==0.45.0" in requirements_file
-
-
-def test_baked_django_without_allauth_requirements_ok(cookies):
-    """Test Django allauth requirements_dev file entry has not been generated."""
-    non_default_django = cookies.bake(extra_context={"use_django_allauth": "n"})
-
-    requirements_path = non_default_django.project_path / "requirements_dev.txt"
-    requirements_file = requirements_path.read_text().splitlines()
-
-    assert "django-allauth==0.45.0" not in requirements_file
 
 
 def test_baked_django_with_allauth_url_ok(cookies):
@@ -390,7 +390,7 @@ def test_baked_django_with_github_action_test_workflow(cookies):
 
 
 def test_baked_django_without_github_action_test_workflow(cookies):
-    """Test Django GitHub test action file has not generated"""
+    """Test Django GitHub test action file has not generated."""
     non_default_django = cookies.bake(
         extra_context={"create_repo_auto_test_workflow": "n"}
     )
@@ -540,6 +540,51 @@ def test_baked_django_without_precommit_config_file(cookies):
     )
 
 
+def test_baked_django_with_pyup_io(cookies):
+    """Test Django pyup.io file has been generated correctly."""
+    default_django = cookies.bake()
+
+    assert ".pyup.yml" in os.listdir(default_django.project_path)
+
+    pyup_path = default_django.project_path / ".pyup.yml"
+    pyup_file = pyup_path.read_text().splitlines()
+
+    assert "  - imAsparky" in pyup_file
+
+    readme_path = default_django.project_path / "README.rst"
+    readme_file = readme_path.read_text().splitlines()
+
+    assert (
+        ".. image:: https://pyup.io/repos/github/imAsparky/django-boilerplate/shield.svg"
+        in readme_file
+    )
+    assert (
+        "   :target: https://pyup.io/repos/github/imAsparky/django-boilerplate/"
+        in readme_file
+    )
+    assert "   :alt: Updates" in readme_file
+
+
+def test_baked_django_without_pyup_io(cookies):
+    """Test Django pyup.io file has not been generated."""
+    non_default_django = cookies.bake(extra_context={"use_pyup_io": "n"})
+
+    assert ".pyup.yml" not in os.listdir(non_default_django.project_path)
+
+    readme_path = non_default_django.project_path / "README.rst"
+    readme_file = readme_path.read_text().splitlines()
+
+    assert (
+        ".. image:: https://pyup.io/repos/github/imAsparky/django-boilerplate/shield.svg"
+        not in readme_file
+    )
+    assert (
+        "   :target: https://pyup.io/repos/github/imAsparky/django-boilerplate/"
+        not in readme_file
+    )
+    assert "   :alt: Updates" not in readme_file
+
+
 def test_baked_django_readme_file(cookies):
     """Test Django README file has been generated correctly."""
     default_django = cookies.bake()
@@ -636,51 +681,6 @@ def test_baked_django_readme_without_precommit_badge(cookies):
     )
     assert "   :target: https://github.com/pre-commit/pre-commit" not in readme_file
     assert "   :alt: pre-commit" not in readme_file
-
-
-def test_baked_django_with_pyup_io(cookies):
-    """Test Django pyup.io file has been generated correctly."""
-    default_django = cookies.bake()
-
-    assert ".pyup.yml" in os.listdir(default_django.project_path)
-
-    pyup_path = default_django.project_path / ".pyup.yml"
-    pyup_file = pyup_path.read_text().splitlines()
-
-    assert "  - imAsparky" in pyup_file
-
-    readme_path = default_django.project_path / "README.rst"
-    readme_file = readme_path.read_text().splitlines()
-
-    assert (
-        ".. image:: https://pyup.io/repos/github/imAsparky/django-boilerplate/shield.svg"
-        in readme_file
-    )
-    assert (
-        "   :target: https://pyup.io/repos/github/imAsparky/django-boilerplate/"
-        in readme_file
-    )
-    assert "   :alt: Updates" in readme_file
-
-
-def test_baked_django_without_pyup_io(cookies):
-    """Test Django pyup.io file has not been generated."""
-    non_default_django = cookies.bake(extra_context={"use_pyup_io": "n"})
-
-    assert ".pyup.yml" not in os.listdir(non_default_django.project_path)
-
-    readme_path = non_default_django.project_path / "README.rst"
-    readme_file = readme_path.read_text().splitlines()
-
-    assert (
-        ".. image:: https://pyup.io/repos/github/imAsparky/django-boilerplate/shield.svg"
-        not in readme_file
-    )
-    assert (
-        "   :target: https://pyup.io/repos/github/imAsparky/django-boilerplate/"
-        not in readme_file
-    )
-    assert "   :alt: Updates" not in readme_file
 
 
 def test_baked_django_with_read_the_docs(cookies):
@@ -783,14 +783,13 @@ def test_baked_django_settings_file_ok(cookies):
     """Test Django settings.py file has generated correctly."""
     default_django = cookies.bake()
 
-    settings_path = default_django.project_path / "django_boilerplate/settings.py"
+    settings_path = default_django.project_path / "config/settings/base.py"
 
     settings_file = settings_path.read_text().splitlines()
 
-    assert '"""Django settings for django-boilerplate project.' in settings_file
+    assert '"""Django base settings for django-boilerplate project.' in settings_file
     assert 'ALLOWED_HOSTS = ["www.example.com"]' in settings_file
     assert 'INTERNAL_IPS = ["127.0.0.1"]' in settings_file
-    assert "DEBUG = False" in settings_file
     assert 'ROOT_URLCONF = "django_boilerplate.urls"' in settings_file
     assert 'WSGI_APPLICATION = "django_boilerplate.wsgi.application"' in settings_file
     assert 'LANGUAGE_CODE = "en"' in settings_file

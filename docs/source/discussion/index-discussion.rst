@@ -15,3 +15,4 @@ See below for a list of discussion material for Django Cookiecutter.
    :titlesonly:
 
    discussion-settings-12factor
+   discussion-dependencies-12factor

@@ -9,7 +9,7 @@
   "project_short_description": "A Django project with all the boilerplate",
   "version": "0.1.0",
 
-    "create_conventional_commits_edit_message": ["y", "n"],
+  "create_conventional_commits_edit_message": ["y", "n"],
   "use_GH_custom_issue_templates": ["y", "n"],
   "automatic_set_up_git_and_initial_commit": ["y", "n"],
 
@@ -24,7 +24,6 @@
   "include_contributor_covenant_code_of_conduct":["y", "n"],
 
   "ALLOWED_HOSTS": "www.example.com",
-  "DEBUG": ["False", "True"],
   "INTERNAL_IPS": "127.0.0.1",
   "LANGUAGE_CODE": "en",
   "LANGUAGES": "en, hi",
