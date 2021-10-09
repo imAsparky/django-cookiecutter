@@ -107,9 +107,6 @@ The requirements_dev.txt reduces complexity for developers. Here, dependency
 imports from local and test environments keep it simple for most developer
 use cases.
 
-Testing or reviewing documentation is often part of the developer's role,
-so the Documentation requirements importation makes this simple.
-
 .. literalinclude:: ../../../requirements_dev.txt
    :language: bash
    :caption: **requirements-dev.txt**
