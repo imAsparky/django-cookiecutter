@@ -2,6 +2,13 @@
 
 <!--next-version-placeholder-->
 
+## v0.16.1 (2021-10-09)
+### Fix
+* **django:** Remove duplicate tox dependency #108 ([#110](https://github.com/imAsparky/django-cookiecutter/issues/110)) ([`db34ae8`](https://github.com/imAsparky/django-cookiecutter/commit/db34ae86756f49f3df60ad8ca250b5c5bcabc923))
+
+### Documentation
+* **cookie:** Remove reference to docs deps #99 ([#107](https://github.com/imAsparky/django-cookiecutter/issues/107)) ([`31a858a`](https://github.com/imAsparky/django-cookiecutter/commit/31a858aba5638afdbf459741358d27940d412fdf))
+
 ## v0.16.0 (2021-10-09)
 ### Feature
 * **django:** Settings files are now 12 Factor app #99 ([#104](https://github.com/imAsparky/django-cookiecutter/issues/104)) ([`d9b8276`](https://github.com/imAsparky/django-cookiecutter/commit/d9b827638bc79e3ca894a27d30eb4606ee5273ff))
