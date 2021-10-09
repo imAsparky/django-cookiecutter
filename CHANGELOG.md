@@ -2,6 +2,13 @@
 
 <!--next-version-placeholder-->
 
+## v0.16.0 (2021-10-09)
+### Feature
+* **django:** Settings files are now 12 Factor app #99 ([#104](https://github.com/imAsparky/django-cookiecutter/issues/104)) ([`d9b8276`](https://github.com/imAsparky/django-cookiecutter/commit/d9b827638bc79e3ca894a27d30eb4606ee5273ff))
+
+### Documentation
+* **cookie:** Add Django settings best practice discussion #100 ([#101](https://github.com/imAsparky/django-cookiecutter/issues/101)) ([`60f4d1b`](https://github.com/imAsparky/django-cookiecutter/commit/60f4d1bd9d3056c26d5c6629a1fa99246b3f0ec2))
+
 ## v0.15.3 (2021-10-08)
 ### Fix
 * **django:** Settings file updated to remove errors #94 ([#98](https://github.com/imAsparky/django-cookiecutter/issues/98)) ([`eda653f`](https://github.com/imAsparky/django-cookiecutter/commit/eda653fcf5c67c32bf0464447b694853362ae5e5))
