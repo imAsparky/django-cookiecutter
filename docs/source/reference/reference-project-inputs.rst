@@ -161,8 +161,6 @@ Django Settings
 
 "ALLOWED_HOSTS": "www.example.com",
 
-"DEBUG": "False",
-
 "INTERNAL_IPS": "127.0.0.1",
 
 "LANGUAGE_CODE": "en-au",

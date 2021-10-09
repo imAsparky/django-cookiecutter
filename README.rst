@@ -2,6 +2,8 @@
 **Django 3.2 Cookiecutter**
 ===========================
 
+**Version 1.0 will signify the first stable Django build!**
+
 .. image:: ./docs/source/_static/imgs/logo/logo-django-cookiecutter-1280x640.png
    :alt:
 

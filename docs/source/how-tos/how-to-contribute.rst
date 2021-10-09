@@ -15,8 +15,7 @@ Contributions are very welcome and appreciated!
 
 You can contribute in many ways.
 
-Please take a moment to read our :ref:`code of conduct<code-of-conduct>` for
-how we would like the community to treat each other.
+Please take a moment to read our :ref:`code of conduct<code-of-conduct>`.
 
 Types of Contributions
 ----------------------
@@ -169,15 +168,14 @@ demonstrated this is going into a local `projects` folder.
 .. important::
 
     If you are writing documentation and using a preview function in your
-    IDE then the minimum version for documentation is Python3.9, and it is
-    also recommended to pip install:
+    IDE then the minimum version for your virtual environment is Python3.9.
 
-    | furo==2021.8.17b43
-    | myst-parser==0.15.1
-    | Sphinx==4.1.2
-    | sphinx-copybutton==0.4.0
-    | sphinx_inline_tabs==2021.4.11b9
+    You will also need to include the document dependencies when installing
+    your virtual environment dependencies.
 
+    .. code-block:: bash
+
+        pip install -r docs/requirements.txt
 
 **Select the tab for your preferred Operating System.**
 

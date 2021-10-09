@@ -32,7 +32,13 @@ pr_prefix: "fix(pyup): "
 close_prs: False
 
 requirements:
-  - "requirements_dev.txt"
   - "docs/requirements.txt"
-  - "{{cookiecutter.git_project_name}}/requirements_dev.txt"
+  - "config/requirements/base.txt"
+  - "config/requirements/local.txt"
+  - "config/requirements/test.txt"
+  - "{{cookiecutter.git_project_name}}/config/requirements/base.txt"
+  - "{{cookiecutter.git_project_name}}/config/requirements/local.txt"
+  - "{{cookiecutter.git_project_name}}/config/requirements/production.txt"
+  - "{{cookiecutter.git_project_name}}/config/requirements/staging.txt"
+  - "{{cookiecutter.git_project_name}}/config/requirements/test.txt"
   - "{{cookiecutter.git_project_name}}/docs/requirements.txt"
