@@ -4,6 +4,7 @@ from .base import *  # noqa
 
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "!!!SET DJANGO_SECRET_KEY!!!")
 
+DEBUG = True
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1"]
@@ -21,7 +22,11 @@ MIDDLEWARE += ["debug_toolbar.middleware.DebugToolbarMiddleware"]  # noqa F405
 
 DEBUG_TOOLBAR_CONFIG = {
     "DISABLE_PANELS": ["debug_toolbar.panels.redirects.RedirectsPanel"],
-    "EXTRA_SIGNALS": ["template_profiler_panel.panels.template.TemplateProfilerPanel"],
 }
+
+DEBUG_TOOLBAR_PANELS = [
+    # ...
+    "template_profiler_panel.panels.template.TemplateProfilerPanel",
+]
 
 INTERNAL_IPS = ["127.0.0.1", "10.0.2.2"]
