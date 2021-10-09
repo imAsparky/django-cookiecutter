@@ -170,6 +170,13 @@ demonstrated this is going into a local `projects` folder.
     If you are writing documentation and using a preview function in your
     IDE then the minimum version for your virtual environment is Python3.9.
 
+    You will also need to include the document dependencies when installing
+    your virtual environment dependencies.
+
+    .. code-block:: bash
+
+        pip install -r docs/requirements.txt
+
 **Select the tab for your preferred Operating System.**
 
 .. tab:: Linux

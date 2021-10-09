@@ -1,4 +1,2 @@
 -r config/requirements/local.txt
 -r config/requirements/test.txt
-
--r docs/requirements.txt
