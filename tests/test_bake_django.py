@@ -779,7 +779,7 @@ def test_baked_django_without_semantic_release(cookies):
     assert "   :alt: Python Sementic Release" not in readme_file
 
 
-def test_baked_django_settings_file_ok(cookies):
+def test_baked_django_settings_base_file_ok(cookies):
     """Test Django settings.py file has generated correctly."""
     default_django = cookies.bake()
 
@@ -797,6 +797,53 @@ def test_baked_django_settings_file_ok(cookies):
     assert 'TIME_ZONE = "UTC"' in settings_file
     assert "USE_I18N = True" in settings_file
     assert "USE_L10N = True" in settings_file
+
+
+def test_baked_django_settings_local_file_ok(cookies):
+    """Test Django config/settings/local.py file has generated correctly."""
+    default_django = cookies.bake()
+
+    settings_path = default_django.project_path / "config/settings/local.py"
+    settings_file = settings_path.read_text().splitlines()
+
+    assert (
+        '"""Django local settings for django-boilerplate project."""' in settings_file
+    )
+
+
+def test_baked_django_settings_production_file_ok(cookies):
+    """Test Django config/settings/production.py file has generated correctly."""
+    default_django = cookies.bake()
+
+    settings_path = default_django.project_path / "config/settings/production.py"
+    settings_file = settings_path.read_text().splitlines()
+
+    assert (
+        '"""Django production settings for django-boilerplate project."""'
+        in settings_file
+    )
+
+
+def test_baked_django_settings_staging_file_ok(cookies):
+    """Test Django config/settings/staging.py file has generated correctly."""
+    default_django = cookies.bake()
+
+    settings_path = default_django.project_path / "config/settings/staging.py"
+    settings_file = settings_path.read_text().splitlines()
+
+    assert (
+        '"""Django staging settings for django-boilerplate project."""' in settings_file
+    )
+
+
+def test_baked_django_settings_test_file_ok(cookies):
+    """Test Django config/settings/test.py file has generated correctly."""
+    default_django = cookies.bake()
+
+    settings_path = default_django.project_path / "config/settings/test.py"
+    settings_file = settings_path.read_text().splitlines()
+
+    assert '"""Django test settings for django-boilerplate project."""' in settings_file
 
 
 def test_baked_django_urls_file_ok(cookies):
