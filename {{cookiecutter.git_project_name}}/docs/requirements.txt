@@ -1,4 +1,4 @@
-furo==2021.9.22
+furo==2021.10.9
 myst-parser==0.15.2
 Sphinx==4.2.0
 sphinx-copybutton==0.4.0
