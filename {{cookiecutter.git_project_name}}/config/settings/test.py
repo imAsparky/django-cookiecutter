@@ -5,7 +5,7 @@ from django.conf import settings
 
 DEBUG = False
 
-assert not settings.Debug, "DEBUG mode should be off"  # nosec
+assert not settings.Debug, "DEBUG mode should be off for testing."  # nosec
 
 DEFAULT_FILE_STORAGE = "inmemorystorage.InMemoryStorage"
 
