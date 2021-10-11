@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.16.3 (2021-10-11)
+### Fix
+* **django:** Fix typo for install pytest-django #126 ([#127](https://github.com/imAsparky/django-cookiecutter/issues/127)) ([`c29a4f2`](https://github.com/imAsparky/django-cookiecutter/commit/c29a4f2f6566413ea54750981cb391e89da06a3f))
+
 ## v0.16.2 (2021-10-10)
 ### Fix
 * **pyup:**  Update furo to 2021.10.9 ([#117](https://github.com/imAsparky/django-cookiecutter/issues/117)) ([`d5d1be9`](https://github.com/imAsparky/django-cookiecutter/commit/d5d1be947426f7df65c4d1376720cc9a2a96c4b0))
