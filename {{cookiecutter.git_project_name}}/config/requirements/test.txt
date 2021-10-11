@@ -1,3 +1,4 @@
+dj-inmemorystorage==2.1.0
 pytest==6.2.5
 pytest-django-4.4.0
 tox==3.24.4
