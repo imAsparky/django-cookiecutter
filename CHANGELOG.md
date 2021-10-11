@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.16.2 (2021-10-10)
+### Fix
+* **pyup:**  Update furo to 2021.10.9 ([#117](https://github.com/imAsparky/django-cookiecutter/issues/117)) ([`d5d1be9`](https://github.com/imAsparky/django-cookiecutter/commit/d5d1be947426f7df65c4d1376720cc9a2a96c4b0))
+
 ## v0.16.1 (2021-10-09)
 ### Fix
 * **django:** Remove duplicate tox dependency #108 ([#110](https://github.com/imAsparky/django-cookiecutter/issues/110)) ([`db34ae8`](https://github.com/imAsparky/django-cookiecutter/commit/db34ae86756f49f3df60ad8ca250b5c5bcabc923))
