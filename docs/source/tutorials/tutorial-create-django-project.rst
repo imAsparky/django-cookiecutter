@@ -517,7 +517,7 @@ You will see something similar to this in your CLI.
 
   System check identified no issues (0 silenced).
   October 08, 2021 - 03:49:48
-  Django version 3.2.7, using settings 'django_boilerplate.settings'
+  Django version 3.2.7, using settings 'config.settings.local'
   Starting development server at http://127.0.0.1:8000/
   Quit the server with CONTROL-C.
 

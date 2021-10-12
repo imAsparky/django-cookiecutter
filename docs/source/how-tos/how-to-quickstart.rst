@@ -186,8 +186,11 @@ Test Your Project
 
 .. code-block:: bash
 
+    python3 manage.py migrate
+    python3 manage.py createsuperuser
     python3 manage.py runserver
 
+In your browser navigate to 127.0.0.1/admin
 
 Congratulations, you have created your new Django project.
 
