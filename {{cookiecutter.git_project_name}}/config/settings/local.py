@@ -2,16 +2,20 @@
 
 from .base import *  # noqa
 
-SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "!!!SET DJANGO_SECRET_KEY!!!")
+# Read from environment variables file
+environ.Env.read_env(os.path.join(BASE_DIR, ".env/.local"))
 
-DEBUG = True
+SECRET_KEY = env("SECRET_KEY")
+
+DEBUG = env("DEBUG", default=False)
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1"]
 
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+ALLOWED_HOSTS = env.list("ALLOWED_HOSTS")
 
-INTERNAL_IPS = ["127.0.0.1", "10.0.2.2"]
+INTERNAL_IPS = env.list("INTERNAL_IPS")
+
+EMAIL_BACKEND = env("EMAIL_BACKEND")
 
 
 # django-debug-toolbar

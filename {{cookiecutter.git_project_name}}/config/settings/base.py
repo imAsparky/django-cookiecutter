@@ -13,7 +13,13 @@ from pathlib import Path
 import os
 from django.utils.translation import ugettext_lazy as _
 from .username_blacklist import data as username_blacklist
+import environ
 
+
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False)
+)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -27,9 +33,8 @@ SECRET_KEY = os.environ.get(
     'DJANGO_SECRET_KEY', '!!!SET DJANGO_SECRET_KEY!!!')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG =False
-
-ALLOWED_HOSTS = ["{{cookiecutter.ALLOWED_HOSTS}}"]
+# False if not in os.environ because of casting above
+DEBUG = env('DEBUG')
 
 INTERNAL_IPS = ["{{cookiecutter.INTERNAL_IPS}}"]
 
@@ -188,7 +193,7 @@ STATIC_URL = "/static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-
+{% if cookiecutter.use_django_allauth == "y" %}
 # Django Allauth Settings
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
 ACCOUNT_AUTHENTICATION_METHOD = "username_email" # Default dj-allauth == username
@@ -200,3 +205,4 @@ ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5                 # Default dj-allauth
 ACCOUNT_USERNAME_REQUIRED = True                 # Default dj-allauth
 ACCOUNT_USERNAME_MIN_LENGTH = 3                  # Default dj-allauth == 1
 ACCOUNT_USERNAME_BLACKLIST = username_blacklist
+{% endif %}
