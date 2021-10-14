@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.19.0 (2021-10-14)
+### Feature
+* **django:** Add env basic config settings #138 ([#139](https://github.com/imAsparky/django-cookiecutter/issues/139)) ([`8127aef`](https://github.com/imAsparky/django-cookiecutter/commit/8127aef482f4933cb19a61efe4331bdab293929a))
+
 ## v0.18.0 (2021-10-14)
 ### Feature
 * **django:** Add dj-allauth username blacklist #135 ([#137](https://github.com/imAsparky/django-cookiecutter/issues/137)) ([`03967dd`](https://github.com/imAsparky/django-cookiecutter/commit/03967dd8fc4d528c11320ec0c01edaffbbfa6634))
