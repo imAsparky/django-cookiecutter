@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 from django.utils.translation import ugettext_lazy as _
+from .username_blacklist import data as username_blacklist
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -198,4 +199,4 @@ ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 3       # Default dj-allauth
 ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5                 # Default dj-allauth
 ACCOUNT_USERNAME_REQUIRED = True                 # Default dj-allauth
 ACCOUNT_USERNAME_MIN_LENGTH = 3                  # Default dj-allauth == 1
-
+ACCOUNT_USERNAME_BLACKLIST = username_blacklist
