@@ -41,7 +41,8 @@
   "_copy_without_render": [
         ".pre-commit-config.yaml",
         ".github/workflows/semantic_release.yaml",
-        ".github/workflows/test_contribution.yaml"
+        ".github/workflows/test_contribution.yaml",
+        "templates/*"
     ]
 
 }
