@@ -2,6 +2,14 @@
 
 <!--next-version-placeholder-->
 
+## v0.17.0 (2021-10-14)
+### Feature
+* **django:** Add basic dj-allauth config #134 ([#136](https://github.com/imAsparky/django-cookiecutter/issues/136)) ([`95335df`](https://github.com/imAsparky/django-cookiecutter/commit/95335df459a79e6155e8976f91699c937828ea7e))
+
+### Documentation
+* **cookie:** Add create github repository tutorial #130 ([#131](https://github.com/imAsparky/django-cookiecutter/issues/131)) ([`e34afdf`](https://github.com/imAsparky/django-cookiecutter/commit/e34afdf05910a007a320f27bbb87c9d7df1425c6))
+* **cookie:** Update quickstart and tutorial for 12 Factor #128 ([#129](https://github.com/imAsparky/django-cookiecutter/issues/129)) ([`41086cf`](https://github.com/imAsparky/django-cookiecutter/commit/41086cfcad66d7d1f0df6757eb95b26fcf2973cc))
+
 ## v0.16.3 (2021-10-11)
 ### Fix
 * **django:** Fix typo for install pytest-django #126 ([#127](https://github.com/imAsparky/django-cookiecutter/issues/127)) ([`c29a4f2`](https://github.com/imAsparky/django-cookiecutter/commit/c29a4f2f6566413ea54750981cb391e89da06a3f))
