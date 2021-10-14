@@ -16,11 +16,13 @@ Including another URLconf
 from django.conf import settings
 from django.contrib import admin
 from django.urls import include, path
+from allauth import account
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 {% if cookiecutter.use_django_allauth == "y" %}
     path('accounts/', include('allauth.urls')),
+    path('', account.views.LoginView.as_view(), name="login")
 {% endif %}
 ]
 
