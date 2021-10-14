@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.18.0 (2021-10-14)
+### Feature
+* **django:** Add dj-allauth username blacklist #135 ([#137](https://github.com/imAsparky/django-cookiecutter/issues/137)) ([`03967dd`](https://github.com/imAsparky/django-cookiecutter/commit/03967dd8fc4d528c11320ec0c01edaffbbfa6634))
+
 ## v0.17.0 (2021-10-14)
 ### Feature
 * **django:** Add basic dj-allauth config #134 ([#136](https://github.com/imAsparky/django-cookiecutter/issues/136)) ([`95335df`](https://github.com/imAsparky/django-cookiecutter/commit/95335df459a79e6155e8976f91699c937828ea7e))
