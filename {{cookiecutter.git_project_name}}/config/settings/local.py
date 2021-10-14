@@ -9,6 +9,8 @@ DEBUG = True
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1"]
 
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
 INTERNAL_IPS = ["127.0.0.1", "10.0.2.2"]
 
 
@@ -17,7 +19,6 @@ INTERNAL_IPS = ["127.0.0.1", "10.0.2.2"]
 # https://github.com/node13h/django-debug-toolbar-template-profiler
 
 INSTALLED_APPS += ["debug_toolbar", "template_profiler_panel"]  # noqa F405
-
 
 MIDDLEWARE += ["debug_toolbar.middleware.DebugToolbarMiddleware"]  # noqa F405
 

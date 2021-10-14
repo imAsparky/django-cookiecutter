@@ -13,6 +13,7 @@ from pathlib import Path
 import os
 from django.utils.translation import ugettext_lazy as _
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
@@ -55,6 +56,9 @@ SITE_ID = 1
 {% else %}
 SITE_ID = {{cookiecutter.SITE_ID}}
 {% endif %}
+LOGIN_REDIRECT_URL = "/admin/"
+LOGOUT_REDIRECT_URL = '/accounts/login/'
+
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -182,3 +186,16 @@ STATIC_URL = "/static/"
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+# Django Allauth Settings
+# https://django-allauth.readthedocs.io/en/latest/configuration.html
+ACCOUNT_AUTHENTICATION_METHOD = "username_email" # Default dj-allauth == username
+ACCOUNT_EMAIL_REQUIRED = True                    # Default dj-allauth == False
+ACCOUNT_UNIQUE_EMAIL = True                      # Default dj-allauth
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'         # Default dj-allauth (optional)
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 3       # Default dj-allauth
+ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5                 # Default dj-allauth
+ACCOUNT_USERNAME_REQUIRED = True                 # Default dj-allauth
+ACCOUNT_USERNAME_MIN_LENGTH = 3                  # Default dj-allauth == 1
+
