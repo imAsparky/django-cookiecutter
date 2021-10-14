@@ -3,7 +3,14 @@
 from .base import *  # noqa
 from django.conf import settings
 
-DEBUG = False
+# Read from environment variables file
+environ.Env.read_env(os.path.join(BASE_DIR, ".env/.testing"))
+
+SECRET_KEY = env("SECRET_KEY")
+
+DEBUG = env("DEBUG", default=False)
+
+ALLOWED_HOSTS = ["{{cookiecutter.ALLOWED_HOSTS}}"]
 
 assert not settings.Debug, "DEBUG mode should be off for testing."  # nosec
 

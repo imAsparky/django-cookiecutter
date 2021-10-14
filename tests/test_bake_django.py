@@ -50,6 +50,10 @@ def test_baked_django_with_allauth_settings_ok(cookies):
     assert (
         '                "django.template.context_processors.request",' in settings_file
     )
+    assert (
+        "ACCOUNT_UNIQUE_EMAIL = True                      # Default dj-allauth"
+        in settings_file
+    )
 
 
 def test_baked_django_without_allauth_settings_ok(cookies):
@@ -65,6 +69,10 @@ def test_baked_django_without_allauth_settings_ok(cookies):
     assert '    "allauth.socialaccount",' not in settings_file
     assert (
         '                "django.template.context_processors.request",' in settings_file
+    )
+    assert (
+        "ACCOUNT_UNIQUE_EMAIL = True                      # Default dj-allauth"
+        not in settings_file
     )
 
 
@@ -779,7 +787,7 @@ def test_baked_django_without_semantic_release(cookies):
     assert "   :alt: Python Sementic Release" not in readme_file
 
 
-def test_baked_django_settings_base_file_ok(cookies):
+def test_baked_django_base_settings_base_file_ok(cookies):
     """Test Django settings.py file has generated correctly."""
     default_django = cookies.bake()
 
@@ -788,7 +796,6 @@ def test_baked_django_settings_base_file_ok(cookies):
     settings_file = settings_path.read_text().splitlines()
 
     assert '"""Django base settings for django-boilerplate project.' in settings_file
-    assert 'ALLOWED_HOSTS = ["www.example.com"]' in settings_file
     assert 'INTERNAL_IPS = ["127.0.0.1"]' in settings_file
     assert 'ROOT_URLCONF = "django_boilerplate.urls"' in settings_file
     assert 'WSGI_APPLICATION = "django_boilerplate.wsgi.application"' in settings_file
@@ -822,6 +829,7 @@ def test_baked_django_settings_production_file_ok(cookies):
         '"""Django production settings for django-boilerplate project."""'
         in settings_file
     )
+    assert 'ALLOWED_HOSTS = ["www.example.com"]' in settings_file
 
 
 def test_baked_django_settings_staging_file_ok(cookies):
@@ -834,6 +842,7 @@ def test_baked_django_settings_staging_file_ok(cookies):
     assert (
         '"""Django staging settings for django-boilerplate project."""' in settings_file
     )
+    assert 'ALLOWED_HOSTS = ["www.example.com"]' in settings_file
 
 
 def test_baked_django_settings_test_file_ok(cookies):
@@ -844,6 +853,7 @@ def test_baked_django_settings_test_file_ok(cookies):
     settings_file = settings_path.read_text().splitlines()
 
     assert '"""Django test settings for django-boilerplate project."""' in settings_file
+    assert 'ALLOWED_HOSTS = ["www.example.com"]' in settings_file
 
 
 def test_baked_django_urls_file_ok(cookies):

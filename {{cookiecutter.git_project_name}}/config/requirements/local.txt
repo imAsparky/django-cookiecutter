@@ -1,0 +1,6 @@
+-r base.txt
+-r test.txt
+django-debug-toolbar==3.2.2
+django-debug-toolbar-template-profiler==2.0.2
+
+pre-commit==2.15.0
