@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.19.2 (2021-11-01)
+### Fix
+* **deps:** Add Django production dependencies #145 ([#155](https://github.com/imAsparky/django-cookiecutter/issues/155)) ([`8d47331`](https://github.com/imAsparky/django-cookiecutter/commit/8d473311fe9204a9664444e1e8b98ff5802c0af4))
+
 ## v0.19.1 (2021-11-01)
 ### Fix
 * **git:** Add .gitgnore to Django project #150 ([#154](https://github.com/imAsparky/django-cookiecutter/issues/154)) ([`3c8d321`](https://github.com/imAsparky/django-cookiecutter/commit/3c8d321f5fc3eff80d1026d4c692ff31e9b78809))
