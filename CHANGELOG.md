@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.19.1 (2021-11-01)
+### Fix
+* **git:** Add .gitgnore to Django project #150 ([#154](https://github.com/imAsparky/django-cookiecutter/issues/154)) ([`3c8d321`](https://github.com/imAsparky/django-cookiecutter/commit/3c8d321f5fc3eff80d1026d4c692ff31e9b78809))
+
 ## v0.19.0 (2021-10-14)
 ### Feature
 * **django:** Add env basic config settings #138 ([#139](https://github.com/imAsparky/django-cookiecutter/issues/139)) ([`8127aef`](https://github.com/imAsparky/django-cookiecutter/commit/8127aef482f4933cb19a61efe4331bdab293929a))
