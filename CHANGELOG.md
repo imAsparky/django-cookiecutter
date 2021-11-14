@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.19.4 (2021-11-14)
+### Fix
+* **pyup:**  Update furo to 2021.11.12 ([#159](https://github.com/imAsparky/django-cookiecutter/issues/159)) ([`f5d48eb`](https://github.com/imAsparky/django-cookiecutter/commit/f5d48eb8ddd8354ee38fcaf6a13efa92cd65c37e))
+
 ## v0.19.3 (2021-11-12)
 ### Fix
 * **pyup:**  Update sphinx to 4.3.0 ([#157](https://github.com/imAsparky/django-cookiecutter/issues/157)) ([`0c65c02`](https://github.com/imAsparky/django-cookiecutter/commit/0c65c029723cf69353f4480865fe0f791e18cb67))
