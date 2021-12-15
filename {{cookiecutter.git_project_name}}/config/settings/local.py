@@ -17,7 +17,6 @@ DEBUG = env("DJANGO_DEBUG", default=False)
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
 
 ALLOWED_HOSTS = env.list("ALLOWED_HOSTS")
-ALLOWED_HOSTS += ["139.59.102.221"]
 
 INTERNAL_IPS = env.list("INTERNAL_IPS")
 
@@ -54,21 +53,9 @@ DEBUG_TOOLBAR_CONFIG = {
     "DISABLE_PANELS": ["debug_toolbar.panels.redirects.RedirectsPanel"],
 }
 
-####  DELETE ???  ####
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
-
-# DATABASES = {
-#     "default": {
-#         "ENGINE": env("DB_ENGINE", default="django.db.backends.sqlite3"),
-#         "NAME": env("DB_NAME", default=BASE_DIR / "db.sqlite3"),
-#         "USER": env("DB_USER", default="django_user"),
-#         "PASSWORD": env("DB_PASSWORD", default="django_prod_pw"),
-#         "HOST": env("DB_HOST", default="localhost"),
-#         "PORT": env("DB_PORT", default="5432"),
-#     }
-# }
