@@ -2,15 +2,21 @@
 
 from .base import *  # noqa
 from django.conf import settings
+import environ
 
 # Read from environment variables file
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False)
+)
 environ.Env.read_env(os.path.join(BASE_DIR, ".env/.testing"))
 
-SECRET_KEY = env("SECRET_KEY")
+SECRET_KEY = env("DJANGO_SECRET_KEY")
 
 DEBUG = env("DEBUG", default=False)
 
 ALLOWED_HOSTS = ["{{cookiecutter.ALLOWED_HOSTS}}"]
+ALLOWED_HOSTS += ["139.59.102.221", "127.0.0.1"]
 
 assert not settings.Debug, "DEBUG mode should be off for testing."  # nosec
 

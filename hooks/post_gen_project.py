@@ -45,6 +45,14 @@ REMOVE_FILES = [
         .github/ISSUE_TEMPLATE {% endif %}',
     '{% if cookiecutter.use_GH_custom_issue_templates == "y" %} \
         .github/ISSUE_TEMPLATE.md {% endif %}',
+    '{% if cookiecutter.deploy_with_docker == "n" %} \
+        Dockerfile {% endif %}',
+    '{% if cookiecutter.deploy_with_docker == "n" %} \
+        .dockerignore {% endif %}',
+    '{% if cookiecutter.deploy_with_docker == "n" %} \
+        compose/docker-compose-swarm.yml {% endif %}',
+    '{% if cookiecutter.deploy_with_docker == "n" %} \
+        docker-entrypoint.sh {% endif %}',
 ]
 
 # Helper functions
@@ -97,7 +105,15 @@ def init_git():
         post_gen_setup(
             "git",
             "init",
-            "--initial-branch=main",
+            supress_exception=True,
+            cwd=PROJECT_DIRECTORY,
+        )
+
+        post_gen_setup(
+            "git",
+            "branch",
+            "-M",
+            "main",
             cwd=PROJECT_DIRECTORY,
         )
 
