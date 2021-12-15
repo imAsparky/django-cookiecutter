@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from .username_blacklist import data as username_blacklist
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
