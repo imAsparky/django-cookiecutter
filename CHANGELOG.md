@@ -2,6 +2,23 @@
 
 <!--next-version-placeholder-->
 
+## v0.19.10 (2021-12-15)
+### Fix
+* **pyup:**  Update pre-commit to 2.16.0 ([#168](https://github.com/imAsparky/django-cookiecutter/issues/168)) ([`db6f803`](https://github.com/imAsparky/django-cookiecutter/commit/db6f803a76a6386c2ab42f0a22d7ce6483855e4f))
+* **pyup:**  Update sphinx to 4.3.1 ([#167](https://github.com/imAsparky/django-cookiecutter/issues/167)) ([`073a86d`](https://github.com/imAsparky/django-cookiecutter/commit/073a86dfd3093e410f93dff1b4891a9497a2f1d4))
+
+## v0.19.9 (2021-12-15)
+### Fix
+* **pyup:**  Update furo to 2021.11.23 ([#166](https://github.com/imAsparky/django-cookiecutter/issues/166)) ([`56ce14e`](https://github.com/imAsparky/django-cookiecutter/commit/56ce14e063cb432d0a389048026a5d68dffb5d28))
+
+## v0.19.8 (2021-12-15)
+### Fix
+* **test:** Django-alluth test improved #178 ([#179](https://github.com/imAsparky/django-cookiecutter/issues/179)) ([`07e1433`](https://github.com/imAsparky/django-cookiecutter/commit/07e1433eeb6f0b88cef9e330bd0ac909c2439912))
+
+## v0.19.7 (2021-12-15)
+### Fix
+* **pyup:**  Update django-debug-toolbar to 3.2.3 ([#175](https://github.com/imAsparky/django-cookiecutter/issues/175)) ([`9a883c1`](https://github.com/imAsparky/django-cookiecutter/commit/9a883c1d91a783802b33eb2e63d6d5249eb80008))
+
 ## v0.19.6 (2021-11-16)
 ### Fix
 * **pyup:**  Update furo to 2021.11.16 ([#163](https://github.com/imAsparky/django-cookiecutter/issues/163)) ([`4e34997`](https://github.com/imAsparky/django-cookiecutter/commit/4e349973682fcee13f1b88f4e1c7cdf4773777d6))
