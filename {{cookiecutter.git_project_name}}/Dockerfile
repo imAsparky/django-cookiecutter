@@ -10,17 +10,17 @@ RUN python3 -m venv $VIRTUAL_ENV_COMP
 ENV PATH="$VIRTUAL_ENV_COMP/bin:$PATH"
 
 # Copy requirements files
-# Change the path to your production requirements file if different.
 COPY config/requirements/ /config/requirements/
 
-# Install build deps, run `pip install`, remove unneeded build deps.
+# Install build deps, then run `pip install`, remove unneeded build deps.
+# Change the path to your production requirements file if different.
 RUN set -ex \
-    && BUILD_DEPS=" \
+    && apt-get update && apt-get install -y --no-install-recommends \
+    \
     build-essential=12.9 \
     libpcre3-dev=2:8.39-13 \
     libpq-dev=13.5-0+deb11u1 \
-    " \
-    && apt-get update && apt-get install -y --no-install-recommends $BUILD_DEPS \
+    \
     && pip install --upgrade pip\
     && pip install --no-cache-dir -r /config/requirements/production.txt \
     \
@@ -41,14 +41,14 @@ ENV PATH="$VIRTUAL_ENV_PROD/bin:$PATH"
 #   mime-support -- for mime types when serving static files
 #   postgresql-client -- for running database commands
 RUN set -ex \
-    && RUN_DEPS=" \
+    && apt-get update && apt-get install -y --no-install-recommends \
+    \
     libpcre3=2:8.39-13 \
     mime-support=3.66 \
     postgresql-client=13+225 \
-    " \
-    && apt-get update && apt-get install -y --no-install-recommends $RUN_DEPS \
+    \
     && rm -rf /var/lib/apt-get/lists/* \
-    && echo sed -i 's/\r$//g' /entrypoint
+    && printf sed -i 's/\r$//g' /entrypoint
 
 WORKDIR /home/${USER}
 
