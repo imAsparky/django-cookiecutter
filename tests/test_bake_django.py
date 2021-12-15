@@ -21,9 +21,9 @@ def test_baked_django_with_allauth_requirements_ok(cookies):
     default_django = cookies.bake()
 
     requirements_path = default_django.project_path / "config/requirements/base.txt"
-    requirements_file = requirements_path.read_text().splitlines()
+    requirements_file = str(requirements_path.read_text().splitlines())
 
-    assert "django-allauth==0.45.0" in requirements_file
+    assert "django-allauth==" in requirements_file
 
 
 def test_baked_django_without_allauth_requirements_ok(cookies):
@@ -31,9 +31,9 @@ def test_baked_django_without_allauth_requirements_ok(cookies):
     non_default_django = cookies.bake(extra_context={"use_django_allauth": "n"})
 
     requirements_path = non_default_django.project_path / "config/requirements/base.txt"
-    requirements_file = requirements_path.read_text().splitlines()
+    requirements_file = str(requirements_path.read_text().splitlines())
 
-    assert "django-allauth==0.45.0" not in requirements_file
+    assert "django-allauth==" not in requirements_file
 
 
 def test_baked_django_with_allauth_settings_ok(cookies):
@@ -104,7 +104,10 @@ def test_baked_django_asgi_file_ok(cookies):
     asgi_file = asgi_path.read_text().splitlines()
 
     assert '"""ASGI config for django-boilerplate project.' in asgi_file
-    assert '    "DJANGO_SETTINGS_MODULE", "django_boilerplate.settings"' in asgi_file
+    assert (
+        'os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings.local")'
+        in asgi_file
+    )
 
 
 def test_baked_django_docs_with_code_of_conduct(cookies):
@@ -201,6 +204,44 @@ def test_baked_django_without_custom_issue_template_files(cookies):
     ISSUE_TEMPLATE_parent = non_default_django.project_path / ".github"
     dir_list = os.listdir((ISSUE_TEMPLATE_parent))
     assert "ISSUE_TEMPLATE" not in dir_list
+
+
+def test_baked_django_with_docker(cookies):
+    """Test Django Docker folder has been generated correctly."""
+    non_default_django = cookies.bake(extra_context={"deploy_with_docker": "y"})
+
+    assert "Dockerfile" in os.listdir((non_default_django.project_path))
+    assert ".dockerignore" in os.listdir((non_default_django.project_path))
+    assert "docker-compose-swarm.yml" in os.listdir(
+        (non_default_django.project_path / "compose")
+    )
+    assert "docker-entrypoint.sh" in os.listdir((non_default_django.project_path))
+
+
+def test_baked_django_without_docker(cookies):
+    """Test Django Docker folder has not been generated."""
+    default_django = cookies.bake()
+
+    assert "Dockerfile" not in os.listdir((default_django.project_path))
+    assert ".dockerignore" not in os.listdir((default_django.project_path))
+    assert "docker-compose-swarm.yml" not in os.listdir(
+        (default_django.project_path / "compose")
+    )
+    assert "docker-entrypoint.sh" not in os.listdir((default_django.project_path))
+
+
+def test_baked_django_with_docs(cookies):
+    """Test Django docs folder has been generated correctly."""
+    default_django = cookies.bake()
+
+    assert "docs" in os.listdir((default_django.project_path))
+
+
+def test_baked_django_without_docs(cookies):
+    """Test Django docs folder has not been generated."""
+    non_default_django = cookies.bake(extra_context={"include_sphinx_docs": "n"})
+
+    assert "docs" not in os.listdir((non_default_django.project_path))
 
 
 def test_baked_django_with_docs(cookies):
@@ -788,7 +829,7 @@ def test_baked_django_without_semantic_release(cookies):
 
 
 def test_baked_django_base_settings_base_file_ok(cookies):
-    """Test Django settings.py file has generated correctly."""
+    """Test Django config/settings/base.py file has generated correctly."""
     default_django = cookies.bake()
 
     settings_path = default_django.project_path / "config/settings/base.py"
@@ -796,7 +837,6 @@ def test_baked_django_base_settings_base_file_ok(cookies):
     settings_file = settings_path.read_text().splitlines()
 
     assert '"""Django base settings for django-boilerplate project.' in settings_file
-    assert 'INTERNAL_IPS = ["127.0.0.1"]' in settings_file
     assert 'ROOT_URLCONF = "django_boilerplate.urls"' in settings_file
     assert 'WSGI_APPLICATION = "django_boilerplate.wsgi.application"' in settings_file
     assert 'LANGUAGE_CODE = "en"' in settings_file
@@ -874,4 +914,7 @@ def test_baked_django_wsgi_file_ok(cookies):
     wsgi_file = wsgi_path.read_text().splitlines()
 
     assert '"""WSGI config for django-boilerplate project.' in wsgi_file
-    assert '    "DJANGO_SETTINGS_MODULE", "django_boilerplate.settings"' in wsgi_file
+    assert (
+        'os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings.local")'
+        in wsgi_file
+    )
