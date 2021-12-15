@@ -2,47 +2,103 @@
   "author_name": "Mark Sevelj",
   "email": "mark@example.com",
   "github_username": "imAsparky",
-  "github_user_email":  "{{ cookiecutter.email }}",
+  "github_user_email": "{{ cookiecutter.email }}",
   "project_name": "Django Boilerplate",
   "git_project_name": "{{ cookiecutter.project_name.lower().replace(' ', '-').replace('_', '-') }}",
   "project_slug": "{{ cookiecutter.project_name.lower()|replace(' ', '_')|replace('-', '_')|replace('.', '_')|trim() }}",
   "project_short_description": "A Django project with all the boilerplate",
   "version": "0.1.0",
-
-  "create_conventional_commits_edit_message": ["y", "n"],
-  "use_GH_custom_issue_templates": ["y", "n"],
-  "automatic_set_up_git_and_initial_commit": ["y", "n"],
-
-  "use_pre_commit": ["y", "n"],
-  "create_repo_auto_test_workflow": ["y", "n"],
-  "use_GH_action_semantic_version": ["y", "n"],
-
-  "include_sphinx_docs": ["y", "n"],
-  "use_readthedocs": ["y", "n"],
-  "include_documentation_templates":["y", "n"],
-  "include_how_to_contribute_template":["y", "n"],
-  "include_contributor_covenant_code_of_conduct":["y", "n"],
-
+  "deploy_with_docker": [
+    "n",
+    "y",
+    "swarm"
+  ],
+  "env_file_path": "/home/dev/.env/.production",
+  "postgress_volume_path": "/var/lib/postgresql/data",
+  "create_conventional_commits_edit_message": [
+    "y",
+    "n"
+  ],
+  "use_GH_custom_issue_templates": [
+    "y",
+    "n"
+  ],
+  "automatic_set_up_git_and_initial_commit": [
+    "y",
+    "n"
+  ],
+  "use_pre_commit": [
+    "y",
+    "n"
+  ],
+  "create_repo_auto_test_workflow": [
+    "y",
+    "n"
+  ],
+  "use_GH_action_semantic_version": [
+    "y",
+    "n"
+  ],
+  "include_sphinx_docs": [
+    "y",
+    "n"
+  ],
+  "use_readthedocs": [
+    "y",
+    "n"
+  ],
+  "include_documentation_templates": [
+    "y",
+    "n"
+  ],
+  "include_how_to_contribute_template": [
+    "y",
+    "n"
+  ],
+  "include_contributor_covenant_code_of_conduct": [
+    "y",
+    "n"
+  ],
   "ALLOWED_HOSTS": "www.example.com",
   "INTERNAL_IPS": "127.0.0.1",
   "LANGUAGE_CODE": "en",
   "LANGUAGES": "en, hi",
   "TIME_ZONE": "UTC",
-  "USE_L10N": ["True", "False"],
-  "USE_I18N": ["True", "False"],
+  "USE_L10N": [
+    "True",
+    "False"
+  ],
+  "USE_I18N": [
+    "True",
+    "False"
+  ],
   "SITE_ID": "1",
-  "use_django_allauth": ["y", "n"],
-
-
-  "use_repo_status_badge": ["no", "concept", "wip", "active"],
-  "use_pyup_io": ["y", "n"],
-  "open_source_license": ["MIT license", "BSD license", "ISC license", "Apache Software License 2.0", "GNU General Public License v3", "Not open source"],
-
+  "use_django_allauth": [
+    "y",
+    "n"
+  ],
+  "use_repo_status_badge": [
+    "no",
+    "concept",
+    "wip",
+    "active"
+  ],
+  "use_pyup_io": [
+    "y",
+    "n"
+  ],
+  "open_source_license": [
+    "MIT license",
+    "BSD license",
+    "ISC license",
+    "Apache Software License 2.0",
+    "GNU General Public License v3",
+    "Not open source"
+  ],
   "_copy_without_render": [
-        ".pre-commit-config.yaml",
-        ".github/workflows/semantic_release.yaml",
-        ".github/workflows/test_contribution.yaml",
-        "templates/*"
-    ]
-
+    ".pre-commit-config.yaml",
+    ".github/workflows/semantic_release.yaml",
+    ".github/workflows/test_contribution.yaml",
+    "templates/*"
+  ]
 }

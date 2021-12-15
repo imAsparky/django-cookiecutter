@@ -56,6 +56,15 @@ Django Options
 
 .. _Django-allauth: https://django-allauth.readthedocs.io/en/latest/installation.html
 
+
+Docker
+~~~~~~
+
+#. Deploy to production with `Docker`_.
+
+.. _Docker: https://www.docker.com/
+
+
 Documentation
 ~~~~~~~~~~~~~
 
@@ -86,7 +95,7 @@ Workflow Helpers
 
 #. Pre-commit for code quality help and a README badge.
 #. A Python Semantic Release GitHub action and a README badge.
-#. A test suite complete with py36-py39, Linux, macOS and Windows matrix.
+#. A test suite complete with py3.6-py3.10, Linux, macOS and Windows matrix.
 
 Communication
 ~~~~~~~~~~~~~
