@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.19.12 (2021-12-15)
+### Fix
+* **settings:** Correct DEBUG syntax #143 ([#176](https://github.com/imAsparky/django-cookiecutter/issues/176)) ([`4b7379c`](https://github.com/imAsparky/django-cookiecutter/commit/4b7379cd715c73f2947fb86c7ac7994b8455b773))
+
 ## v0.19.11 (2021-12-15)
 ### Fix
 * **pyup:**  Update myst-parser to 0.16.0 ([#174](https://github.com/imAsparky/django-cookiecutter/issues/174)) ([`30f5622`](https://github.com/imAsparky/django-cookiecutter/commit/30f56224b2fdb4030a4449c48284fafa151f0d19))
