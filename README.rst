@@ -1,5 +1,5 @@
 ===========================
-**Django 3.2 Cookiecutter**
+**Django 4.0 Cookiecutter**
 ===========================
 
 **Version 1.0 will signify the first stable Django build!**
