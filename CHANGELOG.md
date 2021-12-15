@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.19.13 (2021-12-15)
+### Fix
+* **settings:** Move DB into relevant settings #151 ([#180](https://github.com/imAsparky/django-cookiecutter/issues/180)) ([`9ae725c`](https://github.com/imAsparky/django-cookiecutter/commit/9ae725c20e04545282e7b697f93c80cf81bdbfba))
+
 ## v0.19.12 (2021-12-15)
 ### Fix
 * **settings:** Correct DEBUG syntax #143 ([#176](https://github.com/imAsparky/django-cookiecutter/issues/176)) ([`4b7379c`](https://github.com/imAsparky/django-cookiecutter/commit/4b7379cd715c73f2947fb86c7ac7994b8455b773))
