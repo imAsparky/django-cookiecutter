@@ -10,15 +10,15 @@ RUN python3 -m venv $VIRTUAL_ENV_COMP
 ENV PATH="$VIRTUAL_ENV_COMP/bin:$PATH"
 
 # Copy requirements files
+# Change the path to your production requirements file if different.
 COPY config/requirements/ /config/requirements/
 
-# Install build deps, then run `pip install`, remove unneeded build deps.
-# Change the path to your production requirements file if different.
+# Install build deps, run `pip install`, remove unneeded build deps.
 RUN set -ex \
     && BUILD_DEPS=" \
-    build-essential \
-    libpcre3-dev \
-    libpq-dev \
+    build-essential=12.9 \
+    libpcre3-dev=2:8.39-13 \
+    libpq-dev=13.5-0+deb11u1 \
     " \
     && apt-get update && apt-get install -y --no-install-recommends $BUILD_DEPS \
     && pip install --upgrade pip\
@@ -42,9 +42,9 @@ ENV PATH="$VIRTUAL_ENV_PROD/bin:$PATH"
 #   postgresql-client -- for running database commands
 RUN set -ex \
     && RUN_DEPS=" \
-    libpcre3 \
-    mime-support \
-    postgresql-client \
+    libpcre3=2:8.39-13 \
+    mime-support=3.66 \
+    postgresql-client=13+225 \
     " \
     && apt-get update && apt-get install -y --no-install-recommends $RUN_DEPS \
     && rm -rf /var/lib/apt-get/lists/* \
@@ -59,14 +59,13 @@ WORKDIR /home/${USER}
 
 # Add the minimum project files required for production
 # To add all files from the project directory comment these out and see next comment.
-ADD --chown=${USER}:${USER} django_boilerplate django_boilerplate
-ADD --chown=${USER}:${USER} manage.py manage.py
-ADD --chown=${USER}:${USER} config/settings/ config/settings/
-ADD --chown=${USER}:${USER} templates templates
-ADD --chown=${USER}:${USER} docker-entrypoint.sh docker-entrypoint.sh
-
+COPY --chown=${USER}:${USER} django_boilerplate django_boilerplate
+COPY --chown=${USER}:${USER} manage.py manage.py
+COPY --chown=${USER}:${USER} config/settings/ config/settings/
+COPY --chown=${USER}:${USER} templates templates
+COPY --chown=${USER}:${USER} docker-entrypoint.sh docker-entrypoint.sh
 # Uncomment this line copies all folders and files from your project directory.
-# ADD --chown=${USER}:${USER} . .
+# Copy --chown=${USER}:${USER} . .
 
 # uWSGI will listen on this port
 EXPOSE 8000
