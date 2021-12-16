@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.20.1 (2021-12-16)
+### Fix
+* **pyup:**  Update django-debug-toolbar to 3.2.4 ([#186](https://github.com/imAsparky/django-cookiecutter/issues/186)) ([`f9ba99a`](https://github.com/imAsparky/django-cookiecutter/commit/f9ba99a66bc48d650118064f73c70c2356f0707d))
+
 ## v0.20.0 (2021-12-16)
 ### Feature
 * **docker:** Add production ready Dockerfile #148 ([#185](https://github.com/imAsparky/django-cookiecutter/issues/185)) ([`298f30b`](https://github.com/imAsparky/django-cookiecutter/commit/298f30befc5856b23d61be48f4ced367c8fafbcc))
