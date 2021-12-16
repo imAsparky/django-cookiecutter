@@ -19,9 +19,8 @@ DEBUG = env('DJANGO_DEBUG', default=False)
 # fmt: on
 
 ALLOWED_HOSTS = ["{{cookiecutter.ALLOWED_HOSTS}}"]
-ALLOWED_HOSTS += ["139.59.102.221", "127.0.0.1"]
 
-INTERNAL_IPS = env.list("INTERNAL_IPS", default=["127.0.0.1", "10.0.2.2"])
+INTERNAL_IPS = ["{{cookiecutter.INTERNAL_IPS}}"]
 
 EMAIL_BACKEND = env(
     "EMAIL_BACKEND", default="django.core.mail.backends.console.EmailBackend"

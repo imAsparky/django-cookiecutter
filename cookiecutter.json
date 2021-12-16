@@ -8,13 +8,33 @@
   "project_slug": "{{ cookiecutter.project_name.lower()|replace(' ', '_')|replace('-', '_')|replace('.', '_')|trim() }}",
   "project_short_description": "A Django project with all the boilerplate",
   "version": "0.1.0",
+  "ALLOWED_HOSTS": "",
+  "INTERNAL_IPS": "",
+  "LANGUAGE_CODE": "en",
+  "LANGUAGES": "en, hi",
+  "TIME_ZONE": "UTC",
+  "USE_L10N": [
+    "True",
+    "False"
+  ],
+  "USE_I18N": [
+    "True",
+    "False"
+  ],
+  "SITE_ID": "1",
+  "use_django_allauth": [
+    "y",
+    "n"
+  ],
   "deploy_with_docker": [
     "n",
     "y",
     "swarm"
   ],
-  "env_file_path": "/home/dev/.env/.production",
-  "postgress_volume_path": "/var/lib/postgresql/data",
+  "use_pre_commit": [
+    "y",
+    "n"
+  ],
   "create_conventional_commits_edit_message": [
     "y",
     "n"
@@ -24,10 +44,6 @@
     "n"
   ],
   "automatic_set_up_git_and_initial_commit": [
-    "y",
-    "n"
-  ],
-  "use_pre_commit": [
     "y",
     "n"
   ],
@@ -56,24 +72,6 @@
     "n"
   ],
   "include_contributor_covenant_code_of_conduct": [
-    "y",
-    "n"
-  ],
-  "ALLOWED_HOSTS": "www.example.com",
-  "INTERNAL_IPS": "127.0.0.1",
-  "LANGUAGE_CODE": "en",
-  "LANGUAGES": "en, hi",
-  "TIME_ZONE": "UTC",
-  "USE_L10N": [
-    "True",
-    "False"
-  ],
-  "USE_I18N": [
-    "True",
-    "False"
-  ],
-  "SITE_ID": "1",
-  "use_django_allauth": [
     "y",
     "n"
   ],

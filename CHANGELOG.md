@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.20.0 (2021-12-16)
+### Feature
+* **docker:** Add production ready Dockerfile #148 ([#185](https://github.com/imAsparky/django-cookiecutter/issues/185)) ([`298f30b`](https://github.com/imAsparky/django-cookiecutter/commit/298f30befc5856b23d61be48f4ced367c8fafbcc))
+
 ## v0.19.13 (2021-12-15)
 ### Fix
 * **settings:** Move DB into relevant settings #151 ([#180](https://github.com/imAsparky/django-cookiecutter/issues/180)) ([`9ae725c`](https://github.com/imAsparky/django-cookiecutter/commit/9ae725c20e04545282e7b697f93c80cf81bdbfba))

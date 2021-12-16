@@ -1,0 +1,63 @@
+version: "3.8"
+services:
+  app:
+    image: {{cookiecutter.git_project_name}}
+    secrets:
+      - django_secret
+      - django_debug
+      - db_url
+      # - env_file
+      # - db_engine
+      # - db_name
+      # - db_user
+      # - db_password
+      # - db_host
+      # - db_port
+
+    environment:
+      DJANGO_SECRET_KEY_FILE: /run/secrets/django_secret
+      DJANGO_DEBUG_FILE: /run/secrets/django_debug
+      DATABASE_URL_FILE: /run/secrets/db_url
+      # ENV_FILE: /run/secrets/env_file
+      # DB_ENGINE_FILE: /run/secrets/db_engine
+      # DB_NAME_FILE: /run/secrets/db_name
+      # DB_USER_FILE: /run/secrets/db_user
+      # DB_PASSWORD_FILE: /run/secrets/db_password
+      # DB_HOST_FILE: /run/secrets/db_host
+      # DB_PORT_FILE: /run/secrets/db_port
+
+    ports:
+      - "8000:8000"
+    deploy:
+      labels:
+        - traefik.enable=true
+        - traefik.http.routers.django.rule=Host(`{{cookiecutter.ALLOWED_HOSTS}}`)
+        - traefik.http.routers.django.service=django
+        - traefik.http.routers.django.entrypoints=websecure
+        #    - traefik.http.routers.https.tls=true
+        - traefik.http.routers.django.tls.certresolver=myresolver
+        - traefik.http.services.django.loadbalancer.server.port=80
+
+secrets:
+  django_secret:
+    external: true
+  django_debug:
+    external: true
+  db_url:
+    external: true
+  # env_file:
+  #   external: true
+  # db_engine:
+  #   external: true
+  # db_name:
+  #   external: true
+  # db_user:
+  #   external: true
+  # db_password:
+  #   external: true
+  # db_host:
+  #   external: true
+  # db_port:
+  #   external: true
+
+

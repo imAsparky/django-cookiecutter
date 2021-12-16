@@ -122,6 +122,7 @@ AUTH_PASSWORD_VALIDATORS = [
 {% if cookiecutter.USE_L10N == "True" %}
 USE_L10N = True
 {% else %}
+# Dperacated in 4.0
 USE_L10N = False
 {% endif %}
 USE_I18N = True

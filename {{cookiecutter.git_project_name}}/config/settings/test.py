@@ -16,7 +16,6 @@ SECRET_KEY = env("DJANGO_SECRET_KEY")
 DEBUG = env("DEBUG", default=False)
 
 ALLOWED_HOSTS = ["{{cookiecutter.ALLOWED_HOSTS}}"]
-ALLOWED_HOSTS += ["139.59.102.221", "127.0.0.1"]
 
 assert not settings.Debug, "DEBUG mode should be off for testing."  # nosec
 
