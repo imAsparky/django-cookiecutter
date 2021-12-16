@@ -50,7 +50,7 @@ REMOVE_FILES = [
     '{% if cookiecutter.deploy_with_docker == "n" %} \
         .dockerignore {% endif %}',
     '{% if cookiecutter.deploy_with_docker == "n" %} \
-        compose/docker-compose-swarm.yml {% endif %}',
+        compose {% endif %}',
     '{% if cookiecutter.deploy_with_docker == "n" %} \
         docker-entrypoint.sh {% endif %}',
 ]

@@ -224,9 +224,8 @@ def test_baked_django_without_docker(cookies):
 
     assert "Dockerfile" not in os.listdir((default_django.project_path))
     assert ".dockerignore" not in os.listdir((default_django.project_path))
-    assert "docker-compose-swarm.yml" not in os.listdir(
-        (default_django.project_path / "compose")
-    )
+
+    assert "compose" not in os.listdir((default_django.project_path))
     assert "docker-entrypoint.sh" not in os.listdir((default_django.project_path))
 
 
@@ -869,7 +868,7 @@ def test_baked_django_settings_production_file_ok(cookies):
         '"""Django production settings for django-boilerplate project."""'
         in settings_file
     )
-    assert 'ALLOWED_HOSTS = ["www.example.com"]' in settings_file
+    assert 'ALLOWED_HOSTS = [""]' in settings_file
 
 
 def test_baked_django_settings_staging_file_ok(cookies):
@@ -882,7 +881,7 @@ def test_baked_django_settings_staging_file_ok(cookies):
     assert (
         '"""Django staging settings for django-boilerplate project."""' in settings_file
     )
-    assert 'ALLOWED_HOSTS = ["www.example.com"]' in settings_file
+    assert 'ALLOWED_HOSTS = [""]' in settings_file
 
 
 def test_baked_django_settings_test_file_ok(cookies):
@@ -893,7 +892,7 @@ def test_baked_django_settings_test_file_ok(cookies):
     settings_file = settings_path.read_text().splitlines()
 
     assert '"""Django test settings for django-boilerplate project."""' in settings_file
-    assert 'ALLOWED_HOSTS = ["www.example.com"]' in settings_file
+    assert 'ALLOWED_HOSTS = [""]' in settings_file
 
 
 def test_baked_django_urls_file_ok(cookies):
