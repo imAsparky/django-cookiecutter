@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.20.6 (2021-12-17)
+### Fix
+* **options:** Remove L10N choice from set-up #183 ([#194](https://github.com/imAsparky/django-cookiecutter/issues/194)) ([`4e84941`](https://github.com/imAsparky/django-cookiecutter/commit/4e84941abb386f980bef7c18b4c541149609f277))
+
 ## v0.20.5 (2021-12-17)
 ### Fix
 * **pyth:** Remove support for < py3.8 #184 ([#193](https://github.com/imAsparky/django-cookiecutter/issues/193)) ([`bf09135`](https://github.com/imAsparky/django-cookiecutter/commit/bf09135a990087469854c217d8e0dfe2b3f66fb7))
