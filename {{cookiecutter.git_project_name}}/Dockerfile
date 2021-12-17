@@ -59,7 +59,7 @@ WORKDIR /home/${USER}
 
 # Add the minimum project files required for production
 # To add all files from the project directory comment these out and see next comment.
-COPY --chown=${USER}:${USER} django_boilerplate django_boilerplate
+COPY --chown=${USER}:${USER} {{cookiecutter.project_slug}}/ {{cookiecutter.project_slug}}/
 COPY --chown=${USER}:${USER} manage.py manage.py
 COPY --chown=${USER}:${USER} config/settings/ config/settings/
 COPY --chown=${USER}:${USER} templates templates
@@ -77,7 +77,7 @@ ENV DJANGO_SETTINGS_MODULE=config.settings.production
 RUN DATABASE_URL='' python3 manage.py collectstatic --noinput
 
 # Tell uWSGI where to find your wsgi file (change this):
-ENV UWSGI_WSGI_FILE=django_boilerplate/wsgi.py
+ENV UWSGI_WSGI_FILE={{cookiecutter.project_slug}}/wsgi.py
 
 # Base uWSGI configuration (you shouldn't need to change these):
 ENV UWSGI_HTTP=:8000 UWSGI_MASTER=1 UWSGI_HTTP_AUTO_CHUNKED=1 UWSGI_HTTP_KEEPALIVE=1 UWSGI_LAZY_APPS=1
