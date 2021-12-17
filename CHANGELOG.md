@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.20.5 (2021-12-17)
+### Fix
+* **pyth:** Remove support for < py3.8 #184 ([#193](https://github.com/imAsparky/django-cookiecutter/issues/193)) ([`bf09135`](https://github.com/imAsparky/django-cookiecutter/commit/bf09135a990087469854c217d8e0dfe2b3f66fb7))
+
 ## v0.20.4 (2021-12-17)
 ### Fix
 * **deps:** Debug toolbar disabled until update #191 ([#192](https://github.com/imAsparky/django-cookiecutter/issues/192)) ([`ba95c4a`](https://github.com/imAsparky/django-cookiecutter/commit/ba95c4ad8fa00d16b205149a2a258d7f141b25e0))
