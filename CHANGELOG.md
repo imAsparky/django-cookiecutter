@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.20.3 (2021-12-17)
+### Fix
+* **env:** .env folder removed from .gitignore #189 ([#190](https://github.com/imAsparky/django-cookiecutter/issues/190)) ([`a69454e`](https://github.com/imAsparky/django-cookiecutter/commit/a69454e2ebf697c9d3d94bf73f8a24f9a077cb7c))
+
 ## v0.20.2 (2021-12-17)
 ### Fix
 * **pyup:**  Update myst-parser to 0.16.1 ([#187](https://github.com/imAsparky/django-cookiecutter/issues/187)) ([`3d83d03`](https://github.com/imAsparky/django-cookiecutter/commit/3d83d0332091344709e9253eaf70ca026f699a5a))
