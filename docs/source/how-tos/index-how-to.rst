@@ -15,4 +15,5 @@ See below for a list of How-To for Django Cookiecutter.
    :titlesonly:
 
    how-to-quickstart
+   how-to-docker-linux-cheatsheet
    how-to-contribute
