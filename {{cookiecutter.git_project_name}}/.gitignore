@@ -140,7 +140,7 @@ celerybeat.pid
 *.sage.py
 
 # Environments
-.env
+# .env Django environment settings folder
 .venv
 env/
 venv/
