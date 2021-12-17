@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.20.2 (2021-12-17)
+### Fix
+* **pyup:**  Update myst-parser to 0.16.1 ([#187](https://github.com/imAsparky/django-cookiecutter/issues/187)) ([`3d83d03`](https://github.com/imAsparky/django-cookiecutter/commit/3d83d0332091344709e9253eaf70ca026f699a5a))
+
 ## v0.20.1 (2021-12-16)
 ### Fix
 * **pyup:**  Update django-debug-toolbar to 3.2.4 ([#186](https://github.com/imAsparky/django-cookiecutter/issues/186)) ([`f9ba99a`](https://github.com/imAsparky/django-cookiecutter/commit/f9ba99a66bc48d650118064f73c70c2356f0707d))
