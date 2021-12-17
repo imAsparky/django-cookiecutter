@@ -842,7 +842,6 @@ def test_baked_django_base_settings_base_file_ok(cookies):
     assert "    ('en', _(\"English\"))," in settings_file
     assert 'TIME_ZONE = "UTC"' in settings_file
     assert "USE_I18N = True" in settings_file
-    assert "USE_L10N = True" in settings_file
 
 
 def test_baked_django_settings_local_file_ok(cookies):
