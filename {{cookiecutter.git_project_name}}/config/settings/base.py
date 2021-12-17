@@ -119,12 +119,6 @@ AUTH_PASSWORD_VALIDATORS = [
     "es": "Spanish",
 }) %}
 {% if cookiecutter.USE_I18N == "True" %}
-{% if cookiecutter.USE_L10N == "True" %}
-USE_L10N = True
-{% else %}
-# Dperacated in 4.0
-USE_L10N = False
-{% endif %}
 USE_I18N = True
 
 LANGUAGE_CODE = "{{cookiecutter.LANGUAGE_CODE}}"
@@ -140,11 +134,6 @@ USE_TZ = True
 
 TIME_ZONE = "{{cookiecutter.TIME_ZONE}}"
 {% else %}
-{% if cookiecutter.USE_L10N == "True" %}
-USE_L10N = True
-{% else %}
-USE_L10N = False
-{% endif %}
 USE_I18N = False
 
 LANGUAGE_CODE = "{{cookiecutter.LANGUAGE_CODE}}"

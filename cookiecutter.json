@@ -13,10 +13,6 @@
   "LANGUAGE_CODE": "en",
   "LANGUAGES": "en, hi",
   "TIME_ZONE": "UTC",
-  "USE_L10N": [
-    "True",
-    "False"
-  ],
   "USE_I18N": [
     "True",
     "False"
