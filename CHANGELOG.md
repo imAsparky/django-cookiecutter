@@ -2,6 +2,13 @@
 
 <!--next-version-placeholder-->
 
+## v0.20.7 (2021-12-17)
+### Fix
+* **typo:** Changed to cookiecutter variable #196 ([#197](https://github.com/imAsparky/django-cookiecutter/issues/197)) ([`14ae0b6`](https://github.com/imAsparky/django-cookiecutter/commit/14ae0b67a3178708dddd00e104278cc9fc0b151b))
+
+### Documentation
+* **cli:** Add CLI cheatsheet #149 ([#195](https://github.com/imAsparky/django-cookiecutter/issues/195)) ([`7564de0`](https://github.com/imAsparky/django-cookiecutter/commit/7564de016f1ae29519e871c0e20c00d58471c8c2))
+
 ## v0.20.6 (2021-12-17)
 ### Fix
 * **options:** Remove L10N choice from set-up #183 ([#194](https://github.com/imAsparky/django-cookiecutter/issues/194)) ([`4e84941`](https://github.com/imAsparky/django-cookiecutter/commit/4e84941abb386f980bef7c18b4c541149609f277))
