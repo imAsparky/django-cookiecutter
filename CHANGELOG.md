@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.20.4 (2021-12-17)
+### Fix
+* **deps:** Debug toolbar disabled until update #191 ([#192](https://github.com/imAsparky/django-cookiecutter/issues/192)) ([`ba95c4a`](https://github.com/imAsparky/django-cookiecutter/commit/ba95c4ad8fa00d16b205149a2a258d7f141b25e0))
+
 ## v0.20.3 (2021-12-17)
 ### Fix
 * **env:** .env folder removed from .gitignore #189 ([#190](https://github.com/imAsparky/django-cookiecutter/issues/190)) ([`a69454e`](https://github.com/imAsparky/django-cookiecutter/commit/a69454e2ebf697c9d3d94bf73f8a24f9a077cb7c))
