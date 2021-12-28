@@ -18,8 +18,11 @@ Create a Django Secret key.
 
     python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
 
-    =#5cb$au3$t+hyj(f7ejgrk7$xet7_q@8m)5qd*c_*)nl1shwr
+You will see an output similat to this.
 
+.. code-block::
+
+    w#5cb$au3$t+hyj(f7ejgrk7$xet7_q@8m)5qd*c_*)nl1shwr
 
 .. danger::
 
@@ -36,9 +39,16 @@ Copy and add the secret key to an environment variable.
 
         export DJANGO_SECRET_KEY='w=#5cb$au3$t+hyj(f7ejgrk7$xet7_q@8m)5qd*c_*)nl1shwr'
 
+    .. code-block:: bash
+        :caption: **bash/zsh**
+
         printenv DJANGO_SECRET_KEY  # To check it worked
 
+    .. code-block:: bash
+        :caption: **bash/zsh**
+
         w#5cb$au3$t+hyj(f7ejgrk7$xet7_q@8m)5qd*c_*)nl1shwr
+
 
 .. tab:: macOS
 
@@ -46,9 +56,15 @@ Copy and add the secret key to an environment variable.
     .. code-block:: bash
         :caption: **bash/zsh**
 
-        export DJANGO_SECRET_KEY=<YOUR SECURE KEY>
+        export DJANGO_SECRET_KEY='w=#5cb$au3$t+hyj(f7ejgrk7$xet7_q@8m)5qd*c_*)nl1shwr'
+
+    .. code-block:: bash
+        :caption: **bash/zsh**
 
         printenv DJANGO_SECRET_KEY  # To check it worked
+
+    .. code-block:: bash
+        :caption: **bash/zsh**
 
         w#5cb$au3$t+hyj(f7ejgrk7$xet7_q@8m)5qd*c_*)nl1shwr
 
