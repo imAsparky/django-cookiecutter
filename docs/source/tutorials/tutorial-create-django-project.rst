@@ -28,7 +28,7 @@ and running fast.
 Pre-requisites
 ==============
 
-`Python 3.6 <https://www.python.org/downloads/>`_ or greater installed on
+`Python 3.8 <https://www.python.org/downloads/>`_ or greater installed on
 your computer.
 
 :ref:`Create a GitHub repository.<create-GH-repo>`
@@ -44,7 +44,7 @@ Here we are using `projects`.
 
 .. code-block:: bash
 
-    dev@aps1:~/projects$
+  dev@aps-dev:~/projects$
 
 
 .. _create-virtual-environemnt:
@@ -156,7 +156,7 @@ this, identifying the name of the virtual environment at the start.
 
 .. code-block:: bash
 
-    (my_env) dev@aps1:~/projects$
+    (my_env) dev@aps-dev:~/projects$
 
 
 .. _install-cookiecutter:
@@ -297,10 +297,9 @@ An Example Django Project
 .. code-block:: cmd
     :caption: **An example package created with some non default selections**
 
-      (my_env) dev@aps1:~/projects$cookiecutter
-      https://github.com/imAsparky/django-cookiecutter
+      (my_env) dev@aps-dev:~/projects$ cookiecutter https://github.com/imAsparky/django-cookiecutter
       author_name [Mark Sevelj]:
-      email [mark@example.com]: mark@example.com
+      email [mark@example.com]:
       github_username [imAsparky]:
       github_user_email [mark@example.com]:
       project_name [Django Boilerplate]: My New Django
@@ -308,6 +307,29 @@ An Example Django Project
       project_slug [my_new_django]:
       project_short_description [A Django project with all the boilerplate]: An example Django Project for django-cookiecutter
       version [0.1.0]:
+      ALLOWED_HOSTS []: www.example.com (NON-DEFAULT)
+      INTERNAL_IPS []:
+      LANGUAGE_CODE [en]:
+      LANGUAGES [en, hi]:
+      TIME_ZONE [UTC]:
+      Select USE_I18N:
+      1 - True
+      2 - False
+      Choose from 1, 2 [1]:
+      SITE_ID [1]:
+      Select use_django_allauth:
+      1 - y
+      2 - n
+      Choose from 1, 2 [1]:
+      Select deploy_with_docker:
+      1 - n
+      2 - y
+      3 - swarm
+      Choose from 1, 2, 3 [1]:
+      Select use_pre_commit:
+      1 - y
+      2 - n
+      Choose from 1, 2 [1]:
       Select create_conventional_commits_edit_message:
       1 - y
       2 - n
@@ -317,10 +339,6 @@ An Example Django Project
       2 - n
       Choose from 1, 2 [1]:
       Select automatic_set_up_git_and_initial_commit:
-      1 - y
-      2 - n
-      Choose from 1, 2 [1]:
-      Select use_pre_commit:
       1 - y
       2 - n
       Choose from 1, 2 [1]:
@@ -352,24 +370,12 @@ An Example Django Project
       1 - y
       2 - n
       Choose from 1, 2 [1]:
-      ALLOWED_HOSTS [www.example.com]:
-      INTERNAL_IPS [127.0.0.1]:
-      LANGUAGE_CODE [en-au]:
-      LANGUAGES [hi]:
-      TIME_ZONE [UTC]:
-      USE_L10N [True]:
-      USE_I18N [True]:
-      SITE_ID [1]:
-      Select use_django_allauth:
-      1 - y
-      2 - n
-      Choose from 1, 2 [1]:
       Select use_repo_status_badge:
       1 - no
       2 - concept
       3 - wip
       4 - active
-      Choose from 1, 2, 3, 4 [1]: 2  (NON DEFAULT)
+      Choose from 1, 2, 3, 4 [1]: 2  (NON-DEFAULT)
       Select use_pyup_io:
       1 - y
       2 - n
@@ -382,7 +388,7 @@ An Example Django Project
       5 - GNU General Public License v3
       6 - Not open source
       Choose from 1, 2, 3, 4, 5, 6 [1]: 2  (NON DEFAULT)
-      (my_env) dev@aps1:~/projects$
+      (my_env) dev@aps-dev:~/projects$
 
 .. hint::
 
@@ -408,26 +414,47 @@ will look something similar to this.
 
   projects
     ├── my-new-django
+    │   ├── .env
+    │   │   ├── .local
+    │   │   ├── .production
+    │   │   ├── .staging
+    │   │   └── .testing
     │   ├── .git
-    │   ├── .github
-    │   ├── .pre-commit-config.yaml
-    │   ├── .pyup.yml
-    │   ├── .readthedocs.yaml
     │   ├── CHANGELOG.md
     │   ├── LICENSE.rst
-    │   ├── pytest.ini
     │   ├── README.rst
+    │   ├── config
+    │   │   ├── requirements
+    │   │   │   ├── base.txt
+    │   │   │   ├── local.txt
+    │   │   │   ├── production.txt
+    │   │   │   ├── staging.txt
+    │   │   │   └── test.txt
+    │   │   └── settings
+    │   │       ├── __init__.py
+    │   │       ├── base.py
+    │   │       ├── local.py
+    │   │       ├── production.py
+    │   │       ├── staging.py
+    │   │       ├── test.py
+    │   │       └── username_blacklist.py
+    │   ├── docs
+    │   │   ├── Makefile
+    │   │   ├── __init__.py
+    │   │   ├── build
+    │   │   ├── make.bat
+    │   │   ├── requirements.txt
+    │   │   └── source
+    │   ├── manage.py
     │   ├── my_new_django
     │   │   ├── __init__.py
     │   │   ├── asgi.py
-    │   │   ├── settings.py
     │   │   ├── urls.py
     │   │   └── wsgi.py
-    │   │
-    │   ├── docs
-    │   ├── tox.ini
-    │   ├── manage.py
-    │   └── requirements_dev.txt
+    │   ├── pytest.ini
+    │   ├── requirements_dev.txt
+    │   └── templates
+    │       └── account
     │
     └── my_env
         ├── bin
@@ -436,58 +463,201 @@ will look something similar to this.
         ├── lib64 -> lib
         └── pyvenv.cfg
 
+.. _install-django:
+Install Django
+--------------
+
+Change directory to your new django project, the one containing manage.py.
+
+.. code-block:: bash
+
+    cd my-new-django
+
+
+Install Django_ into your virtual environment.
+
+.. note::
+
+  Ensure you are in the root folder, the one containing manage.py
+
+.. code-block:: bash
+    :caption: **Linux, macOS and Windows**
+
+    pip install -r requirements_dev.txt
+
+Check new packages installed into your virtual environment.
+
+.. code-block:: bash
+    :caption: **Linux, macOS and Windows**
+
+    pip freeze
+
+You will see something similar to this in your CLI.
+
+.. code-block:: cmd
+
+    alabaster==0.7.12
+    arrow==1.2.1
+    asgiref==3.4.1
+    attrs==21.2.0
+    Babel==2.9.1
+    backports.entry-points-selectable==1.1.1
+    beautifulsoup4==4.10.0
+    binaryornot==0.4.4
+    certifi==2021.10.8
+    cffi==1.15.0
+    cfgv==3.3.1
+    chardet==4.0.0
+    charset-normalizer==2.0.8
+    click==8.0.3
+    cookiecutter==1.7.3
+    cryptography==36.0.0
+    defusedxml==0.7.1
+    distlib==0.3.4
+    dj-inmemorystorage==2.1.0
+    Django==4.0
+    django-allauth==0.47.0
+    django-debug-toolbar==3.2.4
+    django-debug-toolbar-template-profiler==2.0.2
+    django-environ==0.8.1
+    docutils==0.17.1
+    execnet==1.9.0
+    filelock==3.4.0
+    furo==2021.11.23
+    identify==2.4.0
+    idna==3.3
+    imagesize==1.3.0
+    iniconfig==1.1.1
+    Jinja2==3.0.3
+    jinja2-time==0.2.0
+    markdown-it-py==1.1.0
+    MarkupSafe==2.0.1
+    mdit-py-plugins==0.3.0
+    myst-parser==0.16.1
+    nodeenv==1.6.0
+    oauthlib==3.1.1
+    packaging==21.3
+    platformdirs==2.4.0
+    pluggy==1.0.0
+    poyo==0.5.0
+    pre-commit==2.16.0
+    py==1.11.0
+    pycparser==2.21
+    Pygments==2.10.0
+    PyJWT==2.3.0
+    pyparsing==3.0.6
+    pytest==6.2.5
+    pytest-django==4.5.2
+    pytest-forked==1.4.0
+    pytest-reverse==1.3.0
+    pytest-xdist==2.5.0
+    python-dateutil==2.8.2
+    python-slugify==5.0.2
+    python3-openid==3.2.0
+    pytz==2021.3
+    PyYAML==6.0
+    requests==2.26.0
+    requests-oauthlib==1.3.0
+    six==1.16.0
+    snowballstemmer==2.2.0
+    soupsieve==2.3.1
+    Sphinx==4.3.2
+    sphinx-copybutton==0.4.0
+    sphinx_inline_tabs==2021.4.11b9
+    sphinxcontrib-applehelp==1.0.2
+    sphinxcontrib-devhelp==1.0.2
+    sphinxcontrib-htmlhelp==2.0.0
+    sphinxcontrib-jsmath==1.0.1
+    sphinxcontrib-qthelp==1.0.3
+    sphinxcontrib-serializinghtml==1.1.5
+    sqlparse==0.4.2
+    tblib==1.7.0
+    text-unidecode==1.3
+    toml==0.10.2
+    tox==3.24.4
+    urllib3==1.26.7
+    virtualenv==20.10.0
+    wrapt==1.13.3
+
 
 .. include:: tutorial-segment-create-env-variable.rst
 
-Test Your Project Locally
--------------------------
+Final Project Setup
+-------------------
 
-This test uses the default DB SQLite database shipped with Django.
+Here we use the default DB SQLite database shipped with Django.
 
 In the root directory, the one with the manage.py file, type the
 following commands.
 
 .. code-block:: bash
 
-    python3 manage.py makemigrations
+  python3 manage.py collectstatic --no-input
 
 You will see something similar to this in your CLI.
 
 .. code-block:: bash
 
-  (venv) dev@aps1:~/projects/dlete/django-boilerplate$ python3 manage.py migrate
-  Operations to perform:
-    Apply all migrations: account, admin, auth, contenttypes, sessions, sites, socialaccount
-  Running migrations:
-    Applying contenttypes.0001_initial... OK
-    Applying auth.0001_initial... OK
-    Applying account.0001_initial... OK
-    Applying account.0002_email_max_length... OK
-    Applying account.0003_auto_20211008_0148... OK
-    Applying admin.0001_initial... OK
-    Applying admin.0002_logentry_remove_auto_add... OK
-    Applying admin.0003_logentry_add_action_flag_choices... OK
-    Applying contenttypes.0002_remove_content_type_name... OK
-    Applying auth.0002_alter_permission_name_max_length... OK
-    Applying auth.0003_alter_user_email_max_length... OK
-    Applying auth.0004_alter_user_username_opts... OK
-    Applying auth.0005_alter_user_last_login_null... OK
-    Applying auth.0006_require_contenttypes_0002... OK
-    Applying auth.0007_alter_validators_add_error_messages... OK
-    Applying auth.0008_alter_user_username_max_length... OK
-    Applying auth.0009_alter_user_last_name_max_length... OK
-    Applying auth.0010_alter_group_name_max_length... OK
-    Applying auth.0011_update_proxy_permissions... OK
-    Applying auth.0012_alter_user_first_name_max_length... OK
-    Applying sessions.0001_initial... OK
-    Applying sites.0001_initial... OK
-    Applying sites.0002_alter_domain_unique... OK
-    Applying socialaccount.0001_initial... OK
-    Applying socialaccount.0002_token_max_lengths... OK
-    Applying socialaccount.0003_extra_data_default_dict... OK
-    Applying socialaccount.0004_auto_20211008_0148... OK
+  128 static files copied to '/projects/my-new-django/static'
 
 .. code-block:: bash
+
+  python3 manage.py makemigrations
+
+You will see something similar to this in your CLI.
+
+.. code-block:: bash
+
+    Migrations for 'account':
+     /home/mdev/projects/dlet/venv/lib/python3.10/site-packages/allauth/account/migrations/0004_alter_emailaddress_id_alter_emailconfirmation_id.py
+       - Alter field id on emailaddress
+       - Alter field id on emailconfirmation
+   Migrations for 'socialaccount':
+     /home/mdev/projects/dlet/venv/lib/python3.10/site-packages/allauth/socialaccount/migrations/0005_alter_socialaccount_id_alter_socialapp_id_and_more.py
+       - Alter field id on socialaccount
+       - Alter field id on socialapp
+       - Alter field id on socialtoken
+
+.. code-block:: bash
+
+   python3 manage.py migrate
+
+You will see something similar to this in your CLI.
+
+.. code-block:: bash
+
+    Operations to perform:
+      Apply all migrations: account, admin, auth, contenttypes, sessions, sites, socialaccount
+    Running migrations:
+      Applying contenttypes.0001_initial... OK
+      Applying auth.0001_initial... OK
+      Applying account.0001_initial... OK
+      Applying account.0002_email_max_length... OK
+      Applying account.0003_auto_20211008_0148... OK
+      Applying admin.0001_initial... OK
+      Applying admin.0002_logentry_remove_auto_add... OK
+      Applying admin.0003_logentry_add_action_flag_choices... OK
+      Applying contenttypes.0002_remove_content_type_name... OK
+      Applying auth.0002_alter_permission_name_max_length... OK
+      Applying auth.0003_alter_user_email_max_length... OK
+      Applying auth.0004_alter_user_username_opts... OK
+      Applying auth.0005_alter_user_last_login_null... OK
+      Applying auth.0006_require_contenttypes_0002... OK
+      Applying auth.0007_alter_validators_add_error_messages... OK
+      Applying auth.0008_alter_user_username_max_length... OK
+      Applying auth.0009_alter_user_last_name_max_length... OK
+      Applying auth.0010_alter_group_name_max_length... OK
+      Applying auth.0011_update_proxy_permissions... OK
+      Applying auth.0012_alter_user_first_name_max_length... OK
+      Applying sessions.0001_initial... OK
+      Applying sites.0001_initial... OK
+      Applying sites.0002_alter_domain_unique... OK
+      Applying socialaccount.0001_initial... OK
+      Applying socialaccount.0002_token_max_lengths... OK
+      Applying socialaccount.0003_extra_data_default_dict... OK
+      Applying socialaccount.0004_auto_20211008_0148... OK
+
+..   code-block:: bash
 
     python3 manage.py createsuperuser # Follow the prompts
 
@@ -516,8 +686,8 @@ You will see something similar to this in your CLI.
   Performing system checks...
 
   System check identified no issues (0 silenced).
-  October 08, 2021 - 03:49:48
-  Django version 3.2.7, using settings 'config.settings.local'
+  December 28, 2021 - 03:49:48
+  Django version 4.0.0, using settings 'config.settings.local'
   Starting development server at http://127.0.0.1:8000/
   Quit the server with CONTROL-C.
 
@@ -529,16 +699,20 @@ superuser credentials you have created.
    :alt: Django Admin Login
 
 
+
+Congratulations, you have created your new Django project.
+
+
 Not working?
 ~~~~~~~~~~~~
 
-Check settings.py contains:
+Check config/settings/local.py contains:
 
 .. code-block:: python
 
   ALLOWED_HOSTS = ["127.0.0.1"]
 
-Congratulations, you have created your new Django project.
+
 
 
 Whats next?
@@ -554,3 +728,4 @@ how to get the most out of your cookiecutter package.
 
 
 .. _cookiecutter: https://cookiecutter.readthedocs.io/en/1.7.2/installation.html
+.. _Django: https://docs.djangoproject.com/en/4.0/
