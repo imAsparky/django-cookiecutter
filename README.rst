@@ -95,7 +95,7 @@ Workflow Helpers
 
 #. Pre-commit for code quality help and a README badge.
 #. A Python Semantic Release GitHub action and a README badge.
-#. A test suite complete with py3.6-py3.10, Linux, macOS and Windows matrix.
+#. A test suite complete with py3.8-py3.10, Linux, macOS and Windows matrix.
 
 Communication
 ~~~~~~~~~~~~~
