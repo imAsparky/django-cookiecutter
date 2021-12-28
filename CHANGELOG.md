@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.20.9 (2021-12-28)
+### Fix
+* **templates:** Add templates/ to TEMPLATES #199 ([#201](https://github.com/imAsparky/django-cookiecutter/issues/201)) ([`43cc092`](https://github.com/imAsparky/django-cookiecutter/commit/43cc09243e0a29e6852a28f949fa49077710c689))
+
 ## v0.20.8 (2021-12-20)
 ### Fix
 * **pyup:**  Update sphinx to 4.3.2 ([#198](https://github.com/imAsparky/django-cookiecutter/issues/198)) ([`07b65cc`](https://github.com/imAsparky/django-cookiecutter/commit/07b65cc3bf45175ef5b355ca5d1e2ed586905a8c))
