@@ -2,6 +2,14 @@
 
 <!--next-version-placeholder-->
 
+## v0.20.11 (2021-12-28)
+### Fix
+* **Dockerfile:** Add ENV's for PYTHON #204 ([#206](https://github.com/imAsparky/django-cookiecutter/issues/206)) ([`714d4b1`](https://github.com/imAsparky/django-cookiecutter/commit/714d4b1e01531a665beb5ea5811dd29a54381b66))
+
+### Documentation
+* **docker:** Add Dockerfile reference #147 ([#205](https://github.com/imAsparky/django-cookiecutter/issues/205)) ([`b3df8d9`](https://github.com/imAsparky/django-cookiecutter/commit/b3df8d9709341f5e68e9066065c85c13066b3d34))
+* **tutorial:** Improve django-cookiecutter #188 ([#203](https://github.com/imAsparky/django-cookiecutter/issues/203)) ([`32ff93b`](https://github.com/imAsparky/django-cookiecutter/commit/32ff93bbe3da3eb460caeca3ef6a3a8a4b656892))
+
 ## v0.20.10 (2021-12-28)
 ### Fix
 * **allauth:** Templates deleted if allauth=n #200 ([#202](https://github.com/imAsparky/django-cookiecutter/issues/202)) ([`cd39e49`](https://github.com/imAsparky/django-cookiecutter/commit/cd39e49cd14de9a07d8c4659944ec4c2fc5e76cb))
