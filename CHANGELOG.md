@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.20.10 (2021-12-28)
+### Fix
+* **allauth:** Templates deleted if allauth=n #200 ([#202](https://github.com/imAsparky/django-cookiecutter/issues/202)) ([`cd39e49`](https://github.com/imAsparky/django-cookiecutter/commit/cd39e49cd14de9a07d8c4659944ec4c2fc5e76cb))
+
 ## v0.20.9 (2021-12-28)
 ### Fix
 * **templates:** Add templates/ to TEMPLATES #199 ([#201](https://github.com/imAsparky/django-cookiecutter/issues/201)) ([`43cc092`](https://github.com/imAsparky/django-cookiecutter/commit/43cc09243e0a29e6852a28f949fa49077710c689))
