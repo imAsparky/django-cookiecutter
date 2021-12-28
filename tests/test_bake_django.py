@@ -76,6 +76,24 @@ def test_baked_django_without_allauth_settings_ok(cookies):
     )
 
 
+def test_baked_django_with_allauth_templates_ok(cookies):
+    """Test Django allauth HTML templates have been generated."""
+    default_django = cookies.bake()
+
+    templates_path = default_django.project_path / "templates/account"
+
+    assert os.path.isdir(templates_path)
+
+
+def test_baked_django_without_allauth_templates_ok(cookies):
+    """Test Django allauth HTML templates have not been generated."""
+    non_default_django = cookies.bake(extra_context={"use_django_allauth": "n"})
+
+    templates_path = non_default_django.project_path / "templates/account"
+
+    assert not os.path.isdir(templates_path)
+
+
 def test_baked_django_with_allauth_url_ok(cookies):
     """Test Django allauth url.py file entry has been generated."""
     default_django = cookies.bake()
