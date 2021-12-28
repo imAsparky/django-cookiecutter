@@ -36,6 +36,8 @@ ARG USER=django
 RUN groupadd -r ${USER} && useradd --no-log-init -r -g ${USER} ${USER}
 ENV VIRTUAL_ENV_PROD=/venv_prod
 ENV PATH="$VIRTUAL_ENV_PROD/bin:$PATH"
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
 
 # Install packages needed to run your application.
 #   mime-support -- for mime types when serving static files
