@@ -15,3 +15,4 @@ See below for a list of reference material for Django Cookiecutter.
    :titlesonly:
 
    reference-project-inputs
+   reference-docker-file
