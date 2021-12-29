@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.20.12 (2021-12-29)
+### Fix
+* **pyup:**  Update tox to 3.24.5 ([#209](https://github.com/imAsparky/django-cookiecutter/issues/209)) ([`371823b`](https://github.com/imAsparky/django-cookiecutter/commit/371823bab0be31a40e4c7da50efec0b424ab08b5))
+
 ## v0.20.11 (2021-12-28)
 ### Fix
 * **Dockerfile:** Add ENV's for PYTHON #204 ([#206](https://github.com/imAsparky/django-cookiecutter/issues/206)) ([`714d4b1`](https://github.com/imAsparky/django-cookiecutter/commit/714d4b1e01531a665beb5ea5811dd29a54381b66))
