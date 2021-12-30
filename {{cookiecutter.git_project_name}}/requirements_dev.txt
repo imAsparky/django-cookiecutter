@@ -1,4 +1,7 @@
 
 -r config/requirements/local.txt
 -r config/requirements/test.txt
+{% if cookiecutter.include_sphinx_docs == "y" %}
 -r docs/requirements.txt
+{% endif %}
+
