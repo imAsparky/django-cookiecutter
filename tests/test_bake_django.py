@@ -50,6 +50,8 @@ def test_baked_django_with_allauth_settings_ok(cookies):
     assert (
         '                "django.template.context_processors.request",' in settings_file
     )
+    assert 'LOGIN_REDIRECT_URL = "/admin/"' in settings_file
+    assert "LOGOUT_REDIRECT_URL = '/accounts/login/'" in settings_file
     assert (
         "ACCOUNT_UNIQUE_EMAIL = True                      # Default dj-allauth"
         in settings_file
@@ -70,10 +72,16 @@ def test_baked_django_without_allauth_settings_ok(cookies):
     assert (
         '                "django.template.context_processors.request",' in settings_file
     )
+    assert 'LOGIN_REDIRECT_URL = "/admin/"' not in settings_file
+    assert "LOGOUT_REDIRECT_URL = '/accounts/login/'" not in settings_file
     assert (
         "ACCOUNT_UNIQUE_EMAIL = True                      # Default dj-allauth"
         not in settings_file
     )
+
+
+#  assert 'LOGIN_REDIRECT_URL = "/admin/"' in settings_file
+#  assert "LOGOUT_REDIRECT_URL = '/accounts/login/'" in settings_file
 
 
 def test_baked_django_with_allauth_templates_ok(cookies):
