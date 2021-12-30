@@ -31,11 +31,11 @@
     "y",
     "n"
   ],
-  "create_conventional_commits_edit_message": [
+  "create_repo_auto_test_workflow": [
     "y",
     "n"
   ],
-  "use_GH_custom_issue_templates": [
+  "use_GH_action_semantic_version": [
     "y",
     "n"
   ],
@@ -43,11 +43,11 @@
     "y",
     "n"
   ],
-  "create_repo_auto_test_workflow": [
+  "create_conventional_commits_edit_message": [
     "y",
     "n"
   ],
-  "use_GH_action_semantic_version": [
+  "use_GH_custom_issue_templates": [
     "y",
     "n"
   ],
