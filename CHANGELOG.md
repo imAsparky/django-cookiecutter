@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.20.13 (2021-12-30)
+### Fix
+* **project:** Remove LOGIN/LOGOUT from settings #213 ([#214](https://github.com/imAsparky/django-cookiecutter/issues/214)) ([`7b6be08`](https://github.com/imAsparky/django-cookiecutter/commit/7b6be08d18f0564bbd20b87988cc88995a2309a8))
+
 ## v0.20.12 (2021-12-29)
 ### Fix
 * **pyup:**  Update tox to 3.24.5 ([#209](https://github.com/imAsparky/django-cookiecutter/issues/209)) ([`371823b`](https://github.com/imAsparky/django-cookiecutter/commit/371823bab0be31a40e4c7da50efec0b424ab08b5))
