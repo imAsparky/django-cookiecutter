@@ -57,13 +57,32 @@ project_name.
 project_short_description
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-A  sentence describes your Django project.
+A sentence describes your Django project.
 
 version
 ~~~~~~~
 
 The first version number.  The version number appears in the documentation
 and semantic version release.
+
+Django Settings
+---------------
+
+"ALLOWED_HOSTS": "www.example.com",
+
+"INTERNAL_IPS": "127.0.0.1",
+
+"LANGUAGE_CODE": "en",
+
+"LANGUAGES": "en, hi",
+
+"TIME_ZONE": "UTC",
+
+"USE_I18N": "True",
+
+"SITE_ID": "1",
+
+See `Django Settings`_ for more information.
 
 
 Options
@@ -72,6 +91,40 @@ Options
 The following Django Cookiecutter configuration options are grouped logically.
 
 Where options are in a list, the first item is the default setting.
+
+
+Docker
+------
+
+"deploy_with_docker": ["n", "y", "swarm"]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Docker takes away repetitive, mundane configuration tasks throughout the
+development lifecycle for fast, easy and portable application development
+and deployment.
+
+Workflow Tools
+--------------
+
+"use_pre_commit": ["y", "n"]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Use pre-commit with some sensible options.  Configure to your needs after
+project generation.
+
+"create_repo_auto_test_workflow": ["y", "n"]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Tox testing is built-in.  Use this workflow, and GitHub protected branches,
+to ensure all contributed code passes the test suite before it can merge with
+your main branch.
+
+"use_GH_action_semantic_version": ["y", "n"]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Use this GitHub workflow to automatically update the semantic version number
+after a merge to the main branch.  The semantic version utilises Python
+Semantic Release.  This workflow requires a GitHub secret key, `SEM_VER`.
 
 GitHub Tools
 -------------
@@ -132,58 +185,6 @@ See the typical template markdown file settings below for a feature request.
 If you prefer, a simple issue template is available for use with all
 issues if you choose `no` for this feature.
 
-
-Workflow Tools
---------------
-
-"use_pre_commit": ["y", "n"]
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Use pre-commit with some sensible options.  Configure to your needs after
-project generation.
-
-"create_repo_auto_test_workflow": ["y", "n"]
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Tox testing is built-in.  Use this workflow, and GitHub protected branches,
-to ensure all contributed code passes the test suite before it can merge with
-your main branch.
-
-"use_GH_action_semantic_version": ["y", "n"]
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Use this GitHub workflow to automatically update the semantic version number
-after a merge to the main branch.  The semantic version utilises Python
-Semantic Release.  This workflow requires a GitHub secret key, `SEM_VER`.
-
-Django Settings
----------------
-
-"ALLOWED_HOSTS": "",
-
-"INTERNAL_IPS": "",
-
-"LANGUAGE_CODE": "en",
-
-"LANGUAGES": "en, hi",,
-
-"TIME_ZONE": "UTC",
-
-"USE_I18N": "True",
-
-"SITE_ID": "1",
-
-See `Django Settings`_ for more information.
-
-Django Plugin Options
----------------------
-
-"use_django_allauth": [ "y", "n"]
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Support for multiple authentication schemes.
-
-Support for multiple strategies for account verification.
 
 Documentation
 ---------------
