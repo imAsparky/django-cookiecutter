@@ -41,8 +41,11 @@ SITE_ID = 1
 {% else %}
 SITE_ID = {{cookiecutter.SITE_ID}}
 {% endif %}
+{% if cookiecutter.use_django_allauth == "y" %}
+# LOGIN_REDIRECT_URL For new project convenience, change to your project requirements.
 LOGIN_REDIRECT_URL = "/admin/"
 LOGOUT_REDIRECT_URL = '/accounts/login/'
+{% endif %}
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",

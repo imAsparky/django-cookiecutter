@@ -159,23 +159,31 @@ Semantic Release.  This workflow requires a GitHub secret key, `SEM_VER`.
 Django Settings
 ---------------
 
-"ALLOWED_HOSTS": "www.example.com",
+"ALLOWED_HOSTS": "",
 
-"INTERNAL_IPS": "127.0.0.1",
+"INTERNAL_IPS": "",
 
-"LANGUAGE_CODE": "en-au",
+"LANGUAGE_CODE": "en",
 
-"LANGUAGES": "hi",
+"LANGUAGES": "en, hi",,
 
 "TIME_ZONE": "UTC",
-
-"USE_L10N": "True",
 
 "USE_I18N": "True",
 
 "SITE_ID": "1",
 
 See `Django Settings`_ for more information.
+
+Django Plugin Options
+---------------------
+
+"use_django_allauth": [ "y", "n"]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Support for multiple authentication schemes.
+
+Support for multiple strategies for account verification.
 
 Documentation
 ---------------
