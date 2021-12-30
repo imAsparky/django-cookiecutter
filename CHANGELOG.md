@@ -2,6 +2,13 @@
 
 <!--next-version-placeholder-->
 
+## v0.21.0 (2021-12-30)
+### Feature
+* **project:** Add tox.ini for testing #208 ([#217](https://github.com/imAsparky/django-cookiecutter/issues/217)) ([`94daa88`](https://github.com/imAsparky/django-cookiecutter/commit/94daa88c8db63bf68360601921d443a7d94b162c))
+
+### Documentation
+* **reference:** Update project inputs #215 ([#216](https://github.com/imAsparky/django-cookiecutter/issues/216)) ([`373bf96`](https://github.com/imAsparky/django-cookiecutter/commit/373bf9668843b9d68cccec3ba0c0dcbe6e7763b7))
+
 ## v0.20.13 (2021-12-30)
 ### Fix
 * **project:** Remove LOGIN/LOGOUT from settings #213 ([#214](https://github.com/imAsparky/django-cookiecutter/issues/214)) ([`7b6be08`](https://github.com/imAsparky/django-cookiecutter/commit/7b6be08d18f0564bbd20b87988cc88995a2309a8))
