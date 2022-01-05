@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.21.2 (2022-01-05)
+### Fix
+* **Pyup:**  update furo 2021.11.23 to 2022.1.2 ([#219](https://github.com/imAsparky/django-cookiecutter/issues/219)) ([`68d7f71`](https://github.com/imAsparky/django-cookiecutter/commit/68d7f71419b54c9b15b49d46d8a514233f6be047))
+
 ## v0.21.1 (2022-01-05)
 ### Fix
 * **tests:** Replace "2021" with f"{current_year}" #221 ([#222](https://github.com/imAsparky/django-cookiecutter/issues/222)) ([`96accfa`](https://github.com/imAsparky/django-cookiecutter/commit/96accfa9506266e029bc7a45dce6064d19d0552b))
