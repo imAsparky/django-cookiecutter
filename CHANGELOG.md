@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.21.1 (2022-01-05)
+### Fix
+* **tests:** Replace "2021" with f"{current_year}" #221 ([#222](https://github.com/imAsparky/django-cookiecutter/issues/222)) ([`96accfa`](https://github.com/imAsparky/django-cookiecutter/commit/96accfa9506266e029bc7a45dce6064d19d0552b))
+
 ## v0.21.0 (2021-12-30)
 ### Feature
 * **project:** Add tox.ini for testing #208 ([#217](https://github.com/imAsparky/django-cookiecutter/issues/217)) ([`94daa88`](https://github.com/imAsparky/django-cookiecutter/commit/94daa88c8db63bf68360601921d443a7d94b162c))
