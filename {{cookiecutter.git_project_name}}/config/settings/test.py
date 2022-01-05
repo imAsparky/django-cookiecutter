@@ -13,11 +13,11 @@ environ.Env.read_env(os.path.join(BASE_DIR, ".env/.testing"))
 
 SECRET_KEY = env("DJANGO_SECRET_KEY")
 
-DEBUG = env("DEBUG", default=False)
+DEBUG = env("DJANGO_DEBUG", default=False)
 
 ALLOWED_HOSTS = ["{{cookiecutter.ALLOWED_HOSTS}}"]
 
-assert not settings.Debug, "DEBUG mode should be off for testing."  # nosec
+assert not settings.DEBUG, "DEBUG mode should be off for testing."  # nosec
 
 DEFAULT_FILE_STORAGE = "inmemorystorage.InMemoryStorage"
 
