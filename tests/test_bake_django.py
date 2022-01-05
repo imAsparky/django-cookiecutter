@@ -4,6 +4,8 @@ import datetime
 import os
 from test_helper import bake_checker
 
+current_year = datetime.datetime.now().year
+
 
 def test_django_bakes_ok_with_defaults(cookies):
     """Test cookiecutter created the Django project ok."""
@@ -290,7 +292,7 @@ def test_baked_django_with_docs_conf_settings_ok(cookies):
     default_django = cookies.bake()
 
     conf_path = default_django.project_path / "docs/source/conf.py"
-    conf_file = conf_path.read_text().splitlines()
+    conf_file = str(conf_path.read_text().splitlines())
 
     assert (
         '"""Django Boilerplate documentation Sphinx build configuration file."""'
@@ -298,7 +300,7 @@ def test_baked_django_with_docs_conf_settings_ok(cookies):
     )
     assert '__version__ = "0.1.0"' in conf_file
     assert 'project = "Django Boilerplate"' in conf_file
-    assert 'copyright = "2021, Mark Sevelj"' in conf_file
+    assert f'copyright = "{current_year}, Mark Sevelj"' in conf_file
     assert 'author = "Mark Sevelj"' in conf_file
 
 
