@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.21.4 (2022-01-05)
+### Fix
+* **pyup:** Update sphinx inline tabs 2021.4.11b9 to 2022.1.2b11 ([#224](https://github.com/imAsparky/django-cookiecutter/issues/224)) ([`2ded1ba`](https://github.com/imAsparky/django-cookiecutter/commit/2ded1bab2e86ec5868eba1ca65470d5d008bc710))
+
 ## v0.21.3 (2022-01-05)
 ### Fix
 * **tests:** Fix test DEBUG settings typo's #220 ([#225](https://github.com/imAsparky/django-cookiecutter/issues/225)) ([`cdda337`](https://github.com/imAsparky/django-cookiecutter/commit/cdda337aa3cb029225655817a8309dc957832b47))
