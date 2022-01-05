@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.21.3 (2022-01-05)
+### Fix
+* **tests:** Fix test DEBUG settings typo's #220 ([#225](https://github.com/imAsparky/django-cookiecutter/issues/225)) ([`cdda337`](https://github.com/imAsparky/django-cookiecutter/commit/cdda337aa3cb029225655817a8309dc957832b47))
+
 ## v0.21.2 (2022-01-05)
 ### Fix
 * **Pyup:**  update furo 2021.11.23 to 2022.1.2 ([#219](https://github.com/imAsparky/django-cookiecutter/issues/219)) ([`68d7f71`](https://github.com/imAsparky/django-cookiecutter/commit/68d7f71419b54c9b15b49d46d8a514233f6be047))
