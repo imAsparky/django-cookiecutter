@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.22.0 (2022-01-08)
+### Feature
+* **test:** Add test DB options def=sqlite #227 ([#228](https://github.com/imAsparky/django-cookiecutter/issues/228)) ([`5668090`](https://github.com/imAsparky/django-cookiecutter/commit/56680904096560de20a4ceecedf978e4473448a2))
+
 ## v0.21.4 (2022-01-05)
 ### Fix
 * **pyup:** Update sphinx inline tabs 2021.4.11b9 to 2022.1.2b11 ([#224](https://github.com/imAsparky/django-cookiecutter/issues/224)) ([`2ded1ba`](https://github.com/imAsparky/django-cookiecutter/commit/2ded1bab2e86ec5868eba1ca65470d5d008bc710))
