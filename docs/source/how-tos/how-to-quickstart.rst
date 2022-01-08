@@ -181,7 +181,7 @@ Install dependencies.
 
 .. include:: ../tutorials/tutorial-segment-create-env-variable.rst
 
-Test Your Project
+Run Your Project
 -----------------
 
 .. code-block:: bash
