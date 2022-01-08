@@ -1,5 +1,5 @@
 DJANGO_DEBUG=FALSE
-DJANGO_SECRET_KEY=""
+DJANGO_SECRET_KEY="!!!INSECURE_TESTING_SECRET!!!"
 DJANGO_MANAGEPY_MIGRATE=on
 DJANGO_SETTINGS_MODULE=config.settings.testing
 DB_ENGINE=""
@@ -8,4 +8,11 @@ DB_USER=""
 DB_PASSWORD=""
 DB_HOST=""
 DB_PORT=""
+ALLOWED_HOSTS=""
 INTERNAL_IPS=""
+
+# Testing database options: sqlite3, other.
+# If using other, a DB_URL connection string must be supplied.
+TESTING_DATABASE=sqlite3
+DB_URL=""
+

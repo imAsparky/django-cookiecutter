@@ -199,5 +199,66 @@ pushing to GitHub.  If you are unsure, see our
 :ref:`git push tutorial<create-first-git-push>` for more information.
 
 
+Default Testing Database
+------------------------
+
+By default, your Django project test DB is db.sqlite3.
+
+See config/settings/test.py and .env/.testing.
+
+.. code-block:: python
+    :caption: **config/settings/test.py**
+
+    ...
+
+    # Selects which database to use for testing, default=sqlite3 .
+    TESTING_DATABASE = env("TESTING_DATABASE")
+
+    if TESTING_DATABASE == "sqlite3":
+
+        DATABASES = {
+            "default": {
+                "ENGINE": "django.db.backends.sqlite3",
+                # "NAME": BASE_DIR / "db.sqlite3",
+            }
+        }
+
+    else:
+
+        DATABASES = {"default": env.db()}
+
+
+.. code-block:: text
+    :caption: **.env/.testing**
+
+    ...
+
+    # Testing database options: sqlite3, other.
+    # If using other, a DB_URL connection string must be supplied.
+    TESTING_DATABASE=sqlite3
+    DB_URL=""
+
+
+To select another testing database, you can:
+
+#.  Update .env/.testing variables with your preferences.
+#.  Provide ENV vars with your preferences.
+
+.. code-block:: text
+    :caption: **Option 1**
+
+    ...
+
+    # Testing database options: sqlite3, other.
+    # If using other, a DB_URL connection string must be supplied.
+    TESTING_DATABASE=other  # Change to other.
+    DB_URL=Your_connection_string_here
+
+.. code-block:: bash
+    :caption: **Option 2**
+
+    export TESTING_DATABASE=other
+    export DB_URL=Your_connection_string_here
+
 
 .. _cookiecutter: https://cookiecutter.readthedocs.io/en/1.7.2/README.html
