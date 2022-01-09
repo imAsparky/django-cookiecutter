@@ -68,7 +68,7 @@ Django Settings
 
 #. Quickly configure common `Django settings`_ as you setup your project.
 
-.. _Django settings: https://docs.djangoproject.com/en/3.2/ref/settings/
+.. _Django settings: https://docs.djangoproject.com/en/4.0/ref/settings/
 
 Docker
 ~~~~~~
