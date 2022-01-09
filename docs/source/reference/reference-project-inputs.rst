@@ -247,5 +247,5 @@ Let people know about this project license arrangements.
 
 .. _Pyup.io: https://github.com/pyupio/pyup
 .. _Conventional Commits: https://www.conventionalcommits.org/en/v1.0.0/
-.. _Django Settings: https://docs.djangoproject.com/en/3.2/ref/settings/
+.. _Django Settings: https://docs.djangoproject.com/en/4.0/ref/settings/
 .. _Diátaxis:  https://junction-box.readthedocs.io/en/latest/Document-Framework/diataxis-intro.html

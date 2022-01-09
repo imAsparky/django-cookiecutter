@@ -24,7 +24,7 @@ repos:
     rev: 1.2.0
     hooks:
       - id: django-upgrade
-        args: [--target-version, "3.2"]
+        args: [--target-version, "4.0"]
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.0.1
