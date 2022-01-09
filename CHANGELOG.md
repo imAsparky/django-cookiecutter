@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.23.0 (2022-01-09)
+### Feature
+* **user:** Add custom user and admin #207 ([#230](https://github.com/imAsparky/django-cookiecutter/issues/230)) ([`78d7066`](https://github.com/imAsparky/django-cookiecutter/commit/78d70663beacde4977a51024b9060a3eeddc865c))
+
 ## v0.22.0 (2022-01-08)
 ### Feature
 * **test:** Add test DB options def=sqlite #227 ([#228](https://github.com/imAsparky/django-cookiecutter/issues/228)) ([`5668090`](https://github.com/imAsparky/django-cookiecutter/commit/56680904096560de20a4ceecedf978e4473448a2))
