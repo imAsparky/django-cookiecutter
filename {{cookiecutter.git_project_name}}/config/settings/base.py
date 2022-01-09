@@ -20,6 +20,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 # Application definition
 
 INSTALLED_APPS = [
+    "users",
+
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -27,25 +29,27 @@ INSTALLED_APPS = [
     "django.contrib.sites",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-{% if cookiecutter.use_django_allauth == "y" %}
+
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
 
     'allauth.socialaccount.providers.github',
     'allauth.socialaccount.providers.google',
-{% endif %}
+
 ]
+
+AUTH_USER_MODEL = "users.CustomUser"
 {% if cookiecutter.SITE_ID == "1" %}
 SITE_ID = 1
 {% else %}
 SITE_ID = {{cookiecutter.SITE_ID}}
 {% endif %}
-{% if cookiecutter.use_django_allauth == "y" %}
+
 # LOGIN_REDIRECT_URL For new project convenience, change to your project requirements.
 LOGIN_REDIRECT_URL = "/admin/"
 LOGOUT_REDIRECT_URL = '/accounts/login/'
-{% endif %}
+
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -71,14 +75,13 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
-                {% if cookiecutter.use_django_allauth == "y" %}
                 "django.template.context_processors.request",
-                {% endif %}
+
             ],
         },
     },
 ]
-{% if cookiecutter.use_django_allauth == "y" %}
+
 AUTHENTICATION_BACKENDS = [
 
     # Needed to login by username in Django admin, regardless of `allauth`
@@ -87,7 +90,7 @@ AUTHENTICATION_BACKENDS = [
     # `allauth` specific authentication methods, such as login by e-mail
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
-{% endif %}
+
 WSGI_APPLICATION = "{{ cookiecutter.project_slug}}.wsgi.application"
 
 # Password validation
@@ -156,7 +159,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-{% if cookiecutter.use_django_allauth == "y" %}
+
 # Django Allauth Settings
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
 ACCOUNT_AUTHENTICATION_METHOD = "username_email" # Default dj-allauth == username
@@ -168,4 +171,4 @@ ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5                 # Default dj-allauth
 ACCOUNT_USERNAME_REQUIRED = True                 # Default dj-allauth
 ACCOUNT_USERNAME_MIN_LENGTH = 3                  # Default dj-allauth == 1
 ACCOUNT_USERNAME_BLACKLIST = username_blacklist
-{% endif %}
+

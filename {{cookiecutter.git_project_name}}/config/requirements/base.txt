@@ -1,5 +1,3 @@
 Django==4.0.1
-{% if cookiecutter.use_django_allauth == "y" %}
 django-allauth==0.47.0
-{% endif %}
 django-environ==0.8.1

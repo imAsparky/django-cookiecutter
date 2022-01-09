@@ -53,8 +53,6 @@ REMOVE_FILES = [
         compose {% endif %}',
     '{% if cookiecutter.deploy_with_docker == "n" %} \
         docker-entrypoint.sh {% endif %}',
-    '{% if cookiecutter.use_django_allauth == "n" %} \
-        templates/account {% endif %}',
 ]
 
 # Helper functions

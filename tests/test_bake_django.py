@@ -18,108 +18,6 @@ def test_django_bakes_ok_with_defaults(cookies):
     assert default_django.project_path.name == "django-boilerplate"
 
 
-def test_baked_django_with_allauth_requirements_ok(cookies):
-    """Test Django allauth requirements_dev file entry has been generated."""
-    default_django = cookies.bake()
-
-    requirements_path = default_django.project_path / "config/requirements/base.txt"
-    requirements_file = str(requirements_path.read_text().splitlines())
-
-    assert "django-allauth==" in requirements_file
-
-
-def test_baked_django_without_allauth_requirements_ok(cookies):
-    """Test Django allauth requirements_dev file entry has not been generated."""
-    non_default_django = cookies.bake(extra_context={"use_django_allauth": "n"})
-
-    requirements_path = non_default_django.project_path / "config/requirements/base.txt"
-    requirements_file = str(requirements_path.read_text().splitlines())
-
-    assert "django-allauth==" not in requirements_file
-
-
-def test_baked_django_with_allauth_settings_ok(cookies):
-    """Test Django allauth settings file has been generated correctly."""
-    default_django = cookies.bake()
-
-    settings_path = default_django.project_path / "config/settings/base.py"
-    settings_file = settings_path.read_text().splitlines()
-
-    assert '    "allauth",' in settings_file
-
-    assert '    "allauth.account",' in settings_file
-    assert '    "allauth.socialaccount",' in settings_file
-    assert (
-        '                "django.template.context_processors.request",' in settings_file
-    )
-    assert 'LOGIN_REDIRECT_URL = "/admin/"' in settings_file
-    assert "LOGOUT_REDIRECT_URL = '/accounts/login/'" in settings_file
-    assert (
-        "ACCOUNT_UNIQUE_EMAIL = True                      # Default dj-allauth"
-        in settings_file
-    )
-
-
-def test_baked_django_without_allauth_settings_ok(cookies):
-    """Test Django allauth settings file has not been generated."""
-    non_default_django = cookies.bake(extra_context={"use_django_allauth": "n"})
-
-    settings_path = non_default_django.project_path / "config/settings/base.py"
-    settings_file = settings_path.read_text().splitlines()
-
-    assert '    "allauth",' not in settings_file
-
-    assert '    "allauth.account",' not in settings_file
-    assert '    "allauth.socialaccount",' not in settings_file
-    assert (
-        '                "django.template.context_processors.request",' in settings_file
-    )
-    assert 'LOGIN_REDIRECT_URL = "/admin/"' not in settings_file
-    assert "LOGOUT_REDIRECT_URL = '/accounts/login/'" not in settings_file
-    assert (
-        "ACCOUNT_UNIQUE_EMAIL = True                      # Default dj-allauth"
-        not in settings_file
-    )
-
-
-def test_baked_django_with_allauth_templates_ok(cookies):
-    """Test Django allauth HTML templates have been generated."""
-    default_django = cookies.bake()
-
-    templates_path = default_django.project_path / "templates/account"
-
-    assert os.path.isdir(templates_path)
-
-
-def test_baked_django_without_allauth_templates_ok(cookies):
-    """Test Django allauth HTML templates have not been generated."""
-    non_default_django = cookies.bake(extra_context={"use_django_allauth": "n"})
-
-    templates_path = non_default_django.project_path / "templates/account"
-
-    assert not os.path.isdir(templates_path)
-
-
-def test_baked_django_with_allauth_url_ok(cookies):
-    """Test Django allauth url.py file entry has been generated."""
-    default_django = cookies.bake()
-
-    url_path = default_django.project_path / "django_boilerplate/urls.py"
-    url_file = url_path.read_text().splitlines()
-
-    assert "    path('accounts/', include('allauth.urls'))," in url_file
-
-
-def test_baked_django_without_allauth_url_ok(cookies):
-    """Test Django allauth url.py file entry has not been generated."""
-    non_default_django = cookies.bake(extra_context={"use_django_allauth": "n"})
-
-    url_path = non_default_django.project_path / "django_boilerplate/urls.py"
-    url_file = url_path.read_text().splitlines()
-
-    assert "    path('accounts/', include('allauth.urls'))," not in url_file
-
-
 def test_baked_django_asgi_file_ok(cookies):
     """Test Django asgy.py file has been generated correctly."""
     default_django = cookies.bake()
@@ -132,6 +30,17 @@ def test_baked_django_asgi_file_ok(cookies):
         'os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings.local")'
         in asgi_file
     )
+
+
+def test_baked_django_custom_admin_file_ok(cookies):
+    """Test Django custom users/admin.py file has been generated correctly."""
+    default_django = cookies.bake()
+
+    admin_path = default_django.project_path / "users/admin.py"
+    admin_file = str(admin_path.read_text().splitlines())
+
+    assert 'admin.site.site_title = "django-boilerplate"' in admin_file
+    assert 'admin.site.site_header = "django-boilerplate Admin"' in admin_file
 
 
 def test_baked_django_docs_with_code_of_conduct(cookies):

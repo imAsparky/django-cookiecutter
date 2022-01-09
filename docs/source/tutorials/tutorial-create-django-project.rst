@@ -4,9 +4,9 @@
 
 .. _cookie-create-pkg:
 ============================
-Create a Django Cookiecutter
-============================
+Create a Django Cookiecutterrk
 
+============================
 
 |
 
@@ -59,14 +59,14 @@ Select the tab for your preferred Operating System.
     Python version in your Operating System.
 
     If you prefer another python version installed on your computer, you can
-    replace `python3` with `python3.n`, where n is the version number.
+    replace `python3.8` with `python3.n`, where n is the version number.
 
 .. tab:: Linux
 
     .. code-block:: bash
         :caption: **bash/zsh**
 
-        python3 -m venv my_venv
+        python3.8 -m venv my_venv
 
     You will have a folder structure similar to this.
 
@@ -82,7 +82,7 @@ Select the tab for your preferred Operating System.
     .. code-block:: bash
         :caption: **bash/zsh**
 
-        python3 -m venv my_venv
+        python3.8 -m venv my_venv
 
     You will have a folder structure similar to this.
 
@@ -98,14 +98,14 @@ Select the tab for your preferred Operating System.
     .. code-block:: bash
         :caption: **cmd/PowerShell**
 
-        python3 -m venv my_venv
+        python3.8 -m venv my_venv
 
     Otherwise use
 
     .. code-block:: bash
         :caption: **cmd/PowerShell**
 
-        c:\>c:\Python36\python -m venv c:\path\to\projects\my_env
+        c:\>c:\Python38\python -m venv c:\path\to\projects\my_env
 
     You will have a folder structure similar to this.
 
@@ -317,10 +317,6 @@ An Example Django Project
       2 - False
       Choose from 1, 2 [1]:
       SITE_ID [1]:
-      Select use_django_allauth:
-      1 - y
-      2 - n
-      Choose from 1, 2 [1]:
       Select deploy_with_docker:
       1 - n
       2 - y
@@ -451,6 +447,15 @@ will look something similar to this.
     │   │   ├── asgi.py
     │   │   ├── urls.py
     │   │   └── wsgi.py
+    │   ├── users
+    │   │   ├── __init__.py
+    │   │   ├── admin.py
+    │   │   ├── apps.py
+    │   │   ├── forms.py
+    │   │   ├── migrations
+    │   │   │   └── __init__.py
+    │   │   ├── models.py
+    │   │   └── views.py
     │   ├── pytest.ini
     │   ├── requirements_dev.txt
     │   └── templates
@@ -582,6 +587,21 @@ You will see something similar to this in your CLI.
 
 .. include:: tutorial-segment-create-env-variable.rst
 
+Before Initial Migration
+------------------------
+
+.. important::
+
+    You may wish to make some changes to the Custom User model
+    before making your initial migration.
+
+For example, you can change the default user types to suit your application.
+
+See `How-to Custom User`_ for customisation options before your initial migration.
+
+.. _How-to Custom User: <https://django-cookiecutter.readthedocs.io/en/latest/how-tos/how-to-custom-user.html>
+
+
 Final Project Setup
 -------------------
 
@@ -674,6 +694,86 @@ You will see something similar to this in your CLI.
    This password is too common.
    Bypass password validation and create user anyway? [y/N]: y
    Superuser created successfully.
+
+
+Run the Tests
+-------------
+
+Your project comes complete with a test suite for the custom user.
+
+Tox, the test runner is configured to test locally with Python
+3.8, 3.9 and 3.10.
+
+See the following commands for options.
+
+.. code-block:: bash
+    :caption: Test against all python versions.
+
+    tox
+
+.. code-block:: bash
+    :caption: Test against a single python version.
+
+    tox -e py38
+
+    or
+
+    tox -e py39
+
+    or
+
+    tox -e py3.10
+
+You will see something similar to this in your CLI.
+
+.. code-block:: bash
+
+    platform linux -- Python 3.8.10, pytest-6.2.5, py-1.11.0, pluggy-1.0.0 -- /projects/my-new-django/.tox/py38/bin/python
+    cachedir: .tox/py38/.pytest_cache
+    django: settings: config.settings.test (from ini)
+    rootdir: /projects/my-new-django, configfile: pytest.ini
+    plugins: reverse-1.3.0, forked-1.4.0, xdist-2.5.0, django-4.5.2
+    [gw0] linux Python 3.8.10 cwd: /projects/my-new-django
+    [gw1] linux Python 3.8.10 cwd: /projects/my-new-django
+    [gw0] Python 3.8.10 (default, Nov 26 2021, 20:14:08)  -- [GCC 9.3.0]
+    [gw1] Python 3.8.10 (default, Nov 26 2021, 20:14:08)  -- [GCC 9.3.0]
+    gw0 [6] / gw1 [6]
+    scheduling tests via LoadScopeScheduling
+
+    tests/test_custom_user.py::test_create_superuser_errors_raised_ok
+    [gw0] [ 16%] PASSED tests/test_custom_user.py::test_create_superuser_errors_raised_ok
+    tests/test_custom_user.py::test_create_superuser_ok
+    [gw0] [ 33%] PASSED tests/test_custom_user.py::test_create_superuser_ok
+    tests/test_custom_user.py::test_create_user_errors_raised_ok
+    [gw0] [ 50%] PASSED tests/test_custom_user.py::test_create_user_errors_raised_ok
+    tests/test_custom_user.py::test_create_user_is_superuser_ok
+    [gw0] [ 66%] PASSED tests/test_custom_user.py::test_create_user_is_superuser_ok
+    tests/test_custom_user.py::test_create_user_is_staff_ok
+    [gw0] [ 83%] PASSED tests/test_custom_user.py::test_create_user_is_staff_ok
+    tests/test_custom_user.py::test_create_user_ok
+    [gw0] [100%] PASSED tests/test_custom_user.py::test_create_user_ok
+
+    ================================= PASSES ==================================
+    _________________ test_create_superuser_errors_raised_ok___________________
+    [gw0] linux -- Python 3.8.10 projects/my-new-django/.tox/py38/bin/python
+    -------------------------- Captured stderr setup --------------------------
+    Creating test database for alias 'default'...
+    ------------------------ Captured stderr teardown -------------------------
+    Destroying test database for alias 'default'...
+    ============================ 6 passed in 1.19s ============================
+    _________________________________ summary _________________________________
+      py38: commands succeeded
+      congratulations :)
+
+
+Run Your Project
+----------------
+
+Django comes with a development server. This server provides all the features
+needed to view your Django project locally; however, it is not suitable for a
+production environment.
+
+To view your project in the browser, type the following command.
 
 .. code-block:: bash
 
