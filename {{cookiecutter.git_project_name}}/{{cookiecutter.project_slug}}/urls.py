@@ -19,17 +19,16 @@ from django.urls import include, path
 from allauth import account
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-{% if cookiecutter.use_django_allauth == "y" %}
-    path('accounts/', include('allauth.urls')),
-    path('', account.views.LoginView.as_view(), name="login")
-{% endif %}
+    path("admin/", admin.site.urls),
+    path("accounts/", include("allauth.urls")),
+    path("", account.views.LoginView.as_view(), name="login"),
 ]
 
 
 # If we are in DEBUG mode add debug-toolbar to url_patterns.
 if settings.DEBUG:
     import debug_toolbar
+
     urlpatterns += [
-        path('__debug__/', include(debug_toolbar.urls)),
+        path("__debug__/", include(debug_toolbar.urls)),
     ]

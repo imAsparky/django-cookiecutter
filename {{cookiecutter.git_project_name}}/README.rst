@@ -58,5 +58,6 @@
 
 
 
+
 Built with
 `Django Cookiecutter <https://github.com/imAsparky/django-cookiecutter>`_

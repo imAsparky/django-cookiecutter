@@ -38,8 +38,30 @@ delivery using GitHub actions.
    :target: https://python-semantic-release.readthedocs.io/en/latest/
    :alt: Python Sementic Release
 
+Django Project Features
+-----------------------
+
+#. Easy for new users to learn Django with sensible defaults.  Also, `local`
+   and `test` environments default to using `SQLite`_, Django's bundled
+   database.
+#. More advanced users can change the test environment database with an
+   environment variable to match the production environment.
+#. `Django-allauth`_ provides authentication.
+#. A `CustomUser` model, complete with tests and custom user types. See
+   `How-to Custom User`_ for customisation options before your initial migration.
+#. Improved  Admin panel security requires an authorised user to be logged in.
+   The Admin panel now has the protections provided by django-allauth.
+
+.. _Django-allauth: https://django-allauth.readthedocs.io/en/latest/installation.html
+.. _SQLite: https://www.sqlite.org/index.html
+.. _How-to Custom User: <https://django-cookiecutter.readthedocs.io/en/latest/how-tos/how-to-custom-user.html>
+
+
 Django Project Creation Options
 -------------------------------
+
+Customise your project with the following options when creating your
+django-cookiecutter.
 
 Django Settings
 ~~~~~~~~~~~~~~~
@@ -47,15 +69,6 @@ Django Settings
 #. Quickly configure common `Django settings`_ as you setup your project.
 
 .. _Django settings: https://docs.djangoproject.com/en/3.2/ref/settings/
-
-
-Django Options
-~~~~~~~~~~~~~~
-
-#. Choose to use `Django-allauth`_ for authentication.
-
-.. _Django-allauth: https://django-allauth.readthedocs.io/en/latest/installation.html
-
 
 Docker
 ~~~~~~
@@ -68,10 +81,10 @@ Docker
 Documentation
 ~~~~~~~~~~~~~
 
-#. Choose to add documentation using Sphinx with:
+#. Add documentation using Sphinx with:
 
    #. `Furo`_, a clean modern theme,  with dark and light mode options.
-   #. A `Copy Button`_ to assist your users copy.
+   #. A `Copy Button`_ to assist your users copy text or code snippets.
    #. `Inline Tabs`_ to group similar items.
    #. Use markdown or restructured text.
 #. Deploy to `Read the Docs`_.
@@ -118,7 +131,7 @@ Contributions are very welcome and appreciated!
 
 You can contribute in many ways.
 
-See `How-To Contribute <https://django-cookiecutter.readthedocs.io/en/
+See `How-to Contribute <https://django-cookiecutter.readthedocs.io/en/
 latest/how-tos/how-to-contribute.html>`_ to help you get started.
 
 Please take a moment to read our `Code of Conduct

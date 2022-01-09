@@ -17,10 +17,6 @@ Select USE_I18N:
 2 - False
 Choose from 1, 2 [1]:
 SITE_ID [1]:
-Select use_django_allauth:
-1 - y
-2 - n
-Choose from 1, 2 [1]:
 Select deploy_with_docker:
 1 - n
 2 - y
