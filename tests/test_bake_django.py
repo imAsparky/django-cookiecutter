@@ -833,6 +833,20 @@ def test_baked_django_settings_test_file_ok(cookies):
     assert 'ALLOWED_HOSTS = [""]' in settings_file
 
 
+def test_baked_django_tox_file_ok(cookies):
+    """Test Django tox.ini file has been generated correctly."""
+    default_django = cookies.bake()
+
+    tox_path = default_django.project_path / "tox.ini"
+    tox_file = str(tox_path.read_text().splitlines())
+
+    assert (
+        '  find {toxinidir}/django_boilerplate -type f -name "*.pyc" -delete'
+        in tox_file
+    )
+    assert 'mypy --ignore-missing-imports {toxinidir}/django_boilerplate' in tox_file
+
+
 def test_baked_django_urls_file_ok(cookies):
     """Test Django urls.py file has generated correctly."""
     default_django = cookies.bake()
