@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.24.0 (2022-01-10)
+### Feature
+* **tox:** Add proj test coverage and cleanup #233 ([#234](https://github.com/imAsparky/django-cookiecutter/issues/234)) ([`e31c3ff`](https://github.com/imAsparky/django-cookiecutter/commit/e31c3ffd6eaf7e57f2b512885239bf6aac83a89a))
+
 ## v0.23.0 (2022-01-09)
 ### Feature
 * **user:** Add custom user and admin #207 ([#230](https://github.com/imAsparky/django-cookiecutter/issues/230)) ([`78d7066`](https://github.com/imAsparky/django-cookiecutter/commit/78d70663beacde4977a51024b9060a3eeddc865c))
