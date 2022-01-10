@@ -4,8 +4,7 @@
 
 .. _cookie-create-pkg:
 ============================
-Create a Django Cookiecutterrk
-
+Create a Django Cookiecutter
 ============================
 
 |
@@ -599,7 +598,7 @@ For example, you can change the default user types to suit your application.
 
 See `How-to Custom User`_ for customisation options before your initial migration.
 
-.. _How-to Custom User: <https://django-cookiecutter.readthedocs.io/en/latest/how-tos/how-to-custom-user.html>
+.. _How-to Custom User: https://django-cookiecutter.readthedocs.io/en/latest/how-tos/how-to-custom-user.html
 
 
 Final Project Setup
@@ -629,11 +628,11 @@ You will see something similar to this in your CLI.
 .. code-block:: bash
 
     Migrations for 'account':
-     /home/mdev/projects/dlet/venv/lib/python3.10/site-packages/allauth/account/migrations/0004_alter_emailaddress_id_alter_emailconfirmation_id.py
+     /projects/my-new-django/venv/lib/python3.8/site-packages/allauth/account/migrations/0004_alter_emailaddress_id_alter_emailconfirmation_id.py
        - Alter field id on emailaddress
        - Alter field id on emailconfirmation
    Migrations for 'socialaccount':
-     /home/mdev/projects/dlet/venv/lib/python3.10/site-packages/allauth/socialaccount/migrations/0005_alter_socialaccount_id_alter_socialapp_id_and_more.py
+     /projects/my-new-django/venv/lib/python3.8/site-packages/allauth/socialaccount/migrations/0005_alter_socialaccount_id_alter_socialapp_id_and_more.py
        - Alter field id on socialaccount
        - Alter field id on socialapp
        - Alter field id on socialtoken
@@ -803,8 +802,13 @@ superuser credentials you have created.
 Congratulations, you have created your new Django project.
 
 
-Not working?
-~~~~~~~~~~~~
+Troubleshooting
+---------------
+
+|
+
+The website wont run
+~~~~~~~~~~~~~~~~~~~~
 
 Check config/settings/local.py contains:
 
@@ -812,7 +816,45 @@ Check config/settings/local.py contains:
 
   ALLOWED_HOSTS = ["127.0.0.1"]
 
+|
 
+The tests wont run
+~~~~~~~~~~~~~~~~~~
+
+You are getting an error message that psycopg2 won't be installed.
+
+`Psycopg2`_ is the most popular PostgreSQL database adapter for the Python
+programming language.
+
+psycopg2 is the default PostgreSQL adaptor used in django-cookiecutter.
+psycopg2 has some dependencies to be built from source, and on occasion,
+these may not be available on some peoples computers.
+
+An alternative, the psycopg2-binary package, is available for beginners to start
+using Python and PostgreSQL; however, this package is not suitable for
+production.
+
+Navigate to `/config/requirements/test.txt`, and you should see something
+like the code below.
+
+Comment line 3 and uncomment line 4.  This action will select the option
+to use psycopg2-binary.
+
+
+.. code-block:: python
+  :caption: /config/requirements/test.txt
+  :linenos:
+
+  coverage==6.2
+  dj-inmemorystorage==2.1.0
+  psycopg2==2.9.3 # This version should be used in production
+  # psycopg2-binary  # This version is ok for Development and Testing
+  pytest==6.2.5
+  pytest-django==4.5.2
+  pytest-reverse==1.3.0
+  pytest-xdist==2.5.0
+  tblib==1.7.0
+  tox==3.24.5
 
 
 Whats next?
@@ -823,9 +865,10 @@ Whats next?
 or you can
 
 Check out our other :ref:`Tutorials<tutorial-index>` for more information on
-how to get the most out of your cookiecutter package.
+how to get the most out of your django-cookiecutter package.
 
 
 
 .. _cookiecutter: https://cookiecutter.readthedocs.io/en/1.7.2/installation.html
 .. _Django: https://docs.djangoproject.com/en/4.0/
+.. _Psycopg2: https://www.psycopg.org/docs/
