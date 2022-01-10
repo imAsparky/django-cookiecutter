@@ -1,3 +1,6 @@
+# Project Folders
+coverage_html_report/
+
 # vscode
 *code-workspace
 .vscode/

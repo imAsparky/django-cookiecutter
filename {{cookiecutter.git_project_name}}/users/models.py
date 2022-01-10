@@ -10,7 +10,10 @@ from django.utils import timezone
 class CustomUserManager(BaseUserManager):
     """Custom user manager."""
 
-    def create_user(self, email=None, password=None, **extra_fields):
+    def create_user(
+        self, email=None, password=None, **extra_fields
+    ):  # pragma: no cover
+        """Create and save a User."""
         """Create and save a User."""
         if not email:
             raise ValueError(_("An email address must be supplied."))
@@ -22,7 +25,10 @@ class CustomUserManager(BaseUserManager):
         user.save()
         return user
 
-    def create_superuser(self, email=None, password=None, **extra_fields):
+    def create_superuser(
+        self, email=None, password=None, **extra_fields
+    ):  # pragma: no cover
+        """Create and save a User."""
         """Create and save a SuperUser."""
         extra_fields.setdefault("is_staff", True)
         extra_fields.setdefault("is_superuser", True)
