@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.24.1 (2022-01-10)
+### Fix
+* **docs:** Tutorial and README broken links #235 ([#238](https://github.com/imAsparky/django-cookiecutter/issues/238)) ([`034f522`](https://github.com/imAsparky/django-cookiecutter/commit/034f5229f0eb1b5b75be1f60bf651eef07e2eb41))
+
 ## v0.24.0 (2022-01-10)
 ### Feature
 * **tox:** Add proj test coverage and cleanup #233 ([#234](https://github.com/imAsparky/django-cookiecutter/issues/234)) ([`e31c3ff`](https://github.com/imAsparky/django-cookiecutter/commit/e31c3ffd6eaf7e57f2b512885239bf6aac83a89a))
