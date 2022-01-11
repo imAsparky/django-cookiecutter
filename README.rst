@@ -1,6 +1,6 @@
-===========================
-**Django 4.0 Cookiecutter**
-===========================
+============================
+**Django 4.0+ Cookiecutter**
+============================
 
 **Version 1.0 will signify the first stable Django build!**
 
@@ -52,16 +52,23 @@ Django Project Features
 #. Improved  Admin panel security requires an authorised user to be logged in.
    The Admin panel now has the protections provided by django-allauth.
 
+If you are new to Django and Cookiecutters and would like to take it for a spin,
+see our tutorial, `Create a Django-Cookiecutter Project`_.
+
+
 .. _Django-allauth: https://django-allauth.readthedocs.io/en/latest/installation.html
 .. _SQLite: https://www.sqlite.org/index.html
-.. _How-to Custom User: <https://django-cookiecutter.readthedocs.io/en/latest/how-tos/how-to-custom-user.html>
-
+.. _How-to Custom User: https://django-cookiecutter.readthedocs.io/en/latest/how-tos/how-to-custom-user.html
+.. _Create a Django-Cookiecutter Project: https://django-cookiecutter.readthedocs.io/en/latest/tutorials/tutorial-create-django-project.html
 
 Django Project Creation Options
 -------------------------------
 
 Customise your project with the following options when creating your
 django-cookiecutter.
+
+If you are new to Django and arent sure what to select, choose the default
+setting to get the best new user experience.
 
 Django Settings
 ~~~~~~~~~~~~~~~
