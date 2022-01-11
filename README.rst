@@ -45,7 +45,7 @@ Django Project Features
    and `test` environments default to using `SQLite`_, Django's bundled
    database.
 #. More advanced users can change the test environment database with an
-   environment variable to match the production environment.
+   environment variable to match the production environment. See the How-to `here`_.
 #. `Django-allauth`_ provides authentication.
 #. A `CustomUser` model, complete with tests and custom user types. See
    `How-to Custom User`_ for customisation options before your initial migration.
@@ -59,6 +59,7 @@ see our tutorial, `Create a Django-Cookiecutter Project`_.
 .. _Django-allauth: https://django-allauth.readthedocs.io/en/latest/installation.html
 .. _SQLite: https://www.sqlite.org/index.html
 .. _How-to Custom User: https://django-cookiecutter.readthedocs.io/en/latest/how-tos/how-to-custom-user.html
+.. _here: https://django-cookiecutter.readthedocs.io/en/latest/how-tos/how-to-test-env-settings.html
 .. _Create a Django-Cookiecutter Project: https://django-cookiecutter.readthedocs.io/en/latest/tutorials/tutorial-create-django-project.html
 
 Django Project Creation Options
