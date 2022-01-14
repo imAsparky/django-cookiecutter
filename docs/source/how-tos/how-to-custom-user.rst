@@ -67,14 +67,13 @@ Adding a New User
 -----------------
 
 When creating a new user with the django-allauth Sign-up form, the Custom User
-model is used.
+model is used, and the new user will be required to confirm their email address.
 
 .. note::
 
     **Adding a new user via the Admin panel**
 
-    The email should be entered under the Accounts menu when creating a new
-    user in the Admin panel.
+    After a new user is added with an email address, they will be
+    prompted to confirm their email address upon their first sign-in.
 
-    Entering the email in this manner will ensure the email will be available to
-    django-allauth.  A search button will help locate the correct user.
+    django-allauth provides this functionality.
