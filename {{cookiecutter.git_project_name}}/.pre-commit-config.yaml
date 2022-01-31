@@ -48,7 +48,7 @@ repos:
     rev: 21.8b0
     hooks:
       - id: black
-        exclude:
+        # exclude:
         args: [-l  79]
 
   - repo: https://github.com/PyCQA/bandit
@@ -62,7 +62,7 @@ repos:
     hooks:
       - id: flake8
         additional_dependencies: [flake8-typing-imports==1.10.0]
-        exclude:
+        # exclude:
 
   - repo: https://github.com/PyCQA/isort
     rev: 5.9.3
