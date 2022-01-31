@@ -2,6 +2,13 @@
 
 <!--next-version-placeholder-->
 
+## v0.24.2 (2022-01-28)
+### Fix
+* **pyup:**  Update sphinx to 4.4.0 ([#245](https://github.com/imAsparky/django-cookiecutter/issues/245)) ([`51b8095`](https://github.com/imAsparky/django-cookiecutter/commit/51b8095273d15c21ea20f699721725d0d0670157))
+
+### Documentation
+* **how-to:** Add changing test DB settings #239 ([#240](https://github.com/imAsparky/django-cookiecutter/issues/240)) ([`b217b67`](https://github.com/imAsparky/django-cookiecutter/commit/b217b67601889134102498520a838b825c057531))
+
 ## v0.24.1 (2022-01-10)
 ### Fix
 * **docs:** Tutorial and README broken links #235 ([#238](https://github.com/imAsparky/django-cookiecutter/issues/238)) ([`034f522`](https://github.com/imAsparky/django-cookiecutter/commit/034f5229f0eb1b5b75be1f60bf651eef07e2eb41))
