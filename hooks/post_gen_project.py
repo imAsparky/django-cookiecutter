@@ -154,7 +154,7 @@ def git_add_and_commit_initial():
         "git",
         "commit",
         "-m",
-        '"chore(git): Initial Commit"',
+        "chore(git): Initial Commit",
         cwd=PROJECT_DIRECTORY,
     )
 
