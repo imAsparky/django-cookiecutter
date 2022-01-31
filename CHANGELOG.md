@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.24.6 (2022-01-31)
+### Fix
+* **pre-commit:** Django-upgrade removed #252 ([#253](https://github.com/imAsparky/django-cookiecutter/issues/253)) ([`b567033`](https://github.com/imAsparky/django-cookiecutter/commit/b567033a852a4b282c08abbfeb71a6233845954f))
+
 ## v0.24.5 (2022-01-31)
 ### Fix
 * **git:** Remove "" from initial commit message #250 ([#251](https://github.com/imAsparky/django-cookiecutter/issues/251)) ([`099c747`](https://github.com/imAsparky/django-cookiecutter/commit/099c7477dfe332c994f5827921d84b3a0612ceea))
