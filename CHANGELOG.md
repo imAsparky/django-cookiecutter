@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.24.4 (2022-01-31)
+### Fix
+* **django:** Pre-commit Black and Flake8 exclude #248 ([#249](https://github.com/imAsparky/django-cookiecutter/issues/249)) ([`18ea438`](https://github.com/imAsparky/django-cookiecutter/commit/18ea4389cdf4e3de01acb1e0e44dfd18dedde842))
+
 ## v0.24.3 (2022-01-31)
 ### Fix
 * **pyup:**  Update pre-commit to 2.17.0 ([#246](https://github.com/imAsparky/django-cookiecutter/issues/246)) ([`38b4062`](https://github.com/imAsparky/django-cookiecutter/commit/38b40621ba0a73be920988aade7e9e66ff9fab2d))
