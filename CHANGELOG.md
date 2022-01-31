@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.24.5 (2022-01-31)
+### Fix
+* **git:** Remove "" from initial commit message #250 ([#251](https://github.com/imAsparky/django-cookiecutter/issues/251)) ([`099c747`](https://github.com/imAsparky/django-cookiecutter/commit/099c7477dfe332c994f5827921d84b3a0612ceea))
+
 ## v0.24.4 (2022-01-31)
 ### Fix
 * **django:** Pre-commit Black and Flake8 exclude #248 ([#249](https://github.com/imAsparky/django-cookiecutter/issues/249)) ([`18ea438`](https://github.com/imAsparky/django-cookiecutter/commit/18ea4389cdf4e3de01acb1e0e44dfd18dedde842))
