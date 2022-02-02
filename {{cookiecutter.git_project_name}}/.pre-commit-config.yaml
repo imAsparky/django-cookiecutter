@@ -1,7 +1,8 @@
+default_language_version:
+  python: python3.10
 default_stages: [commit]
 fail_fast: true
 exclude: ".conf.py|^tests/|migrations|.git|.tox"
-
 ci:
   autofix_commit_msg: |
     chore(pre-commit): Auto fixes from pre-commit.com hooks
@@ -40,11 +41,6 @@ repos:
       - id: requirements-txt-fixer
       - id: check-merge-conflict
 
-  - repo: https://github.com/pycqa/pylint
-    rev: v2.10.2
-    hooks:
-      - id: pylint
-
   - repo: https://github.com/psf/black
     rev: 21.8b0
     hooks:
@@ -63,7 +59,6 @@ repos:
     hooks:
       - id: flake8
         additional_dependencies: [flake8-typing-imports==1.10.0]
-        # exclude:
 
   - repo: https://github.com/PyCQA/isort
     rev: 5.9.3

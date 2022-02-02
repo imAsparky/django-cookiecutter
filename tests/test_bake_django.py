@@ -778,7 +778,7 @@ def test_baked_django_base_settings_base_file_ok(cookies):
     assert 'ROOT_URLCONF = "django_boilerplate.urls"' in settings_file
     assert 'WSGI_APPLICATION = "django_boilerplate.wsgi.application"' in settings_file
     assert 'LANGUAGE_CODE = "en"' in settings_file
-    assert "    ('en', _(\"English\"))," in settings_file
+    assert "    (\"en\", _(\"English\"))," in settings_file
     assert 'TIME_ZONE = "UTC"' in settings_file
     assert "USE_I18N = True" in settings_file
 

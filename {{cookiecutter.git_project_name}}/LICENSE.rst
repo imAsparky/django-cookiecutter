@@ -22,8 +22,7 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-{% elif cookiecutter.open_source_license == 'BSD license' %}
+SOFTWARE.{% elif cookiecutter.open_source_license == 'BSD license' %}
 .. _bsd-license:
 ===========
 BSD License
@@ -55,8 +54,7 @@ DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
 SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCEOR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
-THIS SOFTWARE, EVEN IF ADVISEDOF THE POSSIBILITY OF SUCH DAMAGE.
-{% elif cookiecutter.open_source_license == 'ISC license' -%}
+THIS SOFTWARE, EVEN IF ADVISEDOF THE POSSIBILITY OF SUCH DAMAGE.{% elif cookiecutter.open_source_license == 'ISC license' -%}
 .. _isc-license:
 ===========
 ISC License
@@ -74,8 +72,7 @@ FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
 INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
 LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
 OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
-PERFORMANCE OF THIS SOFTWARE.
-{% elif cookiecutter.open_source_license == 'Apache Software License 2.0' -%}
+PERFORMANCE OF THIS SOFTWARE.{% elif cookiecutter.open_source_license == 'Apache Software License 2.0' -%}
 .. _apache-license:
 ===========================
 Apache Software License 2.0
@@ -93,8 +90,7 @@ Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
-limitations under the License.
-{% elif cookiecutter.open_source_license == 'GNU General Public License v3' -%}
+limitations under the License.{% elif cookiecutter.open_source_license == 'GNU General Public License v3' -%}
 .. _gnu-license:
 ==========================
 GNU GENERAL PUBLIC LICENSE
@@ -129,5 +125,4 @@ into proprietary programs.  If your program is a subroutine library, you
 may consider it more useful to permit linking proprietary applications with
 the library.  If this is what you want to do, use the GNU Lesser General
 Public License instead of this License.  But first, please read
-<http://www.gnu.org/philosophy/why-not-lgpl.html>.
-{% endif %}
+<http://www.gnu.org/philosophy/why-not-lgpl.html>.{% endif %}

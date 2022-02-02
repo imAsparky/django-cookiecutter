@@ -1,14 +1,15 @@
 """Django local settings for {{cookiecutter.git_project_name}} project."""
 
-from .base import *  # noqa
 import environ
+
+from .base import *  # noqa: F405 F401 F403
 
 # Read from environment variables file
 env = environ.Env(
     # set casting, default value
     DEBUG=(bool, False)
 )
-environ.Env.read_env(os.path.join(BASE_DIR, ".env/.local"))
+environ.Env.read_env(os.path.join(BASE_DIR, ".env/.local"))  # noqa: F405
 
 SECRET_KEY = env("DJANGO_SECRET_KEY")
 
@@ -60,6 +61,6 @@ DEBUG_TOOLBAR_CONFIG = {
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",  # noqa: F405
     }
 }
