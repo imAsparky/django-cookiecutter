@@ -4,7 +4,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.decorators import login_required
 
-from .forms import CustomUserCreationForm, CustomUserChangeForm
+from .forms import CustomUserChangeForm, CustomUserCreationForm
 from .models import CustomUser
 
 # Customise the Admin title and header.

@@ -2,17 +2,19 @@
 
 from django.apps import apps
 from django.contrib import auth
+from django.contrib.auth.base_user import BaseUserManager
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.models import AbstractUser
-from django.contrib.auth.base_user import BaseUserManager
-from django.utils.translation import gettext_lazy as _
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 
 class CustomUserManager(BaseUserManager):
     use_in_migrations = True
 
-    def _create_user(self, username, email, password, **extra_fields): # pragma: no cover
+    def _create_user(
+        self, username, email, password, **extra_fields
+    ):  # pragma: no cover
         """
         Create and save a user with the given username, email, and password.
         """
@@ -36,7 +38,9 @@ class CustomUserManager(BaseUserManager):
 
         return user
 
-    def create_user(self, username, email=None, password=None, **extra_fields): # pragma: no cover
+    def create_user(
+        self, username, email=None, password=None, **extra_fields
+    ):  # pragma: no cover
         """
         Create and save a standard user with the supplied username, email, and password.
         """
@@ -45,7 +49,9 @@ class CustomUserManager(BaseUserManager):
         extra_fields.setdefault("is_superuser", False)
         return self._create_user(username, email, password, **extra_fields)
 
-    def create_superuser(self, username, email=None, password=None, **extra_fields): # pragma: no cover
+    def create_superuser(
+        self, username, email=None, password=None, **extra_fields
+    ):  # pragma: no cover
         """
         Create and save a super user with the supplied username, email, and password.
         """
@@ -66,8 +72,13 @@ class CustomUserManager(BaseUserManager):
         return self._create_user(username, email, password, **extra_fields)
 
     def with_perm(
-        self, perm, is_active=True, include_superusers=True, backend=None, obj=None
-    ): # pragma: no cover
+        self,
+        perm,
+        is_active=True,
+        include_superusers=True,
+        backend=None,
+        obj=None,
+    ):  # pragma: no cover
         if backend is None:
             backends = auth._get_backends(return_tuples=True)
             if len(backends) == 1:
@@ -79,7 +90,8 @@ class CustomUserManager(BaseUserManager):
                 )
         elif not isinstance(backend, str):
             raise TypeError(
-                "backend must be a dotted import path string (got %r)." % backend
+                "backend must be a dotted import path string (got %r)."
+                % backend
             )
         else:
             backend = auth.load_backend(backend)

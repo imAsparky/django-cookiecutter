@@ -59,5 +59,3 @@ secrets:
   #   external: true
   # db_port:
   #   external: true
-
-

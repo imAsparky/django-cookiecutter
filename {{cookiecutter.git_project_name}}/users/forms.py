@@ -1,7 +1,8 @@
 """{{cookiecutter.git_project_name}} project CustomUser Forms."""
 
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from django.contrib.auth.forms import UserChangeForm, UserCreationForm
 from django.utils.translation import gettext_lazy as _
+
 from .models import CustomUser
 
 
@@ -14,7 +15,9 @@ class CustomUserCreationForm(UserCreationForm):
 
         error_messages = {
             "username": {
-                "unique": _("That user name already exists, please choose another.")
+                "unique": _(
+                    "That user name already exists, please choose another."
+                )
             }
         }
 

@@ -15,4 +15,3 @@ INTERNAL_IPS=""
 # If using other, a DB_URL connection string must be supplied.
 TESTING_DATABASE=sqlite3
 DB_URL=""
-

@@ -9,9 +9,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
-from pathlib import Path
 import os
+from pathlib import Path
+
 from django.utils.translation import gettext_lazy as _
+
 from .username_blacklist import data as username_blacklist
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -21,7 +23,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 INSTALLED_APPS = [
     "users",
-
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -29,14 +30,11 @@ INSTALLED_APPS = [
     "django.contrib.sites",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
-
-    'allauth.socialaccount.providers.github',
-    'allauth.socialaccount.providers.google',
-
+    "allauth.socialaccount.providers.github",
+    "allauth.socialaccount.providers.google",
 ]
 
 AUTH_USER_MODEL = "users.CustomUser"
@@ -48,7 +46,7 @@ SITE_ID = {{cookiecutter.SITE_ID}}
 
 # LOGIN_REDIRECT_URL For new project convenience, change to your project requirements.
 LOGIN_REDIRECT_URL = "/admin/"
-LOGOUT_REDIRECT_URL = '/accounts/login/'
+LOGOUT_REDIRECT_URL = "/accounts/login/"
 
 
 MIDDLEWARE = [
@@ -76,19 +74,16 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 "django.template.context_processors.request",
-
             ],
         },
     },
 ]
 
 AUTHENTICATION_BACKENDS = [
-
     # Needed to login by username in Django admin, regardless of `allauth`
-    'django.contrib.auth.backends.ModelBackend',
-
+    "django.contrib.auth.backends.ModelBackend",
     # `allauth` specific authentication methods, such as login by e-mail
-    'allauth.account.auth_backends.AuthenticationBackend',
+    "allauth.account.auth_backends.AuthenticationBackend",
 ]
 
 WSGI_APPLICATION = "{{ cookiecutter.project_slug}}.wsgi.application"
@@ -132,7 +127,7 @@ LANGUAGE_CODE = "{{cookiecutter.LANGUAGE_CODE}}"
 {%- with languages = cookiecutter.LANGUAGES.replace(' ', '').split(',') %}
 
 LANGUAGES = [{% for language in languages %}
-    ('{{ language }}', _("{{ language_labels[language] }}")),{% endfor %}
+    ("{{ language }}", _("{{ language_labels[language] }}")),{% endfor %}
 ]
 {% endwith %}
 
@@ -162,13 +157,14 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Django Allauth Settings
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
-ACCOUNT_AUTHENTICATION_METHOD = "username_email" # Default dj-allauth == username
-ACCOUNT_EMAIL_REQUIRED = True                    # Default dj-allauth == False
-ACCOUNT_UNIQUE_EMAIL = True                      # Default dj-allauth
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'         # Default dj-allauth (optional)
-ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 3       # Default dj-allauth
-ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5                 # Default dj-allauth
-ACCOUNT_USERNAME_REQUIRED = True                 # Default dj-allauth
-ACCOUNT_USERNAME_MIN_LENGTH = 3                  # Default dj-allauth == 1
+ACCOUNT_AUTHENTICATION_METHOD = (
+    "username_email"  # Default dj-allauth == username
+)
+ACCOUNT_EMAIL_REQUIRED = True  # Default dj-allauth == False
+ACCOUNT_UNIQUE_EMAIL = True  # Default dj-allauth
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"  # Default dj-allauth (optional)
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 3  # Default dj-allauth
+ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5  # Default dj-allauth
+ACCOUNT_USERNAME_REQUIRED = True  # Default dj-allauth
+ACCOUNT_USERNAME_MIN_LENGTH = 3  # Default dj-allauth == 1
 ACCOUNT_USERNAME_BLACKLIST = username_blacklist
-
