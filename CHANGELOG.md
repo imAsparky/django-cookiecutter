@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.24.7 (2022-02-02)
+### Fix
+* **django:** Pre-commit  Flake8 and pylint fixed #256 ([#260](https://github.com/imAsparky/django-cookiecutter/issues/260)) ([`2cc5439`](https://github.com/imAsparky/django-cookiecutter/commit/2cc5439e49d3db66b8cacaa8558bf1f3594960f8))
+
 ## v0.24.6 (2022-01-31)
 ### Fix
 * **pre-commit:** Django-upgrade removed #252 ([#253](https://github.com/imAsparky/django-cookiecutter/issues/253)) ([`b567033`](https://github.com/imAsparky/django-cookiecutter/commit/b567033a852a4b282c08abbfeb71a6233845954f))
