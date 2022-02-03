@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.24.8 (2022-02-03)
+### Fix
+* **base:** Move base.html to templates #211 ([#261](https://github.com/imAsparky/django-cookiecutter/issues/261)) ([`24ba9ad`](https://github.com/imAsparky/django-cookiecutter/commit/24ba9adb56e6c1a5b1f55952e4df9ccb8c32c125))
+
 ## v0.24.7 (2022-02-02)
 ### Fix
 * **django:** Pre-commit  Flake8 and pylint fixed #256 ([#260](https://github.com/imAsparky/django-cookiecutter/issues/260)) ([`2cc5439`](https://github.com/imAsparky/django-cookiecutter/commit/2cc5439e49d3db66b8cacaa8558bf1f3594960f8))
