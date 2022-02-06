@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.24.9 (2022-02-06)
+### Fix
+* **pyup:**  Update sphinx-copybutton to 0.5.0 ([#265](https://github.com/imAsparky/django-cookiecutter/issues/265)) ([`52962bd`](https://github.com/imAsparky/django-cookiecutter/commit/52962bd01a48432b4bb55669fe3024544f8f336b))
+
 ## v0.24.8 (2022-02-03)
 ### Fix
 * **base:** Move base.html to templates #211 ([#261](https://github.com/imAsparky/django-cookiecutter/issues/261)) ([`24ba9ad`](https://github.com/imAsparky/django-cookiecutter/commit/24ba9adb56e6c1a5b1f55952e4df9ccb8c32c125))
