@@ -3,7 +3,7 @@
 
 from setuptools import find_packages, setup
 
-__version__ = "0.24.9"
+__version__ = "0.24.10"
 
 setup(
     name="django-cookiecutter",
