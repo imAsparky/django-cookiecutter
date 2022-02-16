@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.24.10 (2022-02-13)
+### Fix
+* **pyup:**  Update myst-parser to 0.17.0 ([#268](https://github.com/imAsparky/django-cookiecutter/issues/268)) ([`a167ab7`](https://github.com/imAsparky/django-cookiecutter/commit/a167ab74044a5bf18b129c33d90c4f796130373f))
+
 ## v0.24.9 (2022-02-06)
 ### Fix
 * **pyup:**  Update sphinx-copybutton to 0.5.0 ([#265](https://github.com/imAsparky/django-cookiecutter/issues/265)) ([`52962bd`](https://github.com/imAsparky/django-cookiecutter/commit/52962bd01a48432b4bb55669fe3024544f8f336b))
