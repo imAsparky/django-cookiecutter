@@ -168,3 +168,65 @@ ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5  # Default dj-allauth
 ACCOUNT_USERNAME_REQUIRED = True  # Default dj-allauth
 ACCOUNT_USERNAME_MIN_LENGTH = 3  # Default dj-allauth == 1
 ACCOUNT_USERNAME_BLACKLIST = username_blacklist
+
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "filters": {
+        "require_debug_false": {
+            "()": "django.utils.log.RequireDebugFalse",
+        },
+        "require_debug_true": {
+            "()": "django.utils.log.RequireDebugTrue",
+        },
+    },
+    "formatters": {
+        "django.server": {
+            "()": "django.utils.log.ServerFormatter",
+            "format": "[{server_time}]:{module}:{lineno:d}:{process:d}:{thread:d}:[{message}]",
+            "style": "{",
+        },
+        "rich": {"datefmt": "[%X]"},
+    },
+    "handlers": {
+        "console": {
+            "filters": ["require_debug_true"],
+            "class": "rich.logging.RichHandler",
+            "formatter": "rich",
+            "level": "DEBUG",
+            "rich_tracebacks": True,
+            "tracebacks_show_locals": True,
+        },
+        "django.server": {
+            "level": "DEBUG",
+            "class": "logging.StreamHandler",
+            "formatter": "django.server",
+        },
+        "mail_admins": {
+            "level": "ERROR",
+            "filters": ["require_debug_false"],
+            "class": "django.utils.log.AdminEmailHandler",
+        },
+        "file": {
+            "level": "DEBUG",
+            "class": "logging.FileHandler",
+            "filename": "logging/debug.log",
+        },
+    },
+    "loggers": {
+        "django": {
+            "handlers": ["console",],
+            "level": "INFO",
+        },
+        "django.server": {
+            "handlers": ["django.server",],
+            "level": "DEBUG",
+            "propagate": False,
+        },
+    },
+    "root": {
+        "handlers": ["console",],
+        "level": "DEBUG",
+    },
+}
