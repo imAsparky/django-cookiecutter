@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.25.0 (2022-02-21)
+### Feature
+* **dev:** Improve local dev CLI logging output #263 ([#274](https://github.com/imAsparky/django-cookiecutter/issues/274)) ([`fb0071c`](https://github.com/imAsparky/django-cookiecutter/commit/fb0071ca282e76058eb8ebd2706f23d6720ac2bd))
+
 ## v0.24.12 (2022-02-21)
 ### Fix
 * **pyup:**  Update furo to 2022.2.14.1 ([#270](https://github.com/imAsparky/django-cookiecutter/issues/270)) ([`c91bd98`](https://github.com/imAsparky/django-cookiecutter/commit/c91bd98d8c9ea15409cb425b69fcb6f7de1067d9))
