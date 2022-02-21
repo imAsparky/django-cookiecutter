@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.24.11 (2022-02-21)
+### Fix
+* **pyup:**  Update pytest to 7.0.1 ([#269](https://github.com/imAsparky/django-cookiecutter/issues/269)) ([`e9f901a`](https://github.com/imAsparky/django-cookiecutter/commit/e9f901a4112e91985faff43152c78a88d1602c92))
+
 ## v0.24.10 (2022-02-13)
 ### Fix
 * **pyup:**  Update myst-parser to 0.17.0 ([#268](https://github.com/imAsparky/django-cookiecutter/issues/268)) ([`a167ab7`](https://github.com/imAsparky/django-cookiecutter/commit/a167ab74044a5bf18b129c33d90c4f796130373f))
