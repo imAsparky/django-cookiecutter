@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.24.12 (2022-02-21)
+### Fix
+* **pyup:**  Update furo to 2022.2.14.1 ([#270](https://github.com/imAsparky/django-cookiecutter/issues/270)) ([`c91bd98`](https://github.com/imAsparky/django-cookiecutter/commit/c91bd98d8c9ea15409cb425b69fcb6f7de1067d9))
+
 ## v0.24.11 (2022-02-21)
 ### Fix
 * **pyup:**  Update pytest to 7.0.1 ([#269](https://github.com/imAsparky/django-cookiecutter/issues/269)) ([`e9f901a`](https://github.com/imAsparky/django-cookiecutter/commit/e9f901a4112e91985faff43152c78a88d1602c92))
