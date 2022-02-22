@@ -1,4 +1,4 @@
-"""ASGI config for {{cookiecutter.git_project_name}} project.
+"""{{cookiecutter.git_project_name}} ASGI Configuration.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 

@@ -18,18 +18,122 @@ def test_django_bakes_ok_with_defaults(cookies):
     assert default_django.project_path.name == "django-boilerplate"
 
 
-def test_baked_django_asgi_file_ok(cookies):
-    """Test Django asgy.py file has been generated correctly."""
+def test_baked_django_core_asgi_file_ok(cookies):
+    """Test Django Core asgi.py file has been generated correctly."""
     default_django = cookies.bake()
 
-    asgi_path = default_django.project_path / "django_boilerplate/asgi.py"
+    asgi_path = default_django.project_path / "core/asgi.py"
     asgi_file = asgi_path.read_text().splitlines()
 
-    assert '"""ASGI config for django-boilerplate project.' in asgi_file
+    assert '"""django-boilerplate ASGI Configuration.' in asgi_file
     assert (
         'os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings.local")'
         in asgi_file
     )
+
+
+def test_baked_django_core_init_py_file(cookies):
+    """Test Django Core __init__.py file has been generated correctly."""
+    default_django = cookies.bake()
+
+    init_path = default_django.project_path / "core/__init__.py"
+    init_file = init_path.read_text().splitlines()
+
+    assert '"""Initialise django-boilerplate Core App."""' in init_file
+
+
+def test_baked_django_core_urls_file_ok(cookies):
+    """Test Django Core urls.py file has generated correctly."""
+    default_django = cookies.bake()
+
+    urls_path = default_django.project_path / "core/urls.py"
+    urls_file = urls_path.read_text().splitlines()
+
+    assert '"""django-boilerplate URL Configuration.' in urls_file
+
+
+def test_baked_django_core_wsgi_file_ok(cookies):
+    """Test Django Core wsgi.py file has generated correctly."""
+    default_django = cookies.bake()
+
+    wsgi_path = default_django.project_path / "core/wsgi.py"
+    wsgi_file = wsgi_path.read_text().splitlines()
+
+    assert '"""django-boilerplate WSGI Configuration.' in wsgi_file
+    assert (
+        'os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings.local")'
+        in wsgi_file
+    )
+
+
+def test_baked_django_core_views_init_py_file(cookies):
+    """Test Django Core Views __init__.py file has been generated correctly."""
+    default_django = cookies.bake()
+
+    init_path = default_django.project_path / "core/views/__init__.py"
+    init_file = init_path.read_text().splitlines()
+
+    assert '"""Initialise django-boilerplate Core App Views."""' in init_file
+
+
+def test_baked_django_core_views_generic_init_py_file(cookies):
+    """Test Django Core Views Generic __init__.py file has been generated correctly."""
+    default_django = cookies.bake()
+
+    init_path = default_django.project_path / "core/views/generic/__init__.py"
+    init_file = init_path.read_text().splitlines()
+
+    assert '"""Initialise django-boilerplate Core App Generic Views."""' in init_file
+
+
+def test_baked_django_core_views_generic_base_py_file(cookies):
+    """Test Django Core Views Generic base.py file has been generated correctly."""
+    default_django = cookies.bake()
+
+    base_path = default_django.project_path / "core/views/generic/base.py"
+    base_file = base_path.read_text().splitlines()
+
+    assert '"""django-boilerplate Core App Generic Views Base."""' in base_file
+
+
+def test_baked_django_core_views_generic_base_py_copyright_license(cookies):
+    """Test Django Core Views Generic base.py file has been generated correctly."""
+    default_django = cookies.bake()
+
+    base_path = default_django.project_path / "core/views/generic/base.py"
+    base_file = base_path.read_text().splitlines()
+
+    assert "    Copyright (c) 2021 Pablo Rivera" in base_file
+
+
+def test_baked_django_core_views_generic_detail_py_file(cookies):
+    """Test Django Core Views Generic detail.py file has been generated correctly."""
+    default_django = cookies.bake()
+
+    detail_path = default_django.project_path / "core/views/generic/detail.py"
+    detail_file = detail_path.read_text().splitlines()
+
+    assert '"""django-boilerplate Core App Generic Views Detail."""' in detail_file
+
+
+def test_baked_django_core_views_generic_edit_py_file(cookies):
+    """Test Django Core Views Generic edit.py file has been generated correctly."""
+    default_django = cookies.bake()
+
+    edit_path = default_django.project_path / "core/views/generic/edit.py"
+    edit_file = edit_path.read_text().splitlines()
+
+    assert '"""django-boilerplate Core App Generic Views Edit."""' in edit_file
+
+
+def test_baked_django_core_views_generic_list_py_file(cookies):
+    """Test Django Core Views Generic list.py file has been generated correctly."""
+    default_django = cookies.bake()
+
+    list_path = default_django.project_path / "core/views/generic/list.py"
+    list_file = list_path.read_text().splitlines()
+
+    assert '"""django-boilerplate Core App Generic Views List."""' in list_file
 
 
 def test_baked_django_custom_admin_file_ok(cookies):
@@ -385,16 +489,6 @@ def test_baked_django_without_github_action_test_workflow(cookies):
     assert "test_contribution.yaml" not in os.listdir(
         non_default_django.project_path / ".github/workflows"
     )
-
-
-def test_baked_django_init_py_file(cookies):
-    """Test Django __init__.py file has been generated correctly."""
-    default_django = cookies.bake()
-
-    init_path = default_django.project_path / "django_boilerplate/__init__.py"
-    init_file = init_path.read_text().splitlines()
-
-    assert '"""Initialise django_boilerplate."""' in init_file
 
 
 def test_baked_django_with_license_mit(cookies):
@@ -775,10 +869,10 @@ def test_baked_django_base_settings_base_file_ok(cookies):
     settings_file = settings_path.read_text().splitlines()
 
     assert '"""Django base settings for django-boilerplate project.' in settings_file
-    assert 'ROOT_URLCONF = "django_boilerplate.urls"' in settings_file
-    assert 'WSGI_APPLICATION = "django_boilerplate.wsgi.application"' in settings_file
+    assert 'ROOT_URLCONF = "core.urls"' in settings_file
+    assert 'WSGI_APPLICATION = "core.wsgi.application"' in settings_file
     assert 'LANGUAGE_CODE = "en"' in settings_file
-    assert "    (\"en\", _(\"English\"))," in settings_file
+    assert '    ("en", _("English")),' in settings_file
     assert 'TIME_ZONE = "UTC"' in settings_file
     assert "USE_I18N = True" in settings_file
 
@@ -840,32 +934,5 @@ def test_baked_django_tox_file_ok(cookies):
     tox_path = default_django.project_path / "tox.ini"
     tox_file = str(tox_path.read_text().splitlines())
 
-    assert (
-        '  find {toxinidir}/django_boilerplate -type f -name "*.pyc" -delete'
-        in tox_file
-    )
-    assert 'mypy --ignore-missing-imports {toxinidir}/django_boilerplate' in tox_file
-
-
-def test_baked_django_urls_file_ok(cookies):
-    """Test Django urls.py file has generated correctly."""
-    default_django = cookies.bake()
-
-    urls_path = default_django.project_path / "django_boilerplate/urls.py"
-    urls_file = urls_path.read_text().splitlines()
-
-    assert '"""django-boilerplate URL Configuration' in urls_file
-
-
-def test_baked_django_wsgi_file_ok(cookies):
-    """Test Django wsgi.py file has generated correctly."""
-    default_django = cookies.bake()
-
-    wsgi_path = default_django.project_path / "django_boilerplate/wsgi.py"
-    wsgi_file = wsgi_path.read_text().splitlines()
-
-    assert '"""WSGI config for django-boilerplate project.' in wsgi_file
-    assert (
-        'os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings.local")'
-        in wsgi_file
-    )
+    assert '  find {toxinidir}/core -type f -name "*.pyc" -delete' in tox_file
+    assert "mypy --ignore-missing-imports {toxinidir}/core" in tox_file

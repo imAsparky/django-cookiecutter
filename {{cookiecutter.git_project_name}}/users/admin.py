@@ -25,11 +25,17 @@ class CustomUserAdmin(UserAdmin):
     form = CustomUserChangeForm
     model = CustomUser
 
-    fieldsets = UserAdmin.fieldsets + (
-        ("User Type", {'fields': ('user_type',)}),
-    )
+    fieldsets = UserAdmin.fieldsets + (("User Type", {"fields": ("user_type",)}),)
     add_fieldsets = UserAdmin.add_fieldsets + (
-        (None, {'fields': ("email",'user_type', )}),
+        (
+            None,
+            {
+                "fields": (
+                    "email",
+                    "user_type",
+                )
+            },
+        ),
     )
 
     list_display = [
