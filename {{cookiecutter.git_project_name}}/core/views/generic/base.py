@@ -4,10 +4,6 @@ from django.core.exceptions import ImproperlyConfigured
 from django.views.generic.base import TemplateResponseMixin, TemplateView
 
 
-from django.core.exceptions import ImproperlyConfigured
-from django.views.generic.base import TemplateResponseMixin, TemplateView
-
-
 class HtmxTemplateResponseMixin(TemplateResponseMixin):
     """Extends Django TemplateResponseMixin with HTMX functionality.
 
