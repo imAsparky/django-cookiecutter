@@ -2,6 +2,12 @@
 <html>
   <head>
     <title>{% block head_title %}{% endblock %}</title>
+    <script defer src="https://unpkg.com/alpinejs@3.8.1/dist/cdn.min.js"></script>
+    <script src="https://unpkg.com/htmx.org@1.6.1" integrity="sha384-tvG/2mnCFmGQzYC1Oh3qxQ7CkQ9kMzYjWZSNtrRZygHPDDqottzEJsqS4oUVodhW" crossorigin="anonymous"></script>
+    {% load static %}
+    {% load django_htmx %}
+    {% django_htmx_script %}
+
     {% block extra_head %}
     {% endblock extra_head%}
   </head>
