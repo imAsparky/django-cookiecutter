@@ -60,7 +60,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "{{ cookiecutter.project_slug}}.urls"
+ROOT_URLCONF = "core.urls"
 
 TEMPLATES = [
     {
@@ -86,7 +86,7 @@ AUTHENTICATION_BACKENDS = [
     "allauth.account.auth_backends.AuthenticationBackend",
 ]
 
-WSGI_APPLICATION = "{{ cookiecutter.project_slug}}.wsgi.application"
+WSGI_APPLICATION = "core.wsgi.application"
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -216,17 +216,23 @@ LOGGING = {
     },
     "loggers": {
         "django": {
-            "handlers": ["console",],
+            "handlers": [
+                "console",
+            ],
             "level": "INFO",
         },
         "django.server": {
-            "handlers": ["django.server",],
+            "handlers": [
+                "django.server",
+            ],
             "level": "DEBUG",
             "propagate": False,
         },
     },
     "root": {
-        "handlers": ["console",],
+        "handlers": [
+            "console",
+        ],
         "level": "DEBUG",
     },
 }

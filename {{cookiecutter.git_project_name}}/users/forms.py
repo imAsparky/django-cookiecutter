@@ -15,9 +15,7 @@ class CustomUserCreationForm(UserCreationForm):
 
         error_messages = {
             "username": {
-                "unique": _(
-                    "That user name already exists, please choose another."
-                )
+                "unique": _("That user name already exists, please choose another.")
             }
         }
 

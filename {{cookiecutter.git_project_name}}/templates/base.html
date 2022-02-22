@@ -3,11 +3,11 @@
   <head>
     <title>{% block head_title %}{% endblock %}</title>
     {% block extra_head %}
-    {% endblock %}
+    {% endblock extra_head%}
   </head>
-  <body>
-    {% block body %}
-
+   <!-- https://www.mattlayman.com/blog/2021/how-to-htmx-django/ -->
+  <body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
+   {% block body %}
     {% if messages %}
     <div>
       <strong>Messages:</strong>
@@ -32,9 +32,11 @@
       </ul>
     </div>
     {% block content %}
-    {% endblock %}
-    {% endblock %}
+    {% endblock content %}
+
+    {% endblock body %}
+
     {% block extra_body %}
-    {% endblock %}
+    {% endblock extra_body %}
   </body>
 </html>

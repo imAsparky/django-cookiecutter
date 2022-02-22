@@ -1,4 +1,4 @@
-"""WSGI config for {{ cookiecutter.git_project_name }} project.
+"""{{cookiecutter.git_project_name}} WSGI Configuration.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 

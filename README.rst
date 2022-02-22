@@ -51,6 +51,7 @@ Django Project Features
    `How-to Custom User`_ for customisation options before your initial migration.
 #. Improved  Admin panel security requires an authorised user to be logged in.
    The Admin panel now has the protections provided by django-allauth.
+#. `htmx`_ built in by default using `django-htmx`_.
 
 If you are new to Django and Cookiecutters and would like to take it for a spin,
 see our tutorial, `Create a Django-Cookiecutter Project`_.
@@ -61,6 +62,8 @@ see our tutorial, `Create a Django-Cookiecutter Project`_.
 .. _How-to Custom User: https://django-cookiecutter.readthedocs.io/en/latest/how-tos/how-to-custom-user.html
 .. _here: https://django-cookiecutter.readthedocs.io/en/latest/how-tos/how-to-test-env-settings.html
 .. _Create a Django-Cookiecutter Project: https://django-cookiecutter.readthedocs.io/en/latest/tutorials/tutorial-create-django-project.html
+.. _htmx: https://htmx.org/
+.. _django-htmx: https://github.com/adamchainz/django-htmx
 
 Django Project Creation Options
 -------------------------------
