@@ -31,6 +31,7 @@ def test_baked_django_core_asgi_file_ok(cookies):
         in asgi_file
     )
 
+
 def test_baked_django_core_init_py_file(cookies):
     """Test Django Core __init__.py file has been generated correctly."""
     default_django = cookies.bake()
@@ -39,6 +40,7 @@ def test_baked_django_core_init_py_file(cookies):
     init_file = init_path.read_text().splitlines()
 
     assert '"""Initialise django-boilerplate Core App."""' in init_file
+
 
 def test_baked_django_core_urls_file_ok(cookies):
     """Test Django Core urls.py file has generated correctly."""
@@ -63,6 +65,7 @@ def test_baked_django_core_wsgi_file_ok(cookies):
         in wsgi_file
     )
 
+
 def test_baked_django_core_views_init_py_file(cookies):
     """Test Django Core Views __init__.py file has been generated correctly."""
     default_django = cookies.bake()
@@ -71,6 +74,7 @@ def test_baked_django_core_views_init_py_file(cookies):
     init_file = init_path.read_text().splitlines()
 
     assert '"""Initialise django-boilerplate Core App Views."""' in init_file
+
 
 def test_baked_django_core_views_generic_init_py_file(cookies):
     """Test Django Core Views Generic __init__.py file has been generated correctly."""
@@ -81,6 +85,7 @@ def test_baked_django_core_views_generic_init_py_file(cookies):
 
     assert '"""Initialise django-boilerplate Core App Generic Views."""' in init_file
 
+
 def test_baked_django_core_views_generic_base_py_file(cookies):
     """Test Django Core Views Generic base.py file has been generated correctly."""
     default_django = cookies.bake()
@@ -90,6 +95,7 @@ def test_baked_django_core_views_generic_base_py_file(cookies):
 
     assert '"""django-boilerplate Core App Generic Views Base."""' in base_file
 
+
 def test_baked_django_core_views_generic_base_py_copyright_license(cookies):
     """Test Django Core Views Generic base.py file has been generated correctly."""
     default_django = cookies.bake()
@@ -97,7 +103,8 @@ def test_baked_django_core_views_generic_base_py_copyright_license(cookies):
     base_path = default_django.project_path / "core/views/generic/base.py"
     base_file = base_path.read_text().splitlines()
 
-    assert 'Copyright (c) 2021 Pablo Rivera' in base_file
+    assert "    Copyright (c) 2021 Pablo Rivera" in base_file
+
 
 def test_baked_django_core_views_generic_detail_py_file(cookies):
     """Test Django Core Views Generic detail.py file has been generated correctly."""
@@ -108,6 +115,7 @@ def test_baked_django_core_views_generic_detail_py_file(cookies):
 
     assert '"""django-boilerplate Core App Generic Views Detail."""' in detail_file
 
+
 def test_baked_django_core_views_generic_edit_py_file(cookies):
     """Test Django Core Views Generic edit.py file has been generated correctly."""
     default_django = cookies.bake()
@@ -117,6 +125,7 @@ def test_baked_django_core_views_generic_edit_py_file(cookies):
 
     assert '"""django-boilerplate Core App Generic Views Edit."""' in edit_file
 
+
 def test_baked_django_core_views_generic_list_py_file(cookies):
     """Test Django Core Views Generic list.py file has been generated correctly."""
     default_django = cookies.bake()
@@ -125,6 +134,7 @@ def test_baked_django_core_views_generic_list_py_file(cookies):
     list_file = list_path.read_text().splitlines()
 
     assert '"""django-boilerplate Core App Generic Views List."""' in list_file
+
 
 def test_baked_django_custom_admin_file_ok(cookies):
     """Test Django custom users/admin.py file has been generated correctly."""
@@ -862,7 +872,7 @@ def test_baked_django_base_settings_base_file_ok(cookies):
     assert 'ROOT_URLCONF = "core.urls"' in settings_file
     assert 'WSGI_APPLICATION = "core.wsgi.application"' in settings_file
     assert 'LANGUAGE_CODE = "en"' in settings_file
-    assert "    (\"en\", _(\"English\"))," in settings_file
+    assert '    ("en", _("English")),' in settings_file
     assert 'TIME_ZONE = "UTC"' in settings_file
     assert "USE_I18N = True" in settings_file
 
@@ -924,8 +934,5 @@ def test_baked_django_tox_file_ok(cookies):
     tox_path = default_django.project_path / "tox.ini"
     tox_file = str(tox_path.read_text().splitlines())
 
-    assert (
-        '  find {toxinidir}/core -type f -name "*.pyc" -delete'
-        in tox_file
-    )
-    assert 'mypy --ignore-missing-imports {toxinidir}/core' in tox_file
+    assert '  find {toxinidir}/core -type f -name "*.pyc" -delete' in tox_file
+    assert "mypy --ignore-missing-imports {toxinidir}/core" in tox_file
