@@ -80,8 +80,8 @@ and a Python application.
 `uwsgi` [#]_ is a binary protocol used by `uWSGI` and mainly works on TCP.
 
 The following ENV_VARS are for configuring the `uWSGI` server.  These shouldn't
-need changing; however, if you wish to further customise your Django
-application, you can read about uWSGI options [#]_ or uWSGI HTTP [#]_.
+need changing; however, if you wish to customise your Django application
+further, you can read about uWSGI options [#]_ or uWSGI HTTP [#]_.
 
 .. code-block:: docker
 

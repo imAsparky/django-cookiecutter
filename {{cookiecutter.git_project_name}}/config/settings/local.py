@@ -32,9 +32,12 @@ EMAIL_BACKEND = env("EMAIL_BACKEND")
 # Debug toolbar template profiler still requires ugettext_lazy.  Disabled until it runs on 4.0
 
 # INSTALLED_APPS += ["template_profiler_panel"]  # noqa F405
-INSTALLED_APPS += ["debug_toolbar"]  # noqa F405
+INSTALLED_APPS += ["debug_toolbar", "django_browser_reload"]  # noqa F405
 
-MIDDLEWARE += ["debug_toolbar.middleware.DebugToolbarMiddleware"]  # noqa F405
+MIDDLEWARE += [
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
+    "django_browser_reload.middleware.BrowserReloadMiddleware",
+]  # noqa F405
 
 DEBUG_TOOLBAR_PANELS = [
     "debug_toolbar.panels.history.HistoryPanel",

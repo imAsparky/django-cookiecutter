@@ -89,6 +89,7 @@
     ".pre-commit-config.yaml",
     ".github/workflows/semantic_release.yaml",
     ".github/workflows/test_contribution.yaml",
-    "templates/*"
+    "templates/*",
+    "theme/templates*"
   ]
 }
