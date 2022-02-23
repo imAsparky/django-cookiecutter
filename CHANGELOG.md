@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.26.0 (2022-02-23)
+### Feature
+* **css:** Add django-tailwind and documentation #277 ([#281](https://github.com/imAsparky/django-cookiecutter/issues/281)) ([`628fdec`](https://github.com/imAsparky/django-cookiecutter/commit/628fdec2a7cb746155a2d421c60be25672d69216))
+
 ## v0.25.1 (2022-02-21)
 ### Fix
 * **pre-comm:** Add --format black to isort #264 ([#276](https://github.com/imAsparky/django-cookiecutter/issues/276)) ([`f71ed3c`](https://github.com/imAsparky/django-cookiecutter/commit/f71ed3cfffc1b1c3b6d317d6846f766455236be0))
