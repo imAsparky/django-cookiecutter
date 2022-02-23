@@ -148,7 +148,7 @@ of the django-cookiecutter project below.
         Suppose you want to do a major cleanup with one command.
 
         Ensure nothing happens to your production stack;
-        **make sure your production stacks are running.**
+        **ensure your production stacks are running.**
 
     .. warning::
 

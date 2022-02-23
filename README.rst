@@ -4,6 +4,9 @@
 
 **Version 1.0 will signify the first stable Django build!**
 
+**This cookiecutter uses django-tailwind by default.  django-tailwind requires
+Node.js be installed on your development machine.**
+
 .. image:: ./docs/source/_static/imgs/logo/logo-django-cookiecutter-1280x640.png
    :alt:
 
@@ -52,6 +55,7 @@ Django Project Features
 #. Improved  Admin panel security requires an authorised user to be logged in.
    The Admin panel now has the protections provided by django-allauth.
 #. `htmx`_ built in by default using `django-htmx`_.
+#. `django-tailwind`_ and `django-browser-reload`_ built in by default.
 
 If you are new to Django and Cookiecutters and would like to take it for a spin,
 see our tutorial, `Create a Django-Cookiecutter Project`_.
@@ -64,6 +68,8 @@ see our tutorial, `Create a Django-Cookiecutter Project`_.
 .. _Create a Django-Cookiecutter Project: https://django-cookiecutter.readthedocs.io/en/latest/tutorials/tutorial-create-django-project.html
 .. _htmx: https://htmx.org/
 .. _django-htmx: https://github.com/adamchainz/django-htmx
+.. _django-tailwind: https://github.com/timonweb/django-tailwind
+.. _django-browser-reload: https://github.com/adamchainz/django-browser-reload
 
 Django Project Creation Options
 -------------------------------

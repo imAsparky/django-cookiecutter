@@ -198,6 +198,14 @@ Depending on your chosen options, there are several ways to proceed with
 pushing to GitHub.  If you are unsure, see our
 :ref:`git push tutorial<create-first-git-push>` for more information.
 
+Setup django-tailwind
+---------------------
+
+django-tailwind has some dependencies.  Installing these is quite
+simple to do.
+
+See :ref:`Setup django-tailwind<how-to-tail-get-started>`.
+
 
 Default Testing Database
 ------------------------

@@ -828,7 +828,7 @@ programming language.
 
 psycopg2 is the default PostgreSQL adaptor used in django-cookiecutter.
 psycopg2 has some dependencies to be built from source, and on occasion,
-these may not be available on some peoples computers.
+these may not be available on some people's computers.
 
 An alternative, the psycopg2-binary package, is available for beginners to start
 using Python and PostgreSQL; however, this package is not suitable for
@@ -859,6 +859,8 @@ to use psycopg2-binary.
 
 Whats next?
 -----------
+
+:ref:`Setup django-tailwind<how-to-tail-get-started>`.
 
 :ref:`Create your first git push<create-first-git-push>`.
 

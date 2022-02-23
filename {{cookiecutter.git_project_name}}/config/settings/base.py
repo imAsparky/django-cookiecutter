@@ -36,7 +36,12 @@ INSTALLED_APPS = [
     "allauth.socialaccount.providers.github",
     "allauth.socialaccount.providers.google",
     "django_htmx",
+    "tailwind",
+    "theme",
 ]
+
+TAILWIND_APP_NAME = "theme"
+TAILWIND_CSS_PATH = "css/styles.css"
 
 AUTH_USER_MODEL = "users.CustomUser"
 {% if cookiecutter.SITE_ID == "1" %}
@@ -159,9 +164,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Django Allauth Settings
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
-ACCOUNT_AUTHENTICATION_METHOD = (
-    "username_email"  # Default dj-allauth == username
-)
+ACCOUNT_AUTHENTICATION_METHOD = "username_email"  # Default dj-allauth == username
 ACCOUNT_EMAIL_REQUIRED = True  # Default dj-allauth == False
 ACCOUNT_UNIQUE_EMAIL = True  # Default dj-allauth
 ACCOUNT_EMAIL_VERIFICATION = "mandatory"  # Default dj-allauth (optional)
