@@ -675,6 +675,7 @@ def test_baked_django_readme_file(cookies):
 
     assert "**Django Boilerplate**" in readme_file
     assert "*A Django project with all the boilerplate*" in readme_file
+    assert '**Version = "0.1.0"**' in readme_file
 
 
 def test_baked_django_readme_with_license(cookies):
