@@ -2,7 +2,9 @@
 **Django 4.0+ Cookiecutter**
 ============================
 
-**Version 1.0 will signify the first stable Django build!**
+**Version = "0.26.2"**
+
+**Version 1.0.0 will signify the first stable Django build!**
 
 **This cookiecutter uses django-tailwind by default.  django-tailwind requires
 Node.js be installed on your development machine.**
