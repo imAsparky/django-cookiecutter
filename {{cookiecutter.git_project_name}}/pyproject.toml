@@ -1,0 +1,15 @@
+
+[tool.semantic_release]
+
+branch = "main"
+version_variable = "README.rst:Version,version.toml:__version__,docs/source/conf.py:__version__"
+
+build_command = ""
+remove_dist = false
+upload_to_release = false
+
+major_on_zero = false
+upload_to_pypi = false
+check_build_status = false
+
+commit_subject = ":memo: build(version): Bump to version - {version}."
