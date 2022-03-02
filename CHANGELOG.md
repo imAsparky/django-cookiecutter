@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.26.4 (2022-03-02)
+### Fix
+* **pyup:** Update django-htmx from 1.8.0 to 1.9.0 ([#290](https://github.com/imAsparky/django-cookiecutter/issues/290)) ([`82cb4bd`](https://github.com/imAsparky/django-cookiecutter/commit/82cb4bd001f01c20ac052c1d4be5753339d18f5f))
+
 ## v0.26.3 (2022-02-23)
 ### Fix
 * **pyup:**  Update furo to 2022.2.23 ([#285](https://github.com/imAsparky/django-cookiecutter/issues/285)) ([`07dbd6b`](https://github.com/imAsparky/django-cookiecutter/commit/07dbd6b36b2ac7211a28fb982b66f01a968703e6))
