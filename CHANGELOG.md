@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.26.6 (2022-03-05)
+### Fix
+* **pyup:**  Update furo to 2022.3.4 ([#293](https://github.com/imAsparky/django-cookiecutter/issues/293)) ([`81c3e6c`](https://github.com/imAsparky/django-cookiecutter/commit/81c3e6cf34b40b4f059ba61c75803e7adb59e52f))
+
 ## v0.26.5 (2022-03-04)
 ### Fix
 * **log:** Add logging folder to project root #288 ([#291](https://github.com/imAsparky/django-cookiecutter/issues/291)) ([`11c7216`](https://github.com/imAsparky/django-cookiecutter/commit/11c7216ed9e86dd29bf68fe6c15e2574605b8d1e))
