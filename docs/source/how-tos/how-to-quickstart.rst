@@ -270,3 +270,12 @@ To select another testing database, you can:
 
 
 .. _cookiecutter: https://cookiecutter.readthedocs.io/en/1.7.2/README.html
+
+
+Configure Logging
+-----------------
+
+You can customise the logging configuration for each environment in the
+respective  `.env` file.
+
+For more information see :ref:`How-to logging<how-to-logging>`.

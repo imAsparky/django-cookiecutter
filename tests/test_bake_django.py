@@ -2,6 +2,7 @@
 
 import datetime
 import os
+
 from test_helper import bake_checker
 
 current_year = datetime.datetime.now().year
@@ -14,7 +15,7 @@ def test_django_bakes_ok_with_defaults(cookies):
 
     assert default_django.exit_code == 0
     assert default_django.project_path.is_dir()
-    assert default_django.exception == None
+    assert default_django.exception == None  # noqa: E711
     assert default_django.project_path.name == "django-boilerplate"
 
 
@@ -152,7 +153,7 @@ def test_baked_django_docs_with_code_of_conduct(cookies):
     default_django = cookies.bake()
 
     assert "code-of-conduct.rst" in os.listdir(
-        (default_django.project_path / "docs/source")
+        default_django.project_path / "docs/source"
     )
 
 
@@ -163,7 +164,7 @@ def test_baked_django_docs_without_code_of_conduct(cookies):
     )
 
     assert "code-of-conduct.rst" not in os.listdir(
-        (non_default_django.project_path / "docs/source")
+        non_default_django.project_path / "docs/source"
     )
 
 
@@ -172,7 +173,7 @@ def test_baked_django_with_commit_message_file(cookies):
     default_django = cookies.bake()
 
     assert ".git-commit-template.txt" in os.listdir(
-        (default_django.project_path / ".github")
+        default_django.project_path / ".github"
     )
 
 
@@ -185,7 +186,7 @@ def test_baked_django_without_commit_message_file(cookies):
     )
 
     assert ".git-commit-template.txt" not in os.listdir(
-        (non_default_django.project_path / ".github")
+        non_default_django.project_path / ".github"
     )
 
 
@@ -219,7 +220,7 @@ def test_baked_django_with_custom_issue_template_files(cookies):
     assert 'assignees: "imAsparky"' in feature_file
 
     assert "ISSUE_TEMPLATE.md" not in os.listdir(
-        (default_django.project_path / ".github")
+        default_django.project_path / ".github"
     )
 
 
@@ -239,7 +240,7 @@ def test_baked_django_without_custom_issue_template_files(cookies):
     assert '- "django-boilerplate" version:' in standard_issue_file
 
     ISSUE_TEMPLATE_parent = non_default_django.project_path / ".github"
-    dir_list = os.listdir((ISSUE_TEMPLATE_parent))
+    dir_list = os.listdir(ISSUE_TEMPLATE_parent)
     assert "ISSUE_TEMPLATE" not in dir_list
 
 
@@ -247,30 +248,30 @@ def test_baked_django_with_docker(cookies):
     """Test Django Docker folder has been generated correctly."""
     non_default_django = cookies.bake(extra_context={"deploy_with_docker": "y"})
 
-    assert "Dockerfile" in os.listdir((non_default_django.project_path))
-    assert ".dockerignore" in os.listdir((non_default_django.project_path))
+    assert "Dockerfile" in os.listdir(non_default_django.project_path)
+    assert ".dockerignore" in os.listdir(non_default_django.project_path)
     assert "docker-compose-swarm.yml" in os.listdir(
-        (non_default_django.project_path / "compose")
+        non_default_django.project_path / "compose"
     )
-    assert "docker-entrypoint.sh" in os.listdir((non_default_django.project_path))
+    assert "docker-entrypoint.sh" in os.listdir(non_default_django.project_path)
 
 
 def test_baked_django_without_docker(cookies):
     """Test Django Docker folder has not been generated."""
     default_django = cookies.bake()
 
-    assert "Dockerfile" not in os.listdir((default_django.project_path))
-    assert ".dockerignore" not in os.listdir((default_django.project_path))
+    assert "Dockerfile" not in os.listdir(default_django.project_path)
+    assert ".dockerignore" not in os.listdir(default_django.project_path)
 
-    assert "compose" not in os.listdir((default_django.project_path))
-    assert "docker-entrypoint.sh" not in os.listdir((default_django.project_path))
+    assert "compose" not in os.listdir(default_django.project_path)
+    assert "docker-entrypoint.sh" not in os.listdir(default_django.project_path)
 
 
 def test_baked_django_with_docs(cookies):
     """Test Django docs folder has been generated correctly."""
     default_django = cookies.bake()
 
-    assert "docs" in os.listdir((default_django.project_path))
+    assert "docs" in os.listdir(default_django.project_path)
 
     requirements_path = default_django.project_path / "requirements_dev.txt"
     requirements_file = str(requirements_path.read_text().splitlines())
@@ -287,7 +288,7 @@ def test_baked_django_without_docs(cookies):
     """Test Django docs folder has not been generated."""
     non_default_django = cookies.bake(extra_context={"include_sphinx_docs": "n"})
 
-    assert "docs" not in os.listdir((non_default_django.project_path))
+    assert "docs" not in os.listdir(non_default_django.project_path)
 
     requirements_path = non_default_django.project_path / "requirements_dev.txt"
     requirements_file = str(requirements_path.read_text().splitlines())
@@ -387,7 +388,7 @@ def test_baked_django_docs_without_how_to_contribute(cookies):
     )
 
     assert "how-to-contribute.rst" not in os.listdir(
-        (non_default_django.project_path / "docs/source/how-tos")
+        non_default_django.project_path / "docs/source/how-tos"
     )
 
 
@@ -405,7 +406,7 @@ def test_baked_django_docs_with_templates(cookies):
     """Test Django docs templates folder has been generated correctly."""
     default_django = cookies.bake()
 
-    assert "doc-templates" in os.listdir((default_django.project_path / "docs/source"))
+    assert "doc-templates" in os.listdir(default_django.project_path / "docs/source")
 
 
 def test_baked_django_docs_without_templates(cookies):
@@ -415,7 +416,7 @@ def test_baked_django_docs_without_templates(cookies):
     )
 
     assert "doc-templates" not in os.listdir(
-        (non_default_django.project_path / "docs/source")
+        non_default_django.project_path / "docs/source"
     )
 
 
@@ -598,14 +599,14 @@ def test_baked_django_without_license(cookies):
             "open_source_license": "Not open source",
         }
     )
-    assert "LICENSE.rst" not in os.listdir((non_default_django.project_path))
+    assert "LICENSE.rst" not in os.listdir(non_default_django.project_path)
 
 
 def test_baked_django_with_precommit_config_file(cookies):
     """Test Django pre-commit has been generated correctly."""
     default_django = cookies.bake()
 
-    assert ".pre-commit-config.yaml" in os.listdir((default_django.project_path))
+    assert ".pre-commit-config.yaml" in os.listdir(default_django.project_path)
 
 
 def test_baked_django_without_precommit_config_file(cookies):
@@ -616,9 +617,7 @@ def test_baked_django_without_precommit_config_file(cookies):
         }
     )
 
-    assert ".pre-commit-config.yaml" not in os.listdir(
-        (non_default_django.project_path)
-    )
+    assert ".pre-commit-config.yaml" not in os.listdir(non_default_django.project_path)
 
 
 def test_baked_django_with_pyup_io(cookies):
@@ -769,7 +768,7 @@ def test_baked_django_with_read_the_docs(cookies):
     """Test Django readthedocs config has been generated correctly."""
     default_django = cookies.bake()
 
-    assert ".readthedocs.yaml" in os.listdir((default_django.project_path))
+    assert ".readthedocs.yaml" in os.listdir(default_django.project_path)
 
     rtd_path = default_django.project_path / "README.rst"
     rtd_file = rtd_path.read_text().splitlines()
@@ -793,7 +792,7 @@ def test_baked_django_without_read_the_docs(cookies):
         }
     )
 
-    assert ".readthedocs.yaml" not in os.listdir((non_default_django.project_path))
+    assert ".readthedocs.yaml" not in os.listdir(non_default_django.project_path)
 
     rtd_path = non_default_django.project_path / "README.rst"
     rtd_file = rtd_path.read_text().splitlines()
@@ -813,10 +812,10 @@ def test_baked_django_with_semantic_release(cookies):
     """Test Django semantic-release file has been generated correctly."""
     default_django = cookies.bake()
 
-    assert "CHANGELOG.md" in os.listdir((default_django.project_path))
-    assert "semantic.yaml" in os.listdir((default_django.project_path / ".github"))
+    assert "CHANGELOG.md" in os.listdir(default_django.project_path)
+    assert "semantic.yaml" in os.listdir(default_django.project_path / ".github")
     assert "semantic_release.yaml" in os.listdir(
-        (default_django.project_path / ".github/workflows")
+        default_django.project_path / ".github/workflows"
     )
 
     readme_path = default_django.project_path / "README.rst"
@@ -839,12 +838,12 @@ def test_baked_django_without_semantic_release(cookies):
         extra_context={"use_GH_action_semantic_version": "n"}
     )
 
-    assert "CHANGELOG.md" not in os.listdir((non_default_django.project_path))
+    assert "CHANGELOG.md" not in os.listdir(non_default_django.project_path)
     assert "semantic.yaml" not in os.listdir(
-        (non_default_django.project_path / ".github")
+        non_default_django.project_path / ".github"
     )
     assert "semantic_release.yaml" not in os.listdir(
-        (non_default_django.project_path / ".github/workflows")
+        non_default_django.project_path / ".github/workflows"
     )
 
     readme_path = non_default_django.project_path / "README.rst"

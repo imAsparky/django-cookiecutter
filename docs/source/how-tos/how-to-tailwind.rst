@@ -3,6 +3,7 @@
 .. index:: how-to-tail ; Index
 
 .. _how-to-tail:
+
 =========================
 Tailwind & Browser Reload
 =========================
