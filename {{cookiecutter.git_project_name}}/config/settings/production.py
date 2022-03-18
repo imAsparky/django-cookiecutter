@@ -29,6 +29,19 @@ EMAIL_BACKEND = env(
 
 DATABASES = {"default": env.db()}
 
+# Override the default logger level to the django environment
+# log Level settings
+LOGGING["loggers"][""]["level"] = env(  # noqa F405
+    "DJANGO_LOGGING_LEVEL_PRODUCTION", default="WARNING"
+)  # noqa: F405
+LOGGING["handlers"]["stdout"]["level"] = env(  # noqa F405
+    "DJANGO_LOGGING_LEVEL_PRODUCTION", default="WARNING"
+)  # noqa: F405
+LOGGING["handlers"]["rotated_logs"]["level"] = env(  # noqa F405
+    "DJANGO_LOGGING_LEVEL_PRODUCTION", default="WARNING"
+)
+
+
 # Check it is safe to run in production.
 assert (  # nosec
     not settings.DEBUG
