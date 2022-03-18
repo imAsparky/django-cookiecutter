@@ -3,6 +3,7 @@
 .. index:: how-to-htmx ; Index
 
 .. _how-to-htmx:
+
 ====
 HTMX
 ====

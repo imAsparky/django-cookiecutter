@@ -10,7 +10,9 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 import os
+import sys
 from pathlib import Path
+import logging
 
 from django.utils.translation import gettext_lazy as _
 
@@ -18,6 +20,45 @@ from .username_blacklist import data as username_blacklist
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
+
+# SINGLE LINE SETTINGS Not subject to options in setup.
+AUTH_USER_MODEL = "users.CustomUser"
+
+# Default primary key field type
+# https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Django Allauth Settings
+# https://django-allauth.readthedocs.io/en/latest/configuration.html
+ACCOUNT_AUTHENTICATION_METHOD = "username_email"  # Default dj-allauth == username
+ACCOUNT_EMAIL_REQUIRED = True  # Default dj-allauth == False
+ACCOUNT_UNIQUE_EMAIL = True  # Default dj-allauth
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"  # Default dj-allauth (optional)
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 3  # Default dj-allauth
+ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5  # Default dj-allauth
+ACCOUNT_USERNAME_REQUIRED = True  # Default dj-allauth
+ACCOUNT_USERNAME_MIN_LENGTH = 3  # Default dj-allauth == 1
+ACCOUNT_USERNAME_BLACKLIST = username_blacklist
+
+# Logging Settings
+DJANGO_LOG_FILE = "logging/rotating.log"
+DJANGO_LOGGING_LEVEL = "WARNING"
+DJANGO_LOGGING_MAIL_ADMINS = "CRITICAL"
+
+#Django Settings
+# LOGIN_REDIRECT_URL For new project convenience, change to your project requirements.
+LOGIN_REDIRECT_URL = "/admin/"
+LOGOUT_REDIRECT_URL = "/accounts/login/"
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/4.0/howto/static-files/
+STATIC_URL = "/static/"
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+WSGI_APPLICATION = "core.wsgi.application"
+
+# Tailwind Settings
+TAILWIND_APP_NAME = "theme"
+TAILWIND_CSS_PATH = "css/styles.css"
 
 # Application definition
 
@@ -40,20 +81,11 @@ INSTALLED_APPS = [
     "theme",
 ]
 
-TAILWIND_APP_NAME = "theme"
-TAILWIND_CSS_PATH = "css/styles.css"
-
-AUTH_USER_MODEL = "users.CustomUser"
 {% if cookiecutter.SITE_ID == "1" %}
 SITE_ID = 1
 {% else %}
 SITE_ID = {{cookiecutter.SITE_ID}}
 {% endif %}
-
-# LOGIN_REDIRECT_URL For new project convenience, change to your project requirements.
-LOGIN_REDIRECT_URL = "/admin/"
-LOGOUT_REDIRECT_URL = "/accounts/login/"
-
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -92,8 +124,6 @@ AUTHENTICATION_BACKENDS = [
     # `allauth` specific authentication methods, such as login by e-mail
     "allauth.account.auth_backends.AuthenticationBackend",
 ]
-
-WSGI_APPLICATION = "core.wsgi.application"
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -145,36 +175,10 @@ TIME_ZONE = "{{cookiecutter.TIME_ZONE}}"
 USE_I18N = False
 
 LANGUAGE_CODE = "{{cookiecutter.LANGUAGE_CODE}}"
-
 USE_TZ = True
 
 TIME_ZONE = "{{cookiecutter.TIME_ZONE}}"
 {% endif %}
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.0/howto/static-files/
-
-STATIC_URL = "/static/"
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
-
-DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
-
-# Django Allauth Settings
-# https://django-allauth.readthedocs.io/en/latest/configuration.html
-ACCOUNT_AUTHENTICATION_METHOD = "username_email"  # Default dj-allauth == username
-ACCOUNT_EMAIL_REQUIRED = True  # Default dj-allauth == False
-ACCOUNT_UNIQUE_EMAIL = True  # Default dj-allauth
-ACCOUNT_EMAIL_VERIFICATION = "mandatory"  # Default dj-allauth (optional)
-ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 3  # Default dj-allauth
-ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5  # Default dj-allauth
-ACCOUNT_USERNAME_REQUIRED = True  # Default dj-allauth
-ACCOUNT_USERNAME_MIN_LENGTH = 3  # Default dj-allauth == 1
-ACCOUNT_USERNAME_BLACKLIST = username_blacklist
-
-
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
@@ -189,55 +193,90 @@ LOGGING = {
     "formatters": {
         "django.server": {
             "()": "django.utils.log.ServerFormatter",
-            "format": "[{server_time}]:{module}:{lineno:d}:{process:d}:{thread:d}:[{message}]",
+            "format": "[{server_time}]:{module}:{lineno:d}:{process:d}:{thread:d}:[{message}]",  # noqa E501
             "style": "{",
         },
         "rich": {"datefmt": "[%X]"},
+        "verbose": {
+            "format": "%(asctime)s %(levelname)-8s %(threadName)-14s (%(pathname)s : %(lineno)d) %(name)s.%(funcName)s: %(message)s",  # noqa E501
+        },
     },
     "handlers": {
         "console": {
             "filters": ["require_debug_true"],
             "class": "rich.logging.RichHandler",
-            "formatter": "rich",
-            "level": "DEBUG",
+            "formatter": "verbose",
+            "level": DJANGO_LOGGING_LEVEL,
             "rich_tracebacks": True,
             "tracebacks_show_locals": True,
         },
+        "stdout": {
+            "filters": ["require_debug_false"],
+            "class": "logging.StreamHandler",
+            "formatter": "verbose",
+            "level": DJANGO_LOGGING_LEVEL,
+        },
         "django.server": {
-            "level": "DEBUG",
+            "filters": ["require_debug_true"],
+            "level": DJANGO_LOGGING_LEVEL,
             "class": "logging.StreamHandler",
             "formatter": "django.server",
         },
         "mail_admins": {
-            "level": "ERROR",
+            "level": DJANGO_LOGGING_MAIL_ADMINS,
             "filters": ["require_debug_false"],
             "class": "django.utils.log.AdminEmailHandler",
         },
-        "file": {
-            "level": "DEBUG",
-            "class": "logging.FileHandler",
-            "filename": "logging/debug.log",
+        "rotated_logs": {
+            "class": "logging.handlers.RotatingFileHandler",
+            "filename": DJANGO_LOG_FILE,
+            "level": DJANGO_LOGGING_LEVEL,
+            "mode": "a",
+            "encoding": "utf-8",
+            "formatter": "verbose",
+            "backupCount": 5,
+            "maxBytes": 10485760,
         },
     },
     "loggers": {
+        "": {
+            "handlers": ["console", "rotated_logs", "stdout"],
+            # "level": Overridden in each config/settings file for environ
+        },
         "django": {
-            "handlers": [
-                "console",
-            ],
-            "level": "INFO",
+            "handlers": ["console", "mail_admins", "rotated_logs"],
+            # "level": Overridden in each config/settings file for environ
+            "propagate": False,
         },
         "django.server": {
-            "handlers": [
-                "django.server",
-            ],
-            "level": "DEBUG",
+            "handlers": ["django.server", "rotated_logs"],
+            # "level": Overridden in each config/settings file for environ
+            "propagate": True,
+        },
+        "django.db.bakends": {
+            "handlers": ["console", "rotated_logs"],
+            # "level": Overridden in each config/settings file for environ
             "propagate": False,
         },
     },
-    "root": {
-        "handlers": [
-            "console",
-        ],
-        "level": "DEBUG",
-    },
 }
+
+
+# This function catches any unhandled exceptions and redirects them to
+# the logger.  Exceptions caught here will have a label "Uncaught Exception!"
+def exception_hook(type, value, traceback):
+    """
+    Function to redirect uncaught exceptions to the logger.
+    See https://docs.python.org/3.10/library/sys.html#sys.excepthook for more.
+    :param type: Type of the exception
+    :param value: The exception
+    :param traceback: What was happening as a Traceback object
+    """
+    logging.getLogger("*excepthook*").critical(
+        f"Uncaught Exception!", exc_info=(type, value, traceback)
+    )
+
+# The function assigned to sys.excepthook is called just before control is
+# returned to the prompt; in a Python program this happens just before
+# the program exits.
+sys.excepthook = exception_hook

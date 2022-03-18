@@ -58,6 +58,7 @@ Django Project Features
    The Admin panel now has the protections provided by django-allauth.
 #. `htmx`_ built in by default using `django-htmx`_.
 #. `django-tailwind`_ and `django-browser-reload`_ built in by default.
+#. Customisable logging with rotating log files, see `how-to-logging`_.
 
 If you are new to Django and Cookiecutters and would like to take it for a spin,
 see our tutorial, `Create a Django-Cookiecutter Project`_.
@@ -72,6 +73,7 @@ see our tutorial, `Create a Django-Cookiecutter Project`_.
 .. _django-htmx: https://github.com/adamchainz/django-htmx
 .. _django-tailwind: https://github.com/timonweb/django-tailwind
 .. _django-browser-reload: https://github.com/adamchainz/django-browser-reload
+.. _how-to-logging: https://django-cookiecutter.readthedocs.io/en/latest/how-tos/how-to-logging.html
 
 Django Project Creation Options
 -------------------------------

@@ -2,6 +2,7 @@
 .. index:: django-proj-inputs ; Index
 
 .. _project-inputs:
+
 ==================
 New Project Inputs
 ==================
