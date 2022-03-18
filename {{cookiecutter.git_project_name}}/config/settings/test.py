@@ -20,6 +20,17 @@ ALLOWED_HOSTS = [""]
 
 INTERNAL_IPS = [""]
 
+# Override the default logger level to the django environment
+# log Level settings
+LOGGING["loggers"][""]["level"] = env(  # noqa F405
+    "DJANGO_LOGGING_LEVEL", default="DEBUG"
+)  # noqa: F405
+LOGGING["handlers"]["stdout"]["level"] = env(  # noqa F405
+    "DJANGO_LOGGING_LEVEL", default="DEBUG"
+)  # noqa: F405
+LOGGING["handlers"]["rotated_logs"]["level"] = env(  # noqa F405
+    "DJANGO_LOGGING_LEVEL", default="DEBUG"
+)
 
 # Selects which database to use for testing, default=sqlite3 .
 TESTING_DATABASE = env("TESTING_DATABASE")

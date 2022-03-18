@@ -34,6 +34,18 @@ EMAIL_BACKEND = env("EMAIL_BACKEND")
 # INSTALLED_APPS += ["template_profiler_panel"]  # noqa F405
 INSTALLED_APPS += ["debug_toolbar", "django_browser_reload"]  # noqa F405
 
+# Override the default logger level to the django environment
+# log Level settings
+LOGGING["loggers"][""]["level"] = env(  # noqa F405
+    "DJANGO_LOGGING_LEVEL", default="DEBUG"
+)  # noqa: F405
+LOGGING["handlers"]["stdout"]["level"] = env(  # noqa F405
+    "DJANGO_LOGGING_LEVEL", default="DEBUG"
+)  # noqa: F405
+LOGGING["handlers"]["rotated_logs"]["level"] = env(  # noqa F405
+    "DJANGO_LOGGING_LEVEL", default="DEBUG"
+)
+
 MIDDLEWARE += [
     "debug_toolbar.middleware.DebugToolbarMiddleware",
     "django_browser_reload.middleware.BrowserReloadMiddleware",
