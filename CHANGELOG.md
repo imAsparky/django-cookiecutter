@@ -2,6 +2,11 @@
 
 <!--next-version-placeholder-->
 
+## v0.27.1 (2022-03-18)
+### Fix
+* **pyup:**  Update pytest to 7.1.1 ([#297](https://github.com/imAsparky/django-cookiecutter/issues/297)) ([`378b41b`](https://github.com/imAsparky/django-cookiecutter/commit/378b41b0c4d0525b3fdc308fff699c9709022524))
+* **pyup:**  Update pytest to 7.1.0 ([#296](https://github.com/imAsparky/django-cookiecutter/issues/296)) ([`02d2d61`](https://github.com/imAsparky/django-cookiecutter/commit/02d2d615a9c0820a7542aa03735daa592bb889f4))
+
 ## v0.27.0 (2022-03-18)
 ### Feature
 * **logging:** Improve logging and log config #292 ([#298](https://github.com/imAsparky/django-cookiecutter/issues/298)) ([`b3893ae`](https://github.com/imAsparky/django-cookiecutter/commit/b3893aece4194ce2d7ca16dc7812d4b8f8a6ebe6))
