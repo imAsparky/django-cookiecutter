@@ -2,7 +2,7 @@ coverage==6.3.2
 dj-inmemorystorage==2.1.0
 psycopg2==2.9.3 # This version should be used in production
 #psycopg2-binary  # This version is ok for Development and Testing
-pytest==7.0.1
+pytest==7.1.0
 pytest-django==4.5.2
 pytest-reverse==1.4.0
 pytest-xdist==2.5.0
