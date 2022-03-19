@@ -62,7 +62,9 @@ TAILWIND_CSS_PATH = "css/styles.css"
 
 # Application definition
 
-INSTALLED_APPS = [
+INSTALLED_APPS = [{% if cookiecutter.use_constance != "n" %}
+    "constance",
+    "constance.backends.database",{% endif %}
     "users",
     "django.contrib.admin",
     "django.contrib.auth",
@@ -142,7 +144,22 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
+{% if cookiecutter.use_constance != "n" %}
+# Constance Configuration
+CONSTANCE_BACKEND = "constance.backends.database.DatabaseBackend"
 
+CONSTANCE_CONFIG = {
+    "THE_ANSWER": (
+        42,
+        "Answer to the Ultimate Question of Life, The Universe, and Everything",
+        int,
+    ),
+}
+
+CONSTANCE_CONFIG_FIELDSETS = {
+    "The Answer": ("THE_ANSWER",),
+}
+{% endif %}
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 {%- set language_labels = ({

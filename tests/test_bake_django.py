@@ -189,6 +189,59 @@ def test_baked_django_without_commit_message_file(cookies):
         non_default_django.project_path / ".github"
     )
 
+def test_baked_django_without_constance_config_in_base_py(cookies):
+    """Test django-constance not installed."""
+    default_django = cookies.bake()
+
+    list_path = default_django.project_path / "config/settings/base.py"
+    list_file = str(list_path.read_text().splitlines())
+
+    assert "constance" not in list_file
+    assert "constance.backends.database" not in list_file
+    assert "# Constance Configuration" not in list_file
+
+
+
+def test_baked_django_with_constance_config_in_base_py(cookies):
+    """Test django-constance installed correctly."""
+    non_default_django = cookies.bake(
+        extra_context={
+            "use_constance": "y",
+        }
+    )
+
+    list_path = non_default_django.project_path / "config/settings/base.py"
+    list_file = str(list_path.read_text().splitlines())
+
+    assert "constance" in list_file
+    assert "constance.backends.database" in list_file
+    assert "# Constance Configuration" in list_file
+
+
+
+
+def test_baked_django_without_constance_config_in_base_txt(cookies):
+    """Test django-constance not installed."""
+    default_django = cookies.bake()
+
+    list_path = default_django.project_path / "config/requirements/base.txt"
+    list_file = str(list_path.read_text().splitlines())
+
+    assert 'django-constance[database]==' not in list_file
+
+
+def test_baked_django_with_constance_config_in_base_txt(cookies):
+    """Test django-constance installed correctly."""
+    non_default_django = cookies.bake(
+        extra_context={
+            "use_constance": "y",
+        }
+    )
+
+    list_path = non_default_django.project_path / "config/requirements/base.txt"
+    list_file = str(list_path.read_text().splitlines())
+
+    assert 'django-constance[database]==' in list_file
 
 def test_baked_django_with_custom_issue_template_files(cookies):
     """Test Django project has custom ISSUE templates generated correctly.
