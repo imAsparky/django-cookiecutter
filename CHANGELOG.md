@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.28.0 (2022-03-19)
+### Feature
+* **django:** Add django-constance dynamic settings #299 ([#301](https://github.com/imAsparky/django-cookiecutter/issues/301)) ([`f0f1762`](https://github.com/imAsparky/django-cookiecutter/commit/f0f1762753fcb5ef821e46dad0273f7ae81a1840))
+
 ## v0.27.1 (2022-03-18)
 ### Fix
 * **pyup:**  Update pytest to 7.1.1 ([#297](https://github.com/imAsparky/django-cookiecutter/issues/297)) ([`378b41b`](https://github.com/imAsparky/django-cookiecutter/commit/378b41b0c4d0525b3fdc308fff699c9709022524))
