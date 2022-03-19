@@ -18,6 +18,10 @@
     "False"
   ],
   "SITE_ID": "1",
+  "use_constance": [
+    "n",
+    "y"
+  ],
   "deploy_with_docker": [
     "n",
     "y",

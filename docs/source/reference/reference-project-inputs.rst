@@ -66,10 +66,10 @@ version
 The first version number.  The version number appears in the documentation
 and semantic version release.
 
-Django Settings
----------------
+Django Static Settings
+----------------------
 
-"ALLOWED_HOSTS": "www.example.com",
+"ALLOWED_HOSTS": "",
 
 "INTERNAL_IPS": "127.0.0.1",
 
@@ -88,6 +88,17 @@ See `Django Settings`_ for more information.
 
 Options
 -------
+
+Django Dynamic Settings
+-----------------------
+
+"use_constance": ["n", "y"]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Use django-constance for Dynamic Django settings.
+
+#. Easily migrate your static settings to dynamic settings.
+#. Edit dynamic settings in the Django Admin interface.
 
 The following Django Cookiecutter configuration options are grouped logically.
 
@@ -235,6 +246,8 @@ Requires a `Pyup.io`_ account linked to your GitHub project repository.
 "open_source_license":
 ~~~~~~~~~~~~~~~~~~~~~~
 
+Let people know about this project license arrangements.
+
 [
     1. MIT License,
     2. BSD license,
@@ -243,8 +256,6 @@ Requires a `Pyup.io`_ account linked to your GitHub project repository.
     5. GNU General Public License v3,
     6. Not open source
 ]
-
-Let people know about this project license arrangements.
 
 .. _Pyup.io: https://github.com/pyupio/pyup
 .. _Conventional Commits: https://www.conventionalcommits.org/en/v1.0.0/

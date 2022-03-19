@@ -145,6 +145,20 @@ Communication
 .. _Read the Docs: https://readthedocs.org/
 .. _Repository Status Badges: https://www.repostatus.org/#concept
 
+Dynamic Settings
+~~~~~~~~~~~~~~~~
+
+Choose to add `django-constance`_ for dynamic Django settings, which allows
+you to:
+
+#. Easily migrate your static settings to dynamic settings.
+#. Edit dynamic settings in the Django Admin interface.
+
+See our `django-constance How-to`_  for more information.
+
+.. _django-constance: https://django-constance.readthedocs.io/en/latest/index.html
+.. _django-constance How-to: https://django-cookiecutter.readthedocs.io/en/latest/how-tos/how-to-constance.html
+
 Contributing
 ------------
 
