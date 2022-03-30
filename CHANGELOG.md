@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.28.1 (2022-03-30)
+### Fix
+* **pyup:**  Update sphinx to 4.5.0 ([#303](https://github.com/imAsparky/django-cookiecutter/issues/303)) ([`295591c`](https://github.com/imAsparky/django-cookiecutter/commit/295591c064a0e0fe18c4c984e246c1ec84006a81))
+
 ## v0.28.0 (2022-03-19)
 ### Feature
 * **django:** Add django-constance dynamic settings #299 ([#301](https://github.com/imAsparky/django-cookiecutter/issues/301)) ([`f0f1762`](https://github.com/imAsparky/django-cookiecutter/commit/f0f1762753fcb5ef821e46dad0273f7ae81a1840))
