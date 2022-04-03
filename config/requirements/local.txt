@@ -3,4 +3,4 @@
 django-debug-toolbar==3.2.4
 django-debug-toolbar-template-profiler==2.0.2
 
-pre-commit==2.17.0
+pre-commit==2.18.0
