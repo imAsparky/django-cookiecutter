@@ -279,8 +279,6 @@ LOGGING = {
 }
 
 
-# This function catches any unhandled exceptions and redirects them to
-# the logger.  Exceptions caught here will have a label "Uncaught Exception!"
 def exception_hook(type, value, traceback):
     """
     Function to redirect uncaught exceptions to the logger.
