@@ -68,7 +68,7 @@ repos:
         additional_dependencies: [flake8-typing-imports==1.10.0]
         args: [
               --ignore=W503,
-              --max-line-length=120,
+              --max-line-length=105,
              ]
 
   - repo: https://github.com/pre-commit/pygrep-hooks
