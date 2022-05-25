@@ -1,7 +1,9 @@
 -r base.txt
 -r test.txt
+
 django-browser-reload==1.5.0
-django-debug-toolbar==3.3.0
+django-debug-toolbar==3.4.0
+
 django-debug-toolbar-template-profiler==2.0.2
 
 pre-commit==2.19.0
