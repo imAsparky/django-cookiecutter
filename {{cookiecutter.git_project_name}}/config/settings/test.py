@@ -12,6 +12,8 @@ env = environ.Env(
 )
 environ.Env.read_env(os.path.join(BASE_DIR, ".env/.testing"))  # noqa: F405
 
+SETTINGS_MODULE = env("DJANGO_SETTINGS_MODULE", default="config.settings.test")
+
 SECRET_KEY = env("DJANGO_SECRET_KEY")
 
 DEBUG = env("DJANGO_DEBUG", default=False)
