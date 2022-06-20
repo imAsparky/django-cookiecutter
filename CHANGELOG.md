@@ -2,6 +2,23 @@
 
 <!--next-version-placeholder-->
 
+## v0.29.0 (2022-06-20)
+### Feature
+* **test:** Add override settings to conftest #349 ([#353](https://github.com/imAsparky/django-cookiecutter/issues/353)) ([`5419696`](https://github.com/imAsparky/django-cookiecutter/commit/541969632b2d50627f01dca88e646a58757b06f1))
+
+### Fix
+* **semver:** Pin python-semantic-release@v7.28.1 #354 ([#355](https://github.com/imAsparky/django-cookiecutter/issues/355)) ([`55cc319`](https://github.com/imAsparky/django-cookiecutter/commit/55cc31943e5333bd5c66d02a9a6c6f3e86365555))
+* **pyup:**  Update myst-parser to 0.18.0 ([#345](https://github.com/imAsparky/django-cookiecutter/issues/345)) ([`02b6bc1`](https://github.com/imAsparky/django-cookiecutter/commit/02b6bc16551ec23020f5a53a38d1962d75279e3b))
+* **pyup:**  Update furo to 2022.6.4.1 ([#342](https://github.com/imAsparky/django-cookiecutter/issues/342)) ([`c6c50d1`](https://github.com/imAsparky/django-cookiecutter/commit/c6c50d1f99a91ff1734aa11466470e4b4bc0e906))
+* **pyup:**  Update pre-commit to 2.19.0 ([#324](https://github.com/imAsparky/django-cookiecutter/issues/324)) ([`527be30`](https://github.com/imAsparky/django-cookiecutter/commit/527be303ef307298a326349a263364f42e7ccef0))
+* **pyup:**  Update myst-parser to 0.17.2 ([#319](https://github.com/imAsparky/django-cookiecutter/issues/319)) ([`8345073`](https://github.com/imAsparky/django-cookiecutter/commit/834507358584cc3a233202cdb833dc9f9dafb079))
+* **pyup:**  Update django-debug-toolbar to 3.3.0 ([#315](https://github.com/imAsparky/django-cookiecutter/issues/315)) ([`3670bfb`](https://github.com/imAsparky/django-cookiecutter/commit/3670bfb619a2968446f29fcf84ef1e47c58e3ce6))
+* **pyup:**  Update pytest to 7.1.2 ([#313](https://github.com/imAsparky/django-cookiecutter/issues/313)) ([`c744d82`](https://github.com/imAsparky/django-cookiecutter/commit/c744d82661526102abfcd7818b12d74bb5f5dac3))
+* **pyup:**  Update myst-parser to 0.17.1 ([#312](https://github.com/imAsparky/django-cookiecutter/issues/312)) ([`930acb5`](https://github.com/imAsparky/django-cookiecutter/commit/930acb5a648543c6d5ec21c50947c8f77e3c9ca9))
+* **pyup:**  Update tox to 3.25.0 ([#309](https://github.com/imAsparky/django-cookiecutter/issues/309)) ([`f5fb5ba`](https://github.com/imAsparky/django-cookiecutter/commit/f5fb5baf01a8a67a84b5c9d2e0236f7d07f7f362))
+* **pyup:**  Update furo to 2022.4.7 ([#308](https://github.com/imAsparky/django-cookiecutter/issues/308)) ([`113e739`](https://github.com/imAsparky/django-cookiecutter/commit/113e7399417d258bdabaed0e6e186f6249da74db))
+* **pyup:**  Update pre-commit to 2.18.1 ([#305](https://github.com/imAsparky/django-cookiecutter/issues/305)) ([`495959e`](https://github.com/imAsparky/django-cookiecutter/commit/495959e82e34d9cc728a25bbd4b112eb7972c3d9))
+
 ## v0.28.1 (2022-03-30)
 ### Fix
 * **pyup:**  Update sphinx to 4.5.0 ([#303](https://github.com/imAsparky/django-cookiecutter/issues/303)) ([`295591c`](https://github.com/imAsparky/django-cookiecutter/commit/295591c064a0e0fe18c4c984e246c1ec84006a81))
