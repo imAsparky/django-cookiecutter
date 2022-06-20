@@ -2,7 +2,7 @@
 **Django 4.0+ Cookiecutter**
 ============================
 
-**Version = "0.29.0"**
+**Version = "0.29.1"**
 
 **Version 1.0.0 will signify the first stable Django build!**
 

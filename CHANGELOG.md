@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.29.1 (2022-06-20)
+### Fix
+* **test:** Typo DJANGO_SETTINGS_MODULE value #352 ([#356](https://github.com/imAsparky/django-cookiecutter/issues/356)) ([`087fe3f`](https://github.com/imAsparky/django-cookiecutter/commit/087fe3fa3a59c2087b9b8b0b32412c2fe9c9dc56))
+
 ## v0.29.0 (2022-06-20)
 ### Feature
 * **test:** Add override settings to conftest #349 ([#353](https://github.com/imAsparky/django-cookiecutter/issues/353)) ([`5419696`](https://github.com/imAsparky/django-cookiecutter/commit/541969632b2d50627f01dca88e646a58757b06f1))
