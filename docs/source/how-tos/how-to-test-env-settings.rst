@@ -3,9 +3,54 @@
 .. index:: how-to-test-env-settings ; Index
 
 .. _test-env-settings:
-============================
-Test Environment DB Settings
-============================
+
+=========================
+Test Environment Settings
+=========================
+
+
+.. _test-env-settings_override:
+
+Override Settings
+=================
+
+|
+
+Override Django settings easily in `tests/conftest.py`.
+
+Add your setting to `TEST_SETTINGS`.
+
+This settings snippet is from Speed Up Your Django Tests by Adam Chainz.
+The book is very well written and is a wealth of knowledge.
+You can purchase `Speed Up Your Django Tests` from `here`_.
+
+.. _here: https://adamchainz.gumroad.com/l/suydt
+
+
+.. code-block:: python
+    :linenos:
+    :caption: tests/conftest.py
+
+    from django.test.utils import override_settings
+
+    @pytest.fixture(scope="session", autouse=True)
+    def test_settings():
+    """Provide settings override for tests"""
+    with override_settings(**TEST_SETTINGS):
+        yield
+
+
+    TEST_SETTINGS = {
+        "PAGINATION_COUNT": 10,
+
+    }
+
+|
+
+.. _test-env-settings_databases:
+
+Databases
+=========
 
 By default, SQLite is used in the test environment to make it easier for
 

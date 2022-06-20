@@ -1,7 +1,23 @@
 """{{cookiecutter.git_project_name}} Test Fixtures."""
 
 import pytest
+from django.test.utils import override_settings
 from users.models import CustomUser as User
+
+# This settings snippet is from Speed Up Your Django Tests
+# please support by purchasing from here https://adamchainz.gumroad.com/l/suydt
+@pytest.fixture(scope="session", autouse=True)
+def test_settings():
+    """Provide settings override for tests"""
+    with override_settings(**TEST_SETTINGS):
+        yield
+
+
+TEST_SETTINGS = {
+    "PAGINATION_COUNT": 10,
+
+}
+
 
 # Fixtures for create_user function.
 @pytest.fixture
