@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.29.2 (2022-07-09)
+### Fix
+* **pyup:**  Update django-debug-toolbar to 3.5.0 ([#358](https://github.com/imAsparky/django-cookiecutter/issues/358)) ([`71fcd4b`](https://github.com/imAsparky/django-cookiecutter/commit/71fcd4b7061247969c806843bdf7d4a79e85cf1a))
+
 ## v0.29.1 (2022-06-20)
 ### Fix
 * **test:** Typo DJANGO_SETTINGS_MODULE value #352 ([#356](https://github.com/imAsparky/django-cookiecutter/issues/356)) ([`087fe3f`](https://github.com/imAsparky/django-cookiecutter/commit/087fe3fa3a59c2087b9b8b0b32412c2fe9c9dc56))
