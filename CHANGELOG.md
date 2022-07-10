@@ -2,6 +2,12 @@
 
 <!--next-version-placeholder-->
 
+## v0.29.3 (2022-07-09)
+### Fix
+* **pyup:**  Update furo to 2022.6.21 ([#357](https://github.com/imAsparky/django-cookiecutter/issues/357)) ([`ccea594`](https://github.com/imAsparky/django-cookiecutter/commit/ccea5943ceff449a263a1934dddd5de6068fef3f))
+* **pyup:**  Update django-debug-toolbar-template-profiler to 2.1.0 ([#359](https://github.com/imAsparky/django-cookiecutter/issues/359)) ([`839d374`](https://github.com/imAsparky/django-cookiecutter/commit/839d3747884d6da671271ec653d75eeb50ed7add))
+* **pyup:**  Update tox to 3.25.1 ([#360](https://github.com/imAsparky/django-cookiecutter/issues/360)) ([`d369062`](https://github.com/imAsparky/django-cookiecutter/commit/d369062035f5d8bed5c638e352144d1ab12562d7))
+
 ## v0.29.2 (2022-07-09)
 ### Fix
 * **pyup:**  Update django-debug-toolbar to 3.5.0 ([#358](https://github.com/imAsparky/django-cookiecutter/issues/358)) ([`71fcd4b`](https://github.com/imAsparky/django-cookiecutter/commit/71fcd4b7061247969c806843bdf7d4a79e85cf1a))
