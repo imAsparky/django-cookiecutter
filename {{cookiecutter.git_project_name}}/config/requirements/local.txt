@@ -3,7 +3,7 @@
 
 django-browser-reload==1.6.0
 django-debug-toolbar==3.5.0
-django-debug-toolbar-template-profiler==2.0.2
+django-debug-toolbar-template-profiler==2.1.0
 
 
 pre-commit==2.19.0
