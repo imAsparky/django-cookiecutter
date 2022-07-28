@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.29.5 (2022-07-28)
+### Fix
+* **pyup:**  Update pre-commit to 2.20.0 ([#364](https://github.com/imAsparky/django-cookiecutter/issues/364)) ([`9d78942`](https://github.com/imAsparky/django-cookiecutter/commit/9d78942a1250745d795f17cb02c0edde2232f7fb))
+
 ## v0.29.4 (2022-07-10)
 ### Fix
 * **pyup:**  Update django-debug-toolbar-template-profiler to 2.1.0 ([#363](https://github.com/imAsparky/django-cookiecutter/issues/363)) ([`653a947`](https://github.com/imAsparky/django-cookiecutter/commit/653a947267498baac10c792afac5cc977b553090))
