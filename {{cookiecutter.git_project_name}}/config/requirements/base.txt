@@ -4,6 +4,6 @@ django-constance[database]==2.8.0{% endif %}
 django-environ==0.9.0
 django-htmx==1.12.0
 django-tailwind==3.3.0
-rich==12.4.4
+rich==12.6.0
 
 
