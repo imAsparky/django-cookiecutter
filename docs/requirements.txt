@@ -1,4 +1,4 @@
-myst-parser==0.18.0
+myst-parser==0.19.1
 Sphinx==5.2.0.post0
 furo==2022.9.15
 sphinx-copybutton==0.5.0
