@@ -12,12 +12,12 @@ on:
 jobs:
   tests:
     strategy:
-    fail-fast: false
-    matrix:
-      os:
-        - macos-latest
-        - ubuntu-latest
-        - windows-latest
+      fail-fast: false
+      matrix:
+        os:
+          - macos-latest
+          - ubuntu-latest
+          - windows-latest
 
     name: Set up ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
