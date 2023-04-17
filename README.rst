@@ -1,5 +1,5 @@
 ============================
-**Django 4.0+ Cookiecutter**
+**Django 4.2+ Cookiecutter**
 ============================
 
 **Version = "0.29.5"**
