@@ -17,14 +17,14 @@ ci:
 
 repos:
   - repo: https://github.com/asottile/pyupgrade
-    rev: v2.31.0
+    rev: v3.3.1
     hooks:
       - id: pyupgrade
         args: [--py39-plus]
 
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.0.1
+    rev: v4.4.0
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
@@ -37,38 +37,38 @@ repos:
       - id: check-merge-conflict
 
   - repo: https://github.com/pycqa/pylint
-    rev: v2.13.8
+    rev: v3.0.0a6
     hooks:
       - id: pylint
         args: ["--enable=W0614"]
 
   - repo: https://github.com/psf/black
-    rev: 22.1.0
+    rev: 23.3.0
     hooks:
       - id: black
         exclude: ^{{cookiecutter.git_project_name}}/
         args: [-l  79]
 
   - repo: https://github.com/PyCQA/bandit
-    rev: 1.7.2
+    rev: 1.7.5
     hooks:
       - id: bandit
         # args: ["--ini=tox.ini"]
 
   - repo: https://github.com/pycqa/flake8
-    rev: 4.0.1
+    rev: 6.0.0
     hooks:
       - id: flake8
         additional_dependencies: [flake8-typing-imports==1.10.0]
         exclude: ^{{cookiecutter.git_project_name}}/
 
   - repo: https://github.com/PyCQA/isort
-    rev: 5.9.3
+    rev: 5.12.0
     hooks:
       - id: isort
 
   - repo: https://github.com/pre-commit/pygrep-hooks
-    rev: v1.9.0
+    rev: v1.10.0
     hooks:
       - id: rst-directive-colons
       # - id: rst-backticks
