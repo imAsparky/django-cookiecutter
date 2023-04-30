@@ -1,4 +1,4 @@
-coverage==7.2.3
+coverage==7.2.4
 dj-inmemorystorage==2.1.0
 psycopg2==2.9.3 # This version should be used in production
 #psycopg2-binary  # This version is ok for Development and Testing
