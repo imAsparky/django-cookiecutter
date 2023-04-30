@@ -1,4 +1,5 @@
 -r base.txt
 
-psycopg2==2.9.3
 uWSGI==2.0.21
+psycopg2==2.9.6
+
