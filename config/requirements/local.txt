@@ -2,5 +2,4 @@
 -r test.txt
 django-debug-toolbar==4.0.0
 django-debug-toolbar-template-profiler==2.1.0
-
-pre-commit==3.2.2
+pre-commit==3.3.2
