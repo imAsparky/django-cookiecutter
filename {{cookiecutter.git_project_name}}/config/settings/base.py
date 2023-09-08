@@ -52,8 +52,15 @@ LOGOUT_REDIRECT_URL = "/accounts/login/"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
+# STATIC_URL is added to relevant STATIC_URL env setting in config/settings/*
+# If a STATIC_URL env var is set that will be what is used.
 STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
+# MEDIA_URL is added to relevant STATIC_URL env setting in config/settings/*
+# If a MEDIA_URL env var is set that will be what is used.
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
 WSGI_APPLICATION = "core.wsgi.application"
 
 # Tailwind Settings
