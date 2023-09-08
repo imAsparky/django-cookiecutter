@@ -17,7 +17,7 @@ ci:
 
 repos:
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.3.1
+    rev: v3.10.1
     hooks:
       - id: pyupgrade
         args: [--py39-plus]
@@ -37,13 +37,13 @@ repos:
       - id: check-merge-conflict
 
   - repo: https://github.com/pycqa/pylint
-    rev: v3.0.0a6
+    rev: v3.0.0a7
     hooks:
       - id: pylint
         args: ["--enable=W0614"]
 
   - repo: https://github.com/psf/black
-    rev: 23.3.0
+    rev: 23.7.0
     hooks:
       - id: black
         exclude: ^{{cookiecutter.git_project_name}}/
@@ -56,7 +56,7 @@ repos:
         # args: ["--ini=tox.ini"]
 
   - repo: https://github.com/pycqa/flake8
-    rev: 6.0.0
+    rev: 6.1.0
     hooks:
       - id: flake8
         additional_dependencies: [flake8-typing-imports==1.10.0]
