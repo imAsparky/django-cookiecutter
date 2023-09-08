@@ -1,9 +1,11 @@
 # Adapted from https://www.caktusgroup.com/blog/2017/03/14/production-ready-dockerfile-your-python-django-app/
 # https://pythonspeed.com/articles/multi-stage-docker-python/ for smaller images
 
+# Docker build command: docker build -t <some tag> -f <dir/dir/Dockerfile> .
+
 # Compile image
-FROM python:3.9-slim-bullseye AS compile-image
-# FROM python:3.9-slim-bullseye
+FROM python:3.11-slim-bullseye AS compile-image
+
 # https://pythonspeed.com/articles/activate-virtualenv-dockerfile/
 ENV VIRTUAL_ENV_COMP=/venv_compile
 RUN python3 -m venv $VIRTUAL_ENV_COMP
@@ -19,7 +21,8 @@ RUN set -ex \
     \
     build-essential=12.9 \
     libpcre3-dev=2:8.39-13 \
-    libpq-dev=13.5-0+deb11u1 \
+    libpq5 \
+    libpq-dev \
     \
     && pip install --upgrade pip\
     && pip install --no-cache-dir -r /config/requirements/production.txt \
@@ -30,7 +33,7 @@ RUN set -ex \
 ###############################################################################
 
 # Production image
-FROM python:3.9-slim-bullseye AS production-image
+FROM python:3.11-slim-bullseye AS production-image
 
 ARG USER=django
 RUN groupadd -r ${USER} && useradd --no-log-init -r -g ${USER} ${USER}
@@ -40,14 +43,16 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 # Install packages needed to run your application.
-#   mime-support -- for mime types when serving static files
-#   postgresql-client -- for running database commands
+#   mime-support -- for mime types when serving static files.
+#   postgresql-client -- for running database commands.
+#   vim -- for edits inside the Docker container.
+# https://packages.ubuntu.com/search?keywords=postgresql-client
 RUN set -ex \
     && apt-get update && apt-get install -y --no-install-recommends \
     \
     libpcre3=2:8.39-13 \
     mime-support=3.66 \
-    postgresql-client=13+225 \
+    postgresql-client=14 \
     \
     && rm -rf /var/lib/apt-get/lists/* \
     && printf sed -i 's/\r$//g' /entrypoint
@@ -61,26 +66,34 @@ WORKDIR /home/${USER}
 
 # Add the minimum project files required for production
 # To add all files from the project directory comment these out and see next comment.
-COPY --chown=${USER}:${USER} core/ core/
-COPY --chown=${USER}:${USER} manage.py manage.py
-COPY --chown=${USER}:${USER} config/settings/ config/settings/
-COPY --chown=${USER}:${USER} templates templates
-COPY --chown=${USER}:${USER} docker-entrypoint.sh docker-entrypoint.sh
+# COPY --chown=${USER}:${USER} core/ core/
+# COPY --chown=${USER}:${USER} manage.py manage.py
+# COPY --chown=${USER}:${USER} config/settings/ config/settings/
+# COPY --chown=${USER}:${USER} templates templates
+# COPY --chown=${USER}:${USER} docker-entrypoint.sh docker-entrypoint.sh
 # Uncomment this line copies all folders and files from your project directory.
-# Copy --chown=${USER}:${USER} . .
+COPY --chown=${USER}:${USER} . .
 
 # uWSGI will listen on this port
 EXPOSE 8000
 
 # Add any static environment variables needed by Django or your settings file here:
-ENV DJANGO_SETTINGS_MODULE=config.settings.production
+# ENV DJANGO_SETTINGS_MODULE=config.settings.production
+
+# Add any dynamic environment variables needed by Django or your settings file here:
+# Passed in on the command line when building as an --build-arg
+# eg docker build -t my_image --build-arg DJANGO_SETTINGS_MODULE=config.settings.production
+ARG SETTINGS_MODULE
+ENV DJANGO_SETTINGS_MODULE=$SETTINGS_MODULE
+RUN echo "DJANGO_SETTINGS_MODULE is $DJANGO_SETTINGS_MODULE"
 
 # Call collectstatic (customize the following line with the minimal environment variables needed for manage.py to run):
-RUN DATABASE_URL='' python3 manage.py collectstatic --noinput
+# Not required when using S3
+# RUN DATABASE_URL='' python3 manage.py collectstatic --noinput
 
 # Tell uWSGI where to find your wsgi file (change this):
 ENV UWSGI_WSGI_FILE=core/wsgi.py
-
+# ENV UWSGI_MODULE=core.wsgi:application
 # Base uWSGI configuration (you shouldn't need to change these):
 ENV UWSGI_HTTP=:8000 UWSGI_MASTER=1 UWSGI_HTTP_AUTO_CHUNKED=1 UWSGI_HTTP_KEEPALIVE=1 UWSGI_LAZY_APPS=1
 
