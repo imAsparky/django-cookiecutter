@@ -1,20 +1,55 @@
-DJANGO_DEBUG=FALSE
-DJANGO_LOG_FILE="logging/rotating_testing.log"
-DJANGO_LOGGING_LEVEL="DEBUG"
-DJANGO_LOGGING_MAIL_ADMINS="ERROR"
+# Testing Environment ENV Keys
+
+# Testing Environment Django
+TESTING_ALLOWED_HOSTS=*
+# Testing database options: sqlite3, other.
+# If using other, a TESTING_DATABASE_URL connection string must be supplied.
+TESTING_DJANGO_DATABASE=sqlite3
+TESTING_DATABASE_URL=""
+TESTING_DJANGO_DEBUG=False
+TESTING_DJANGO_INTERNAL_IPS=[]
+TESTING_DJANGO_LOG_FILE='logging/rotating_testing.log'
+TESTING_DJANGO_LOGGING_LEVEL='DEBUG'
+TESTING_DJANGO_LOGGING_MAIL_ADMINS='ERROR'
+# For the docker image
+TESTING_DJANGO_MANAGEPY_MIGRATE=on
+TESTING_DJANGO_SECRET_KEY='!!!DODGY_TESTING_SECRET!!!'
+TESTING_DJANGO_SETTINGS_MODULE='config.settings.testing'
+TESTING_DJANGO_TEMPLATES_CSS="/static/css/styles.css"
+TESTING_MEDIA_URL='media-lo/'
+TESTING_STATIC_URL='static-lo/'
+# static options are Local or S3
+TESTING_USE_STATIC='S3'
+TESTING_TAILWIND_CSS_DEV=False
+
+# Testing Environment S3 access
+TESTING_AWS_ACCESS_KEY_ID=""
+# If using the default leave ENDPOINT_URL unset
+TESTING_AWS_S3_ENDPOINT_URL=""
+# If using the default leave AWS_LOCATION unset
+TESTING_AWS_LOCATION=""
+TESTING_AWS_SECRET_ACCESS_KEY=""
+TESTING_AWS_S3_REGION_NAME=""
+TESTING_AWS_S3_OBJECT_PARAMETERS=""
+TESTING_AWS_STORAGE_BUCKET_NAME=""
+
+# Testing Environment Email Settings
+TESTING_EMAIL_BACKEND=""
+TESTING_EMAIL_HOST=""
+TESTING_EMAIL_PORT=""
+TESTING_EMAIL_HOST_USER=""
+TESTING_EMAIL_HOST_PASSWORD=""
+TESTING_EMAIL_USE_TLS=""
+
+
 DJANGO_MANAGEPY_MIGRATE=on
-DJANGO_SECRET_KEY="!!!INSECURE_TESTING_SECRET!!!"
-DJANGO_SETTINGS_MODULE=config.settings.test
+
+# Testing Environment Database if not using URL
 DB_ENGINE=""
 DB_NAME=""
 DB_USER=""
 DB_PASSWORD=""
 DB_HOST=""
 DB_PORT=""
-ALLOWED_HOSTS=""
-INTERNAL_IPS=""
 
-# Testing database options: sqlite3, other.
-# If using other, a DB_URL connection string must be supplied.
-TESTING_DATABASE=sqlite3
-DB_URL=""
+
