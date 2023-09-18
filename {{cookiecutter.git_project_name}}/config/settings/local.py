@@ -18,12 +18,17 @@ env.read_env(
 )  # noqa: F405
 
 logger = logging.getLogger(__name__)
-
-
+{% if cookiecutter.ALLOWED_HOSTS == [] %}
 ALLOWED_HOSTS = env.list(
     "LOCAL_ALLOWED_HOSTS",
-    default=["local.trader-biz.au"],
+    default=["127.0.0.1"],
 )
+{% else %}
+ALLOWED_HOSTS = env.list(
+    "LOCAL_ALLOWED_HOSTS",
+    default=["{{cookiecutter.ALLOWED_HOSTS}}"],
+)
+{% endif %}
 
 DEBUG = env("LOCAL_DJANGO_DEBUG", default=False)
 
@@ -121,7 +126,7 @@ DEBUG_TOOLBAR_CONFIG = {
 
 INTERNAL_IPS = env.list(
     "LOCAL_DJANGO_INTERNAL_IPS",
-    default=[],
+    default=["{{cookiecutter.INTERNAL_IPS}}"],
 )
 
 # Override the default logger level to the django environment
