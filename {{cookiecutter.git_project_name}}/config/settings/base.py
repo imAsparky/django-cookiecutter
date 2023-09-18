@@ -43,7 +43,16 @@ ACCOUNT_USERNAME_BLACKLIST = username_blacklist
 # Logging Settings
 DJANGO_LOG_FILE = "logging/rotating.log"
 DJANGO_LOGGING_LEVEL = "WARNING"
+# Send an email to ADMINS if this logger level triggered
 DJANGO_LOGGING_MAIL_ADMINS = "CRITICAL"
+# Add list of people to receive emails on system errors.
+# Format is [("Name", "email_address@domain.com")]
+ADMINS = []
+# Can be an be any other people, typically the same as the ADMINS
+MANAGERS = ADMINS
+# Default: 'root@localhost'. Often the default will be blocked by the email
+# service provider.  Change to something like "SYSTEM@your_domain.com"
+SERVER_EMAIL = ""
 
 #Django Settings
 # LOGIN_REDIRECT_URL For new project convenience, change to your project requirements.
@@ -264,7 +273,7 @@ LOGGING = {
     },
     "loggers": {
         "": {
-            "handlers": ["console", "rotated_logs", "stdout"],
+            "handlers": ["console","mail_admins", "rotated_logs", "stdout"],
             # "level": Overridden in each config/settings file for environ
         },
         "django": {
