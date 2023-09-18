@@ -172,6 +172,22 @@ def git_configure_custom_commit_message():
         )
 
 
+def final_checks_reminders_for_users():
+
+    print(
+            "\nSUCCESS: Your {{cookiecutter.project_name}} \
+            has been generated successfully!",
+            "\nSome things to remember:"
+            "\n1. If using the email admins with errors feature, in config.settings.base",
+            "\n\ta. Review DJANGO_LOGGING_LEVEL meets your needs. ",
+            "\n\tb. Add names and emails to ADMINS. ",
+            "\n\tc. Review MANAGERS meets your needs ",
+            "\n\td. Review SERVER_EMAIL meets your needs ",
+            "\n You can find all these settings grouped together under: # Logging Settings",
+            "\n\n Thank you for using Django-Cookiecutter, I hope you enjoyed this experience."
+        )
+
+
 if __name__ == "__main__":
 
     remove_files(REMOVE_FILES)
@@ -184,3 +200,5 @@ if __name__ == "__main__":
 
         if "{{ cookiecutter.create_conventional_commits_edit_message}}" == "y":
             git_configure_custom_commit_message()
+
+    final_checks_reminders_for_users()
