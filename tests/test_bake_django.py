@@ -940,6 +940,27 @@ def test_baked_django_settings_local_file_ok(cookies):
     assert (
         '"""Django local settings for django-boilerplate project."""' in settings_file
     )
+    assert '    "LOCAL_ALLOWED_HOSTS",' in settings_file
+    assert '    default=[""],' in settings_file
+    assert ')' in settings_file
+
+def test_baked_django_settings_local_file_with_ALLOWED_HOSTS_ok(cookies):
+    """Test Django MIT license file has been generated correctly."""
+    non_default_django = cookies.bake(
+        extra_context={
+            "ALLOWED_HOSTS": "example.com",
+        }
+    )
+
+    settings_path = non_default_django.project_path / "config/settings/local.py"
+    settings_file = settings_path.read_text().splitlines()
+
+    assert (
+        '"""Django local settings for django-boilerplate project."""' in settings_file
+    )
+    assert '    "LOCAL_ALLOWED_HOSTS",' in settings_file
+    assert '    default=["example.com"],' in settings_file
+    assert ')' in settings_file
 
 
 def test_baked_django_settings_production_file_ok(cookies):
@@ -955,12 +976,28 @@ def test_baked_django_settings_production_file_ok(cookies):
         '"""Django production settings for django-boilerplate project."""'
         in settings_file
     )
-    '    default=["trader-biz.au"],'
     assert '    "PROD_ALLOWED_HOSTS",' in settings_file
     assert '    default=[""],' in settings_file
     assert ')' in settings_file
 
+def test_baked_django_settings_production_file_with_ALLOWED_HOSTS_ok(cookies):
+    """Test Django MIT license file has been generated correctly."""
+    non_default_django = cookies.bake(
+        extra_context={
+            "ALLOWED_HOSTS": "example.com",
+        }
+    )
 
+    settings_path = non_default_django.project_path / "config/settings/production.py"
+    settings_file = settings_path.read_text().splitlines()
+
+    assert (
+        '"""Django production settings for django-boilerplate project."""'
+        in settings_file
+    )
+    assert '    "PROD_ALLOWED_HOSTS",' in settings_file
+    assert '    default=["example.com"],' in settings_file
+    assert ')' in settings_file
 
 def test_baked_django_settings_staging_file_ok(cookies):
     """Test Django config/settings/staging.py file has generated correctly."""
@@ -976,6 +1013,23 @@ def test_baked_django_settings_staging_file_ok(cookies):
     assert '    default=[""],' in settings_file
     assert ')' in settings_file
 
+def test_baked_django_settings_staging_file_with_ALLOWED_HOSTS_ok(cookies):
+    """Test Django MIT license file has been generated correctly."""
+    non_default_django = cookies.bake(
+        extra_context={
+            "ALLOWED_HOSTS": "example.com",
+        }
+    )
+
+    settings_path = non_default_django.project_path / "config/settings/staging.py"
+    settings_file = settings_path.read_text().splitlines()
+
+    assert (
+        '"""Django staging settings for django-boilerplate project."""' in settings_file
+    )
+    assert '    "STAGING_ALLOWED_HOSTS",' in settings_file
+    assert '    default=["example.com"],' in settings_file
+    assert ')' in settings_file
 
 def test_baked_django_settings_test_file_ok(cookies):
     """Test Django config/settings/test.py file has generated correctly."""
@@ -987,6 +1041,22 @@ def test_baked_django_settings_test_file_ok(cookies):
     assert '"""Django test settings for django-boilerplate project."""' in settings_file
     assert '    "TESTING_ALLOWED_HOSTS",' in settings_file
     assert '    default=[""],' in settings_file
+    assert ')' in settings_file
+
+def test_baked_django_settings_test_file_with_ALLOWED_HOSTS_ok(cookies):
+    """Test Django MIT license file has been generated correctly."""
+    non_default_django = cookies.bake(
+        extra_context={
+            "ALLOWED_HOSTS": "example.com",
+        }
+    )
+
+    settings_path = non_default_django.project_path / "config/settings/test.py"
+    settings_file = settings_path.read_text().splitlines()
+
+    assert '"""Django test settings for django-boilerplate project."""' in settings_file
+    assert '    "TESTING_ALLOWED_HOSTS",' in settings_file
+    assert '    default=["example.com"],' in settings_file
     assert ')' in settings_file
 
 
