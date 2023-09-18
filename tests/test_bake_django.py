@@ -947,13 +947,19 @@ def test_baked_django_settings_production_file_ok(cookies):
     default_django = cookies.bake()
 
     settings_path = default_django.project_path / "config/settings/production.py"
+
     settings_file = settings_path.read_text().splitlines()
+
 
     assert (
         '"""Django production settings for django-boilerplate project."""'
         in settings_file
     )
-    assert 'ALLOWED_HOSTS = [""]' in settings_file
+    '    default=["trader-biz.au"],'
+    assert '    "PROD_ALLOWED_HOSTS",' in settings_file
+    assert '    default=[""],' in settings_file
+    assert ')' in settings_file
+
 
 
 def test_baked_django_settings_staging_file_ok(cookies):
@@ -966,7 +972,9 @@ def test_baked_django_settings_staging_file_ok(cookies):
     assert (
         '"""Django staging settings for django-boilerplate project."""' in settings_file
     )
-    assert 'ALLOWED_HOSTS = [""]' in settings_file
+    assert '    "STAGING_ALLOWED_HOSTS",' in settings_file
+    assert '    default=[""],' in settings_file
+    assert ')' in settings_file
 
 
 def test_baked_django_settings_test_file_ok(cookies):
@@ -977,7 +985,9 @@ def test_baked_django_settings_test_file_ok(cookies):
     settings_file = settings_path.read_text().splitlines()
 
     assert '"""Django test settings for django-boilerplate project."""' in settings_file
-    assert 'ALLOWED_HOSTS = [""]' in settings_file
+    assert '    "TESTING_ALLOWED_HOSTS",' in settings_file
+    assert '    default=[""],' in settings_file
+    assert ')' in settings_file
 
 
 def test_baked_django_tox_file_ok(cookies):
