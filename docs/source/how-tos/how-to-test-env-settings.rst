@@ -66,34 +66,30 @@ By default PostgreSQL is our preferred option for Production.
 If you wish to test using the same environment configuration as production,
 you can make changes to /.env/.testing.
 
-#. Change line 16 to `other`.
-#. Add your PostgresSQL connection string to line 17, or
+#. Change line 7 to `other`.
+#. Add your PostgresSQL connection string to line 8, or
 #. Create an environment variable DB_URL with your connection string,
    See :ref:`here<create-env-var-segment>` for a tutorial about creating
    environment variables.
 
 .. code-block:: python
-    :emphasize-lines: 14-17
+    :emphasize-lines: 7, 8
     :caption: /.env/.testing
     :linenos:
 
-    DJANGO_DEBUG=FALSE
-    DJANGO_SECRET_KEY="!!!INSECURE_TESTING_SECRET!!!"
-    DJANGO_MANAGEPY_MIGRATE=on
-    DJANGO_SETTINGS_MODULE=config.settings.testing
-    DB_ENGINE=""
-    DB_NAME=""
-    DB_USER=""
-    DB_PASSWORD=""
-    DB_HOST=""
-    DB_PORT=""
-    ALLOWED_HOSTS=""
-    INTERNAL_IPS=""
+    # Testing Environment ENV Keys
 
+    # Testing Environment Django
+    TESTING_ALLOWED_HOSTS=*
     # Testing database options: sqlite3, other.
-    # If using other, a DB_URL connection string must be supplied.
-    TESTING_DATABASE=sqlite3
-    DB_URL=""
+    # If using other, a TESTING_DATABASE_URL connection string must be supplied.
+    TESTING_DJANGO_DATABASE=sqlite3
+    TESTING_DATABASE_URL=""
+    TESTING_DJANGO_DEBUG=False
+    TESTING_DJANGO_INTERNAL_IPS=[]
+    TESTING_DJANGO_LOG_FILE='logging/rotating_testing.log'
+    TESTING_DJANGO_LOGGING_LEVEL='DEBUG'
+    TESTING_DJANGO_LOGGING_MAIL_ADMINS='ERROR'
 
 .. warning::
 
