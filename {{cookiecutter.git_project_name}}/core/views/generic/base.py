@@ -1,6 +1,7 @@
 """{{cookiecutter.git_project_name}} Core App Generic Views Base."""
 
 from django.core.exceptions import ImproperlyConfigured
+from django.shortcuts import redirect
 from django.views.generic.base import TemplateResponseMixin, TemplateView
 
 
@@ -59,3 +60,29 @@ class HtmxTemplateView(HtmxTemplateResponseMixin, TemplateView):
 
     Renders an htmx template or a generic template response.
     """
+
+    def get(self, request, *args, **kwargs):
+        """Extends GET to check if the user has defined the
+        'not_htmx_request_redirect' attribute. If they have
+        and the request is not using HTMX then redirect the
+        user to the value of the attribute.
+        """
+        if hasattr(self, "not_htmx_request_redirect"):
+            if request.htmx:
+                return super().get(self, request, *args, **kwargs)
+            else:
+                return redirect(self.not_htmx_request_redirect)
+        return super().get(self, request, *args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        """Extends POST to check if the user has defined the
+        'not_htmx_request_redirect' attribute. If they have
+        and the request is not using HTMX then redirect the
+        user to the value of the attribute.
+        """
+        if hasattr(self, "not_htmx_request_redirect"):
+            if request.htmx:
+                return super().post(self, request, *args, **kwargs)
+            else:
+                return redirect(self.not_htmx_request_redirect)
+        return super().post(self, request, *args, **kwargs)
