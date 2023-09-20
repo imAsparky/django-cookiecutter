@@ -1,3 +1,4 @@
+{% raw %}
 {% load tailwind_tags %}
 {% load static %}
 {% load django_htmx %}
@@ -5,15 +6,24 @@
 <html>
   <head>
     <title>{% block head_title %}{% endblock %}</title>
-    <script defer src="https://unpkg.com/alpinejs@3.13.0/dist/cdn.min.js"></script>
-    <script src="https://unpkg.com/htmx.org@1.9.5" integrity="sha384-xcuj3WpfgjlKF+FXhSQFQ0ZNr39ln+hwjN3npfM9VBnUskLolQAcN80McRIVOPuO" crossorigin="anonymous"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.8.1/dist/cdn.min.js"></script>
+    <script src="https://unpkg.com/htmx.org@1.6.1" integrity="sha384-tvG/2mnCFmGQzYC1Oh3qxQ7CkQ9kMzYjWZSNtrRZygHPDDqottzEJsqS4oUVodhW" crossorigin="anonymous"></script>
     {% django_htmx_script %}
-    {% tailwind_css %}
-
+    {% endraw %}
+    {% if cookiecutter.dynamically_set_css_in_templates != "n" %}
+    {% raw %}
+    {% if TAILWIND_CSS_DEV %}
+      {% tailwind_css %}
+    {% else %}
+      <link rel="stylesheet" href="{{ css }}">
+    {% endif %}
+    {% endraw %}
+    {% endif %}
+    {% raw %}
     {% block extra_head %}
     {% endblock extra_head%}
   </head>
-   <!-- https://www.mattlayman.com/blog/2021/how-to-htmx-django/ -->
+  {% comment %} https://www.mattlayman.com/blog/2021/how-to-htmx-django/ {% endcomment %}
   <body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
    {% block body %}
     {% if messages %}
@@ -26,7 +36,23 @@
       </ul>
     </div>
     {% endif %}
-
+    {% endraw %}
+    {% if cookiecutter.show_env_in_templates != "n" %}
+    {% raw %}
+    {% if ENVIRONMENT %}
+      {% if user.is_staff %}
+        <span class="self-center text-2xl font-semibold text-gray-700 whitespace-nowrap dark:text-gray-200">{{ PROJECT_NAME }}
+          <span class="self-center text-base font-semibold text-red-700 bg-red-100 border border-red-400 rounded">{{ ENVIRONMENT }}</span>
+        </span>
+      {% else %}
+      <span class="self-center text-2xl font-semibold text-gray-700 whitespace-nowrap dark:text-gray-200">{{ PROJECT_NAME }}</span>
+      {% endif %}
+    {% else %}
+      <span class="self-center text-2xl font-semibold text-gray-700 whitespace-nowrap dark:text-gray-200">{{ PROJECT_NAME }}</span>
+    {% endif %}
+    {% endraw %}
+    {% endif %}
+    {% raw %}
     <div>
       <strong>Menu:</strong>
       <ul>
@@ -48,3 +74,4 @@
     {% endblock extra_body %}
   </body>
 </html>
+{% endraw %}

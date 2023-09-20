@@ -84,7 +84,10 @@ def test_baked_django_core_views_generic_init_py_file(cookies):
     init_path = default_django.project_path / "core/views/generic/__init__.py"
     init_file = init_path.read_text().splitlines()
 
-    assert '"""Initialise django-boilerplate Core App Generic Views."""' in init_file
+    assert (
+        '"""Initialise django-boilerplate Core App Generic Views."""'
+        in init_file
+    )
 
 
 def test_baked_django_core_views_generic_base_py_file(cookies):
@@ -114,7 +117,10 @@ def test_baked_django_core_views_generic_detail_py_file(cookies):
     detail_path = default_django.project_path / "core/views/generic/detail.py"
     detail_file = detail_path.read_text().splitlines()
 
-    assert '"""django-boilerplate Core App Generic Views Detail."""' in detail_file
+    assert (
+        '"""django-boilerplate Core App Generic Views Detail."""'
+        in detail_file
+    )
 
 
 def test_baked_django_core_views_generic_edit_py_file(cookies):
@@ -189,6 +195,7 @@ def test_baked_django_without_commit_message_file(cookies):
         non_default_django.project_path / ".github"
     )
 
+
 def test_baked_django_without_constance_config_in_base_py(cookies):
     """Test django-constance not installed."""
     default_django = cookies.bake()
@@ -199,7 +206,6 @@ def test_baked_django_without_constance_config_in_base_py(cookies):
     assert "constance" not in list_file
     assert "constance.backends.database" not in list_file
     assert "# Constance Configuration" not in list_file
-
 
 
 def test_baked_django_with_constance_config_in_base_py(cookies):
@@ -218,8 +224,6 @@ def test_baked_django_with_constance_config_in_base_py(cookies):
     assert "# Constance Configuration" in list_file
 
 
-
-
 def test_baked_django_without_constance_config_in_base_txt(cookies):
     """Test django-constance not installed."""
     default_django = cookies.bake()
@@ -227,7 +231,7 @@ def test_baked_django_without_constance_config_in_base_txt(cookies):
     list_path = default_django.project_path / "config/requirements/base.txt"
     list_file = str(list_path.read_text().splitlines())
 
-    assert 'django-constance[database]==' not in list_file
+    assert "django-constance[database]==" not in list_file
 
 
 def test_baked_django_with_constance_config_in_base_txt(cookies):
@@ -238,10 +242,13 @@ def test_baked_django_with_constance_config_in_base_txt(cookies):
         }
     )
 
-    list_path = non_default_django.project_path / "config/requirements/base.txt"
+    list_path = (
+        non_default_django.project_path / "config/requirements/base.txt"
+    )
     list_file = str(list_path.read_text().splitlines())
 
-    assert 'django-constance[database]==' in list_file
+    assert "django-constance[database]==" in list_file
+
 
 def test_baked_django_with_custom_issue_template_files(cookies):
     """Test Django project has custom ISSUE templates generated correctly.
@@ -251,19 +258,25 @@ def test_baked_django_with_custom_issue_template_files(cookies):
     """
     default_django = cookies.bake()
 
-    bug_path = default_django.project_path / ".github/ISSUE_TEMPLATE/bug-report.md"
+    bug_path = (
+        default_django.project_path / ".github/ISSUE_TEMPLATE/bug-report.md"
+    )
     bug_file = bug_path.read_text().splitlines()
 
-    chore_path = default_django.project_path / ".github/ISSUE_TEMPLATE/chore.md"
+    chore_path = (
+        default_django.project_path / ".github/ISSUE_TEMPLATE/chore.md"
+    )
     chore_file = chore_path.read_text().splitlines()
 
     documentation_path = (
-        default_django.project_path / ".github/ISSUE_TEMPLATE/documentation-request.md"
+        default_django.project_path
+        / ".github/ISSUE_TEMPLATE/documentation-request.md"
     )
     documentation_file = documentation_path.read_text().splitlines()
 
     feature_path = (
-        default_django.project_path / ".github/ISSUE_TEMPLATE/feature-request.md"
+        default_django.project_path
+        / ".github/ISSUE_TEMPLATE/feature-request.md"
     )
     feature_file = feature_path.read_text().splitlines()
 
@@ -287,7 +300,9 @@ def test_baked_django_without_custom_issue_template_files(cookies):
         extra_context={"use_GH_custom_issue_templates": "n"}
     )
 
-    standard_issue_path = non_default_django.project_path / ".github/ISSUE_TEMPLATE.md"
+    standard_issue_path = (
+        non_default_django.project_path / ".github/ISSUE_TEMPLATE.md"
+    )
     standard_issue_file = standard_issue_path.read_text().splitlines()
 
     assert '- "django-boilerplate" version:' in standard_issue_file
@@ -299,14 +314,18 @@ def test_baked_django_without_custom_issue_template_files(cookies):
 
 def test_baked_django_with_docker(cookies):
     """Test Django Docker folder has been generated correctly."""
-    non_default_django = cookies.bake(extra_context={"deploy_with_docker": "y"})
+    non_default_django = cookies.bake(
+        extra_context={"deploy_with_docker": "y"}
+    )
 
     assert "Dockerfile" in os.listdir(non_default_django.project_path)
     assert ".dockerignore" in os.listdir(non_default_django.project_path)
     assert "docker-compose-swarm.yml" in os.listdir(
         non_default_django.project_path / "compose"
     )
-    assert "docker-entrypoint.sh" in os.listdir(non_default_django.project_path)
+    assert "docker-entrypoint.sh" in os.listdir(
+        non_default_django.project_path
+    )
 
 
 def test_baked_django_without_docker(cookies):
@@ -317,7 +336,9 @@ def test_baked_django_without_docker(cookies):
     assert ".dockerignore" not in os.listdir(default_django.project_path)
 
     assert "compose" not in os.listdir(default_django.project_path)
-    assert "docker-entrypoint.sh" not in os.listdir(default_django.project_path)
+    assert "docker-entrypoint.sh" not in os.listdir(
+        default_django.project_path
+    )
 
 
 def test_baked_django_with_docs(cookies):
@@ -339,11 +360,15 @@ def test_baked_django_with_docs(cookies):
 
 def test_baked_django_without_docs(cookies):
     """Test Django docs folder has not been generated."""
-    non_default_django = cookies.bake(extra_context={"include_sphinx_docs": "n"})
+    non_default_django = cookies.bake(
+        extra_context={"include_sphinx_docs": "n"}
+    )
 
     assert "docs" not in os.listdir(non_default_django.project_path)
 
-    requirements_path = non_default_django.project_path / "requirements_dev.txt"
+    requirements_path = (
+        non_default_django.project_path / "requirements_dev.txt"
+    )
     requirements_file = str(requirements_path.read_text().splitlines())
 
     assert "-r docs/requirements.txt" not in requirements_file
@@ -376,7 +401,8 @@ def test_baked_django_docs_with_discussion_index(cookies):
     default_django = cookies.bake()
 
     index_path = (
-        default_django.project_path / "docs/source/discussion/index-discussion.rst"
+        default_django.project_path
+        / "docs/source/discussion/index-discussion.rst"
     )
     index_file = index_path.read_text().splitlines()
 
@@ -391,7 +417,8 @@ def test_baked_django_docs_with_how_to_contribute(cookies):
     default_django = cookies.bake()
 
     contrib_path = (
-        default_django.project_path / "docs/source/how-tos/how-to-contribute.rst"
+        default_django.project_path
+        / "docs/source/how-tos/how-to-contribute.rst"
     )
     contrib_file = contrib_path.read_text().splitlines()
 
@@ -399,9 +426,13 @@ def test_baked_django_docs_with_how_to_contribute(cookies):
         ".. _bug: https://github.com/imAsparky/django-boilerplate/issues"
         in contrib_file
     )
-    assert "Look through Django Boilerplate GitHub issues_ for bugs." in contrib_file
     assert (
-        "Look through Django Boilerplate GitHub issues_ for features." in contrib_file
+        "Look through Django Boilerplate GitHub issues_ for bugs."
+        in contrib_file
+    )
+    assert (
+        "Look through Django Boilerplate GitHub issues_ for features."
+        in contrib_file
     )
     assert (
         "Django Boilerplate strives to have excellent documentation for several reasons:"
@@ -427,7 +458,9 @@ def test_baked_django_docs_with_how_to_contribute(cookies):
         "2. From your GitHub account, fork the `django-boilerplate` repository."
         in contrib_file
     )
-    assert "    Django Boilerplate uses python-semantic-release." in contrib_file
+    assert (
+        "    Django Boilerplate uses python-semantic-release." in contrib_file
+    )
     assert (
         ".. _issues: https://github.com/imAsparky/django-boilerplate/issues"
         in contrib_file
@@ -449,17 +482,23 @@ def test_baked_django_docs_with_how_to_index(cookies):
     """Test Django docs how-to index template file has been generated correctly."""
     default_django = cookies.bake()
 
-    index_path = default_django.project_path / "docs/source/how-tos/index-how-to.rst"
+    index_path = (
+        default_django.project_path / "docs/source/how-tos/index-how-to.rst"
+    )
     index_file = index_path.read_text().splitlines()
 
-    assert "See below for a list of How-To for Django Boilerplate." in index_file
+    assert (
+        "See below for a list of How-To for Django Boilerplate." in index_file
+    )
 
 
 def test_baked_django_docs_with_templates(cookies):
     """Test Django docs templates folder has been generated correctly."""
     default_django = cookies.bake()
 
-    assert "doc-templates" in os.listdir(default_django.project_path / "docs/source")
+    assert "doc-templates" in os.listdir(
+        default_django.project_path / "docs/source"
+    )
 
 
 def test_baked_django_docs_without_templates(cookies):
@@ -478,7 +517,8 @@ def test_baked_django_docs_with_references_index(cookies):
     default_django = cookies.bake()
 
     index_path = (
-        default_django.project_path / "docs/source/reference/index-reference.rst"
+        default_django.project_path
+        / "docs/source/reference/index-reference.rst"
     )
     index_file = index_path.read_text().splitlines()
 
@@ -493,7 +533,8 @@ def test_baked_django_docs_templates_index(cookies):
     default_django = cookies.bake()
 
     index_path = (
-        default_django.project_path / "docs/source/doc-templates/index-templates.rst"
+        default_django.project_path
+        / "docs/source/doc-templates/index-templates.rst"
     )
     index_file = index_path.read_text().splitlines()
 
@@ -513,7 +554,9 @@ def test_baked_django_with_git_initiated(cookies):
         cwd=default_django.project_path,
     )
 
-    assert "git@github.com:imAsparky/django-boilerplate.git (fetch)" in git_remote
+    assert (
+        "git@github.com:imAsparky/django-boilerplate.git (fetch)" in git_remote
+    )
 
 
 def test_baked_django_without_git_initiated(cookies):
@@ -557,7 +600,10 @@ def test_baked_django_with_license_mit(cookies):
     lic_file = lic_path.read_text().splitlines()
 
     assert "MIT License" in lic_file
-    assert f"Copyright (c) {datetime.datetime.now().year}, Mark Sevelj" in lic_file
+    assert (
+        f"Copyright (c) {datetime.datetime.now().year}, Mark Sevelj"
+        in lic_file
+    )
 
     assert "Apache Software License 2.0" not in lic_file
     assert "BSD License" not in lic_file
@@ -577,7 +623,10 @@ def test_baked_django_with_license_bsd(cookies):
     lic_file = lic_path.read_text().splitlines()
 
     assert "BSD License" in lic_file
-    assert f"Copyright (c) {datetime.datetime.now().year}, Mark Sevelj" in lic_file
+    assert (
+        f"Copyright (c) {datetime.datetime.now().year}, Mark Sevelj"
+        in lic_file
+    )
 
     assert "Apache Software License 2.0" not in lic_file
     assert "GNU GENERAL PUBLIC LICENSE" not in lic_file
@@ -597,7 +646,10 @@ def test_baked_django_with_license_isc(cookies):
     lic_file = lic_path.read_text().splitlines()
 
     assert "ISC License" in lic_file
-    assert f"Copyright (c) {datetime.datetime.now().year}, Mark Sevelj" in lic_file
+    assert (
+        f"Copyright (c) {datetime.datetime.now().year}, Mark Sevelj"
+        in lic_file
+    )
 
     assert "Apache Software License 2.0" not in lic_file
     assert "BSD License" not in lic_file
@@ -617,7 +669,10 @@ def test_baked_django_with_license_apache(cookies):
     lic_file = lic_path.read_text().splitlines()
 
     assert "Apache Software License 2.0" in lic_file
-    assert f"Copyright (c) {datetime.datetime.now().year}, Mark Sevelj" in lic_file
+    assert (
+        f"Copyright (c) {datetime.datetime.now().year}, Mark Sevelj"
+        in lic_file
+    )
 
     assert "BSD License" not in lic_file
     assert "ISC License" not in lic_file
@@ -637,7 +692,10 @@ def test_baked_django_with_license_gnu(cookies):
     lic_file = lic_path.read_text().splitlines()
 
     assert "GNU GENERAL PUBLIC LICENSE" in lic_file
-    assert f"    Copyright (C) {datetime.datetime.now().year}  Mark Sevelj" in lic_file
+    assert (
+        f"    Copyright (C) {datetime.datetime.now().year}  Mark Sevelj"
+        in lic_file
+    )
 
     assert "MIT License" not in lic_file
     assert "Apache Software License 2.0" not in lic_file
@@ -670,7 +728,9 @@ def test_baked_django_without_precommit_config_file(cookies):
         }
     )
 
-    assert ".pre-commit-config.yaml" not in os.listdir(non_default_django.project_path)
+    assert ".pre-commit-config.yaml" not in os.listdir(
+        non_default_django.project_path
+    )
 
 
 def test_baked_django_with_pyup_io(cookies):
@@ -766,7 +826,8 @@ def test_baked_django_readme_with_repostatus_badge(cookies):
     readme_file = readme_path.read_text().splitlines()
 
     assert (
-        ".. image:: https://www.repostatus.org/badges/latest/concept.svg" in readme_file
+        ".. image:: https://www.repostatus.org/badges/latest/concept.svg"
+        in readme_file
     )
     assert "   :target: https://www.repostatus.org/#concept" in readme_file
     assert "   :alt: Project Status: concept" in readme_file
@@ -774,7 +835,9 @@ def test_baked_django_readme_with_repostatus_badge(cookies):
 
 def test_baked_django_readme_without_repostatus_badge(cookies):
     """Test Django README file has no repo status badge generated."""
-    non_default_django = cookies.bake(extra_context={"use_repo_status_badge": "no"})
+    non_default_django = cookies.bake(
+        extra_context={"use_repo_status_badge": "no"}
+    )
 
     readme_path = non_default_django.project_path / "README.rst"
     readme_file = readme_path.read_text().splitlines()
@@ -798,7 +861,9 @@ def test_baked_django_readme_with_precommit_badge(cookies):
         ".. image:: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white"
         in readme_file
     )
-    assert "   :target: https://github.com/pre-commit/pre-commit" in readme_file
+    assert (
+        "   :target: https://github.com/pre-commit/pre-commit" in readme_file
+    )
     assert "   :alt: pre-commit" in readme_file
 
 
@@ -813,7 +878,10 @@ def test_baked_django_readme_without_precommit_badge(cookies):
         ".. image:: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white"
         not in readme_file
     )
-    assert "   :target: https://github.com/pre-commit/pre-commit" not in readme_file
+    assert (
+        "   :target: https://github.com/pre-commit/pre-commit"
+        not in readme_file
+    )
     assert "   :alt: pre-commit" not in readme_file
 
 
@@ -845,7 +913,9 @@ def test_baked_django_without_read_the_docs(cookies):
         }
     )
 
-    assert ".readthedocs.yaml" not in os.listdir(non_default_django.project_path)
+    assert ".readthedocs.yaml" not in os.listdir(
+        non_default_django.project_path
+    )
 
     rtd_path = non_default_django.project_path / "README.rst"
     rtd_file = rtd_path.read_text().splitlines()
@@ -866,7 +936,9 @@ def test_baked_django_with_semantic_release(cookies):
     default_django = cookies.bake()
 
     assert "CHANGELOG.md" in os.listdir(default_django.project_path)
-    assert "semantic.yaml" in os.listdir(default_django.project_path / ".github")
+    assert "semantic.yaml" in os.listdir(
+        default_django.project_path / ".github"
+    )
     assert "semantic_release.yaml" in os.listdir(
         default_django.project_path / ".github/workflows"
     )
@@ -921,7 +993,10 @@ def test_baked_django_base_settings_base_file_ok(cookies):
 
     settings_file = settings_path.read_text().splitlines()
 
-    assert '"""Django base settings for django-boilerplate project.' in settings_file
+    assert (
+        '"""Django base settings for django-boilerplate project.'
+        in settings_file
+    )
     assert 'ROOT_URLCONF = "core.urls"' in settings_file
     assert 'WSGI_APPLICATION = "core.wsgi.application"' in settings_file
     assert 'LANGUAGE_CODE = "en"' in settings_file
@@ -938,11 +1013,13 @@ def test_baked_django_settings_local_file_ok(cookies):
     settings_file = settings_path.read_text().splitlines()
 
     assert (
-        '"""Django local settings for django-boilerplate project."""' in settings_file
+        '"""Django local settings for django-boilerplate project."""'
+        in settings_file
     )
     assert '    "LOCAL_ALLOWED_HOSTS",' in settings_file
     assert '    default=[""],' in settings_file
-    assert ')' in settings_file
+    assert ")" in settings_file
+
 
 def test_baked_django_settings_local_file_with_ALLOWED_HOSTS_ok(cookies):
     """Test Django MIT license file has been generated correctly."""
@@ -952,25 +1029,28 @@ def test_baked_django_settings_local_file_with_ALLOWED_HOSTS_ok(cookies):
         }
     )
 
-    settings_path = non_default_django.project_path / "config/settings/local.py"
+    settings_path = (
+        non_default_django.project_path / "config/settings/local.py"
+    )
     settings_file = settings_path.read_text().splitlines()
 
     assert (
-        '"""Django local settings for django-boilerplate project."""' in settings_file
+        '"""Django local settings for django-boilerplate project."""'
+        in settings_file
     )
     assert '    "LOCAL_ALLOWED_HOSTS",' in settings_file
     assert '    default=["example.com"],' in settings_file
-    assert ')' in settings_file
+    assert ")" in settings_file
 
 
 def test_baked_django_settings_production_file_ok(cookies):
     """Test Django config/settings/production.py file has generated correctly."""
     default_django = cookies.bake()
 
-    settings_path = default_django.project_path / "config/settings/production.py"
-
+    settings_path = (
+        default_django.project_path / "config/settings/production.py"
+    )
     settings_file = settings_path.read_text().splitlines()
-
 
     assert (
         '"""Django production settings for django-boilerplate project."""'
@@ -978,7 +1058,8 @@ def test_baked_django_settings_production_file_ok(cookies):
     )
     assert '    "PROD_ALLOWED_HOSTS",' in settings_file
     assert '    default=[""],' in settings_file
-    assert ')' in settings_file
+    assert ")" in settings_file
+
 
 def test_baked_django_settings_production_file_with_ALLOWED_HOSTS_ok(cookies):
     """Test Django MIT license file has been generated correctly."""
@@ -988,7 +1069,9 @@ def test_baked_django_settings_production_file_with_ALLOWED_HOSTS_ok(cookies):
         }
     )
 
-    settings_path = non_default_django.project_path / "config/settings/production.py"
+    settings_path = (
+        non_default_django.project_path / "config/settings/production.py"
+    )
     settings_file = settings_path.read_text().splitlines()
 
     assert (
@@ -997,7 +1080,8 @@ def test_baked_django_settings_production_file_with_ALLOWED_HOSTS_ok(cookies):
     )
     assert '    "PROD_ALLOWED_HOSTS",' in settings_file
     assert '    default=["example.com"],' in settings_file
-    assert ')' in settings_file
+    assert ")" in settings_file
+
 
 def test_baked_django_settings_staging_file_ok(cookies):
     """Test Django config/settings/staging.py file has generated correctly."""
@@ -1007,11 +1091,13 @@ def test_baked_django_settings_staging_file_ok(cookies):
     settings_file = settings_path.read_text().splitlines()
 
     assert (
-        '"""Django staging settings for django-boilerplate project."""' in settings_file
+        '"""Django staging settings for django-boilerplate project."""'
+        in settings_file
     )
     assert '    "STAGING_ALLOWED_HOSTS",' in settings_file
     assert '    default=[""],' in settings_file
-    assert ')' in settings_file
+    assert ")" in settings_file
+
 
 def test_baked_django_settings_staging_file_with_ALLOWED_HOSTS_ok(cookies):
     """Test Django MIT license file has been generated correctly."""
@@ -1021,15 +1107,19 @@ def test_baked_django_settings_staging_file_with_ALLOWED_HOSTS_ok(cookies):
         }
     )
 
-    settings_path = non_default_django.project_path / "config/settings/staging.py"
+    settings_path = (
+        non_default_django.project_path / "config/settings/staging.py"
+    )
     settings_file = settings_path.read_text().splitlines()
 
     assert (
-        '"""Django staging settings for django-boilerplate project."""' in settings_file
+        '"""Django staging settings for django-boilerplate project."""'
+        in settings_file
     )
     assert '    "STAGING_ALLOWED_HOSTS",' in settings_file
     assert '    default=["example.com"],' in settings_file
-    assert ')' in settings_file
+    assert ")" in settings_file
+
 
 def test_baked_django_settings_test_file_ok(cookies):
     """Test Django config/settings/test.py file has generated correctly."""
@@ -1038,26 +1128,103 @@ def test_baked_django_settings_test_file_ok(cookies):
     settings_path = default_django.project_path / "config/settings/test.py"
     settings_file = settings_path.read_text().splitlines()
 
-    assert '"""Django test settings for django-boilerplate project."""' in settings_file
+    assert (
+        '"""Django test settings for django-boilerplate project."""'
+        in settings_file
+    )
     assert '    "TESTING_ALLOWED_HOSTS",' in settings_file
     assert '    default=[""],' in settings_file
-    assert ')' in settings_file
+    assert ")" in settings_file
 
-def test_baked_django_settings_test_file_with_ALLOWED_HOSTS_ok(cookies):
-    """Test Django MIT license file has been generated correctly."""
+
+def test_baked_django_with_show_env_in_templates_html_ok(cookies):
+    """Test Django config/settings/staging.py file has generated correctly."""
     non_default_django = cookies.bake(
-        extra_context={
-            "ALLOWED_HOSTS": "example.com",
-        }
+        extra_context={"show_env_in_templates": "y"}
     )
 
-    settings_path = non_default_django.project_path / "config/settings/test.py"
-    settings_file = settings_path.read_text().splitlines()
+    templates_path = non_default_django.project_path / "templates/base.html"
+    template_file = templates_path.read_text().splitlines()
 
-    assert '"""Django test settings for django-boilerplate project."""' in settings_file
-    assert '    "TESTING_ALLOWED_HOSTS",' in settings_file
-    assert '    default=["example.com"],' in settings_file
-    assert ')' in settings_file
+    assert "      {% if user.is_staff %}" in template_file
+    assert (
+        '      <span class="self-center text-2xl font-semibold text-gray-700 whitespace-nowrap dark:text-gray-200">{{ PROJECT_NAME }}</span>'
+        in template_file
+    )
+
+
+def test_baked_django_without_show_env_in_templates_html_ok(cookies):
+    """Test Django config/settings/staging.py file has generated correctly."""
+    default_django = cookies.bake()
+
+    templates_path = default_django.project_path / "templates/base.html"
+    template_file = templates_path.read_text().splitlines()
+
+    assert "      {% if user.is_staff %}" not in template_file
+    assert (
+        '      <span class="self-center text-2xl font-semibold text-gray-700 whitespace-nowrap dark:text-gray-200">{{ PROJECT_NAME }}</span>'
+        not in template_file
+    )
+
+
+def test_baked_django_with_show_env_in_templates_processors_ok(cookies):
+    """Test Django config/settings/staging.py file has generated correctly."""
+    non_default_django = cookies.bake(
+        extra_context={"show_env_in_templates": "y"}
+    )
+
+    processor_path = (
+        non_default_django.project_path / "core/utils/context_processors.py"
+    )
+    processor_file = processor_path.read_text().splitlines()
+
+    assert (
+        '                data["ENVIRONMENT"] = "LOCAL: Debug True"'
+        in processor_file
+    )
+    assert (
+        '                data["ENVIRONMENT"] = "LOCAL: Debug False"'
+        in processor_file
+    )
+    assert '            data["ENVIRONMENT"] = "PRODUCTION"' in processor_file
+    assert (
+        '                data["ENVIRONMENT"] = "STAGING: Debug True"'
+        in processor_file
+    )
+    assert (
+        '                data["ENVIRONMENT"] = "TESTING: Debug False"'
+        in processor_file
+    )
+
+
+def test_baked_django_without_show_env_in_templates_processors_ok(cookies):
+    """Test Django config/settings/staging.py file has generated correctly."""
+    default_django = cookies.bake()
+
+    processor_path = (
+        default_django.project_path / "core/utils/context_processors.py"
+    )
+    processor_file = processor_path.read_text().splitlines()
+
+    assert (
+        '                data["ENVIRONMENT"] = "LOCAL: Debug True"'
+        not in processor_file
+    )
+    assert (
+        '                data["ENVIRONMENT"] = "LOCAL: Debug False"'
+        not in processor_file
+    )
+    assert (
+        '            data["ENVIRONMENT"] = "PRODUCTION"' not in processor_file
+    )
+    assert (
+        '                data["ENVIRONMENT"] = "STAGING: Debug True"'
+        not in processor_file
+    )
+    assert (
+        '                data["ENVIRONMENT"] = "TESTING: Debug False"'
+        not in processor_file
+    )
 
 
 def test_baked_django_tox_file_ok(cookies):

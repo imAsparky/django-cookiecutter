@@ -105,6 +105,23 @@ The following Django Cookiecutter configuration options are grouped logically.
 Where options are in a list, the first item is the default setting.
 
 
+"show_env_in_templates": ["n", "y"]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+For users set to `staff`, show Project Name, which settings file is being used
+and whether debug is true in the template. These will be displayed in the top
+left corner when the webpage is running.  This can be helpful when running
+and moving between different environments at the same time.
+
+
+"dynamically_set_css_in_templates": ["n", "y"]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In the html template, dynamically set whether to use the django-tailwind template tag or user
+specified in an environment variable based on which settings file is being
+used. The behaviour can be changed in `core/utils/context_processor.py`.
+
+
 Docker
 ------
 
