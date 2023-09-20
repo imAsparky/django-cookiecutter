@@ -22,6 +22,14 @@
     "n",
     "y"
   ],
+  "show_env_in_templates": [
+    "n",
+    "y"
+  ],
+  "dynamically_set_css_in_templates": [
+    "n",
+    "y"
+  ],
   "deploy_with_docker": [
     "n",
     "y",
@@ -93,7 +101,7 @@
     ".pre-commit-config.yaml",
     ".github/workflows/semantic_release.yaml",
     ".github/workflows/test_contribution.yaml",
-    "templates/*",
+    "templates/account/*",
     "theme/templates*"
   ]
 }
