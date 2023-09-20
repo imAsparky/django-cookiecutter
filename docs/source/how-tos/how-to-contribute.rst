@@ -159,8 +159,9 @@ demonstrated this is going into a local `projects` folder.
 
 .. note::
 
-    The commands to create a virtual environment below will use the default
-    Python version in your Operating System.
+    The commands to create a virtual environment below will use Python version
+    3.11.  The minumum version for `django-cookiecutter` is `Python 3.10`
+    because `Structural Pattern Matching <https://peps.python.org/pep-0636/>`_ is used.
 
     If you prefer another python version installed on your computer, you can
     replace `python3` with `python3.n`, where n is the version number.
@@ -170,12 +171,8 @@ demonstrated this is going into a local `projects` folder.
     If you are writing documentation and using a preview function in your
     IDE then the minimum version for your virtual environment is Python3.9.
 
-    You will also need to include the document dependencies when installing
-    your virtual environment dependencies.
-
-    .. code-block:: bash
-
-        pip install -r docs/requirements.txt
+    The document dependencies are installed by default now when you create your
+    virtual environment.
 
 **Select the tab for your preferred Operating System.**
 
@@ -184,7 +181,7 @@ demonstrated this is going into a local `projects` folder.
     .. code-block:: bash
         :caption: **bash/zsh**
 
-        python3 -m venv venv
+        python3.11 -m venv venv
         source venv/bin/acivate
         pip install --upgrade pip
 
@@ -202,7 +199,7 @@ demonstrated this is going into a local `projects` folder.
     .. code-block:: bash
         :caption: **bash/zsh**
 
-        python3 -m venv venv
+        python3.11 -m venv venv
         source venv/bin/acivate
         pip install --upgrade pip
 
@@ -220,7 +217,7 @@ demonstrated this is going into a local `projects` folder.
     .. code-block:: bash
         :caption: **cmd/PowerShell**
 
-        python3 -m venv venv
+        python3.11 -m venv venv
 
         C:\> venv\Scripts\activate.bat  # cmd.exe
         PS C:\> venv\Scripts\Activate.ps1 # Powershell
@@ -232,7 +229,7 @@ demonstrated this is going into a local `projects` folder.
     .. code-block:: bash
         :caption: **cmd/PowerShell**
 
-        c:\>c:\Python36\python -m venv c:\path\to\packages\my_env
+        c:\>c:\Python311\python -m venv c:\path\to\packages\my_env
         PS C:\> <venv>\Scripts\Activate.ps1
 
         C:\> venv\Scripts\activate.bat  # cmd.exe

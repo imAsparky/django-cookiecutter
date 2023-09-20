@@ -26,7 +26,7 @@ You will see an output similat to this.
 
 .. danger::
 
-  DO NOT USE THE `NO LONGER` SECRET KEY GENERATED HERE.
+    DO NOT USE THE `NO LONGER A SECRET`,  SECRET KEY GENERATED HERE.
 
 
 Copy and add the secret key to an environment variable.

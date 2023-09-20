@@ -9,6 +9,9 @@
 **This cookiecutter uses django-tailwind by default.  django-tailwind requires
 Node.js be installed on your development machine.**
 
+The minumum version for `django-cookiecutter` is `Python 3.10`
+because `Structural Pattern Matching <https://peps.python.org/pep-0636/>`_ is used.
+
 .. image:: ./docs/source/_static/imgs/logo/logo-django-cookiecutter-1280x640.png
    :alt:
 
@@ -18,7 +21,13 @@ delivery using GitHub actions.
 .. _Django: https://www.djangoproject.com/
 .. _cookiecutter: https://github.com/cookiecutter/cookiecutter
 
-.. image:: https://www.repostatus.org/badges/latest/wip.svg
+.. image:: https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2FimAsparky%2Fdjango-cookiecutter%2Fmain%2Fpyproject.toml&query=project.dependencies&logo=Django&label=Versions&labelColor=%23092E20
+   :alt: Dynamic TOML Badge
+
+.. image:: https://img.shields.io/python/required-version-toml?tomlFilePath=https%3A%2F%2Fraw.githubusercontent.com%2FimAsparky%2Fdjango-cookiecutter%2Fmain%2Fpyproject.toml&logo=python
+   :alt: Python Version from PEP 621 TOML
+
+.. image:: https://www.repostatus.org/badges/latest/active.svg
    :alt: Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.
    :target: https://www.repostatus.org/#wip
 
@@ -89,7 +98,7 @@ Django Settings
 
 #. Quickly configure common `Django settings`_ as you setup your project.
 
-.. _Django settings: https://docs.djangoproject.com/en/4.0/ref/settings/
+.. _Django settings: https://docs.djangoproject.com/en/4.2/ref/settings/
 
 Docker
 ~~~~~~
@@ -129,7 +138,7 @@ Workflow Helpers
 
 #. Pre-commit for code quality help and a README badge.
 #. A Python Semantic Release GitHub action and a README badge.
-#. A test suite complete with py3.8-py3.10, Linux, macOS and Windows matrix.
+#. A test suite complete with py3.10, py3.11, Linux, macOS and Windows matrix.
 
 Communication
 ~~~~~~~~~~~~~
