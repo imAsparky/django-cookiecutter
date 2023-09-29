@@ -3,7 +3,6 @@
 import environ
 from django.conf import settings
 
-from users.models import CustomUser
 
 env = environ.FileAwareEnv()
 
