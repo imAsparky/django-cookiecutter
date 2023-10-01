@@ -22,6 +22,10 @@
     "n",
     "y"
   ],
+  "allow_new_user_signup": [
+    "n",
+    "y"
+  ],
   "show_env_in_templates": [
     "n",
     "y"
