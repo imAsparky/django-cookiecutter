@@ -19,6 +19,74 @@ def test_django_bakes_ok_with_defaults(cookies):
     assert default_django.project_path.name == "django-boilerplate"
 
 
+def test_baked_with_allow_new_user_signup(cookies):
+    non_default_django = cookies.bake(
+        extra_context={"allow_new_user_signup": "y"}
+    )
+
+    context_path = (
+        non_default_django.project_path / "core/utils/context_processors.py"
+    )
+    context_file = context_path.read_text().splitlines()
+    settings_path = non_default_django.project_path / "config/settings/base.py"
+    settings_file = settings_path.read_text().splitlines()
+    requirements_path = (
+        non_default_django.project_path / "config/requirements/base.txt"
+    )
+    requirements_file = requirements_path.read_text().splitlines()
+
+    assert (
+        '    data["ALLOW_NEW_USER_SIGNUP"] = config.ALLOW_NEW_USER_SIGNUP'
+        in context_file
+    )
+    assert (
+        'CONSTANCE_BACKEND = "constance.backends.database.DatabaseBackend"'
+        in settings_file
+    )
+    assert "CONSTANCE_CONFIG = {" in settings_file
+    assert (
+        '    "ALLOW_NEW_USER_SIGNUP": (False, "Check to allow new user signups!", bool),'
+        in settings_file
+    )
+    assert "CONSTANCE_CONFIG_FIELDSETS = {" in settings_file
+    assert '    "User Settings": (' in settings_file
+    assert '        "ALLOW_NEW_USER_SIGNUP",' in settings_file
+    assert "django-constance[database]==2.8.0" in requirements_file
+
+
+def test_baked_without_allow_new_user_signup(cookies):
+    default_django = cookies.bake()
+
+    context_path = (
+        default_django.project_path / "core/utils/context_processors.py"
+    )
+    context_file = context_path.read_text().splitlines()
+    settings_path = default_django.project_path / "config/settings/base.py"
+    settings_file = settings_path.read_text().splitlines()
+    requirements_path = (
+        default_django.project_path / "config/requirements/base.txt"
+    )
+    requirements_file = requirements_path.read_text().splitlines()
+
+    assert (
+        '    data["ALLOW_NEW_USER_SIGNUP"] = config.ALLOW_NEW_USER_SIGNUP'
+        not in context_file
+    )
+    assert (
+        'CONSTANCE_BACKEND = "constance.backends.database.DatabaseBackend"'
+        not in settings_file
+    )
+    assert "CONSTANCE_CONFIG = {" not in settings_file
+    assert (
+        '    "ALLOW_NEW_USER_SIGNUP": (False, "Check to allow new user signups!", bool),'
+        not in settings_file
+    )
+    assert "CONSTANCE_CONFIG_FIELDSETS = {" not in settings_file
+    assert '    "User Settings": (' not in settings_file
+    assert '        "ALLOW_NEW_USER_SIGNUP",' not in settings_file
+    assert "django-constance[database]==2.8.0" not in requirements_file
+
+
 def test_baked_django_core_asgi_file_ok(cookies):
     """Test Django Core asgi.py file has been generated correctly."""
     default_django = cookies.bake()
