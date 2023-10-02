@@ -1,8 +1,10 @@
+.. include:: ../../extras.rst.txt
 .. highlight:: rst
 .. index:: template-index ; Index
 
 
 .. _template-index:
+
 ==============
 Index Template
 ==============
@@ -23,12 +25,13 @@ Use the copy button and paste the template into your new index.
 
     See `Sphinx toctree <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html>`_
     for more information about toctree options.
+
 |
 
 .. code-block:: rst
     :caption: **Index Page Template**
     :linenos:
-    :emphasize-lines: 3, 6, 8, 15-22
+    :emphasize-lines: 2, 5, 7, 14-21
 
     .. highlight:: rst
     .. index:: template-index ; Index
@@ -51,6 +54,7 @@ Use the copy button and paste the template into your new index.
        :reversed:
        :numbered:
        :glob:
+
 
 .. code-block:: rst
     :caption: **Format to include pages in the TOC**

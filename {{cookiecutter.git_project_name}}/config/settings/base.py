@@ -161,7 +161,21 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
-{% if cookiecutter.use_constance != "n" %}
+{% if cookiecutter.allow_new_user_signup != "n" %}
+# Constance Configuration
+CONSTANCE_BACKEND = "constance.backends.database.DatabaseBackend"
+
+CONSTANCE_CONFIG = {
+    "ALLOW_NEW_USER_SIGNUP": (False, "Check to allow new user signups!", bool),
+}
+
+CONSTANCE_CONFIG_FIELDSETS = {
+    "User Settings": (
+        "ALLOW_NEW_USER_SIGNUP",
+    ),
+}
+
+{% elif cookiecutter.use_constance != "n" %}
 # Constance Configuration
 CONSTANCE_BACKEND = "constance.backends.database.DatabaseBackend"
 
@@ -171,6 +185,7 @@ CONSTANCE_CONFIG = {
         "Answer to the Ultimate Question of Life, The Universe, and Everything",
         int,
     ),
+
 }
 
 CONSTANCE_CONFIG_FIELDSETS = {

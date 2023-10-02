@@ -3,11 +3,12 @@
 
 
 .. _index-template:
-==================
-Document Templates
-==================
 
-A list of document templates for {{cookiecutter.project_name}}.
+=========
+Templates
+=========
+
+A list of document templates for {{ cookiecutter.project_name }}.
 
 |
 
