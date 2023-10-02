@@ -14,7 +14,7 @@ Overview
 
 Where there are global user settings that will need to be access throughout the
 app, the user session could be the best place to store that information. This
-How-To will look at two different situations, where the user changes settings and
+`how-to-guide` will look at two different situations, where the user changes settings and
 the session data needs to be updated and when the user logs in, adding the data
 to the user session. Both examples will look at the user timezone settings, see
 the code below.
