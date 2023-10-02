@@ -1,8 +1,10 @@
+.. include:: ../../extras.rst.txt
 .. highlight:: rst
 .. index:: template-tutorial ; Index
 
 
 .. _rendered-template-tutorial:
+
 ================
 Name of Tutorial
 ================
@@ -34,12 +36,14 @@ your computer.
 
 
 .. _the-name-tutorial:
+
 Tutorial
 ========
 
 
 
 .. _first-step-title:
+
 First Step Title
 ----------------
 

@@ -1,7 +1,9 @@
+.. include:: ../../extras.rst.txt
 .. highlight:: rst
 .. index:: template-tutorial ; Index
 
 .. _template-tutorial:
+
 =================
 Tutorial Template
 =================

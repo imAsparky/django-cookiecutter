@@ -1,0 +1,37 @@
+Example file for literal include: file_tree_literal_include_example_1.txt
+
+junction-box
+├── file_tree_literal_include_example_2.txt
+├── code_examples
+│   ├── __init__.py
+│   ├── __pycache__
+│   │   ├── __init__.cpython-39.pyc
+│   │   ├── reST_docstrings_example.cpython-39.pyc
+│   │   ├── simple_calculators_example.cpython-39.pyc
+│   │   └── square_example.cpython-39.pyc
+│   ├── reST_docstrings_example.py
+│   ├── simple_calculators_example.py
+│   └── square_example.py
+│
+│
+└── docs
+    └── source
+        ├── _static
+        │   ├── code_examples_2
+        │   │   ├── square_example.py
+        │   │   └── file_tree_literal_include_example_3.txt
+        │   └── css
+        │       └── custom.css
+        └── how-to
+            ├── how-to-docker-linux-cheatsheet.rst
+            ├── index-how-to.rst
+            └── reST
+                ├── file_tree_literal_include_example_1.txt
+                ├── file_tree_literal_include_example_1_old.txt
+                ├── index-reST.rst
+                ├── reST-admonitions.rst
+                ├── reST-inline-tabs.rst
+                ├── reST-intro-rest-sphinx.rst
+                ├── reST-literalinclude-file.rst
+                ├── reST-titles-headings.rst
+                └── reST-toctree.rst
