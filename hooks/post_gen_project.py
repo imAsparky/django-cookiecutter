@@ -26,7 +26,7 @@ REMOVE_FILES = [
     '{% if cookiecutter.include_documentation_templates == "n" %} \
         docs/source/doc-templates {% endif %}',
     '{% if cookiecutter.include_how_to_contribute_template == "n" %} \
-        docs/source/how-tos/how-to-contribute.rst {% endif %}',
+        docs/source/how-to-guides/how-to-contribute.rst {% endif %}',
     '{% if cookiecutter.open_source_license == "Not open source" %} \
         LICENSE.rst {% endif %}',
     '{% if cookiecutter.create_conventional_commits_edit_message == "n" %} \
@@ -69,7 +69,6 @@ def post_gen_setup(*args, supress_exception=False, cwd=None):
         with subprocess.Popen(  # nosec
             args, stdout=subprocess.PIPE, stderr=subprocess.PIPE
         ) as proc:
-
             out, err = proc.communicate()
             out = out.decode("utf-8")
             err = err.decode("utf-8")
@@ -173,23 +172,21 @@ def git_configure_custom_commit_message():
 
 
 def final_checks_reminders_for_users():
-
     print(
-            "\nSUCCESS: Your {{cookiecutter.project_name}} \
+        "\nSUCCESS: Your {{cookiecutter.project_name}} \
             has been generated successfully!",
-            "\nSome things to remember:"
-            "\n1. If using the email admins with errors feature, in config.settings.base",
-            "\n\ta. Review DJANGO_LOGGING_LEVEL meets your needs. ",
-            "\n\tb. Add names and emails to ADMINS. ",
-            "\n\tc. Review MANAGERS meets your needs ",
-            "\n\td. Review SERVER_EMAIL meets your needs ",
-            "\n You can find all these settings grouped together under: # Logging Settings",
-            "\n\n Thank you for using Django-Cookiecutter, I hope you enjoyed this experience."
-        )
+        "\nSome things to remember:"
+        "\n1. If using the email admins with errors feature, in config.settings.base",
+        "\n\ta. Review DJANGO_LOGGING_LEVEL meets your needs. ",
+        "\n\tb. Add names and emails to ADMINS. ",
+        "\n\tc. Review MANAGERS meets your needs ",
+        "\n\td. Review SERVER_EMAIL meets your needs ",
+        "\n You can find all these settings grouped together under: # Logging Settings",
+        "\n\n Thank you for using Django-Cookiecutter, I hope you enjoyed this experience.",
+    )
 
 
 if __name__ == "__main__":
-
     remove_files(REMOVE_FILES)
 
     # Git options
