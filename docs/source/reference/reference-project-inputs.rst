@@ -104,6 +104,21 @@ The following Django Cookiecutter configuration options are grouped logically.
 
 Where options are in a list, the first item is the default setting.
 
+"allow_new_user_signup": ["n", "y"]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This setting uses django-constance and a context processor to provide context
+for use in a template to disable `new user signups`.
+
+Useage in template:
+
+.. code-block:: html
+
+    {% if ALLOW_NEW_USER_SIGNUP %}
+        show signup link
+    {% endif %}
+
+
 
 "show_env_in_templates": ["n", "y"]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

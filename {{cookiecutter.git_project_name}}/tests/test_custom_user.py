@@ -1,7 +1,9 @@
 """{{cookiecutter.git_project_name}} project CustomUser Tests."""
 
 import pytest
-from users.models import CustomUser as User
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 # Tests for the create_user function
 def test_create_user_ok(new_user):

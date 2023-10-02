@@ -1,6 +1,9 @@
 """Django context processors."""
 
 import environ
+{% if cookiecutter.allow_new_user_signup != "n" %}
+from constance import config
+{% endif %}
 from django.conf import settings
 
 from users.models import CustomUser
@@ -80,4 +83,9 @@ def export_vars(request) -> dict:
             else:
                 data["ENVIRONMENT"] = f"{environ}: Debug False"
     {% endif %}
+    {% if cookiecutter.allow_new_user_signup != "n" %}
+    data["ALLOW_NEW_USER_SIGNUP"] = config.ALLOW_NEW_USER_SIGNUP
+    {% endif %}
+
+
     return data

@@ -1,8 +1,11 @@
 """{{cookiecutter.git_project_name}} Test Fixtures."""
 
 import pytest
+from django.contrib.auth import get_user_model
 from django.test.utils import override_settings
-from users.models import CustomUser as User
+
+User = get_user_model()
+
 
 # This settings snippet is from Speed Up Your Django Tests
 # please support by purchasing from here https://adamchainz.gumroad.com/l/suydt
@@ -15,7 +18,6 @@ def test_settings():
 
 TEST_SETTINGS = {
     "PAGINATION_COUNT": 10,
-
 }
 
 
