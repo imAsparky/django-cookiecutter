@@ -24,7 +24,7 @@ Welcome to Django Cookiecutter's documentation!
    :hidden:
    :titlesonly:
 
-   how-tos/index-how-to
+   how-to-guides/index-how-to
 
 .. toctree::
    :hidden:
@@ -38,11 +38,11 @@ Welcome to Django Cookiecutter's documentation!
 
    discussion/index-discussion
 
-.. toctree::
+   .. toctree::
    :hidden:
    :titlesonly:
 
-   doc-templates/index-templates
+   documentation/index-documention
 
 
 Indices and tables
