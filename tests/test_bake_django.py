@@ -486,7 +486,7 @@ def test_baked_django_docs_with_how_to_contribute(cookies):
 
     contrib_path = (
         default_django.project_path
-        / "docs/source/how-tos/how-to-contribute.rst"
+        / "docs/source/how-to-guides/how-to-contribute.rst"
     )
     contrib_file = contrib_path.read_text().splitlines()
 
@@ -542,7 +542,7 @@ def test_baked_django_docs_without_how_to_contribute(cookies):
     )
 
     assert "how-to-contribute.rst" not in os.listdir(
-        non_default_django.project_path / "docs/source/how-tos"
+        non_default_django.project_path / "docs/source/how-to-guides"
     )
 
 
@@ -551,7 +551,8 @@ def test_baked_django_docs_with_how_to_index(cookies):
     default_django = cookies.bake()
 
     index_path = (
-        default_django.project_path / "docs/source/how-tos/index-how-to.rst"
+        default_django.project_path
+        / "docs/source/how-to-guides/index-how-to.rst"
     )
     index_file = index_path.read_text().splitlines()
 
@@ -564,8 +565,8 @@ def test_baked_django_docs_with_templates(cookies):
     """Test Django docs templates folder has been generated correctly."""
     default_django = cookies.bake()
 
-    assert "doc-templates" in os.listdir(
-        default_django.project_path / "docs/source"
+    assert "templates" in os.listdir(
+        default_django.project_path / "docs/source/documentation"
     )
 
 
@@ -602,7 +603,7 @@ def test_baked_django_docs_templates_index(cookies):
 
     index_path = (
         default_django.project_path
-        / "docs/source/doc-templates/index-templates.rst"
+        / "docs/source/documentation/templates/index-document-templates.rst"
     )
     index_file = index_path.read_text().splitlines()
 
