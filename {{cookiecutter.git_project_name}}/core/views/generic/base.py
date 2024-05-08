@@ -42,7 +42,7 @@ class HtmxTemplateResponseMixin(TemplateResponseMixin):
         """
         super().get_template_names()
 
-        if self.template_name is None or self.htmx_template_name is None:
+        if self.template_name is None and self.htmx_template_name is None:
             raise ImproperlyConfigured(
                 "HtmxTemplateResponseMixin requires either a definition of "
                 "'htmx_template_name' and 'template_name' or an "
