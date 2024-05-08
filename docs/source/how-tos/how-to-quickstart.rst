@@ -42,7 +42,7 @@ Create Virtual Environment
     .. code-block:: bash
         :caption: **bash/zsh**
 
-        python3.11 -m venv venv
+        python3.12 -m venv venv
         source venv/bin/acivate
         pip install --upgrade pip
 
@@ -60,7 +60,7 @@ Create Virtual Environment
     .. code-block:: bash
         :caption: **bash/zsh**
 
-        python3.11 -m venv venv
+        python3.12 -m venv venv
         source venv/bin/acivate
         pip install --upgrade pip
 
@@ -78,7 +78,7 @@ Create Virtual Environment
     .. code-block:: bash
         :caption: **cmd/PowerShell**
 
-        python3.11 -m venv venv
+        python3.12 -m venv venv
 
         C:\> venv\Scripts\activate.bat  # cmd.exe
         PS C:\> venv\Scripts\Activate.ps1 # Powershell
@@ -90,7 +90,7 @@ Create Virtual Environment
     .. code-block:: bash
         :caption: **cmd/PowerShell**
 
-        c:\>c:\Python311\python -m venv c:\path\to\packages\my_env
+        c:\>c:\Python312\python -m venv c:\path\to\packages\my_env
         PS C:\> <venv>\Scripts\Activate.ps1
 
         C:\> venv\Scripts\activate.bat  # cmd.exe
@@ -120,7 +120,7 @@ You will see something like this in your CLI.
 
 .. code-block:: cmd
 
-    Requirement already satisfied: pip in ./my_env/lib/python3.11/site-packages (21.2.3)
+    Requirement already satisfied: pip in ./my_env/lib/python3.12/site-packages (21.2.3)
     Collecting pip
      Using cached pip-21.2.4-py3-none-any.whl (1.6 MB)
     Installing collected packages: pip
