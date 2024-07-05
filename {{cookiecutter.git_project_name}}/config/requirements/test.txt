@@ -7,5 +7,5 @@ pytest==8.2.2
 pytest-reverse==1.7.0
 pytest-xdist==3.6.1
 tblib==2.0.0
-tox==4.15.1
+tox==4.16.0
 
