@@ -47,7 +47,7 @@ Click `Create Repository`.
 
     No need to choose any `Initialize this repository with:` options.
 
-    These are all generated for you when you create your package.
+    These are all generated for you when you create your Django project.
 
 .. important::
 

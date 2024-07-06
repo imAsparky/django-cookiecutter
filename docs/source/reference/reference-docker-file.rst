@@ -25,7 +25,7 @@ A compile image.
 
 .. code-block:: docker
 
-    FROM python:3.9-slim-bullseye AS compile-image
+    FROM python:3.11-slim-bullseye AS compile-image
 
 A production image.
 
@@ -34,7 +34,7 @@ only what is required to run a production image.
 
 .. code-block:: docker
 
-    FROM python:3.9-slim-bullseye AS production-image
+    FROM python:3.11-slim-bullseye AS production-image
 
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

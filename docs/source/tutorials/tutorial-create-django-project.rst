@@ -58,14 +58,14 @@ Select the tab for your preferred Operating System.
     Python version in your Operating System.
 
     If you prefer another python version installed on your computer, you can
-    replace `python3.8` with `python3.n`, where n is the version number.
+    replace `python3.12` with `python3.n`, where n is the version number.
 
 .. tab:: Linux
 
     .. code-block:: bash
         :caption: **bash/zsh**
 
-        python3.8 -m venv my_venv
+        python3.12 -m venv my_venv
 
     You will have a folder structure similar to this.
 
@@ -81,7 +81,7 @@ Select the tab for your preferred Operating System.
     .. code-block:: bash
         :caption: **bash/zsh**
 
-        python3.8 -m venv my_venv
+        python3.12 -m venv my_venv
 
     You will have a folder structure similar to this.
 
@@ -97,7 +97,7 @@ Select the tab for your preferred Operating System.
     .. code-block:: bash
         :caption: **cmd/PowerShell**
 
-        python3.8 -m venv my_venv
+        python3.12 -m venv my_venv
 
     Otherwise use
 
@@ -628,11 +628,11 @@ You will see something similar to this in your CLI.
 .. code-block:: bash
 
     Migrations for 'account':
-     /projects/my-new-django/venv/lib/python3.8/site-packages/allauth/account/migrations/0004_alter_emailaddress_id_alter_emailconfirmation_id.py
+     /projects/my-new-django/venv/lib/python3.12/site-packages/allauth/account/migrations/0004_alter_emailaddress_id_alter_emailconfirmation_id.py
        - Alter field id on emailaddress
        - Alter field id on emailconfirmation
    Migrations for 'socialaccount':
-     /projects/my-new-django/venv/lib/python3.8/site-packages/allauth/socialaccount/migrations/0005_alter_socialaccount_id_alter_socialapp_id_and_more.py
+     /projects/my-new-django/venv/lib/python3.12/site-packages/allauth/socialaccount/migrations/0005_alter_socialaccount_id_alter_socialapp_id_and_more.py
        - Alter field id on socialaccount
        - Alter field id on socialapp
        - Alter field id on socialtoken
@@ -713,29 +713,29 @@ See the following commands for options.
 .. code-block:: bash
     :caption: Test against a single python version.
 
-    tox -e py38
+    tox -e py10
 
     or
 
-    tox -e py39
+    tox -e py11
 
     or
 
-    tox -e py3.10
+    tox -e py3.12
 
 You will see something similar to this in your CLI.
 
 .. code-block:: bash
 
-    platform linux -- Python 3.8.10, pytest-6.2.5, py-1.11.0, pluggy-1.0.0 -- /projects/my-new-django/.tox/py38/bin/python
+    platform linux -- Python 3.10.1, pytest-6.2.5, py-1.11.0, pluggy-1.0.0 -- /projects/my-new-django/.tox/py38/bin/python
     cachedir: .tox/py38/.pytest_cache
     django: settings: config.settings.test (from ini)
     rootdir: /projects/my-new-django, configfile: pytest.ini
     plugins: reverse-1.3.0, forked-1.4.0, xdist-2.5.0, django-4.5.2
-    [gw0] linux Python 3.8.10 cwd: /projects/my-new-django
-    [gw1] linux Python 3.8.10 cwd: /projects/my-new-django
-    [gw0] Python 3.8.10 (default, Nov 26 2021, 20:14:08)  -- [GCC 9.3.0]
-    [gw1] Python 3.8.10 (default, Nov 26 2021, 20:14:08)  -- [GCC 9.3.0]
+    [gw0] linux Python 3.10.1 cwd: /projects/my-new-django
+    [gw1] linux Python 3.10.1 cwd: /projects/my-new-django
+    [gw0] Python 3.10.1 (default, Nov 26 2021, 20:14:08)  -- [GCC 9.3.0]
+    [gw1] Python 3.10.1 (default, Nov 26 2021, 20:14:08)  -- [GCC 9.3.0]
     gw0 [6] / gw1 [6]
     scheduling tests via LoadScopeScheduling
 
@@ -754,7 +754,7 @@ You will see something similar to this in your CLI.
 
     ================================= PASSES ==================================
     _________________ test_create_superuser_errors_raised_ok___________________
-    [gw0] linux -- Python 3.8.10 projects/my-new-django/.tox/py38/bin/python
+    [gw0] linux -- Python 3.10.1 projects/my-new-django/.tox/py38/bin/python
     -------------------------- Captured stderr setup --------------------------
     Creating test database for alias 'default'...
     ------------------------ Captured stderr teardown -------------------------
