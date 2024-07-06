@@ -36,7 +36,7 @@ ACCOUNT_UNIQUE_EMAIL = True  # Default dj-allauth
 ACCOUNT_EMAIL_VERIFICATION = "mandatory"  # Default dj-allauth (optional)
 ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 3  # Default dj-allauth
 # deprecated ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5  # Default dj-allauth
-ACCOUNT_RATE_LIMITS = ['login_failed'] # Using  (default: "10/m/ip,5/5m/key")
+# ACCOUNT_RATE_LIMITS = ['login_failed'] # Using  (default: "10/m/ip,5/5m/key")
 ACCOUNT_USERNAME_REQUIRED = True  # Default dj-allauth
 ACCOUNT_USERNAME_MIN_LENGTH = 3  # Default dj-allauth == 1
 ACCOUNT_USERNAME_BLACKLIST = username_blacklist
@@ -116,6 +116,7 @@ MIDDLEWARE = [
     "django.middleware.locale.LocaleMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "django_htmx.middleware.HtmxMiddleware",
+    "allauth.account.middleware.AccountMiddleware",
 ]
 
 ROOT_URLCONF = "core.urls"
