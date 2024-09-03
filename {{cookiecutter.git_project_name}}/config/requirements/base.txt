@@ -1,4 +1,4 @@
-Django==5.0.7
+Django==5.1.1
 django-allauth[socialaccount]==0.63.3{% if (cookiecutter.use_constance != "n" or cookiecutter.allow_new_user_signup != "n") %}
 django-constance[database]==3.1.0{% endif %}
 django-tailwind==3.8.0
