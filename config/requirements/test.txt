@@ -1,5 +1,5 @@
 pytest-cookies==0.7.0
 pytest==8.2.2
-tox==4.16.0
+tox==4.23.2
 
 
