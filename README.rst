@@ -2,6 +2,13 @@
 **Django 5.0+ Cookiecutter**
 ============================
 
+    **This GitHub repository has moved and is no longer updated here.**
+
+    Development of django-cookiecutter continues on Codeberg:
+    https://codeberg.org/imAsparky/django-cookiecutter
+
+    Please update your bookmarks, links, and dependencies to point there.
+
 **Version = "0.29.5"**
 
 **Version 1.0.0 will signify the first stable Django build!**
@@ -27,9 +34,9 @@ delivery using GitHub actions.
 .. image:: https://img.shields.io/python/required-version-toml?tomlFilePath=https%3A%2F%2Fraw.githubusercontent.com%2FimAsparky%2Fdjango-cookiecutter%2Fmain%2Fpyproject.toml&logo=python
    :alt: Python Version from PEP 621 TOML
 
-.. image:: https://www.repostatus.org/badges/latest/active.svg
-   :alt: Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.
-   :target: https://www.repostatus.org/#wip
+.. image:: https://www.repostatus.org/badges/latest/moved.svg
+   :alt: Project Status: Moved to https://codeberg.org/imAsparky/django-cookiecutter – The project has been moved to a new location, and the version at that location should be considered authoritative.
+   :target: https://www.repostatus.org/#moved
 
 .. image:: https://app.codacy.com/project/badge/Grade/87fb6c8ef02d4433b87e483a9a926d62
    :alt: Codacy Quality
